@@ -5,6 +5,14 @@
   "bin": {
     "cc": "bin/cc"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuhongda/cc-cli.git"
+  },
+  "keywords": [
+      "cli",
+      "react"
+  ],
   "author": "yu.hongda",
   "license": "MIT",
   "dependencies": {
