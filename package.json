@@ -1,0 +1,17 @@
+{
+  "name": "cc-cli",
+  "version": "1.0.0",
+  "description": "创新中心项目代码脚手架",
+  "bin": {
+    "cc": "bin/cc"
+  },
+  "author": "yu.hongda",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.9.0",
+    "git-exec": "^0.2.1"
+  }
+}
