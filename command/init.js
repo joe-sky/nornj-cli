@@ -51,7 +51,10 @@ module.exports = () => {
             console.log(chalk.green('\n √ download finished!'));
 
             //npm install
+            let spinner2 = ora('installing...')
+            spinner2.start();
             exec(`cd ${projectName} && npm install`, (error, stdout, stderr) => {
+                spinner2.stop();
                 if (error) {
                     console.log(error)
                     process.exit()
