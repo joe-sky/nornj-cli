@@ -53,7 +53,7 @@ module.exports = () => {
                         process.exit()
                     }
 
-                    exec(`npm install vic-common --save`, (error, stdout, stderr) => {
+                    exec(`cd ${projectName} && npm install vic-common --save`, (error, stdout, stderr) => {
                         if (error) {
                             console.log(error)
                             process.exit()
