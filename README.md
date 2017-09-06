@@ -21,5 +21,6 @@ cc init
 
 ```
 
-Template Name: cc
-Project Name: <your project name>
+>Template Name: cc
+
+>Project Name: &lt;your project name&gt;
