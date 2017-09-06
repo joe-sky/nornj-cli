@@ -1,6 +1,6 @@
 {
   "name": "cc-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "创新中心项目代码脚手架",
   "bin": {
     "cc": "bin/cc"
