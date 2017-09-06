@@ -27,20 +27,6 @@ module.exports = () => {
         let spinner = ora('downloading...')
         spinner.start();
 
-        // git.clone(gitUrl, projectName, (repo) => {
-
-        //     if(!repo){
-        //         process.exit();
-        //     }
-
-        //     repo.exec('checkout', branch, function(){
-        //         console.log(chalk.green('\n √ Finished!'));
-        //         console.log(`\n cd ${projectName} && npm install \n`);
-        //         process.exit();
-        //     });
-
-        // })
-
         //git clone
         exec(cmd, (error, stdout, stderr) => {
             spinner.stop();
@@ -54,13 +40,39 @@ module.exports = () => {
             let spinner2 = ora('installing...')
             spinner2.start();
             exec(`cd ${projectName} && npm install`, (error, stdout, stderr) => {
-                spinner2.stop();
                 if (error) {
                     console.log(error)
                     process.exit()
-                }   
-                console.log(chalk.green('\n √ competed!'));
-                process.exit()
+                }
+                
+                // install vic-common
+                exec(`npm config set registry http://192.168.151.68:8001`, (error, stdout, stderr) => {
+                    
+                    if (error) {
+                        console.log(error)
+                        process.exit()
+                    }
+
+                    exec(`npm install vic-common --save`, (error, stdout, stderr) => {
+                        if (error) {
+                            console.log(error)
+                            process.exit()
+                        }   
+
+                        //reset npm
+                        exec(`npm config set registry https://registry.npmjs.org`, (error, stdout, stderr) => {
+                            spinner2.stop();
+                            if (error) {
+                                console.log(error)
+                                process.exit()
+                            }   
+                            console.log(chalk.green('\n √ competed!'));
+                            process.exit()
+                        })
+                    })
+
+                    
+                })
             })
         })
     })
