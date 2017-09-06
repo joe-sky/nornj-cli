@@ -6,16 +6,17 @@ process.env.NODE_PATH = __dirname + '/../node_modules/'
 
 const program = require('commander')
 
+program.version(require('../package').version)
+
+program.usage('<command>')
+
 program
-    .version(require('../package').version)
-    .usage('<command>')
     .command('init')
     .description('init a new project')
     .alias('i')
     .action(() => {
         require('../command/init')()
     })
-
 
 program.parse(process.argv)
     
