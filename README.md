@@ -22,4 +22,5 @@ cc init
 ```
 
 >Template Name: cc
+
 >Project Name: &lt;your project name&gt;
