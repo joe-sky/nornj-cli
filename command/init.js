@@ -21,14 +21,11 @@ module.exports = () => {
         gitUrl = config[tmplName].url;
         branch = config[tmplName].branch;
 
-        let cmd = `git clone ${gitUrl} ${projectName} --progress && cd ${projectName} && git checkout ${branch}`
-        let cmdClone = `git clone ${gitUrl} ${projectName}`;
-        let cmdCheckout = `cd ${projectName} && git checkout ${branch}`;
-        let spinner = ora('downloading...')
+        let spinner = ora('downloading... (just take a break, these whole things may take a long time.)')
         spinner.start();
 
         //git clone
-        exec(cmd, (error, stdout, stderr) => {
+        exec(`git clone ${gitUrl} ${projectName} --progress && cd ${projectName} && git checkout ${branch}`, (error, stdout, stderr) => {
             spinner.stop();
             if (error) {
                 console.log(error)
