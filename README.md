@@ -1,24 +1,16 @@
-cc-cli
-====
-项目代码脚手架
+# NornJ-cli
+The CLI for scaffolding NornJ template projects
 
-Install
------
+### 安装
 
-```javascript
-
-npm install -g cc-cli
-
+```sh
+npm install -g nornj-cli
 ```
 
+### 使用方法
 
-Usage
------
-
-```javascript
-
-cc init
-
+```sh
+nj init
 ```
 
 >Template Name: cc

@@ -1,19 +1,19 @@
 {
-  "name": "cc-cli",
-  "version": "1.0.8",
-  "description": "创新中心项目代码脚手架",
+  "name": "nornj-cli",
+  "version": "0.1.0-alpha.1",
+  "description": "The CLI for scaffolding NornJ template projects",
   "bin": {
-    "cc": "bin/cc"
+    "nj": "bin/nj"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuhongda/cc-cli.git"
+    "url": "https://github.com/joe-sky/nornj-cli.git"
   },
   "keywords": [
     "cli",
     "react"
   ],
-  "author": "yu.hongda",
+  "author": "Joe_Sky <hitomi_doax@sina.com>",
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.3",
