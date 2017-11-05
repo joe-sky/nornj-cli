@@ -15,7 +15,15 @@ program
     .description('init a new project')
     .alias('i')
     .action(() => {
-        require('../command/init')()
+        require('../lib/init')()
+    })
+
+program
+    .command('add store')
+    .description('add a store')
+    .alias('as')
+    .action(() => {
+        require('../lib/store')()
     })
 
 program.parse(process.argv)

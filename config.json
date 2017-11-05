@@ -1,6 +1,7 @@
 {
-    "cc": {
-        "url": "https://github.com/yuhongda/creative-center.git",
-        "branch": "master"
-    }
+  "cc": {
+    "url": "https://github.com/yuhongda/creative-center.git",
+    "branch": "master"
+  },
+  "global": true
 }

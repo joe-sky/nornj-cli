@@ -10,9 +10,9 @@ npm install -g nornj-cli
 ### 使用方法
 
 ```sh
-nj init
+nj add store
 ```
 
->Template Name: cc
+## License
 
->Project Name: &lt;your project name&gt;
+MIT
