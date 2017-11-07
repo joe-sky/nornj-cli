@@ -10,7 +10,10 @@ npm install -g nornj-cli
 ### 使用方法
 
 ```sh
-nj add store
+nj init
+
+Template Name: react-mobx
+Project Name: projectName
 ```
 
 ## License
