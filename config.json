@@ -1,3 +1,4 @@
 {
-  "global": true
+  "global": true,
+  "privateNpmUrl": "http://192.168.151.68:8001"
 }

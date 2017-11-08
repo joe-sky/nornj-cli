@@ -19,11 +19,11 @@ program
     })
 
 program
-    .command('add store')
-    .description('add a store')
-    .alias('as')
+    .command('add page')
+    .description('add a new page')
+    .alias('page')
     .action(() => {
-        require('../lib/store')()
+        require('../lib/addPage')()
     })
 
 program.parse(process.argv)

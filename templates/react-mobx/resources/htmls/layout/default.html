@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% title %}</title>
+  <% if (web) { %>
+  #parse("../common/headElements.vm")
+  <% } else { %>
+  <$include src="../common/headElements.html" />
+  <% } %>
+</head>
+<body>
+  <% if (web) { %>
+  #parse("../common/resourceElements.vm")
+  <% } else { %>
+  <$include src="../common/resourceElements.html" />
+  <% } %>
+  <link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" />
+  <% if (web) { %>
+  $screen_content
+  #parse("../common/bottomElements.vm")
+  <% } else { %>
+  {{% body %}}
+  <$include src="../common/bottomElements.html" />
+  <% } %>
+  <script src="/resources/app/common.js?ver=<%=ver%>"></script>
+  <script src="/resources/app/pages/<% if (web) { %>$!{page}<% } else { %>{% page %}<% } %>container.js?ver=<%=ver%>"></script>
+</body>
+</html>

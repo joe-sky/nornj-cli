@@ -1,6 +1,6 @@
 {
   "name": "nornj-cli",
-  "version": "0.1.0-alpha.10",
+  "version": "0.1.0-alpha.11",
   "description": "The CLI for scaffolding NornJ template projects",
   "bin": {
     "nj": "bin/nj"
@@ -8,7 +8,7 @@
   "files": [
     "bin/",
     "lib/",
-    "templates/",
+    "templates/sourceFiles/",
     "config.json",
     "LICENSE",
     "README.md"
@@ -33,7 +33,7 @@
     "commander": "^2.9.0",
     "git-exec": "^0.2.1",
     "global-modules": "^1.0.0",
-    "nornj": "^0.4.2-rc.9",
+    "nornj": "^0.4.2-rc.12",
     "ora": "^1.3.0",
     "unzip": "^0.1.11"
   }
