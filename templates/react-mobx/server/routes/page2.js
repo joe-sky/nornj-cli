@@ -14,21 +14,21 @@ router.post('/getTableData', function(req, res) {
     let num = i + 1;
 
     return {
-      vendorCode: num + 100000,
-      vendorName: '测试' + num,
-      orderReachRate: _.random(10, 90) + '%',
-      orderConfirmRate: _.random(10, 90) + '%',
-      orderFailureRate: _.random(10, 90) + '%',
-      deliveryGoodsCycle: _.random(1, 10),
-      deliveryGoodsCycleDisparity: _.random(1, 10),
-      timeDifference1: _.random(1, 10),
-      timeDifference2: _.random(1, 10),
-      timeDifference3: _.random(1, 10),
-      serviceTarget1: _.random(10, 90) + '%',
-      serviceTarget2: _.random(10, 90) + '%',
-      serviceTarget3: _.random(1, 24),
-      serviceTarget4: _.random(10, 90) + '%',
-      serviceTarget5: _.random(1, 100000)
+      test1: num + 100000,
+      test2: '测试' + num,
+      test4: _.random(10, 90) + '%',
+      test5: _.random(10, 90) + '%',
+      test6: _.random(10, 90) + '%',
+      test8: _.random(1, 10),
+      test9: _.random(1, 10),
+      test10: _.random(1, 10),
+      test11: _.random(1, 10),
+      test12: _.random(1, 10),
+      test14: _.random(10, 90) + '%',
+      test15: _.random(10, 90) + '%',
+      test16: _.random(1, 24),
+      test17: _.random(10, 90) + '%',
+      test18: _.random(1, 100000)
     };
   });
 

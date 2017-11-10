@@ -21,7 +21,7 @@ program
 program
     .command('add page')
     .description('add a new page')
-    .alias('ad')
+    .alias('ap')
     .action(() => {
         require('../lib/addPage')()
     })
