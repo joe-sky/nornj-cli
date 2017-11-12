@@ -1,33 +1,38 @@
 #!/usr/bin/env node
 
-'use strict'
+'use strict';
 
-process.env.NODE_PATH = __dirname + '/../node_modules/'
+process.env.NODE_PATH = __dirname + '/../node_modules/';
 
-const program = require('commander')
-
-program.version(require('../package').version)
-
-program.usage('<command>')
+const program = require('commander');
+program.version(require('../package').version);
+program.usage('<command>');
 
 program
-    .command('init')
-    .description('init a new project')
-    .alias('i')
-    .action(() => {
-        require('../lib/init')()
-    })
+  .command('init')
+  .description('init a new project')
+  .alias('i')
+  .action(() => {
+    require('../lib/init')();
+  });
 
 program
-    .command('add page')
-    .description('add a new page')
-    .alias('ap')
-    .action(() => {
-        require('../lib/addPage')()
-    })
+  .command('add page')
+  .description('add a new page')
+  .alias('ap')
+  .action(() => {
+    require('../lib/addPage')();
+  });
 
-program.parse(process.argv)
-    
-if(!program.args.length){
-    program.help()
+program
+  .command('upgrade')
+  .description('upgrade to new version')
+  .action(() => {
+    require('../lib/upgrade')();
+  });
+
+program.parse(process.argv);
+
+if (!program.args.length) {
+  program.help();
 }
