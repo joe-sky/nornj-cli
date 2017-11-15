@@ -1,7 +1,7 @@
-﻿vic-react-mobx-boilerplate
+﻿nj-react-mobx-boilerplate
 ====
 
-> `React`+`Mobx`项目模板，可以此项目为模板快速创建新项目。
+> `NornJ`+`React`+`Mobx`项目模板，可以此项目为模板快速创建新项目。
 
 ## 安装依赖包
 

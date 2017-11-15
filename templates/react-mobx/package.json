@@ -1,14 +1,14 @@
 {
-  "name": "vic-react-mobx-boilerplate",
-  "version": "0.1.0",
-  "description": "React + Mobx项目模板",
+  "name": "nj-react-mobx-boilerplate",
+  "version": "1.0.0",
+  "description": "NornJ + React + Mobx boilerplate",
   "main": "lib/common/base.js",
   "files": [
     "lib/",
     "resources/"
   ],
   "author": {
-    "name": "zhoutaoinfo"
+    "name": "joe_sky"
   },
   "scripts": {
     "dev": "npm run server | npm run devServer",

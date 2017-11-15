@@ -16,11 +16,7 @@
         [
           "transform-es2015-for-of",
           { "loose": true }
-        ],
-        ["transform-runtime", {
-          "polyfill": false,
-          "regenerator": true
-        }]
+        ]
       ]
     },
     "webpack": {
@@ -40,11 +36,7 @@
         [
           "transform-es2015-for-of",
           { "loose": true }
-        ],
-        ["transform-runtime", {
-          "polyfill": false,
-          "regenerator": true
-        }]
+        ]
       ]
     }
   }
