@@ -1,0 +1,27 @@
+﻿<% if (web) { %>
+  #set($title="index")
+<% } %>
+<#-if #{!(useLayout)}#>
+<!DOCTYPE html>
+<html>
+<#-headElements />
+<body>
+<#-resourceElements />
+<#-if #{!(useLayout)}#><link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" /></#-if>
+</#-if>
+  <link href="/resources/app/css/pages/page1/container.css?ver=<%=ver%>" rel="stylesheet" />
+  <section id="container"></section>
+  <script type="text/nornj" data-auto data-target="#container">
+    <Container>
+      <#tmpl>
+        <ant-Button type="primary" onClick={goPage1}>页面1</ant-Button>
+        <ant-Button type="primary" onClick={goPage2}>页面2</ant-Button>
+      </#tmpl>
+    </Container>
+  </script>
+<#-if #{!(useLayout)}#>
+<#-bottomElements />
+<script src="/resources/app/pages/container.js?ver=<%=ver%>"></script>
+</body>
+</html>
+</#-if>

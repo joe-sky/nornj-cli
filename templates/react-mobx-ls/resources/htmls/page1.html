@@ -1,0 +1,38 @@
+﻿<% if (web) { %>
+  #set($title="page1")
+  #set($page="page1/")
+<% } %>
+<#-if #{!(useLayout)}#>
+<!DOCTYPE html>
+<html>
+<#-headElements />
+<body>
+<#-resourceElements />
+<#-if #{!(useLayout)}#><link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" /></#-if>
+</#-if>
+  <link href="/resources/app/css/pages/page1/container.css?ver=<%=ver%>" rel="stylesheet" />
+  <section id="container"></section>
+  <script type="text/nornj" data-auto data-target="#container">
+    <Container>
+      <#tmpl>
+        <div class="vicb-pagecontainer <% if (web) { %>vic-resetLsStyle<% } %>">
+          <section class="vicb-main">
+            <ant-Breadcrumb>
+              <ant-BreadcrumbItem>Home</ant-BreadcrumbItem>
+              <ant-BreadcrumbItem>List</ant-BreadcrumbItem>
+              <ant-BreadcrumbItem>Page 1</ant-BreadcrumbItem>
+            </ant-Breadcrumb>
+            <section class="vicb-content {styles.content}">
+              <vicb-DataTable store={page1Store} />
+            </section>
+          </section>
+        </div>
+      </#tmpl>
+    </Container>
+  </script>
+<#-if #{!(useLayout)}#>
+<#-bottomElements />
+<script src="/resources/app/pages/page1/container.js?ver=<%=ver%>"></script>
+</body>
+</html>
+</#-if>

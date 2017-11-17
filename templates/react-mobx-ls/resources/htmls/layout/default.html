@@ -16,7 +16,15 @@
   <% } %>
   <link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" />
   <% if (web) { %>
-  $screen_content
+  <div id="page-wrapper">
+    <!--当前登录人信息-->
+    <input type="hidden" id="curUserErpCode" />
+    <input type="hidden" id="curUserChineseName" />
+    <input type="hidden" id="curUserUserId" />
+    <input type="hidden" id="curUserOrganizationId" />
+    <input type="hidden" id="curUserEmail" />
+    $screen_content
+  </div>
   #parse("pages/common/bottomElements.vm")
   <% } else { %>
   {{% body %}}
