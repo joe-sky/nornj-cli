@@ -150,8 +150,8 @@ gulp.task('server', done => {
     script: 'server/app.js',
     watch: [
       'server/app.js',
-      'server/routes/*.js',
-      'server/common/*.js'
+      'server/routes/**/*.js',
+      'server/common/**/*.js'
     ]
   };
   if (argv.hmr) {

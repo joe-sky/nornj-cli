@@ -8,7 +8,14 @@
 <#-headElements />
 <body>
 <#-resourceElements />
-<#-if #{!(useLayout)}#><link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" /></#-if>
+<link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" />
+<div id="page-wrapper">
+  <!--当前登录人信息-->
+  <input type="hidden" id="curUserErpCode" />
+  <input type="hidden" id="curUserChineseName" />
+  <input type="hidden" id="curUserUserId" />
+  <input type="hidden" id="curUserOrganizationId" />
+  <input type="hidden" id="curUserEmail" />
 </#-if>
   <link href="/resources/app/css/pages/page2/container.css?ver=<%=ver%>" rel="stylesheet" />
   <section id="container"></section>
@@ -31,6 +38,7 @@
     </Container>
   </script>
 <#-if #{!(useLayout)}#>
+</div>
 <#-bottomElements />
 <script src="/resources/app/pages/page2/container.js?ver=<%=ver%>"></script>
 </body>
