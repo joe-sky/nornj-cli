@@ -1,0 +1,51 @@
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin antTab {
+  .ant-tabs-bar {
+    border-bottom-width: 18px;
+    border-bottom-color: #F4F5F8;
+  }
+  .ant-tabs-tab {
+    font-size: 1rem;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-right: 40px !important;
+    margin-left: 20px;
+    color: #c4c9d2;
+    height: 60px !important;
+    line-height: 45px;
+    &.ant-tabs-tab-active {
+      color: #333333;
+    }
+    &:hover {
+      color: #c4c9d2 !important;
+    }
+    &.ant-tabs-tab-active:hover {
+      color: #333333 !important;
+    }
+  }
+  .ant-tabs-ink-bar {
+    background-color: #3bbabb;
+  }
+}
+
+@mixin fixAntTableHead {
+  .ant-table-fixed-header .ant-table-scroll .ant-table-header {
+    &:after {
+      background-color: #fff;
+      position: absolute;
+      content: '0';
+      width: 17px;
+      right: 0;
+      top: 0;
+      padding: 16px 0;
+      user-select: none;
+      color: transparent;
+      border-radius: 0;
+    }
+  }
+}
