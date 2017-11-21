@@ -4,7 +4,7 @@
 
 本脚手架基于`ES6+`环境，并使用`Webpack`进行打包。
 
-* [ES6+](#es6+)
+* [ES6+](#es6)
 * [webpack](#webpack)
 
 #### ES6+
