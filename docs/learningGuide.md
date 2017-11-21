@@ -98,7 +98,7 @@
 
 ### 一些常用工具
 
-* [Moment.js](#moment.js)
+* [Moment.js](#momentjs)
 * [storejs](#storejs)
 * [js-cookie](#js-cookie)
 * [query-string](#query-string)
