@@ -4,8 +4,8 @@
 
 本脚手架基于`ES6+`环境，并使用`Webpack`进行打包。
 
-* [ES6+](#ES6+)
-* [Webpack](#Webpack)
+* [ES6+](#es6+)
+* [webpack](#Webpack)
 
 #### ES6+
 
@@ -27,14 +27,14 @@
 
 脚手架中使用的技术与框架列表如下：
 
-* [React](#React)
-* [Mobx](#Mobx)
-* [Ant Design](#Ant%20Design)
-* [CSS Modules](#CSS%20Modules)
-* [NornJ](#NornJ)
-* [Echarts](#Echarts)
-* [Font Awesome](#Font%20Awesome)
-* [FlareJ](#FlareJ)
+* [React](#react)
+* [Mobx](#mobx)
+* [Ant Design](#ant-design)
+* [CSS Modules](#css-modules)
+* [NornJ](#nornj)
+* [Echarts](#echarts)
+* [Font Awesome](#font-awesome)
+* [FlareJ](#flarej)
 * [vic-common](#vic-common)
 
 #### React
@@ -98,7 +98,7 @@
 
 ### 一些常用工具
 
-* [Moment.js](#Moment.js)
+* [Moment.js](#moment.js)
 * [storejs](#storejs)
 * [js-cookie](#js-cookie)
 * [query-string](#query-string)
