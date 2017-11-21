@@ -3,12 +3,6 @@
 
 > `NornJ`+`React`+`Mobx`项目模板，可以此项目为模板快速创建新项目。
 
-## 安装依赖包
-
-```sh
-npm install
-```
-
 ## 构建命令
 
 ```sh
@@ -27,3 +21,5 @@ npm run lint            #执行代码规范检测
 ```sh
 npm run lib             #将es6代码转换为es5后，以与src模板相同的结构保存在lib目录
 ```
+
+#{learningGuide}#

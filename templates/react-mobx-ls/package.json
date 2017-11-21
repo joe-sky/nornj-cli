@@ -45,6 +45,7 @@
     "body-parser": "^1.15.2",
     "browser-sync": "^2.18.7",
     "classnames": "^2.2.5",
+    "console-polyfill": "^0.3.0",
     "cookie-parser": "^1.4.3",
     "core-decorators": "^0.14.0",
     "core-js": "^2.5.1",

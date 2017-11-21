@@ -214,7 +214,6 @@ export default class Page1_2 extends Component {
     this.tabName = "增加角色";
     this.addInputRole = '';
     this.addInputDes = '';
-    ``
     this.setState({ checkedKeys: [] });
     this.props.store.page1_2.setDisable(true);
   }
