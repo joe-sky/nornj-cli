@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import '../common/containerConfig';
-import 'vic-common/lib/components/antd/button';
+import 'flarej/lib/components/antd/button';
 import { autobind } from 'core-decorators';
 
 //页面容器组件

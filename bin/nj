@@ -34,6 +34,7 @@ program
 program
     .command('version')
     .description('print current version')
+    .alias('v')
     .action(() => {
         require('../lib/version')();
     });

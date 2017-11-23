@@ -3,7 +3,7 @@ import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import 'vic-common/lib/components/antd/menu';
+import 'flarej/lib/components/antd/menu';
 import styles from './header.m.less';
 import template from './header.t.html';
 

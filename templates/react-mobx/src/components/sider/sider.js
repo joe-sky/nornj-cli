@@ -3,8 +3,8 @@ import { toJS, transaction } from 'mobx';
 import { observer } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import 'vic-common/lib/components/antd/icon';
-import 'vic-common/lib/components/antd/menu';
+import 'flarej/lib/components/antd/icon';
+import 'flarej/lib/components/antd/menu';
 import styles from './sider.m.less';
 import template from './sider.t.html';
 

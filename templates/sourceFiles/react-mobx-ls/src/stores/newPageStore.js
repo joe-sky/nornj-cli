@@ -1,7 +1,7 @@
 ﻿import { observable, computed, action, transaction } from 'mobx';
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
+import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
-import { Notification } from 'vic-common/lib/components/antd/notification';
+import { Notification } from 'flarej/lib/components/antd/notification';
 
 export default class #{pageName | pascal}#Store {
   @observable pageIndex = 1;

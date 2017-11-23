@@ -1,5 +1,5 @@
 import { types, getParent } from "mobx-state-tree";
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
+import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../utils/notification';
 
 const MenuItem = types.model("MenuItem", {

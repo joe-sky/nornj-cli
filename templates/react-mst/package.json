@@ -83,7 +83,7 @@
     "echarts": "^3.6.2",
     "es6-promise": "^4.1.0",
     "es6-weak-map": "^2.0.2",
-    "flarej": "^0.1.5",
+    "flarej": "^0.1.6",
     "fullpage-react": "^2.0.2",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^3.1.16",

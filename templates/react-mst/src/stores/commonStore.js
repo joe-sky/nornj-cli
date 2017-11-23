@@ -1,5 +1,5 @@
 import { types } from "mobx-state-tree"
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
+import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../utils/notification';
 
 export const UserInfo = types.model('UserInfo', {

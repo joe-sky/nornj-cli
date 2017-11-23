@@ -7,7 +7,7 @@ import { autobind } from 'core-decorators';
 import './sider.scss';
 import tmpls from './sider.t.html';
 import { slide as Menu } from 'react-burger-menu';
-import 'vic-common/lib/components/antd/icon';
+import 'flarej/lib/components/antd/icon';
 
 @inject('store')
 @observer

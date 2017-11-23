@@ -63,7 +63,7 @@
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
-    "flarej": "^0.1.5",
+    "flarej": "^0.1.6",
     "font-awesome": "^4.7.0",
     "glob": "^7.0.3",
     "gulp": "^3.9.1",

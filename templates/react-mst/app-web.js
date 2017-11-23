@@ -27,7 +27,7 @@ moment.locale('zh-cn');
 if (!Object.assign && babelHelpers) {
   Object.assign = babelHelpers.extends;
 }
-import Notification from 'vic-common/lib/components/antd/notification';
+import Notification from 'flarej/lib/components/antd/notification';
 import { createNotification } from './src/utils/notification';
 createNotification(Notification);
 
