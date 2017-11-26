@@ -32,10 +32,6 @@ const Page1_1Store = types.model("Page1_1Store", {
     this.detailData = [];
   },
 
-  setActiveKey(v) {
-    this.activeKey = v;
-  },
-
   setAddModalVisible(v) {
     this.addModalVisible = v;
   },
