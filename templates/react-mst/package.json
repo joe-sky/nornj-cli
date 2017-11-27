@@ -7,7 +7,8 @@
     "dev-web": "npm run server | cross-env Project=web webpack-dev-server --host 0.0.0.0 --inline --hot --progress",
     "build-web": "cross-env Project=web NODE_ENV=production webpack --progress --hide-modules",
     "build-web-test": "cross-env Project=web NODE_ENV=test webpack --progress --hide-modules",
-    "server": "nodemon ./server/app.js"
+    "server": "nodemon ./server/app.js",
+    "lint": "eslint src"
   },
   "author": "joe_sky",
   "license": "MIT",
@@ -43,6 +44,7 @@
     "core-decorators": "^0.14.0",
     "cross-env": "^1.0.8",
     "css-loader": "^0.28.4",
+    "eslint": "^4.11.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.8.5",
     "font-awesome": "^4.7.0",
