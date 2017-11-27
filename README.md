@@ -41,6 +41,12 @@ Do you need to use layout on server side(Y/N)?  # 是否使用服务端layout
 | react-mobx-ls  | 基于React+Mobx的多页面项目(接入零智平台) |
 | react-mst      | 基于React+Mobx-state-tree的单页面项目 |
 
+#### 查看cli当前版本
+
+```sh
+nj version  # 或nj v
+```
+
 #### cli版本更新
 
 ```sh
