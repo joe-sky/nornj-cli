@@ -3,7 +3,7 @@
 const express = require('express');
 const _ = require('lodash');
 const router = express.Router();
-const { resultData } = require('../../common/utils');
+const { resultData } = require('../common/utils');
 
 router.post('/saveRolePermission', function(req, res) {
   res.type('json');
