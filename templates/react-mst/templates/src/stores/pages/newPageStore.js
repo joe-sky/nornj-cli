@@ -3,7 +3,7 @@ import { observable, toJS } from 'mobx';
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../../utils/notification';
 
-const Page1_1Store = types.model("Page1_1Store", {
+const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
     isDisable: types.optional(types.boolean, true),
     activeKey: types.optional(types.string, 'tab1'),
     addModalVisible: false,
@@ -142,7 +142,7 @@ const Page1_1Store = types.model("Page1_1Store", {
       },
 
       getRoleMenuTree(params) {
-        return fetchData(`${__HOST}/page1_1/getRoleMenuTree`,
+        return fetchData(`${__HOST}/#{pageName}#/getRoleMenuTree`,
           self.setRoleMenuTree,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -166,7 +166,7 @@ const Page1_1Store = types.model("Page1_1Store", {
       },
 
       getRoleManagementData(params) {
-        return fetchData(`${__HOST}/page1_1/getRoleManagementData`,
+        return fetchData(`${__HOST}/#{pageName}#/getRoleManagementData`,
           self.setRoleManagementData,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -189,7 +189,7 @@ const Page1_1Store = types.model("Page1_1Store", {
       },
 
       searchRole(params) {
-        return fetchData(`${__HOST}/page1_1/searchRole`,
+        return fetchData(`${__HOST}/#{pageName}#/searchRole`,
           self.setSearchRole,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -212,7 +212,7 @@ const Page1_1Store = types.model("Page1_1Store", {
       },
 
       saveRole(params) {
-        return fetchData(`${__HOST}/page1_1/saveRole`,
+        return fetchData(`${__HOST}/#{pageName}#/saveRole`,
           self.setSaveRole,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({
@@ -238,7 +238,7 @@ const Page1_1Store = types.model("Page1_1Store", {
       },
 
       saveRolePermission(params) {
-        return fetchData(`${__HOST}/page1_1/saveRolePermission`,
+        return fetchData(`${__HOST}/#{pageName}#/saveRolePermission`,
           self.setSaveRolePermission,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({
@@ -260,7 +260,7 @@ const Page1_1Store = types.model("Page1_1Store", {
       },
 
       deleteRole(params) {
-        return fetchData(`${__HOST}/page1_1/deleteRole`,
+        return fetchData(`${__HOST}/#{pageName}#/deleteRole`,
           self.setDeleteRole,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({
@@ -280,4 +280,4 @@ const Page1_1Store = types.model("Page1_1Store", {
     };
   });
 
-export default Page1_1Store;
+export default #{pageName | pascal}#Store;

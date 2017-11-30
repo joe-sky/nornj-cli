@@ -16,39 +16,20 @@ const Page1_2Store = types.model("Page1_2Store", {
     checkedKeys: types.optional(types.array(types.string), []),
     detailModalVisible: false
   })
+  .volatile(self => ({
+    tableData: null,
+    tableDataO: null,
+    searchData: null,
+    addRoleData: null,
+    treeData: null,
+    addRoleId: null,
+    menuIds: null,
+    authTreeData: null,
+    menuData: null,
+    detailData: []
+  }))
   .views(self => {
     return {
-      get tableData() {
-        return self._o.tableData;
-      },
-      get tableDataO() {
-        return self._o.tableDataO;
-      },
-      get searchData() {
-        return self._o.searchData;
-      },
-      get addRoleData() {
-        return self._o.addRoleData;
-      },
-      get treeData() {
-        return self._o.treeData;
-      },
-      get addRoleId() {
-        return self._o.addRoleId;
-      },
-      get menuIds() {
-        return self._o.menuIds;
-      },
-      get authTreeData() {
-        return self._o.authTreeData;
-      },
-      get menuData() {
-        return self._o.menuData;
-      },
-      get detailData() {
-        return self._o.detailData;
-      },
-
       //获取树节点的展开形式
       getExpandedKeys(arr) {
         return arr.filter(n => n.level == 1 || n.level == 2).map(m => { return m.id.toString() });
@@ -96,19 +77,6 @@ const Page1_2Store = types.model("Page1_2Store", {
   .actions(self => {
     return {
       afterCreate() {
-        self._o = observable({
-          tableData: null,
-          tableDataO: null,
-          searchData: null,
-          addRoleData: null,
-          treeData: null,
-          addRoleId: null,
-          menuIds: null,
-          authTreeData: null,
-          menuData: null,
-          detailData: []
-        });
-
         self.authTreeDataMap = null;
       },
 
@@ -149,15 +117,15 @@ const Page1_2Store = types.model("Page1_2Store", {
       },
 
       setDetailData(v) {
-        self._o.detailData = v;
+        self.detailData = v;
       },
 
       setMenuIds(checkeds) {
-        self._o.menuIds = checkeds.join();
+        self.menuIds = checkeds.join();
       },
 
       setTableData(value) {
-        self._o.tableData = value;
+        self.tableData = value;
       },
 
       setDisable(value) {
@@ -186,9 +154,9 @@ const Page1_2Store = types.model("Page1_2Store", {
 
       setRoleMenuTree(result) {
         if (result.success) {
-          self._o.menuData = result.data;
+          self.menuData = result.data;
           self.authTreeDataMap = self.getAuthTreeDataMap(result.data);
-          self._o.authTreeData = self.getAuthTreeData(result.data, self.authTreeDataMap);
+          self.authTreeData = self.getAuthTreeData(result.data, self.authTreeDataMap);
         } else {
           Notification.error({
             description: '获取角色权限数据错误:' + result.message,
@@ -211,7 +179,7 @@ const Page1_2Store = types.model("Page1_2Store", {
       setRoleManagementData(result) {
         if (result.success) {
           const data = result.data;
-          self._o.tableDataO = self._o.tableData = data.length > 0 ? data : [];
+          self.tableDataO = self.tableData = data.length > 0 ? data : [];
         } else {
           Notification.error({
             description: '获取角色管理度数据异常:' + result.message,
@@ -234,7 +202,7 @@ const Page1_2Store = types.model("Page1_2Store", {
       setSearchRole(result) {
         if (result.success) {
           const data = result.data;
-          self._o.searchData = data;
+          self.searchData = data;
         } else {
           Notification.error({
             description: '获取角色数据异常:' + result.message,
@@ -257,7 +225,7 @@ const Page1_2Store = types.model("Page1_2Store", {
       setSaveRole(result) {
         if (result.success) {
           const data = result.data;
-          self._o.addRoleId = data.roleId;
+          self.addRoleId = data.roleId;
           Notification.success({ description: '添加角色成功！', duration: 2 });
           self.setDisable(false);
 
