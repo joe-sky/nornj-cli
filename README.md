@@ -28,9 +28,7 @@ Do you need to use layout on server side(Y/N)?  # 是否使用服务端layout
 ```sh
 nj add page # 或nj ap
 
-Template Name: react-mobx  # 项目模板名称
 Page Name: pageName  # 新创建的页面名称
-Do you need to use layout on server side(Y/N)?  # 是否使用服务端layout
 ```
 
 #### 选择项目模板
@@ -40,6 +38,7 @@ Do you need to use layout on server side(Y/N)?  # 是否使用服务端layout
 | react-mobx     | 基于React+Mobx的多页面项目 |
 | react-mobx-ls  | 基于React+Mobx的多页面项目(接入零智平台) |
 | react-mst      | 基于React+Mobx-state-tree的单页面项目 |
+| Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 |
 
 #### 查看cli当前版本
 

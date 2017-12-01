@@ -83,7 +83,7 @@
     "array-from": "^2.1.1",
     "bundle-loader": "^0.5.5",
     "console-polyfill": "^0.3.0",
-    "echarts": "^3.6.2",
+    "echarts": "3.6.2",
     "es6-promise": "^4.1.0",
     "es6-weak-map": "^2.0.2",
     "flarej": "^0.1.6",
