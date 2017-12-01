@@ -1,5 +1,11 @@
 {
   "npmUrl": "https://registry.npmjs.org",
   "privateNpmUrl": "http://192.168.151.68:8001",
-  "privateLib": "vic-common"
+  "privateLib": "vic-common",
+  "templates": {
+    "template-saas": {
+      "url": "https://github.com/Y-Dept/template-saas.git",
+      "branch": "master"
+    }
+  }
 }
