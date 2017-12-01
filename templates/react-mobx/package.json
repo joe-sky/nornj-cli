@@ -2,6 +2,7 @@
   "name": "nj-react-mobx-boilerplate",
   "version": "1.0.0",
   "description": "NornJ + React + Mobx boilerplate",
+  "templateType": "multi-page",
   "main": "lib/common/base.js",
   "files": [
     "lib/",

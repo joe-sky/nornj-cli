@@ -1,0 +1,65 @@
+<template name="container">
+  <div class="{styles.#{pageName}#}">
+    <h2>角色管理#{pageName}#</h2>
+    <div class="{styles.handlerBox}">
+      <span class="{styles.lable}">角色名称</span>
+      <ant-input class="{styles.input}" value="{inputRole}" onChange={onInputRole}/>
+      <ant-Button class="btn" onClick={onSearch}>查询</ant-Button>
+      <ant-Button class="btn" onClick={onAddRole}>新增</ant-Button>
+      <ant-Button class="btn" onClick={onDeleteRole}>删除</ant-Button>
+    </div>
+
+    <ant-Table rowSelection={rowSelection}
+               columns={toJS(tableColumns)}
+               dataSource={toJS(tableData)}
+               bordered />
+
+    <ModalForm#{pageName | pascal}# tabName="增加角色" />
+    <ModalForm#{pageName | pascal}# tabName="编辑角色" />
+    <ModalDetail#{pageName | pascal}# />
+  </div>
+</template>
+
+<template name="modalForm">
+  <ant-Modal width={500} visible="{tabName == '增加角色' ? (#{pageName}#.addModalVisible, #{pageName}#.editModalVisible)}" footer={null} onCancel={onAddModalCancel}>
+    <ant-Tabs activeKey={#{pageName}#.activeKey} onChange={onTabChange}>
+      <ant-TabPane tab="增加角色" key="tab1">
+        <ul class="frombox">
+          <li>角色名称 <span class="red"></span></li>
+          <li><ant-input onChange={onAddInputRoleChange} value="{#{pageName}#.addInputRole}"/></li>
+          <li>角色描述</li>
+          <li><ant-TextArea rows={4} onChange={onAddInputDesChange} class="textarea" value="{#{pageName}#.addInputDes}" /></li>
+          <li class="{styles.btnArea}">
+            <ant-Button class="btn" onClick={onAddSaveRole}>保存</ant-Button>
+            <ant-Button class="btn" onClick={onAddCancel}>取消</ant-Button>
+          </li>
+        </ul>
+      </ant-TabPane>
+      <ant-TabPane tab="配置权限" key="tab2" disabled="{tabName == '增加角色' ? #{pageName}#.isDisable}">
+        <div class="{styles.treeWrap}">
+          <ant-Tree checkable
+                    onExpand={onExpand}
+                    expandedKeys={toJS(#{pageName}#.expandedKeys)}
+                    {autoExpandParent}
+                    onCheck={onCheck}
+                    checkedKeys={toJS(#{pageName}#.checkedKeys)}>
+            {loop(treeData)}
+          </ant-Tree>
+        </div>
+        <div class="{styles.btnArea}">
+          <ant-Button class="btn" onClick={onSavePermission} disabled="{tabName == '编辑角色' ? #{pageName}#.saveBtnDisabled}">保存</ant-Button>
+          <ant-Button class="btn" onClick={onAddCancel}>取消</ant-Button>
+        </div>
+      </ant-TabPane>
+    </ant-Tabs>
+  </ant-Modal>
+</template>
+
+<template name="modalDetail">
+  <ant-Modal width={800} visible={#{pageName}#.detailModalVisible} footer={null} onCancel={onDetailModalCancel}>
+    <@title>
+      <div class={styles.modalTitle}>用户明细</div>
+    </@title>
+    <ant-Table pagination={true} columns={toJS(detailColumns)} dataSource={toJS(#{pageName}#.detailData)} rowKey={getDetailRowKey} bordered />
+  </ant-Modal>
+</template>
