@@ -12,7 +12,7 @@ export default class #{pageName | pascal}#Store {
   @autobind
   @action
   getTableData(currentPage = this.pageIndex, pageSize = this.pageSize) {
-    return fetchData(`${G_WEB_DOMAIN}/page1/getTableData`, result => {
+    return fetchData(`${G_WEB_DOMAIN}/#{pageName}#/getTableData`, result => {
       transaction(() => {
         if (result.success) {
           this.pageIndex = currentPage;

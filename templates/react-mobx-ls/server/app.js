@@ -33,6 +33,7 @@ const page1 = require('./routes/page1');
 app.use('/page1', page1);
 const page2 = require('./routes/page2');
 app.use('/page2', page2);
+//{pages}//
 
 app.post('/common/getLoginInfo', function(req, res) {
   res.type('json');

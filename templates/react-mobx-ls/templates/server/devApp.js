@@ -2,3 +2,5 @@
   res.type('html');
   res.render('#{pageName}#', { page: '#{pageName}#/', title: '#{pageName | pascal}#' });
 });
+
+//{pages}//
