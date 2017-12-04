@@ -29,6 +29,7 @@ Do you need to use layout on server side(Y/N)?  # 是否使用服务端layout
 nj add page # 或nj ap
 
 Page Name: pageName  # 新创建的页面名称
+Do you want to generate chart page(Y/N)?  # 是否生成图表页面
 ```
 
 #### 选择项目模板
