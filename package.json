@@ -1,6 +1,6 @@
 {
   "name": "nornj-cli",
-  "version": "0.1.12",
+  "version": "0.1.13-alpha.2",
   "description": "The CLI for scaffolding NornJ template projects, and do more things",
   "bin": {
     "nj": "bin/nj"
