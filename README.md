@@ -26,7 +26,7 @@ Do you need to use layout on server side(Y/N)?  # 是否使用服务端layout
 * 进入已有项目目录后，输入如下命令创建新页面：
 
 ```sh
-nj add page # 或nj ap
+nj add-page # 或nj ap
 
 Page Name: pageName  # 新创建的页面名称
 Do you want to generate chart page(Y/N)?  # 是否生成图表页面
@@ -44,13 +44,19 @@ Do you want to generate chart page(Y/N)?  # 是否生成图表页面
 #### 查看cli当前版本
 
 ```sh
-nj version  # 或nj v
+nj -v
 ```
 
 #### cli版本更新
 
 ```sh
 nj upgrade  # 更新cli到最新版
+```
+
+#### npm安装
+
+```sh
+nj install # 或nj i
 ```
 
 ## License

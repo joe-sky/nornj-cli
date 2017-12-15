@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NornJ + React + Mobx boilerplate",
   "templateType": "multi-page",
+  "privateLib": "vic-common",
   "main": "lib/common/base.js",
   "files": [
     "lib/",

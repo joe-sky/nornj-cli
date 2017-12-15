@@ -8,17 +8,22 @@ const program = require('commander');
 program.version(require('../package').version);
 program.usage('<command>');
 
+//Print current version(https://github.com/tj/commander.js/issues/560)
+var vPos = process.argv.indexOf('-v');
+if (vPos > -1) {
+  process.argv[vPos] = '-V';
+}
+
 program
   .command('init')
-  .description('init a new project')
-  .alias('i')
+  .description('Init a new project')
   .action(() => {
     require('../lib/init')();
   });
 
 program
-  .command('add page')
-  .description('add a new page')
+  .command('add-page')
+  .description('Add a new page')
   .alias('ap')
   .action(() => {
     require('../lib/addPage')();
@@ -26,18 +31,18 @@ program
 
 program
   .command('upgrade')
-  .description('upgrade to new version')
+  .description('Upgrade to new version')
   .action(() => {
     require('../lib/upgrade')();
   });
 
 program
-    .command('version')
-    .description('print current version')
-    .alias('v')
-    .action(() => {
-        require('../lib/version')();
-    });
+  .command('install')
+  .description('install npm packages')
+  .alias('i')
+  .action(() => {
+    require('../lib/install')();
+  });
 
 program.parse(process.argv);
 
