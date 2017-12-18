@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "React + Mobx-state-tree项目模板",
   "templateType": "single-page",
-  "privateLib": "vic-common",
   "main": "app.js",
   "scripts": {
     "dev-web": "npm run server | cross-env Project=web webpack-dev-server --host 0.0.0.0 --inline --hot --progress",
@@ -113,5 +112,9 @@
       "server/routes/**/*.js",
       "server/common/**/*.js"
     ]
+  },
+  "njCliConfig": {
+    "templateType": "multi-page",
+    "privateLib": "vic-common"
   }
 }

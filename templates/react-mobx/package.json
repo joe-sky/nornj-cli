@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "NornJ + React + Mobx boilerplate",
   "templateType": "multi-page",
-  "privateLib": "vic-common",
   "main": "lib/common/base.js",
   "files": [
     "lib/",
@@ -108,5 +107,9 @@
     "webpack-stream": "^4.0.0",
     "whatwg-fetch": "0.11.1",
     "yargs": "^4.2.0"
+  },
+  "njCliConfig": {
+    "templateType": "multi-page",
+    "privateLib": "vic-common"
   }
 }
