@@ -37,8 +37,8 @@ Do you want to generate chart page(Y/N)?  # 是否生成图表页面
 | 名称           | 描述                      |
 |:---------------|:-------------------------|
 | react-mobx     | 基于React+Mobx的多页面项目 |
-| react-mobx-ls  | 基于React+Mobx的多页面项目(接入零智平台) |
 | react-mst      | 基于React+Mobx-state-tree的单页面项目 |
+| Y-Dept/react-mobx-ls | 基于React+Mobx的多页面项目(接入零智平台) |
 | Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 |
 
 #### 查看cli当前版本
