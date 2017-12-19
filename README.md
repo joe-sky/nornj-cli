@@ -14,7 +14,7 @@ npm install -g nornj-cli
 * 在当前目录下创建新项目目录：
 
 ```sh
-nj init # 或nj i
+nj init
 
 Template Name: react-mobx  # 项目模板名称
 Project Name: projectName  # 新创建的项目名称
@@ -53,10 +53,16 @@ nj -v
 nj upgrade  # 更新cli到最新版
 ```
 
-#### npm安装
+#### 安装npm包
 
 ```sh
 nj install # 或nj i
+```
+
+#### 更新npm包
+
+```sh
+nj update # 或nj up
 ```
 
 ## License
