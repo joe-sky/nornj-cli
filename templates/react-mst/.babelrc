@@ -4,6 +4,7 @@
     "development": {
       "presets": ["env"],
       "plugins": [
+        ["import", {"libraryName": "antd", "style": true} ],
         ["transform-object-rest-spread"],
         "transform-decorators-legacy", [
           "transform-class-properties",
@@ -24,6 +25,7 @@
         ["env", { "modules": false }]
       ],
       "plugins": [
+        ["import", {"libraryName": "antd", "style": true} ],
         ["transform-object-rest-spread"],
         "transform-decorators-legacy", [
           "transform-class-properties",
