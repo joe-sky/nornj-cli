@@ -10,17 +10,14 @@ const isTest = process.env.NODE_ENV == 'test';
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20170928';
 
-//app - 修改主题颜色
-const appTheme = process.env.Project === 'app' ? require('./src/app/config/theme') : {};
 const iconUrl = {
   "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
 };
-const modifyVars = Object.assign({}, appTheme, iconUrl);
+const modifyVars = Object.assign({}, iconUrl);
 
 module.exports = {
   entry: {
     app: ['react-hot-loader/patch', path.resolve(__dirname, './app-' + process.env.Project + '.js')],
-    //appHome: [path.resolve(__dirname, './app-' + process.env.Project + '-home.js')],
     vendor: ['react', 'react-dom', 'react-router', 'mobx', 'mobx-react', 'mobx-state-tree', 'nornj', 'nornj-react', 'core-decorators']
   },
   output: {
@@ -151,19 +148,7 @@ module.exports = {
         }]
       },
       {
-        test: /\.(svg)$/i,
-        loader: 'svg-sprite-loader',
-        include: [
-          require.resolve('antd-mobile').replace(/warn\.js$/, ''),
-          path.resolve(__dirname, 'src/app/images')
-        ]
-      },
-      {
         test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-        exclude: [
-          require.resolve('antd-mobile').replace(/warn\.js$/, ''),
-          path.resolve(__dirname, 'src/app/images')
-        ],
         use: ['url-loader?limit=10000&name=' + ((isProd || isTest) ? '/' : '') + process.env.Project + '/fonts/[name].[ext]?[hash]']
       }
     ]
