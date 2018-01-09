@@ -32,7 +32,7 @@
 
 > 看过以上几点，我们不难想到，这个开发模式是不是很像`Vue`?
 
-确实，`React`如果配合`响应式状态管理`、`前端模板`以及`局部css`等生态后确实和`Vue`的开发模式很像。正因如此，这个模式也就能同时拥有`Vue`易上手、开发快速等的种种优势。
+确实，`React`如果配合`响应式状态管理`、`前端模板`以及`局部css`等生态后确实和`Vue`的开发模式有些类似，且也能同时拥有`Vue`易上手、开发快速等方面的优势。但是，由于它使用`React`技术栈，故也会和`Vue`有很大区别，在一些细节处理方面也各有千秋。
 
 ## 特色
 
@@ -151,13 +151,4 @@ class EssentialLinks extends Component {
 
 我们刚才简单介绍了`React + Mobx + NornJ`开发模式的基本特点与代码组织结构，后面还有更加详细的简明教程，使您能快速掌握`NornJ-cli`的使用方法。
 
-<div>
-  <a class="right" href="#">快速起步 →</a>
-</div>
-
-<style>
-  .right {
-    float: right;
-    font-weight: bold;
-  }
-</style>
+<p align="right"><a href="#"><b>快速起步</b></a> →</p>
