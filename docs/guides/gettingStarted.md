@@ -95,9 +95,66 @@ Do you want to npm install(Y/N)?       # 选择是否安装npm包
 npm run dev-web
 ```
 
-然后会开始运行`webpack`构建过程，构建成功后请在浏览器输入地址：`localhost:8080/dist/web`即可运行页面：
+然后会开始运行`webpack`构建过程，构建成功后请在浏览器输入地址：`localhost:8080/dist/web`即可查看页面：
 
 ![run page](images/started2.png?raw=true)
+
+## 添加新页面
+
+在`react-mst-test`目录下输入如下命令：
+
+```sh
+nj ap
+Page Name: newChartPage                   # 新创建的页面名称
+Do you want to generate chart page(Y/N)?  # 是否生成图表页面
+```
+
+输入`y`后，按回车键就会立即创建好一个新建的图表页面，且各子目录下的`newChartPage`文件都已创建好了：
+
+![run page](images/started3.png?raw=true)
+
+## 运行新添加的页面
+
+打开`react-mst-test/src/stores/rootStore.js`文件，将这里的第一个菜单中的第一个页面名称`Page1_1`改为`NewChartPage`：
+
+```js
+sider: types.optional(SiderStore, {
+  isOpen: false,
+  current: 'page1',
+  menuData: [{
+    type: 'group',
+    index: 'Menu1_1',
+    name: '一级菜单1',
+    expanded: false,
+    children: [{
+      type: 'group',
+      index: 'Menu2_1',
+      name: '二级菜单1',
+      expanded: false,
+      children: [
+        { type: 'item', level: 3, link: '/NewChartPage', index: 'NewChartPage', name: '页面1-1' },
+        { type: 'item', level: 3, link: '/Page1_2', index: 'Page1_2', name: '页面1-2' },
+      ]
+    }, 
+    ...
+  }, 
+  ...]
+}),
+```
+
+再次运行命令进行构建：
+
+```sh
+npm run dev-web
+```
+
+然后在浏览器输入地址：`localhost:8080/dist/web`查看页面，新创建的图表页已展示出来了：
+
+![run page](images/started4.png?raw=true)
+
+## 下一步
+
+至此，我们已创建好了一个基于`React + Mobx + NornJ`的前端项目，下一步我们将逐个为项目中使用的技术做一个详实的介绍。
 
 <p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
 <p align="right"><a href="#"><b>NornJ前端模板</b></a> →</p>
