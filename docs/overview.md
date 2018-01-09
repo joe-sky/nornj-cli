@@ -147,8 +147,15 @@ class EssentialLinks extends Component {
 
 * `NornJ`模板也可以支持在同一html文件内定义多个`<template>`元素，然后分别让它们服务于页面上各特定模块的组件使用。
 
+* 在使用`NornJ`模板的同时其实也可以使用`JSX`，这两者并不会发生冲突。
+
 ## 准备好了吗？
 
 我们刚才简单介绍了`React + Mobx + NornJ`开发模式的基本特点与代码组织结构，后面还有更加详细的简明教程，使您能快速掌握`NornJ-cli`的使用方法。
 
-<p align="right"><a href="#"><b>快速起步</b></a> →</p>
+<table border="0" width="100%">
+  <tr>
+    <td></td>
+    <td align="right"><a href="#"><b>快速起步</b></a> →</td>
+  </tr>
+</table>
