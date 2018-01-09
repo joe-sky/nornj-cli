@@ -9,7 +9,7 @@
 ## 目录
 
 * [总览](https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md)
-  * [快速起步](https://github.com/joe-sky/nornj-cli/blob/master/docs/gettingStarted.md)
+  * [快速起步](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/gettingStarted.md)
   * [NornJ前端模板]()
   * [使用css modules开发局部样式]()
   * [Mobx状态管理]()
@@ -143,7 +143,7 @@ class EssentialLinks extends Component {
 
 * 组件一般应是可复用的元素，但是实际项目中可复用的业务组件往往很少，每个页面都有自己特定的模块，它们一般并不会被复用。这个时候，`以页面作为单元管理多个组件`的模式，就会变得非常有用。
 
-* 在`NornJ-cli`推荐的开发模式中，每个组件或页面，都可以由上述三个文件构成。每个文件中都包含各个组件的`模板`、`样式`与`逻辑`，且它们之间还可以相互引用或复用。
+* 在`NornJ-cli`推荐的开发模式中，每个组件或页面，都可以由上述三个文件构成。每个文件中都包含各个子组件的`模板`、`样式`与`逻辑`，且它们之间还可以相互引用或复用。
 
 * `NornJ`模板也可以支持在同一html文件内定义多个`<template>`元素，然后分别让它们服务于页面上各特定模块的组件使用。
 
@@ -153,4 +153,4 @@ class EssentialLinks extends Component {
 
 我们刚才简单介绍了`React + Mobx + NornJ`开发模式的基本特点与代码组织结构，后面还有更加详细的简明教程，使您能快速掌握`NornJ-cli`的使用方法。
 
-<p align="right"><a href="#"><b>快速起步</b></a> →</p>
+<p align="right"><a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/gettingStarted.md"><b>快速起步</b></a> →</p>
