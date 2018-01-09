@@ -151,4 +151,4 @@ class EssentialLinks extends Component {
 
 我们刚才简单介绍了`React + Mobx + NornJ`开发模式的基本特点与代码组织结构，后面还有更加详细的简明教程，使您能快速掌握`NornJ-cli`的使用方法。
 
-<span style="float:right;">**[快速起步]()** →</span>
+<span style="float:right;font-weight:bold;">[快速起步]() →</span>
