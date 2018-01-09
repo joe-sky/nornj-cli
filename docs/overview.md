@@ -8,8 +8,8 @@
 
 ## 目录
 
-* [总览]()
-  * [快速起步]()
+* [总览](https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md)
+  * [快速起步](https://github.com/joe-sky/nornj-cli/blob/master/docs/gettingStarted.md)
   * [NornJ前端模板]()
   * [使用css modules开发局部样式]()
   * [Mobx状态管理]()
@@ -153,9 +153,4 @@ class EssentialLinks extends Component {
 
 我们刚才简单介绍了`React + Mobx + NornJ`开发模式的基本特点与代码组织结构，后面还有更加详细的简明教程，使您能快速掌握`NornJ-cli`的使用方法。
 
-<table border="0" width="100%">
-  <tr>
-    <td></td>
-    <td align="right"><a href="#"><b>快速起步</b></a> →</td>
-  </tr>
-</table>
+<p align="right"><a href="#"><b>快速起步</b></a> →</p>
