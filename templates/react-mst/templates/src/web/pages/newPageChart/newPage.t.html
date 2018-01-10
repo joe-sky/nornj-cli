@@ -1,0 +1,381 @@
+<template name="#{pageName}#">
+  <div class="{styles.#{pageName}#}">
+    <div class="{styles.bePageCnt}">
+      <h2 class="{styles.pageTitle}">Summary</h2>
+      <evalSummary#{pageName | pascal}# />
+
+      <h3 class="{styles.pageSubTitle}">Total Compare</h3>
+      <totalCompare#{pageName | pascal}# />
+      
+      <categoryCompare#{pageName | pascal}# />
+      
+      <h3 class="{styles.pageSubTitle}">Compare Dock</h3>
+      <brandCompare#{pageName | pascal}# />
+
+      <compareDock#{pageName | pascal}# />
+    </div>
+  </div>
+</template>
+
+<!--summary:start-->
+<template name="evalSummary">
+  <fj-Row class="{styles.summary} clearfix">
+    <fj-Col l="3">
+      <div class="{styles.summaryItem}">
+        <div class="{styles.field}">指标1</div>
+        <div class="{styles.num}">{#{pageName}#.summaryData.gmv / 10000 .('toFixed')(2)}万元</div>
+        <div class="{styles.rates} clearfix">
+          <div class="{#{pageName}#.summaryData.gmvYOY > 0 ?(styles.red,styles.green)} fl">
+            <div>同比</div>
+            <div>{#{pageName}#.summaryData.gmvYOY > 0 ?('+','')}{#{pageName}#.summaryData.gmvYOY}%</div>
+          </div>
+          <div class="{#{pageName}#.summaryData.gmvMOM > 0 ?(styles.red,styles.green)} fr">
+            <div>环比</div>
+            <div>{#{pageName}#.summaryData.gmvMOM > 0 ?('+','')}{#{pageName}#.summaryData.gmvMOM}%</div>
+          </div>
+        </div>
+      </div>
+    </fj-Col>
+    <fj-Col l="3">
+      <div class="{styles.summaryItem}">
+        <div class="{styles.field}">指标2</div>
+        <div class="{styles.num}">{#{pageName}#.summaryData.uv}</div>
+        <div class="{styles.rates} clearfix">
+          <div class="{#{pageName}#.summaryData.uvYOY > 0 ?(styles.red,styles.green)} fl">
+            <div>同比</div>
+            <div>{#{pageName}#.summaryData.uvYOY > 0 ?('+','')}{#{pageName}#.summaryData.uvYOY}%</div>
+          </div>
+          <div class="{#{pageName}#.summaryData.uvMOM > 0 ?(styles.red,styles.green)} fr">
+            <div>环比</div>
+            <div>{#{pageName}#.summaryData.uvMOM > 0 ?('+','')}{#{pageName}#.summaryData.uvMOM}%</div>
+          </div>
+        </div>
+      </div>
+    </fj-Col>
+    <fj-Col l="3">
+      <div class="{styles.summaryItem}">
+        <div class="{styles.field}">指标3</div>
+        <div class="{styles.num}">{#{pageName}#.summaryData.uvRates}%</div>
+        <div class="{styles.rates} clearfix">
+          <div class="{#{pageName}#.summaryData.uvRatesYOY > 0 ?(styles.red,styles.green)} fl">
+            <div>同比</div>
+            <div>{#{pageName}#.summaryData.uvRatesYOY > 0 ?('+','')}{#{pageName}#.summaryData.uvRatesYOY}%</div>
+          </div>
+          <div class="{#{pageName}#.summaryData.uvRatesMOM > 0 ?(styles.red,styles.green)} fr">
+            <div>环比</div>
+            <div>{#{pageName}#.summaryData.uvRatesMOM > 0 ?('+','')}{#{pageName}#.summaryData.uvRatesMOM}%</div>
+          </div>
+        </div>
+      </div>
+    </fj-Col>
+    <fj-Col l="3">
+      <div class="{styles.summaryItem}">
+        <div class="{styles.field}">指标4</div>
+        <div class="{styles.num}">{#{pageName}#.summaryData.userCount}</div>
+        <div class="{styles.rates} clearfix">
+          <div class="{#{pageName}#.summaryData.userCountYOY > 0 ?(styles.red,styles.green)} fl">
+            <div>同比</div>
+            <div>{#{pageName}#.summaryData.userCountYOY > 0 ?('+','')}{#{pageName}#.summaryData.userCountYOY}%</div>
+          </div>
+          <div class="{styles.red} fr">
+            <div>环比</div>
+            <div>{#{pageName}#.summaryData.userCountMOM > 0 ?('+','')}{#{pageName}#.summaryData.userCountMOM}%</div>
+          </div>
+        </div>
+      </div>
+    </fj-Col>
+  </fj-Row>
+</template>
+<!--summary:end-->
+
+<!--totalCompare:start-->
+<template name="totalCompare">
+  <fj-Row class="{styles.totalCompare} clearfix">
+    <fj-Col l="6">
+      <div class="{styles.leftBlock}">
+        <div class="{styles.chartTit}">指标1趋势</div>
+        <ec-LineChart ref="ecSales" option={toJS(salesOptions)} data={toJS(salesData)} update={true}/>
+        <div class="{styles.chartTit}">指标1同比增长率趋势</div>
+        <ec-LineChart ref="ecSalesRates" option={toJS(salesRatesOptions)} data={toJS(salesRatesData)} update={true}/>
+      </div>
+    </fj-Col>
+    <fj-Col l="6">
+      <div class="{styles.rightBlock}">
+        <div class="{styles.chartTit}">指标2趋势</div>
+        <table>
+          <thead>
+            <tr>
+              <th>指标1</th>
+              <th>指标2</th>
+              <th>指标3</th>
+              <th>指标4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="{styles.row1}">
+              <td>{#{pageName}#.growthDataTable.(0).(0) >(0) ?('+','')}{#{pageName}#.growthDataTable.(0).(0) | percent(2) ||('--')}</td>
+              <td>{#{pageName}#.growthDataTable.(0).(1) >(0) ?('+','')}{#{pageName}#.growthDataTable.(0).(1) | percent(2) ||('--')}</td>
+              <td>{#{pageName}#.growthDataTable.(0).(3) >(0) ?('+','')}{#{pageName}#.growthDataTable.(0).(3) | percent(2) ||('--')}</td>
+              <td>{#{pageName}#.growthDataTable.(0).(2).('toFixed')(2) ||('')}元</td>
+            </tr>
+            <tr class="{styles.row2}">
+              <td>{#{pageName}#.growthDataTable.(1).(0) >(0) ?('+','')}{#{pageName}#.growthDataTable.(1).(0) | percent(2) ||('--')}</td>
+              <td>{#{pageName}#.growthDataTable.(1).(1) >(0) ?('+','')}{#{pageName}#.growthDataTable.(1).(1) | percent(2) ||('--')}</td>
+              <td>{#{pageName}#.growthDataTable.(1).(3) >(0) ?('+','')}{#{pageName}#.growthDataTable.(1).(3) | percent(2) ||('--')}</td>
+              <td>{#{pageName}#.growthDataTable.(1).(2).('toFixed')(2) ||('--')}元</td>
+            </tr>
+          </tbody>
+        </table>
+        <ant-RadioGroup defaultValue="a" size="default" onChange={onGrowthTypeChange}>
+          <ant-RadioButton value="a">指标1</ant-RadioButton>
+          <ant-RadioButton value="b">指标2</ant-RadioButton>
+          <ant-RadioButton value="c">指标3</ant-RadioButton>
+          <ant-RadioButton value="d">指标4</ant-RadioButton>
+        </ant-RadioGroup>
+        <ec-LineChart ref="ecGrowth" option={toJS(growthOptions)} data={toJS(growthData)} update={true}/>            
+      </div>
+    </fj-Col>
+  </fj-Row>
+</template>
+<!--totalCompare:end-->
+
+<!--categoryCompare：start-->
+<template name="categoryCompare">
+  <div class="{styles.categoryCompareWrap}">
+    <h3 class="{styles.pageSubTitle}">
+      <div class="{styles.toolsBar} fr">
+      </div>
+      <span>Category Compare</span>
+    </h3>
+    <#if {#{pageName}#.showSubCategoryBlock}>
+      <div class="{styles.subCategoryBlock}">
+        <fj-Row class="{styles.categoryCompare} {currentView == 1 ?(styles.showCategoryCompare,'')} clearfix" gutter="30" key={@index}>
+          <fj-Col l="6">
+            <div class="{styles.tit}">指标1占比分布对比</div>
+            <ec-PieChart ref="ecPieCategory" option={toJS(pieCategoryOptions)} data={toJS(pieCategoryData)} update={true}/>
+            <fj-Row class="tc clearfix">
+              <fj-Col l="6">属性1</fj-Col>
+              <fj-Col l="6">属性2</fj-Col>
+            </fj-Row>
+          </fj-Col>
+          <fj-Col l="6">
+            <div class="{styles.tit}">指标1增长率对比</div>
+            <ec-BarChart ref="ecBarCategory" option={toJS(barCategoryOptions)} data={toJS(barCategoryData)} update={true}/>
+          </fj-Col>
+        </fj-Row>
+        <div class="{styles.tableWrap} {currentView != 1 ?(styles.showTableWrap,'')}">
+          <table>
+            <thead>
+              <tr>
+                <th rowSpan="2">属性1</th>
+                <th rowSpan="2">属性2</th>
+                <th colSpan="7">属性3</th>
+                <th colSpan="6">属性4</th>
+              </tr>
+              <tr>
+                <th>指标1</th>
+                <th>指标2</th>
+                <th>指标3</th>
+                <th>指标4</th>
+                <th>指标5</th>
+                <th>指标6</th>
+                <th>指标7</th>
+                <th>指标8</th>
+                <th>指标9</th>
+                <th>指标10</th>
+                <th>指标11</th>
+                <th>指标12</th>
+                <th>指标13</th>
+              </tr>
+            </thead>
+            <tbody>
+              <#each {#{pageName}#.tableSubCategoryData}>
+                <tr key={@index}>
+                  <td><span>{rank}</span></td>
+                  <td>{name}</td>
+                  <td>{salesAmount / 10000 .('toFixed')(2)}</td>
+                  <td>{salesRates * 100 .('toFixed')(2)}%</td>
+                  <td>{salesGrowthRates * 100 .('toFixed')(2)}%</td>
+                  <td>{uvGrowth * 100 .('toFixed')(2)}%</td>
+                  <td>{uvConvert * 100 .('toFixed')(2)}%</td>
+                  <td>{price.('toFixed')(2)}</td>
+                  <td>{userGrowth * 100 .('toFixed')(2)}%</td>
+                  <td>{salesRates1 * 100 .('toFixed')(2)}%</td>
+                  <td>{salesGrowthRates1 * 100 .('toFixed')(2)}%</td>
+                  <td>{uvGrowth1 * 100 .('toFixed')(2)}%</td>
+                  <td>{uvConvert1 * 100 .('toFixed')(2)}%</td>
+                  <td>{price1.('toFixed')(2)}</td>
+                  <td>{userGrowth1 * 100 .('toFixed')(2)}%</td>
+                </tr>
+              </#each>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </#if>
+    
+  </div>
+</template>
+<!--categoryCompare：end-->
+
+<!--brandCompare：start-->
+<template name="brandCompare">
+  <div class="{styles.brandCompareList}">
+    <div class="{styles.trendsChart} {trendsChartVisible ?(styles.trendsChartShow, '')}" style="top:{trendsChartTop}px">
+      <span class="{styles.trendsChartClose}" onClick={closeTrendsChart}>X</span>
+      <ec-LineChart ref="ecTrendsChart" option={toJS(trendsChartOptions)} data={toJS(trendsChartData)} update={true}/>
+    </div>
+    <#if {#{pageName}#.showCompareTable}>
+      <div class="{styles.compareTable}">
+        <div class="{styles.compareTableTitle}">
+          <span class="{styles.compareTableClose}" onClick={closeCompareTable}>X</span>
+          Brand Compare
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>指标1</th>
+              <#each {#{pageName}#.compareDockData}>
+              <th key={@index}>{brandName}</th>
+              </#each>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>指标2</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{salesAmountGrowth | percent(2)}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标3</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{userGrowth | percent(2)}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标4</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{uvGrowth | percent(2)}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标5</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{price ||('--')}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标6</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{salesAmount ||('--')}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标7</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{salesAmountRates | percent(2)}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标8</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{userCount ||('--')}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标9</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{userCountRates | percent(2)}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标10</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{uv ||('--')}</td>
+              </#each>
+            </tr>
+            <tr>
+              <td>指标11</td>
+              <#each {#{pageName}#.compareDockData}>
+              <td key={@index}>{uvRates | percent(2)}</td>
+              </#each>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <#else>
+        <div class="{styles.brandCompareItemWrap}">
+          <#each {#{pageName}#.brandCompareList}>
+            <fj-Row class="{styles.brandCompareItem} clearfix" key="{@index}">
+              <span class="{styles.rank}">{rank}<em></em></span>
+              <fj-Col l="1">
+              </fj-Col>
+              <fj-Col l="2">
+                <div><ant-Checkbox onChange={onBrandChecked(this)} checked="{isChecked}">加入对比</ant-Checkbox></div>
+              </fj-Col>
+              <fj-Col l="6">
+                <div class="{styles.brandText}">{brandName}</div>
+                <div>指标1：{salesAmount.('toFixed')(2)}万元</div>
+                <fj-Row class="clearfix">
+                  <fj-Col l="6">
+                    <div>指标1同比增长：{uvGrowth | percent(2)}</div>
+                    <div>指标2转化率：{uvConversion | percent(2)}</div>
+                  </fj-Col>
+                  <fj-Col l="6">
+                    <div>指标3同比增长：{userGrowth | percent(2)}</div>
+                    <div>指标4：{price.('toFixed')(2)}元</div>
+                  </fj-Col>
+                </fj-Row>
+              </fj-Col>
+              <fj-Col l="3">
+                <div class="{styles.salesGrowthText}">指标1同比增长：{salesAmountGrowth | percent(2)}</div>
+                <div>指标2同比增长率：{categoryGrowth | percent(2)}</div>
+                <div>
+                  <ant-Button onClick={viewTrends(this,@index)}>查看趋势</ant-Button>
+                </div>
+              </fj-Col>
+            </fj-Row>
+          </#each>
+
+          <div class="{styles.paginationWrap}">
+            <ant-Pagination defaultCurrent={1} total={#{pageName}#.brandCompareListTotalCount} onChange={onPaging} />
+          </div>
+        </div>
+      </#else>
+    </#if>
+  </div>
+</template>
+<!--brandCompare：end-->
+
+<!--compareDock:start-->
+<template name="compareDock">
+  <div class="{styles.compareDock} {store.#{pageName}#.compareDockVisible ?(styles.compareDockShow, '')}">
+    <div class="{styles.compareDockTit}">
+      <span class="{styles.compareDockClose}" onClick={closeCompareDock}>X</span>
+      <span>Compare Dock</span>
+    </div>
+    <fj-Row class="clearfix">
+      <#each {store.#{pageName}#.compareDockData}>
+        <#if {id != 0}>      
+        <fj-Col l="3" key="{@index}">
+          <span class="{styles.iconDeleteCompareItem}" onClick={deleteCompareItem(this)}>X</span>
+          <fj-Row class="clearfix">
+            <fj-Col l="6">
+            </fj-Col>
+            <fj-Col l="6">
+              <div>排名：{rank}</div>
+              <div>指标1增长率：{salesAmountGrowth | percent(2)}</div>
+              <div class="{styles.name}">{brandName}</div>
+            </fj-Col>
+          </fj-Row>
+        </fj-Col>
+        </#if>
+      </#each>
+      <fj-Col l="3" class="tc">
+        <ant-Button onClick={compareIt}>开始对比</ant-Button>        
+      </fj-Col>      
+    </fj-Row>
+  </div>
+</template>
+<!--compareDock:end-->

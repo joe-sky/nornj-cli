@@ -1,4 +1,4 @@
-import Message from 'vic-common/lib/components/antd/message';
+import Message from 'flarej/lib/components/antd/message';
 const Notification = {};
 export default Notification;
 

@@ -80,6 +80,8 @@ app.get('/page2', function(req, res) {
   res.render('page2', { page: 'page2/', title: 'Page 2' });
 });
 
+//{pages}//
+
 app.get('/checkUser', function(req, res) {
   res.type('html');
   res.sendFile('views/checkUser.html', { root: __dirname });

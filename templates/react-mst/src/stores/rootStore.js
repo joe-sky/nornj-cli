@@ -1,9 +1,10 @@
 import { types } from "mobx-state-tree";
 import { CommonStore } from "./commonStore";
 import HeaderStore from "./headerStore";
-import SiderStore from "./SiderStore";
-import Page1_1Store from "./menu2_1/page1_1Store";
-import Page1_2Store from "./menu2_1/page1_2Store";
+import SiderStore from "./siderStore";
+import Page1_1Store from "./pages/page1_1Store";
+import Page1_2Store from "./pages/page1_2Store";
+//{importStore}//
 
 const RootStore = types.model("RootStore", {
   common: types.optional(CommonStore, {}),
@@ -68,7 +69,7 @@ const RootStore = types.model("RootStore", {
 
   page1_1: types.optional(Page1_1Store, {}),
   page1_2: types.optional(Page1_2Store, {}),
-
+  //{pageStore}//
 });
 
 export default RootStore;

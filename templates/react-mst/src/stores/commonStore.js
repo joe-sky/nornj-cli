@@ -1,5 +1,5 @@
 import { types } from "mobx-state-tree"
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
+import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../utils/notification';
 
 export const UserInfo = types.model('UserInfo', {
@@ -8,33 +8,39 @@ export const UserInfo = types.model('UserInfo', {
 })
 
 export const CommonStore = types.model("CommonStore", {
-  userInfo: types.maybe(UserInfo),
-
-  get isDemo() {
-    return this.userInfo.pin && this.userInfo.pin.trim().toLowerCase() === 'jd_653e751552511';
-  }
-}, {
-  getCurrentUserInfo() {
-    return fetchData(`${__HOST}/common/getCurrentUserInfo`,
-      this.setCurrentUserInfo,
-      null, { method: 'post' }).catch((ex) => {
-      Notification.error({
-        description: '获取用户信息异常:' + ex,
-        duration: null
-      });
-    });
-  },
-  setCurrentUserInfo(result) {
-    if (result.success) {
-      this.userInfo = result.data;
-    } else {
-      Notification.error({
-        description: '获取用户信息错误:' + result.message,
-        duration: null
-      });
+    userInfo: types.maybe(UserInfo),
+  })
+  .views(self => {
+    return {
+      get isDemo() {
+        return self.userInfo.pin && self.userInfo.pin.trim().toLowerCase() === 'jd_653e751552511';
+      }
     }
-  },
-});
+  })
+  .actions(self => {
+    return {
+      getCurrentUserInfo() {
+        return fetchData(`${__HOST}/common/getCurrentUserInfo`,
+          self.setCurrentUserInfo,
+          null, { method: 'post' }).catch((ex) => {
+          Notification.error({
+            description: '获取用户信息异常:' + ex,
+            duration: null
+          });
+        });
+      },
+      setCurrentUserInfo(result) {
+        if (result.success) {
+          self.userInfo = result.data;
+        } else {
+          Notification.error({
+            description: '获取用户信息错误:' + result.message,
+            duration: null
+          });
+        }
+      }
+    }
+  });
 
 export const Category = types.model("Category", {
   value: '0',
