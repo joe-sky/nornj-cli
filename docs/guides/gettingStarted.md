@@ -28,7 +28,7 @@ Do you want to npm install(Y/N)?       # 选择是否安装npm包
 
 ## 生成的项目文件结构
 
-```bash
+```
 .
 ├── dist                              # 打包后的生产文件
 ├── server                            # 本地mock server
