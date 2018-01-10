@@ -8,9 +8,9 @@
 
 ## 目录
 
-* [总览](https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md)
+* [总览](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)
   * [快速起步](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/gettingStarted.md)
-  * [NornJ前端模板]()
+  * [NornJ前端模板](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/nornjTemplate.md)
   * [使用css modules开发局部样式]()
   * [Mobx状态管理]()
   * [使用Ant Design组件]()
