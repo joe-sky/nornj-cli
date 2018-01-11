@@ -1,8 +1,9 @@
 # 请求服务端数据
 
-通过fetchData方法，实现和服务端的通讯。前后端通过JSON来交流。
+默认通过fetchData方法，实现和服务端的通讯。前后端通过JSON来交流。
+> 可以替换成任意方式的异步请求组件或库。
 
-## fetchData方法-原理
+## Introduction
 
 fetchData底层依靠`fetch`，并对其进行了封装，实现了参数可配置、异常处理、支持`Callback`等功能。
 
@@ -48,28 +49,54 @@ function handleErrors(response) {
 
 ```
 
-## fetchData方法-使用
+## Usage
 
-* 首先引入该方法
+
+* 首先 引入fetchData(ES6)
 
 ```js
 import { fetchData } from 'vic-common/lib/common/fetchConfig';
 ```
 
-然后可以在js文件中引入后使用：
+* 然后可以在js文件中使用：
 
 ```js
-import tmpls from './helloWorld.t.html';
-
-export default class HelloWorld extends Component {
-  render() {
-    return tmpls.helloWorld();  //执行模板函数生成标签
-  }
-}
+fetchData(`http://www.google.com/searchModelPageList`, result => {
+  this.list = result.success ? result.data : [];
+  //...
+});
 ```
 
-如上，每个`*.t.html`文件内都可以定义一个或多个`template`标签。
+## Example
 
-这些`template`标签会在引用它的js文件中通过[nornj-loader](https://github.com/joe-sky/nornj-loader)进行解析，生成一个以`template`标签的`name`属性为key的模板函数集合对象，在各个组件的render中调用它们就会生成相应的标签。
+Performing a `post` request(ES6)
+
+```js
+import { fetchData } from 'vic-common/lib/common/fetchConfig';
+
+export default class Demo {
+
+  list = null;
+
+  getData(params) {
+    return fetchData(`http://www.demo.com/getApi`, result => {
+      transaction(() => {
+        if (result.success) {
+          this.list = result.data;
+        } else {
+          this.list = [];
+        }
+      });
+    }, params, { method: 'post' }).catch((ex) => {
+      console.log('获取数据接口出错，错误是:' + ex);
+    });
+  }
+
+}
+
+const demo = new Demo;
+this.getData({ id:1, type:2, foo:3, bar:4});
+
+```
 
 <p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
