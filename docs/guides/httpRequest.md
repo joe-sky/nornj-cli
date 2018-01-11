@@ -99,7 +99,7 @@ this.getData({ id:1, type:2, foo:3, bar:4});
 
 ```
 
-## Parameter
+## Parameters
 
 fetchData方法接受四个参数：url, callback, params, cfgs
 
