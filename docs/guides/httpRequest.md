@@ -1,11 +1,11 @@
 # 请求服务端数据
 
 默认通过fetchData方法，实现和服务端的通讯。前后端通过JSON来交流。
-> 可以替换成任意方式的异步请求组件或库。
+> 可以替换成任意方式的异步请求方法或库。
 
 ## Introduction
 
-fetchData底层依靠`fetch`，并对其进行了封装，实现了参数可配置、异常处理、支持`Callback`等功能。
+fetchData底层依赖`fetch`，并对其进行了封装，实现了参数可配置、异常处理、支持`Callback`等功能。
 
 * 核心功能
 
@@ -69,7 +69,7 @@ fetchData(`http://www.google.com/searchModelPageList`, result => {
 
 ## Example
 
-Performing a `post` request(ES6)
+Performing a `post` request in `React`(ES6)
 
 ```js
 import { fetchData } from 'vic-common/lib/common/fetchConfig';
@@ -97,6 +97,31 @@ export default class Demo {
 const demo = new Demo;
 this.getData({ id:1, type:2, foo:3, bar:4});
 
+```
+
+## Parameter
+
+fetchData方法接受四个参数：url, callback, params, cfgs
+
+* url：必填
+```
+请求的地址。可以是绝对路径，也可以是相对路径。
+如：
+http://www.site.com/api
+/api/getData
+...
+```
+* callback: 可选
+```
+请求返回后执行。
+```
+* params：可选
+```
+请求需要的参数。
+```
+* cfgs
+```
+请求需要的一些配置。
 ```
 
 <p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
