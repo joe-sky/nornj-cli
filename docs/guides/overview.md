@@ -8,13 +8,13 @@
 
 ## 目录
 
-* [总览](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)
-  * [快速起步](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/gettingStarted.md)
-  * [NornJ前端模板](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/nornjTemplate.md)
+* [总览](overview.md)
+  * [快速起步](gettingStarted.md)
+  * [NornJ前端模板](nornjTemplate.md)
   * [使用css modules开发局部样式]()
   * [Mobx状态管理]()
-  * [使用Ant Design组件]()
-  * [使用Echarts图表组件]()
+  * [使用Ant Design组件](antDesign.md)
+  * [使用Echarts图表组件](echarts.md)
   * [使用其他React第三方组件]()
   * [请求服务端数据](httpRequest.md)
 
@@ -153,4 +153,4 @@ class EssentialLinks extends Component {
 
 我们刚才简单介绍了`React + Mobx + NornJ`开发模式的基本特点与代码组织结构，后面还有更加详细的简明教程，使您能快速掌握`NornJ-cli`的使用方法。
 
-<p align="right"><a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/gettingStarted.md"><b>快速起步</b></a> →</p>
+<p align="right"><a href="gettingStarted.md"><b>快速起步</b></a> →</p>

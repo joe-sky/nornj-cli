@@ -91,4 +91,4 @@ export default class HelloWorld extends Component {
 
 ## 将React组件的各种属性对象传入nj模板函数
 
-<p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md"><b>返回总览</b></a></p>
+<p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
