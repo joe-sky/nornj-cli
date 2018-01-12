@@ -69,7 +69,9 @@ fetchData(`http://www.google.com/searchModelPageList`, result => {
 
 ## Example
 
-Performing a `post` request in `React`(ES6)
+* send a `get` request (ES6)
+
+'get'是默认的传输方式，所以fetchData方法的最后参数无需指定。
 
 ```js
 import { fetchData } from 'vic-common/lib/common/fetchConfig';
@@ -78,7 +80,7 @@ export default class Demo {
 
   list = null;
 
-  getData(params) {
+  getData() {
     return fetchData(`http://www.demo.com/getApi`, result => {
       transaction(() => {
         if (result.success) {
@@ -87,7 +89,7 @@ export default class Demo {
           this.list = [];
         }
       });
-    }, params, { method: 'post' }).catch((ex) => {
+    }).catch((ex) => {
       console.log('获取数据接口出错，错误是:' + ex);
     });
   }
@@ -95,33 +97,88 @@ export default class Demo {
 }
 
 const demo = new Demo;
-this.getData({ id:1, type:2, foo:3, bar:4});
+demo.getData();
+```
 
+* send a `post` request (ES6)
+
+'post'不是默认的传输方式，所以需要在fetchData方法的最后参数中指定。
+
+```js
+import { fetchData } from 'vic-common/lib/common/fetchConfig';
+
+export default class Demo {
+
+  list = null;
+
+  getData() {
+    return fetchData(`http://www.demo.com/getApi`, result => {
+      transaction(() => {
+        if (result.success) {
+          this.list = result.data;
+        } else {
+          this.list = [];
+        }
+      });
+    },{},{ method: 'post' }).catch((ex) => {
+      console.log('获取数据接口出错，错误是:' + ex);
+    });
+  }
+
+}
+
+const demo = new Demo;
+demo.getData();
 ```
 
 ## Parameters
 
 fetchData方法接受四个参数：url, callback, params, cfgs
 
-* url：必填
+* url(必填)
 ```
 请求的地址。可以是绝对路径，也可以是相对路径。
-如：
+例：
 http://www.site.com/api
 /api/getData
 ...
 ```
-* callback: 可选
+* callback(可选)
 ```
 请求返回后执行。
+例：
+fetchData(`http://www.demo.com/getApi`, result => {
+  this.list = result.success ? result.data : [];
+  //....
+});
 ```
-* params：可选
+* params(可选)
 ```
 请求需要的参数。
+入参会根据请求的方式（如post或get等）自动做处理。
+例1：
+{ foo:1, bar:'2018-1-12' }
+例2：
+const params = 'a,b,c,1';
+fetchData(`http://www.demo.com/getApi`, result => {
+  this.list = result.success ? result.data : [];
+  //....
+},{params});
+...
 ```
-* cfgs
+* cfgs(可选)
 ```
 请求需要的一些配置。
+如果未传，则默认配置为：
+{
+  method: 'get',
+  credentials: 'include',
+  mode: 'cors',
+  cache: 'reload'
+}
+可以重置这些配置，适应不同的项目需求。
+例：
+{ method: 'post' }
 ```
 
 <p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
