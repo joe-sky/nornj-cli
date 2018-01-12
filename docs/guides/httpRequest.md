@@ -49,29 +49,11 @@ function handleErrors(response) {
 
 ```
 
-## Usage
-
-
-* 首先 引入fetchData(ES6)
-
-```js
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
-```
-
-* 然后可以在js文件中使用：
-
-```js
-fetchData(`http://www.google.com/searchModelPageList`, result => {
-  this.list = result.success ? result.data : [];
-  //...
-});
-```
-
 ## Example
 
 * send a `get` request (ES6)
 
-'get'是默认的传输方式，所以fetchData方法的最后参数无需指定。
+`get`是默认的传输方式，所以fetchData方法的最后参数无需指定。
 
 ```js
 import { fetchData } from 'vic-common/lib/common/fetchConfig';
@@ -102,7 +84,7 @@ demo.getData();
 
 * send a `post` request (ES6)
 
-'post'不是默认的传输方式，所以需要在fetchData方法的最后参数中指定。
+`post`不是默认的传输方式，所以需要在fetchData方法的最后参数中指定。
 
 ```js
 import { fetchData } from 'vic-common/lib/common/fetchConfig';
@@ -179,6 +161,82 @@ fetchData(`http://www.demo.com/getApi`, result => {
 可以重置这些配置，适应不同的项目需求。
 例：
 { method: 'post' }
+```
+
+## Usage
+
+* base：引入fetchData并在js中使用(ES6)
+
+```js
+import { fetchData } from 'vic-common/lib/common/fetchConfig';
+
+fetchData(`http://www.google.com/searchModelPageList`, result => {
+  this.list = result.success ? result.data : [];
+  //...
+});
+```
+
+* send a request in React + Mobx + Antd(ES6)
+
+首先，在store文件中使用fetchData，并定义好callback
+
+```js
+import { observable, computed, action, transaction, toJS } from 'mobx';
+import { autobind } from 'core-decorators';
+import { Notification } from 'vic-common/lib/components/antd/notification';
+import { fetchData } from 'vic-common/lib/common/fetchConfig';
+
+export default class ModelStore {
+
+  @observable list = null;
+  @observable status = false;
+  
+  @autobind
+  @action
+  getData(params) {
+    return fetchData(`http://www.demo.com/getApi`, result => {
+      transaction(() => {
+        if (result.success) {
+          this.list = result.data;
+          this.status = true;
+        } else {
+          this.list = [];
+          this.status = false;
+        }
+      });
+    },params,{ method: 'post' }).catch((ex) => {
+      Notification.error({ description: '获取数据接口出错，错误是:' + ex, duration: null });
+    });
+  }
+}
+```
+
+然后，在业务页面中使用
+
+```js
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+import { registerTmpl } from 'nornj-react';
+import styles from './modelList.m.less';
+import tmpls from './modelList.t.html';
+import ModelStore from '../../stores/ModelStore';
+const modelStore = new ModelStore();
+
+@observer
+@registerTmpl('Container')
+class Container extends Component {
+  componentDidMount() {
+    const params = { foo: 'sun', bar: 'moon' };
+    modelStore.getData(params);
+  }
+
+  render() {
+    return this.props.tmpls[0](this, {
+      styles,
+      modelStore
+    });
+  }
+}
 ```
 
 <p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
