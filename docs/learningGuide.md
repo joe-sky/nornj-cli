@@ -29,13 +29,13 @@
 
 * [React](#react)
 * [Mobx](#mobx)
-* [Ant Design](#ant-design)
-* [CSS Modules](#css-modules)
 * [NornJ](#nornj)
+* [CSS Modules](#css-modules)
+* [Ant Design](#ant-design)
 * [Echarts](#echarts)
-* [Font Awesome](#font-awesome)
 * [FlareJ](#flarej)
 * [vic-common](#vic-common)
+* [Font Awesome](#font-awesome)
 
 #### React
 
@@ -56,11 +56,12 @@
 * [Mobx-state-tree 文档](https://github.com/mobxjs/mobx-state-tree)
 * [Mobx-state-tree 文档(v0.9.5)](https://github.com/mobxjs/mobx-state-tree/tree/0.9.5)
 
-#### Ant Design
+#### NornJ
 
-`Ant Design`是蚂蚁金服开发的基于`React`的开源ui组件库，提供了几十个可直接使用的高质量组件。
+`NornJ`是可同时支持渲染字符串和`React`组件的前端模板引擎，可覆盖很多`JSX`做不到的使用场景，也可配合`JSX`使用。
 
-* [Ant Design 官方文档](https://ant.design/docs/react/introduce-cn)
+* [github地址](https://github.com/joe-sky/nornj)
+* [NornJ中文指南](https://joe-sky.gitbooks.io/nornj-guide)
 
 #### CSS Modules
 
@@ -68,23 +69,17 @@
 
 * [CSS Modules 用法教程](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)
 
-#### NornJ
+#### Ant Design
 
-`NornJ`是可同时支持渲染字符串和`React`组件的模板引擎，可覆盖各种使用场景，可视作是`JSX`的超集。
+`Ant Design`是蚂蚁金服开发的基于`React`的开源ui组件库，提供了几十个可直接使用的高质量组件。
 
-* [github文档](https://github.com/joe-sky/nornj)
+* [Ant Design 官方文档](https://ant.design/docs/react/introduce-cn)
 
 #### Echarts
 
 `Echarts`是百度开发的前端图表库。
 
 * [Echarts 官方文档](http://echarts.baidu.com/index.html)
-
-#### Font Awesome
-
-`Font Awesome`是流行的字体图标库。
-
-* [官方文档](http://fontawesome.io/icons/)
 
 #### FlareJ
 
@@ -95,6 +90,12 @@
 #### vic-common
 
 `vic-common`是自主研发的基于React的内部组件库，需要通过npm私服获取。
+
+#### Font Awesome
+
+`Font Awesome`是流行的字体图标库。
+
+* [官方文档](http://fontawesome.io/icons/)
 
 ### 一些常用工具
 
