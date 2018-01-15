@@ -1,24 +1,27 @@
 # 使用Echarts图表组件
 
-`Echarts`是常用的开源图表库之一。[FlareJ](https://github.com/joe-sky/flarej)库将`Echarts`与`NornJ`模板结合，使开发者可以分模块引用，并在`NornJ`模板中使用图表
+`Echarts`是常用的开源图表库之一。[FlareJ](https://github.com/joe-sky/flarej)库将`Echarts`与`NornJ`模板结合，可以以分模块引用的方式在`NornJ`模板中使用`Echarts`图表。
 
 ## 使用方法
 
-1. 在JSX中按"flarej/lib/components/ECharts/组件名"引入组件：
+1. 在js中按`flarej/lib/components/ECharts/图表组件名`引入组件：
+
 ```js
 import { Component } from 'react';
 import { registerTmpl } from 'nornj-react';
-import 'flarej/lib/components/ECharts/lineChart'; // 引入Echarts组件
-import styles from './demo.scss';
+import BarChart from 'flarej/lib/components/ECharts/barChart';  //引入Echarts组件
+import styles from './demo.m.scss';
 import templates from './demo.t.html';
 ```
 
-2. 配置echarts参数
+2. 配置echarts参数：
+
 ```js
 export default class Demo extends Component {
   constructor(props) {
     super(props);
-	this.state = {
+
+	  this.state = {
 	    option: {  //配置项，具体参考echarts图表的option如何配置
 	      grid: {
 	        y: 20,
@@ -40,40 +43,54 @@ export default class Demo extends Component {
   }
 }
 ```
-3. 在`NornJ`模板中用"ec-*"作为组件名使用即可。各图表的用法请参考Echarts官网
-```js
+
+3. 在`NornJ`模板中用`ec-*`作为组件名使用即可。各图表的用法请参考[Echarts官网](http://echarts.baidu.com/index.html)。
+
+```html
 <template name="demoTable">
-    <ec-BarChart {option} {data} />
+  <ec-BarChart width={500} height={300} {option} {data} />
 </template>
 ```
 
-也可以直接在JSX中使用`NornJ`模板
+* 也可以直接在js文件中使用`NornJ`模板，效果和写在`*.t.html`中相同：
+
 ```js
-render() {
+export default class Demo extends Component {
+  ...
+
+  render() {
     return nj`
-      <ec-BarChart {option} {data} />
-    `(this.state);
+      <ec-BarChart width=${500} height=${300} {option} {data} />
+    `(this.state, this.props, this, {
+      styles
+    });
   }
+}
 ```
 
-和Echarts官网用法不同之处
-* 组件名前需要加"ec-"
-* 组件的传参使用`NornJ`模板语法
-* series参数通过data属性传值
+* 和`Echarts`官方用法的不同之处：
 
+在官方用法中，图表的`option`参数中须要包含`series`参数；而使用`ec-*`组件时需要将`series`参数单独作为`data`属性传入图表组件中。
 
 ## 可能会遇到的问题
-1. 项目中需要插件类图表，比如liquidFill、wordCloud
-`FlareJ`将echarts及其相关的库以devDependencies的方式安装的，nornj-cli生成的package.json中可以看到dependencies中只有echarts, 因此需要自己手动安装引用相关js库
+
+1. 项目中需要插件类图表(比如`liquidFill`、`wordCloud`)时，需要在自己的项目中手动安装相关的依赖包。
+
+package.json：
+
 ```js
-    "echarts-liquidfill": "^1.0.3",
-    "echarts-wordcloud": "^1.0.3",
+"echarts-liquidfill": "^1.0.3",
+"echarts-wordcloud": "^1.0.3",
 ```
 
-2. 如果发现某些功能不生效，可能需要从echarts库引入相关js，比如markArea
+2. 如果发现某些功能不生效，可能需要从`echarts`库引入相关js，比如markArea：
+
 ```js
 import 'echarts/lib/component/markArea';
 ```
-3. 如果需要在一个图表上既有折线又有柱状图，该用什么组件？用`<ec-LineChart />`或`<ec-BarChart>`都是可以的。只要data数据配置相应的type值即可。
+
+3. 如果需要在一个图表上既有折线又有柱状图，该用什么组件？
+
+用`<ec-LineChart />`或`<ec-BarChart>`都是可以的，只要`data`属性数据配置相应的`type`值即可。
 
 <p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>

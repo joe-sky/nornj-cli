@@ -34,7 +34,6 @@
 * [Ant Design](#ant-design)
 * [Echarts](#echarts)
 * [FlareJ](#flarej)
-* [vic-common](#vic-common)
 * [Font Awesome](#font-awesome)
 
 #### React
@@ -83,13 +82,9 @@
 
 #### FlareJ
 
-`FlareJ`是自主研发的基于React的开源组件库。
+`FlareJ`是一个基于`React`和`NornJ`的开源组件库，包含一些易于配合`NornJ`使用的常用组件。
 
 * [github文档](https://github.com/joe-sky/flarej)
-
-#### vic-common
-
-`vic-common`是自主研发的基于React的内部组件库，需要通过npm私服获取。
 
 #### Font Awesome
 
