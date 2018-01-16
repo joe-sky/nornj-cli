@@ -73,7 +73,7 @@ export default class Demo extends Component {
 
 1. 如果`Ant Design`的版本升级后增加了一个新组件`NewComponent`，`FlareJ`中还没有封装时该怎么做？
 
-如下，可以在自己的项目里，使用`Ant Design`官方的方式引入`NewComponent`组件，并将它按以下这种方式置入模板中(具体方法请查看[NornJ文档](https://joe-sky.gitbooks.io/nornj-guide/api/renderReact.html#%E7%9B%B4%E6%8E%A5%E5%9C%A8%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BC%A0%E5%85%A5react%E7%BB%84%E4%BB%B6))：
+如下，可以在自己的项目里，使用`Ant Design`官方的方式引入`NewComponent`组件，并将它按以下这种方式置入模板中(具体方法请查看[NornJ官方文档](https://joe-sky.gitbooks.io/nornj-guide/api/renderReact.html#%E7%9B%B4%E6%8E%A5%E5%9C%A8%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BC%A0%E5%85%A5react%E7%BB%84%E4%BB%B6))：
 
 ```js
 import { NewComponent } from 'antd';
@@ -93,7 +93,7 @@ export default class Demo extends Component {
 
 2. `ReactNode`类型的参数如何在`NornJ`模板中使用？
 
-可以将这个`ReactNode`对象放入组件的`<@param>`子标签内，详见[NornJ文档](https://joe-sky.gitbooks.io/nornj-guide/templateSyntax/built-inExtensionTag.html#props%E4%B8%8Eprop)，示例如下：
+可以将这个`ReactNode`对象放入组件的`<@param>`子标签内，详见[NornJ官方文档](https://joe-sky.gitbooks.io/nornj-guide/templateSyntax/built-inExtensionTag.html#props%E4%B8%8Eprop)，示例如下：
 
 ```html
 <ant-Modal width={960}
@@ -109,4 +109,5 @@ export default class Demo extends Component {
 </ant-Modal>
 ```
 
-<p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
+<p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
+<p align="right"><a href="echarts.md"><b>使用Echarts图表组件</b></a> →</p>

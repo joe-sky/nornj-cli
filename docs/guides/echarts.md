@@ -93,4 +93,4 @@ import 'echarts/lib/component/markArea';
 
 用`<ec-LineChart />`或`<ec-BarChart>`都是可以的，只要`data`属性数据配置相应的`type`值即可。
 
-<p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
+<p align="left">← <a href="overview.md"><b>返回总览</b></a></p>

@@ -1,5 +1,7 @@
 ## React + Mobx + NornJ相关技术学习资料
 
+`React + Mobx + NornJ`开发模式快速上手教程[请点这里](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)。
+
 ### 开发环境
 
 本脚手架基于`ES6+`环境，并使用`Webpack`进行打包。

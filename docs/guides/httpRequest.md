@@ -1,4 +1,4 @@
-# 请求服务端数据
+# 使用fetch请求服务端数据
 
 推荐使用`fetch API`来请求后端数据，[FlareJ](https://github.com/joe-sky/flarej)库提供了一个`fetchData`方法，将`fetch`做了下简单封装。
 
@@ -156,4 +156,5 @@ export default class Page1_1 extends Component {
 }
 ```
 
-<p align="left">← <a href="https://github.com/joe-sky/nornj-cli/blob/master/docs/overview.md"><b>返回总览</b></a></p>
+<p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
+<p align="right"><a href="antDesign.md"><b>使用Ant Design组件</b></a> →</p>
