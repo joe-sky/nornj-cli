@@ -1,4 +1,4 @@
-## 相关技术学习资料
+## React + Mobx + NornJ相关技术学习资料
 
 ### 开发环境
 
@@ -82,7 +82,7 @@
 
 #### FlareJ
 
-`FlareJ`是一个基于`React`和`NornJ`的开源组件库，包含一些易于配合`NornJ`使用的常用组件。
+`FlareJ`是一个基于`React`和`NornJ`的UI组件库，包含一些易于配合`NornJ`使用的常用组件。
 
 * [github文档](https://github.com/joe-sky/flarej)
 

@@ -1,241 +1,158 @@
 # 请求服务端数据
 
-默认通过fetchData方法，实现和服务端的通讯。前后端通过JSON来交流。
-> 可以替换成任意方式的异步请求方法或库。
+推荐使用`fetch API`来请求后端数据，[FlareJ](https://github.com/joe-sky/flarej)库提供了一个`fetchData`方法，将`fetch`做了下简单封装。
 
-## Introduction
+> 用户可根据自身需求，将`FlareJ`的`fetchData`方法替换成任意方式的异步请求方法或库，如`axios`。
 
-fetchData底层依赖`fetch`，并对其进行了封装，实现了参数可配置、异常处理、支持`Callback`等功能。
+## 使用方法
 
-* 核心功能
-
-```js
-function fetchData(url, callback, params, cfgs) {
-  var configs = babelHelpers.extends({
-    method: 'get',
-    credentials: 'include',
-    mode: 'cors',
-    cache: 'reload'
-  }, cfgs);
-
-  configs.method = configs.method.toLowerCase();
-  if (params) {
-    if (configs.method === 'get' || configs.method === 'delete') {
-      url += '?' + _querystring2.default.encode(params);
-    } else if (configs.method === 'post' || configs.method === 'put') {
-      configs.headers = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      };
-      configs.body = JSON.stringify(params);
-    }
-  }
-
-  return fetch(url, customHeaders(configs)).then(handleErrors).then(function (response) {
-    return response.json();
-  }).then(callback);
-}
-```
-
-* 异常处理
+* 引入`fetchData`并调用：
 
 ```js
-function handleErrors(response) {
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-  return response;
-}
+import { fetchData } from 'flarej/lib/utils/fetchConfig';
 
-```
-
-## Example
-
-* send a `get` request (ES6)
-
-`get`是默认的传输方式，所以fetchData方法的最后参数无需指定。
-
-```js
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
-
-export default class Demo {
-
-  list = null;
-
-  getData() {
-    return fetchData(`http://www.demo.com/getApi`, result => {
-      transaction(() => {
-        if (result.success) {
-          this.list = result.data;
-        } else {
-          this.list = [];
-        }
-      });
-    }).catch((ex) => {
-      console.log('获取数据接口出错，错误是:' + ex);
-    });
-  }
-
-}
-
-const demo = new Demo;
-demo.getData();
-```
-
-* send a `post` request (ES6)
-
-`post`不是默认的传输方式，所以需要在fetchData方法的最后参数中指定。
-
-```js
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
-
-export default class Demo {
-
-  list = null;
-
-  getData() {
-    return fetchData(`http://www.demo.com/getApi`, result => {
-      transaction(() => {
-        if (result.success) {
-          this.list = result.data;
-        } else {
-          this.list = [];
-        }
-      });
-    },{},{ method: 'post' }).catch((ex) => {
-      console.log('获取数据接口出错，错误是:' + ex);
-    });
-  }
-
-}
-
-const demo = new Demo;
-demo.getData();
-```
-
-## Parameters
-
-fetchData方法接受四个参数：url, callback, params, cfgs
-
-* url(必填)
-```
-请求的地址。可以是绝对路径，也可以是相对路径。
-例：
-http://www.site.com/api
-/api/getData
-...
-```
-* callback(可选)
-```
-请求返回后执行。
-例：
-fetchData(`http://www.demo.com/getApi`, result => {
-  this.list = result.success ? result.data : [];
-  //....
+fetchData(`http://www.google.com/searchModelPageList`, result => {
+  ...
 });
 ```
-* params(可选)
+
+* `fetchData`方法的返回值为`Promise`，可用`then`继续添加回调函数：
+
+```js
+fetchData(`http://www.google.com/searchModelPageList`, result => {
+  return 'success';
+}).then(ret => {
+  console.log(ret);  //输出"success"
+});
 ```
-请求需要的参数。
-入参会根据请求的方式（如post或get等）自动做处理。
-例1：
-{ foo:1, bar:'2018-1-12' }
-例2：
-const params = 'a,b,c,1';
+
+## 参数
+
+`fetchData`方法接受四个参数，依次为：`url`, `callback`, `params`, `configs`。
+
+* url(必填)
+
+`fetch`请求的地址。
+
+* callback(可选)
+
+发送`fetch`请求后的回调函数，后端返回结果(数据格式默认为JSON)会放在回调函数的`result`参数中，例：
+
+```js
 fetchData(`http://www.demo.com/getApi`, result => {
   this.list = result.success ? result.data : [];
-  //....
-},{params});
-...
+  ...
+});
 ```
-* cfgs(可选)
+
+* params(可选)
+
+`fetch`请求需要传入的参数，格式为对象，例：
+
+```js
+fetchData(`http://www.demo.com/getApi`, result => {
+  this.list = result.success ? result.data : [];
+  ...
+}, { foo:1, bar:'2018-1-12' });
 ```
-请求需要的一些配置。
+
+* configs(可选)
+
+`fetch`请求需要的一些配置，例：
+
+```js
+fetchData(`http://www.demo.com/getApi`, result => {
+  this.list = result.success ? result.data : [];
+  ...
+}, { foo:1, bar:'2018-1-12' }, { method: 'post' });
+```
+
 如果未传，则默认配置为：
+
+```js
 {
   method: 'get',
   credentials: 'include',
   mode: 'cors',
   cache: 'reload'
 }
-可以重置这些配置，适应不同的项目需求。
-例：
-{ method: 'post' }
 ```
 
-## Usage
+## 在react-mst项目模板中的使用方式
 
-* base：引入fetchData并在js中使用(ES6)
-
-```js
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
-
-fetchData(`http://www.google.com/searchModelPageList`, result => {
-  this.list = result.success ? result.data : [];
-  //...
-});
-```
-
-* send a request in React + Mobx + Antd(ES6)
-
-首先，在store文件中使用fetchData，并定义好callback
+1. 在store文件中引入并使用`fetchData`：
 
 ```js
-import { observable, computed, action, transaction, toJS } from 'mobx';
-import { autobind } from 'core-decorators';
-import { Notification } from 'vic-common/lib/components/antd/notification';
-import { fetchData } from 'vic-common/lib/common/fetchConfig';
+import { types } from "mobx-state-tree";
+import { observable, toJS } from 'mobx';
+import { fetchData } from 'flarej/lib/utils/fetchConfig';
+import Notification from '../../utils/notification';
 
-export default class ModelStore {
+...
+.actions(self => {
+  return {
+    ...
 
-  @observable list = null;
-  @observable status = false;
-  
-  @autobind
-  @action
-  getData(params) {
-    return fetchData(`http://www.demo.com/getApi`, result => {
-      transaction(() => {
-        if (result.success) {
-          this.list = result.data;
-          this.status = true;
-        } else {
-          this.list = [];
-          this.status = false;
-        }
+    initTree() {
+      self.expandedKeys = self.getExpandedKeys(toJS(self.menuData));
+      self.checkedKeys = self.getDefaultCheckedKeys();
+    },
+
+    getData(params) {
+      return fetchData(`${__HOST}/page1_1/getRoleMenuTree`,
+        self.setRoleMenuTree,
+        params, { method: 'get' }).catch((ex) => {
+        Notification.error({
+          description: '获取角色权限数据异常:' + ex,
+          duration: null
+        });
       });
-    },params,{ method: 'post' }).catch((ex) => {
-      Notification.error({ description: '获取数据接口出错，错误是:' + ex, duration: null });
-    });
+    },
+
+    setRoleMenuTree(result) {
+      if (result.success) {
+        self.menuData = result.data;
+      } else {
+        Notification.error({
+          description: '获取角色权限数据错误:' + result.message,
+          duration: null
+        });
+      }
+    }
   }
-}
+})
 ```
 
-然后，在业务页面中使用
+2. 在业务页面的js文件中使用：
 
 ```js
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { observable, computed, toJS } from 'mobx';
+import { observer, inject } from 'mobx-react';
+import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
-import styles from './modelList.m.less';
-import tmpls from './modelList.t.html';
-import ModelStore from '../../stores/ModelStore';
-const modelStore = new ModelStore();
+import { autobind } from 'core-decorators';
+...
 
+@registerTmpl('Page1_1')
+@inject('store')
 @observer
-@registerTmpl('Container')
-class Container extends Component {
-  componentDidMount() {
-    const params = { foo: 'sun', bar: 'moon' };
-    modelStore.getData(params);
-  }
+export default class Page1_1 extends Component {
+  ...
 
-  render() {
-    return this.props.tmpls[0](this, {
-      styles,
-      modelStore
+  componentDidMount() {
+    const { store: { page1_1 } } = this.props;
+
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    Promise.all([
+      ...
+      page1_1.getRoleMenuTree().then(() => page1_1.initTree())
+    ]).then(() => {
+      closeLoading();
     });
   }
+
+  ...
 }
 ```
 
