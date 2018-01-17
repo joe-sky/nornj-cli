@@ -29,9 +29,13 @@
   font-weight: normal;
 }
 
+.links {
+  color: blue;
+}
+
 :global {
-  .links {
-    color: blue;
+  .links-g {
+    color: yellow;
   }
 }
 ```
@@ -41,6 +45,33 @@
 关于更多`css modules`语法及特性可[参考这篇文章](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)。
 
 ## 将css modules样式放入nj模板中运行
+
+1. 在组件或页面的js文件中引入`*.m.scss`文件并传入`nj`模板中：
+
+```js
+import styles from './helloWorld.m.scss';
+
+@registerTmpl('HelloWorld')
+@observer
+export default class HelloWorld extends Component {
+  render() {
+    return tmpls.helloWorld({
+      msg: 'Hello world !',
+      styles  //传入nj模板中
+    });
+  }
+}
+```
+
+2. 在`*.t.html`模板中用{styles.x}语法使用`*.m.scss`内相应的类名即可：
+
+```html
+<template name="helloWorld">
+  <div class={styles.hello}>
+    <h1 class="{styles.links} links-g">{msg}</h1>
+  </div>
+</template>
+```
 
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
 <p align="right"><a href="mobx.md"><b>使用Mobx管理React组件状态</b></a> →</p>

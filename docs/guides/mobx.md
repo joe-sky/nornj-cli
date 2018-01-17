@@ -6,6 +6,8 @@
 
 ## 使用@observable装饰器创建可观察对象
 
+`Mobx`为React开发提供的最核心的部分就是`observable`变量
+
 ## 在React组件内部使用@observable
 
 ## 使用Mobx-state-tree构建store

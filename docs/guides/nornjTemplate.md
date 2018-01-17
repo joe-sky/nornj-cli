@@ -282,5 +282,23 @@ nj`
 </${Button}>`;
 ```
 
+## 使用@registerTmpl装饰器注册nj模板
+
+上例中的HelloWorld组件如果需要在其他`nj`模板中调用，那么就可以添加@registerTmpl(具体请参考[NornJ官方文档](https://joe-sky.gitbooks.io/nornj-guide/api/renderReact.html#registertmpl))来进行注册，效果与使用`nj.registerComponent`相同：
+
+```js
+import { registerTmpl } from 'nornj-react';
+import tmpls from './helloWorld.t.html';
+
+@registerTmpl('HelloWorld')
+export default class HelloWorld extends Component {
+  render() {
+    return tmpls.helloWorld(
+      ...
+    );
+  }
+}
+```
+
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
 <p align="right"><a href="cssModules.md"><b>使用css modules开发局部样式</b></a> →</p>
