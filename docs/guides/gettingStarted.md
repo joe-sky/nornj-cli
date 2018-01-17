@@ -157,4 +157,4 @@ npm run dev-web
 至此，我们已创建好了一个基于`React + Mobx + NornJ`的前端项目，下一步我们将逐个为项目中使用的技术做一个详实的介绍。
 
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
-<p align="right"><a href="nornjTemplate.md"><b>NornJ前端模板</b></a> →</p>
+<p align="right"><a href="nornjTemplate.md"><b>在React开发中使用NornJ前端模板</b></a> →</p>

@@ -1,10 +1,10 @@
-# NornJ前端模板
+# 在React开发中使用NornJ前端模板
 
 `NornJ`模板引擎(以下简称`nj`)在React开发中是`JSX`的一个很好的替代或辅助工具，本节我们将介绍一下`NornJ`模板结合React的使用方法。
 
 ## nj与JSX使用场景的区别
 
-每个`React`组件都须要在render返回组件的标签代码，如在`HelloWorld`组件中渲染一个下拉框，用`JSX`和`nj`的语法分别实现：
+每个React组件都须要在render返回组件的标签代码，如在`HelloWorld`组件中渲染一个下拉框，用`JSX`和`nj`的语法分别实现：
 
 * JSX
 

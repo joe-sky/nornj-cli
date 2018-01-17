@@ -10,7 +10,7 @@
 
 * [总览](overview.md)
   * [快速起步](gettingStarted.md)
-  * [NornJ前端模板](nornjTemplate.md)
+  * [在React开发中使用NornJ前端模板](nornjTemplate.md)
   * [使用css modules开发局部样式](cssModules.md)
   * [使用Mobx管理React组件状态](mobx.md)
   * [使用fetch请求服务端数据](httpRequest.md)
