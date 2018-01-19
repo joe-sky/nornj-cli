@@ -18,9 +18,9 @@ import styles from './#{pageName}#.m.scss';
 import tmpls from './#{pageName}#.t.html';
 
 // 页面容器组件
+@registerTmpl('#{pageName | pascal}#')
 @inject('store')
 @observer
-@registerTmpl('#{pageName | pascal}#')
 export default class #{pageName | pascal}# extends Component {
 
   constructor(props) {
@@ -32,7 +32,7 @@ export default class #{pageName | pascal}# extends Component {
 
   render() {
     const { store: { #{pageName}# } } = this.props;
-    return tmpls.#{pageName}#(this.state, this.props, this, {
+    return tmpls.container(this.state, this.props, this, {
       styles,
       #{pageName}#
     });
