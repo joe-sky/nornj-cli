@@ -6,9 +6,49 @@
 
 ## 使用@observable装饰器创建可观察对象
 
-`Mobx`为React开发提供的最核心的部分就是`observable`变量
+`Mobx`为React开发提供的最核心的部分就是`observable`变量，使用它基本可以完全替代`setState`函数，用非常便捷的方式为React组件更新状态。
 
-## 在React组件内部使用@observable
+* 在React组件的class中使用observable变量更新数据
+
+1. 在helloWorld.js中定义observable变量：
+
+```js
+import { Component } from 'react';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
+import { registerTmpl } from 'nornj-react';
+import { autobind } from 'core-decorators';
+import tmpls from './helloWorld.t.html';
+import styles from './helloWorld.m.scss';
+
+@registerTmpl('HelloWorld')
+@observer  //需要为React组件observer装饰器
+export default class HelloWorld extends Component {
+  @observable msg = 'Welcome to Your React.js App';
+
+  @autobind
+  onInputChange(e) {
+    //在文本框内容变化事件中修改observable变量msg的值后，会自动触发模板中的渲染内容更新
+    this.msg = e.target.value;
+  }
+
+  render() {
+    return tmpls.helloWorld(this, {
+      styles
+    });
+  }
+}
+```
+
+2. 在helloWorld.t.html使用observable变量展示数据：
+
+```html
+<template name="helloWorld">
+  <div class={styles.hello}>
+    <input value={msg} onChange={onInputChange} />
+  </div>
+</template>
+```
 
 ## 使用Mobx-state-tree构建store
 
