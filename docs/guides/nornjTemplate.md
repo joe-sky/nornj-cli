@@ -109,9 +109,9 @@ export default class HelloWorld extends Component {
 
 ```js
 import tmpls from './helloWorld.t.html';
-
-//这里的tmpls是一个对象结构，每个在helloWorld.t.html中定义的template标签都会以其name属性为key，而在这个对象中创建一个模板函数，用tmpls.helloWorld()即可调用。
 ```
+
+这里的tmpls是一个对象结构，每个在helloWorld.t.html中定义的template标签都会以其name属性为key，而在这个对象中创建一个模板函数，用tmpls.helloWorld()即可调用。
 
 3. 调用模板函数渲染React组件：
 

@@ -17,8 +17,14 @@ npm install -g nornj-cli      # mac下需要在前面加sudo命令
 ```sh
 nj init
 
-Template Name: react-mst               # 项目模板名称
-Project Name: react-mst-test           # 新创建的项目名称
+Please select a project template:
+> react-mst  # 请选择项目模板
+  react-mobx
+  Y-Dept/template-saas
+  Y-Dept/react-mobx-ls
+  other
+
+Project Name: react-mst-test           # 输入新创建项目的目录名称
 Do you want to npm install(Y/N)?       # 选择是否安装npm包
 ```
 
@@ -105,8 +111,15 @@ npm run dev-web
 
 ```sh
 nj ap
-Page Name: newChartPage                   # 新创建的页面名称
-Do you want to generate chart page(Y/N)?  # 是否生成图表页面
+
+# 请选择要生成的页面类型
+What type of page do you want to generate ?
+  default  # 增删改查
+> chart    # 图表
+  empty    # 空页面
+
+# 输入新创建的页面名称
+Page Name: newChartPage
 ```
 
 输入`y`后，按回车键就会立即创建好一个新建的图表页面，且各子目录下的`newChartPage`文件都已创建好了：

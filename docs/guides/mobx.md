@@ -50,6 +50,8 @@ export default class HelloWorld extends Component {
 </template>
 ```
 
+## 使用@computed装饰器创建计算属性
+
 ## 使用Mobx-state-tree构建store
 
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>

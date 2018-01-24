@@ -42,6 +42,7 @@
 
 `React`是当前最流行的前端组件化框架之一，有非常丰富的社区贡献第三方工具与组件。
 
+* [React 中文文档](https://doc.react-china.org/)
 * [React 官方文档](https://facebook.github.io/react/)
 * [React 中文论坛](http://react-china.org/)
 * [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)
