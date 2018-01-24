@@ -82,7 +82,7 @@ export default class Demo extends Component {
   render() {
     return templates.demoTable({
       components: {
-        'ant-Steps': Steps
+        'ant-NewComponent': NewComponent
       }
     }, this.state, this.props, this, {
       styles
