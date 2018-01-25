@@ -102,11 +102,11 @@ export default class HelloWorld extends Component {
 
 ## 使用Mobx-state-tree构建store
 
-`mobx-state-tree`是`Mobx`的状态容易方案，它以更加规范化的语法为`React`在独立的`store`中管理状态，作用类似于`Vue`生态中的`Vuex`，非常适合大型单页web应用。
+`mobx-state-tree`是`Mobx`的状态容器方案，它以更加规范化的语法为`React`在独立的`store`中管理状态，作用类似于`Vue`生态中的`Vuex`，非常适合大型单页web应用。
 
-在`NornJ-cli`的`react-mst`模板中，我们默认使用它来创建`store`管理从后端获取的各组件数据变量，存放在独立的`store`文件目录内。
+在`NornJ-cli`的`react-mst`模板中，我们默认使用它来创建`store`管理从后端获取的各组件数据变量，存放在独立的`stores`文件目录内。
 
-### store目录结构
+### stores目录结构
 
 ```
 .
