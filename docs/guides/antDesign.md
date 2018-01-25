@@ -109,5 +109,13 @@ export default class Demo extends Component {
 </ant-Modal>
 ```
 
+3. `Mobx`的变量传给`Ant Design`组件后没按照预期展示数据
+
+此种情况通常需要使用Mobx的`toJS`方法转换数据后再传给`Ant Design`组件，`NornJ`模板中已默认集成了`toJS`方法：
+
+```html
+<ant-Table dataSource={toJS(page1.tableData)} ... />
+```
+
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
 <p align="right"><a href="echarts.md"><b>使用Echarts图表组件</b></a> →</p>

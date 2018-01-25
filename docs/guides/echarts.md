@@ -21,19 +21,19 @@ export default class Demo extends Component {
   constructor(props) {
     super(props);
 
-	  this.state = {
-	    option: {  //配置项，具体参考echarts图表的option如何配置
-	      grid: {
-	        y: 20,
-	        x: 40,
-	        y2: 25,
-	        x2: 30
-	      }
-	    },
-	    data: [  //数据，相当于series参数，具体参考echarts图表的series如何配置
-	      ...
-	    ]
-	  };
+    this.state = {
+      option: {  //配置项，具体参考echarts图表的option如何配置
+        grid: {
+          y: 20,
+          x: 40,
+          y2: 25,
+          x2: 30
+        }
+      },
+      data: [  //数据，相当于series参数，具体参考echarts图表的series如何配置
+        ...
+      ]
+    };
   }
 
   render() {
@@ -94,6 +94,14 @@ import 'echarts/lib/component/markArea';
 3. 如果需要在一个图表上既有折线又有柱状图，该用什么组件？
 
 用`<ec-LineChart />`或`<ec-BarChart>`都是可以的，只要`data`属性数据配置相应的`type`值即可。
+
+4. `Mobx`的变量传给`Echarts`组件后没按照预期展示数据
+
+此种情况通常需要使用Mobx的`toJS`方法转换数据后再传给`Echarts`组件，`NornJ`模板中已默认集成了`toJS`方法：
+
+```html
+<ec-BarChart data={toJS(page1.chartData)} ... />
+```
 
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
 <p align="right"><a href="webpackConfig.md"><b>Webpack配置文件</b></a> →</p>
