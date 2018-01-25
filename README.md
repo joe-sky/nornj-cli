@@ -84,6 +84,7 @@ nj update # 或nj up
 ### React + Mobx + 前端模板相关技术学习资料
 
 [学习资料汇总](https://github.com/joe-sky/nornj-cli/blob/master/docs/learningGuide.md)
+
 [快速上手文档](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)
 
 ## License

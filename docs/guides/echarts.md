@@ -94,3 +94,4 @@ import 'echarts/lib/component/markArea';
 用`<ec-LineChart />`或`<ec-BarChart>`都是可以的，只要`data`属性数据配置相应的`type`值即可。
 
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
+<p align="right"><a href="webpackConfig.md"><b>Webpack配置文件</b></a> →</p>

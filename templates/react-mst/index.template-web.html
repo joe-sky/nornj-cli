@@ -1,3 +1,4 @@
+<#with {{ htmlWebpackPlugin.options }}>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,12 @@
   <meta name="format-detection" content="telephone=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />-->
-  <script src="{{ htmlWebpackPlugin.options.path }}js/es6-promise.auto.min.js"></script>
+  <script src="{{ path }}js/es6-promise.auto.min.js"></script>
 </head>
 <body>
   <div id="app" style="position:relative"></div>
-  <script src="{{ htmlWebpackPlugin.options.path }}js/jquery-3.1.1.min.js"></script>
-  <script src="{{ htmlWebpackPlugin.options.path }}js/babelHelpers.min.js"></script>
+  <script src="{{ path }}js/jquery-3.1.1.min.js"></script>
+  <script src="{{ path }}js/babelHelpers.min.js"></script>
 </body>
 </html>
+</#with>
