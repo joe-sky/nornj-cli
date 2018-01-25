@@ -147,6 +147,7 @@ import Page2Store from "./pages/page2Store";
 
 const RootStore = types.model("RootStore", {
   common: types.optional(CommonStore, {}),
+  page1: types.optional(Page1Store, {}),
   ...
 });
 
@@ -164,19 +165,150 @@ import { types } from "mobx-state-tree";
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../../utils/notification';
 
-const Page1Store = types.model("Page1Store", {
-    ...
+const Page1Store = types.model("Page1Store",  //store名称
+  //此处可放置强制类型检测的observable变量
+  {  
+    isDisable: true,                                   //可直接填写简单类型值，会自动推断实际类型
+    framework: types.optional(types.string, 'React'),  //限定为string类型值，默认值用tab1
   })
+  //此处可放置不限类型的observable变量
   .volatile(self => ({
-    ...
+    tableData: [],  //通常可放置一些结构较复杂的数据类型
+    menuIds: []
   }))
-  .views(self => {
-    ...
-  })
-  .actions(self => {
-    ...
-  });
+  //此处可放置计算属性
+  .views(self => ({
+    get msg() {
+      return 'Welcome to Your ' + self.framework + '.js App';
+    }
+  }))
+  //此处可放置各action
+  .actions(self => ({
+    setFramework(v) {
+      self.framework = v;  //只有在action中才能改变store中的变量
+    },
+
+    //获取后端数据可统一都定义在store的action中
+    getTableData(params) {
+      return fetchData(`${__HOST}/page1/getTableData`,
+        self.setTableData,  //将下面定义的setTableData作为fetch的回调方法
+        params, { method: 'get' }).catch((ex) => {
+        Notification.error({
+          description: '获取表格数据异常:' + ex,
+          duration: null
+        });
+      });
+    },
+
+    setTableData(result) {
+      if (result.success) {
+        self.tableData = result.data;  //使用后端获取的数据修改store中的相应变量
+      } else {
+        Notification.error({
+          description: '获取表格数据错误:' + result.message,
+          duration: null
+        });
+      }
+    }
+  }));
 ```
+
+同`Redux`或`Vuex`比较类似，`mobx-state-tree`的store也只能在`action`中修改store中的变量。
+
+### 在各页面的React组件中使用store中的变量
+
+我们将上面使用@observable的例子改写为使用store中的数据。
+
+1. 在helloWorld.js中获取store并使用：
+
+```js
+import { observable, computed } from 'mobx';
+import { observer, inject } from 'mobx-react';
+...
+
+@registerTmpl('HelloWorld')
+@inject('store')  //通过inject注入store
+@observer
+export default class HelloWorld extends Component {
+  @autobind
+  onInputChange(e) {
+    //从组件的props中获取相应页面的store
+    const { store: { page1 } } = this.props;  
+
+    //调用store中的action修改值
+    page1.setFramework(e.target.value);
+  }
+
+  render() {
+    const { store: { page1 } } = this.props;
+
+    return tmpls.helloWorld(this, {
+      styles,
+      page1  //将页面的store传入模板中
+    });
+  }
+}
+```
+
+2. 在helloWorld.t.html使用store中的值展示数据：
+
+```html
+<template name="helloWorld">
+  <div class={styles.hello}>
+    <input value={page1.msg} onChange={onInputChange} />
+  </div>
+</template>
+```
+
+### 调用store中的action请求后端数据
+
+1. 在helloWorld.js中调用action：
+
+```js
+import Message from 'flarej/lib/components/antd/message';
+...
+
+@registerTmpl('HelloWorld')
+@inject('store')
+@observer
+export default class HelloWorld extends Component {
+  componentDidMount() {
+    const { store: { page1 } } = this.props;
+
+    //在组件初始化时请求后端数据
+    const closeLoading = Message.loading('正在获取数据...', 0);
+    page1.getTableData.then(() => {
+      closeLoading();
+    });
+  }
+
+  render() {
+    const { store: { page1 } } = this.props;
+
+    return tmpls.helloWorld(this, {
+      styles,
+      page1
+    });
+  }
+}
+```
+
+2. 在helloWorld.t.html使用store中的值展示数据：
+
+```html
+<template name="helloWorld">
+  <div class={styles.hello}>
+    <!-- 循环tr展示表格数据 -->
+    <table>
+      <#each {page1.tableData}>
+        <tr>...</tr>
+      <#each>
+    </table>
+  </div>
+</template>
+```
+
+关于`mobx-state-tree`的更多详细使用方式请查看[MST官方文档](https://github.com/mobxjs/mobx-state-tree/blob/master/README.md)。
 
 <p align="left">← <a href="overview.md"><b>返回总览</b></a></p>
 <p align="right"><a href="httpRequest.md"><b>使用fetch请求服务端数据</b></a> →</p>
