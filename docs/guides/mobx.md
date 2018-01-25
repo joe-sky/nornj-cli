@@ -22,7 +22,7 @@ import tmpls from './helloWorld.t.html';
 import styles from './helloWorld.m.scss';
 
 @registerTmpl('HelloWorld')
-@observer  //需要为React组件observer装饰器
+@observer  //需要为React组件添加observer装饰器
 export default class HelloWorld extends Component {
   @observable msg = 'Welcome to Your React.js App';
 
@@ -104,7 +104,7 @@ export default class HelloWorld extends Component {
 
 `mobx-state-tree`是`Mobx`的状态容器方案，它以更加规范化的语法为`React`在独立的`store`中管理状态，作用类似于`Vue`生态中的`Vuex`，非常适合大型单页web应用。
 
-在`NornJ-cli`的`react-mst`模板中，我们默认使用它来创建`store`管理从后端获取的各组件数据变量，存放在独立的`stores`文件目录内。
+在`NornJ-cli`的`react-mst`模板中，我们默认使用`mobx-state-tree`来创建`store`来管理从后端获取的各组件数据变量，存放在独立的`stores`文件目录内。
 
 ### stores目录结构
 
@@ -169,7 +169,7 @@ const Page1Store = types.model("Page1Store",  //store名称
   //此处可放置强制类型检测的observable变量
   {  
     isDisable: true,                                   //可直接填写简单类型值，会自动推断实际类型
-    framework: types.optional(types.string, 'React'),  //限定为string类型值，默认值用tab1
+    framework: types.optional(types.string, 'React'),  //限定为string类型值，默认值用"React"
   })
   //此处可放置不限类型的observable变量
   .volatile(self => ({

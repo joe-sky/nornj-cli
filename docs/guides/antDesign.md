@@ -1,6 +1,6 @@
 # 使用Ant Design组件
 
-`Ant Design`是基于`React`实现的一套企业级UI组件库。[FlareJ](https://github.com/joe-sky/flarej)库将`Ant Design`与`NornJ`模板结合，做了一下简单封装。
+[`Ant Design`](https://ant.design/docs/react/introduce-cn)是基于`React`实现的一套企业级UI组件库。[FlareJ](https://github.com/joe-sky/flarej)库将`Ant Design`与`NornJ`模板结合，做了一下简单封装。
 
 ## 使用方法
 

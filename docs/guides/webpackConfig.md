@@ -1,6 +1,6 @@
 # Webpack配置文件
 
-本节简介下`NornJ-cli`的`react-mst`模板中的Webpack配置文件中的各配置项，改文件存放在`/webpack.config.js`。
+本节简介下`NornJ-cli`的`react-mst`模板中的Webpack配置文件中的各配置项，该文件存放在项目根目录下的`webpack.config.js`。
 
 ## 配置nornj-loader
 
@@ -47,7 +47,7 @@ module.exports = {
 <html>
 <head>
   <title>react-mst-boilerplate</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <meta name="format-detection" content="telephone=no" />

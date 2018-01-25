@@ -1,6 +1,6 @@
 # 使用Echarts图表组件
 
-`Echarts`是常用的开源图表库之一。[FlareJ](https://github.com/joe-sky/flarej)库将`Echarts`与`NornJ`模板结合，可以以分模块引用的方式在`NornJ`模板中使用`Echarts`图表。
+[`Echarts`](http://echarts.baidu.com/index.html)是常用的开源图表库之一。[FlareJ](https://github.com/joe-sky/flarej)库将`Echarts`与`NornJ`模板结合，可以以分模块引用的方式在`NornJ`模板中使用`Echarts`图表。
 
 ## 使用方法
 
@@ -88,6 +88,8 @@ package.json：
 ```js
 import 'echarts/lib/component/markArea';
 ```
+
+更多echarts的js模块[可点这里查看](https://github.com/ecomfe/echarts/blob/master/index.js)。
 
 3. 如果需要在一个图表上既有折线又有柱状图，该用什么组件？
 
