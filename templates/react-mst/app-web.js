@@ -28,7 +28,6 @@ import { observer, Provider, inject } from 'mobx-react';
 import routes from './routes-web';
 import './src/web/css/app.scss'
 import RootStore from './src/stores/rootStore';
-import 'vic-common/resources/styles/base.less';
 import { onSnapshot } from "mobx-state-tree";
 import moment from 'moment';
 import 'moment/locale/zh-cn';

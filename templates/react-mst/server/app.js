@@ -26,11 +26,11 @@ app.all('*', function(req, res, next) {
   else next();
 });
 
-const page1_1 = require('./routes/page1_1');
-app.use('/page1_1', page1_1);
+const page1 = require('./routes/page1');
+app.use('/page1', page1);
 
-const page1_2 = require('./routes/page1_2');
-app.use('/page1_2', page1_2);
+const page2 = require('./routes/page2');
+app.use('/page2', page2);
 
 //{pages}//
 

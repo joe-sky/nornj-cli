@@ -17,14 +17,14 @@ import Tree from 'flarej/lib/components/antd/tree';
 import Input from 'flarej/lib/components/antd/input';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from '../../../utils/notification';
-import styles from './page1_1.m.scss';
-import tmpls from './page1_1.t.html';
+import styles from './page1.m.scss';
+import tmpls from './page1.t.html';
 
 //页面容器组件
-@registerTmpl('Page1_1')
+@registerTmpl('Page1')
 @inject('store')
 @observer
-export default class Page1_1 extends Component {
+export default class Page1 extends Component {
   @observable detailModalVisible = false;
   @observable inputRole = '';
   @observable detailData = [];
@@ -32,12 +32,12 @@ export default class Page1_1 extends Component {
   @observable selectedRows = [];
 
   componentDidMount() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
 
     const closeLoading = Message.loading('正在获取数据...', 0);
     Promise.all([
-      page1_1.getRoleManagementData(),
-      page1_1.getRoleMenuTree().then(() => page1_1.initTree())
+      page1.getRoleManagementData(),
+      page1.getRoleMenuTree().then(() => page1.initTree())
     ]).then(() => {
       closeLoading()
     });
@@ -53,30 +53,30 @@ export default class Page1_1 extends Component {
     if (this.inputRole == '') {
       const closeLoading = Message.loading('正在获取数据...', 0);
       Promise.all([
-        this.props.store.page1_1.getRoleManagementData(),
+        this.props.store.page1.getRoleManagementData(),
       ]).then(() => {
         closeLoading()
       });
     } else {
-      const { store: { page1_1 } } = this.props;
-      const searchRole = page1_1.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1)
-      page1_1.setTableData(searchRole);
+      const { store: { page1 } } = this.props;
+      const searchRole = page1.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1)
+      page1.setTableData(searchRole);
     }
   }
 
   @autobind
   onAddRole() {
-    const { store: { page1_1 } } = this.props;
-    page1_1.setAddModalVisible(true);
-    page1_1.setDisable(true);
-    page1_1.setActiveKey('tab1');
-    page1_1.setAddInputRole('');
-    page1_1.setAddInputDes('');
+    const { store: { page1 } } = this.props;
+    page1.setAddModalVisible(true);
+    page1.setDisable(true);
+    page1.setActiveKey('tab1');
+    page1.setAddInputRole('');
+    page1.setAddInputDes('');
   }
 
   @autobind
   onDeleteRole() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
     if (this.selectedRowKeys.length == 0) {
       Notification.error({ description: '请勾选要删除的角色！', duration: 3 });
     } else {
@@ -87,9 +87,9 @@ export default class Page1_1 extends Component {
           const roleId = this.selectedRows.map((item) => item.roleId);
 
           Promise.all([
-            page1_1.deleteRole({ roleId: roleId })
+            page1.deleteRole({ roleId: roleId })
           ]).then(() => {
-            page1_1.getRoleManagementData();
+            page1.getRoleManagementData();
           }).then(() => {
             this.selectedRowKeys = [];
             closeLoading();
@@ -129,18 +129,18 @@ export default class Page1_1 extends Component {
 
   @autobind
   onEdit(record, index) {
-    const { store: { page1_1 } } = this.props;
-    page1_1.setEditModalVisible(true);
-    page1_1.setSaveBtnDisabled(true);
-    page1_1.setActiveKey('tab1');
-    page1_1.setAddInputRole(record.name);
-    page1_1.setAddInputDes(record.describe);
-    page1_1.setRoleId(record.roleId);
-    page1_1.setDisable(false);
+    const { store: { page1 } } = this.props;
+    page1.setEditModalVisible(true);
+    page1.setSaveBtnDisabled(true);
+    page1.setActiveKey('tab1');
+    page1.setAddInputRole(record.name);
+    page1.setAddInputDes(record.describe);
+    page1.setRoleId(record.roleId);
+    page1.setDisable(false);
 
     const closeLoading = Message.loading('正在获取数据...', 0);
     Promise.all([
-      page1_1.getRoleMenuTree({ roleId: record.roleId }).then(() => page1_1.initTree()),
+      page1.getRoleMenuTree({ roleId: record.roleId }).then(() => page1.initTree()),
     ]).then(() => {
       closeLoading()
     });
@@ -148,9 +148,9 @@ export default class Page1_1 extends Component {
 
   @autobind
   onDetail(record, index) {
-    const { store: { page1_1 } } = this.props;
-    page1_1.setDetailModalVisible(true);
-    page1_1.setDetailData(record.users);
+    const { store: { page1 } } = this.props;
+    page1.setDetailModalVisible(true);
+    page1.setDetailData(record.users);
   }
 
   getRowSelection() {
@@ -164,17 +164,17 @@ export default class Page1_1 extends Component {
   }
 
   render() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
     return tmpls.container(this.props, this, {
       styles,
-      page1_1,
-      tableData: toJS(page1_1.tableData),
+      page1,
+      tableData: toJS(page1.tableData),
       rowSelection: this.getRowSelection(),
     });
   }
 }
 
-@registerTmpl('ModalForm1-1')
+@registerTmpl('ModalFormPage1')
 @inject('store')
 @observer
 class ModalForm extends Component {
@@ -187,7 +187,7 @@ class ModalForm extends Component {
 
   getDefaultCheckedKeys() {
     let keys = [];
-    this.props.store.page1_1.menuData.filter(n => n.level == 3)
+    this.props.store.page1.menuData.filter(n => n.level == 3)
       .forEach(item => {
         if (item.selected) {
           keys.push(item.id.toString());
@@ -198,7 +198,7 @@ class ModalForm extends Component {
 
   //获取选中的 checkbox 包含父级未选中状态
   getAllCheckedKeys(key) {
-    const _map = toJS(this.props.store.page1_1.authTreeDataMap);
+    const _map = toJS(this.props.store.page1.authTreeDataMap);
     if (key.length > 1) {
       let pids = key.map(item => { return _map[item].pids })
       return Array.from(new Set([].concat(...pids)));
@@ -209,73 +209,73 @@ class ModalForm extends Component {
 
   @autobind
   onExpand(expandedKeys) {
-    const { store: { page1_1 } } = this.props;
-    page1_1.setExpandedKeys(expandedKeys);
+    const { store: { page1 } } = this.props;
+    page1.setExpandedKeys(expandedKeys);
     this.autoExpandParent = true;
   }
 
   @autobind
   onCheck(checkedKeys) {
-    const { store: { page1_1 } } = this.props;
-    page1_1.setSaveBtnDisabled(false);
-    page1_1.setCheckedKeys(checkedKeys);
+    const { store: { page1 } } = this.props;
+    page1.setSaveBtnDisabled(false);
+    page1.setCheckedKeys(checkedKeys);
 
     if (checkedKeys.length == 0) {
-      page1_1.setMenuIds([]);
+      page1.setMenuIds([]);
     } else {
       let allChecked = Array.from(new Set(this.getAllCheckedKeys(checkedKeys).concat(checkedKeys)));
-      page1_1.setMenuIds(allChecked);
+      page1.setMenuIds(allChecked);
     }
   }
 
   @autobind
   onAddModalCancel() {
     if (this.props.tabName == '增加角色') {
-      this.props.store.page1_1.setAddModalVisible(false);
+      this.props.store.page1.setAddModalVisible(false);
     }
     else {
-      this.props.store.page1_1.setEditModalVisible(false);
+      this.props.store.page1.setEditModalVisible(false);
     }
-    this.props.store.page1_1.setSaveBtnDisabled(false);
+    this.props.store.page1.setSaveBtnDisabled(false);
   }
 
   @autobind
   onTabChange(key) {
-    this.props.store.page1_1.setActiveKey(key);
+    this.props.store.page1.setActiveKey(key);
   }
 
   @autobind
   onAddInputRoleChange(e) {
-    this.props.store.page1_1.setAddInputRole(e.target.value);
+    this.props.store.page1.setAddInputRole(e.target.value);
   }
 
   @autobind
   onAddInputDesChange(e) {
-    this.props.store.page1_1.setAddInputDes(e.target.value);
+    this.props.store.page1.setAddInputDes(e.target.value);
   }
 
   @autobind
   onAddSaveRole() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
 
-    if (page1_1.addInputRole.trim() == '') {
+    if (page1.addInputRole.trim() == '') {
       Notification.error({ description: '请输入角色名称！', duration: 1 });
     } else {
       const closeLoading = Message.loading('正在获取数据...', 0);
       let params = {
-        roleName: page1_1.addInputRole,
-        roleDescribe: page1_1.addInputDes
+        roleName: page1.addInputRole,
+        roleDescribe: page1.addInputDes
       }
-      if (this.props.tabName == '编辑角色' && page1_1.roleId != null) {
-        params.roleId = page1_1.roleId;
+      if (this.props.tabName == '编辑角色' && page1.roleId != null) {
+        params.roleId = page1.roleId;
       }
 
       Promise.all([
-        page1_1.saveRole(params)
+        page1.saveRole(params)
       ]).then(() => {
-        page1_1.getRoleManagementData();
+        page1.getRoleManagementData();
       }).then(() => {
-        page1_1.setActiveKey('tab2');
+        page1.setActiveKey('tab2');
         closeLoading();
       });
     }
@@ -283,36 +283,36 @@ class ModalForm extends Component {
 
   @autobind
   onAddCancel() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
     if (this.props.tabName == '增加角色') {
-      page1_1.setAddModalVisible(false);
+      page1.setAddModalVisible(false);
     } else {
-      page1_1.setEditModalVisible(false);
+      page1.setEditModalVisible(false);
     }
   }
 
   @autobind
   onSavePermission() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
 
     if (this.props.tabName == '增加角色') {
-      console.log(page1_1.menuIds);
-      page1_1.saveRolePermission({
-        roleId: page1_1.addRoleId,
-        menuIds: page1_1.menuIds
-      }).then(() => page1_1.setAddModalVisible(false));
+      console.log(page1.menuIds);
+      page1.saveRolePermission({
+        roleId: page1.addRoleId,
+        menuIds: page1.menuIds
+      }).then(() => page1.setAddModalVisible(false));
     } else {
-      page1_1.saveRolePermission({
-        roleId: page1_1.roleId,
-        menuIds: page1_1.menuIds
-      }).then(() => page1_1.setEditModalVisible(false));
+      page1.saveRolePermission({
+        roleId: page1.roleId,
+        menuIds: page1.menuIds
+      }).then(() => page1.setEditModalVisible(false));
     }
   }
 
   disabledTreeNodes = ['权限管理', '角色管理'];
 
   render() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
     const TreeNode = Tree.TreeNode;
     let level = 1;
     const loop = data => data.map((item) => {
@@ -334,21 +334,21 @@ class ModalForm extends Component {
     return tmpls.modalForm({
       components: { 'ant-TextArea': Input.TextArea },
       styles,
-      page1_1,
+      page1,
       loop,
-      treeData: toJS(page1_1.authTreeData) || [],
+      treeData: toJS(page1.authTreeData) || [],
     }, this.props, this);
   }
 }
 
-@registerTmpl('ModalDetail1-1')
+@registerTmpl('ModalDetailPage1')
 @inject('store')
 @observer
 class ModalDetail extends Component {
   @autobind
   onDetailModalCancel() {
-    const { store: { page1_1 } } = this.props;
-    page1_1.setDetailModalVisible(false);
+    const { store: { page1 } } = this.props;
+    page1.setDetailModalVisible(false);
   }
 
   @computed get detailColumns() {
@@ -377,10 +377,10 @@ class ModalDetail extends Component {
   }
 
   render() {
-    const { store: { page1_1 } } = this.props;
+    const { store: { page1 } } = this.props;
     return tmpls.modalDetail(this.props, this, {
       styles,
-      page1_1,
+      page1,
       getDetailRowKey: (record, index) => `${record.key}-${index}`
     });
   }

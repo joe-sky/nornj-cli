@@ -2,8 +2,8 @@ import { types } from "mobx-state-tree";
 import { CommonStore } from "./commonStore";
 import HeaderStore from "./headerStore";
 import SiderStore from "./siderStore";
-import Page1_1Store from "./pages/page1_1Store";
-import Page1_2Store from "./pages/page1_2Store";
+import Page1Store from "./pages/page1Store";
+import Page2Store from "./pages/page2Store";
 //{importStore}//
 
 const RootStore = types.model("RootStore", {
@@ -27,8 +27,8 @@ const RootStore = types.model("RootStore", {
         name: '二级菜单1',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page1_1', index: 'Page1_1', name: '页面1-1' },
-          { type: 'item', level: 3, link: '/Page1_2', index: 'Page1_2', name: '页面1-2' },
+          { type: 'item', level: 3, link: '/Page1', index: 'Page1', name: '页面1' },
+          { type: 'item', level: 3, link: '/Page2', index: 'Page2', name: '页面2' },
         ]
       }, {
         type: 'group',
@@ -36,8 +36,8 @@ const RootStore = types.model("RootStore", {
         name: '二级菜单2',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page2_1', index: 'Page2_1', name: '页面2-1' },
-          { type: 'item', level: 3, link: '/Page2_2', index: 'Page2_2', name: '页面2-2' },
+          { type: 'item', level: 3, link: '/Page3', index: 'Page3', name: '页面3' },
+          { type: 'item', level: 3, link: '/Page4', index: 'Page4', name: '页面4' },
         ]
       }]
     }, {
@@ -51,8 +51,8 @@ const RootStore = types.model("RootStore", {
         name: '二级菜单3',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page3_1', index: 'Page3_1', name: '页面3-1' },
-          { type: 'item', level: 3, link: '/Page3_2', index: 'Page3_2', name: '页面3-2' },
+          { type: 'item', level: 3, link: '/Page5', index: 'Page5', name: '页面5' },
+          { type: 'item', level: 3, link: '/Page6', index: 'Page6', name: '页面6' },
         ]
       }, {
         type: 'group',
@@ -60,15 +60,15 @@ const RootStore = types.model("RootStore", {
         name: '二级菜单4',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page4_1', index: 'Page4_1', name: '页面4-1' },
-          { type: 'item', level: 3, link: '/Page4_2', index: 'Page4_2', name: '页面4-2' },
+          { type: 'item', level: 3, link: '/Page7', index: 'Page7', name: '页面7' },
+          { type: 'item', level: 3, link: '/Page8', index: 'Page8', name: '页面8' },
         ]
       }]
     }]
   }),
 
-  page1_1: types.optional(Page1_1Store, {}),
-  page1_2: types.optional(Page1_2Store, {}),
+  page1: types.optional(Page1Store, {}),
+  page2: types.optional(Page2Store, {}),
   //{pageStore}//
 });
 

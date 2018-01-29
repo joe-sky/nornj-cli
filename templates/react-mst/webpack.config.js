@@ -9,11 +9,7 @@ const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20170928';
-
-const iconUrl = {
-  "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
-};
-const modifyVars = Object.assign({}, iconUrl);
+const modifyVars = Object.assign({});
 
 module.exports = {
   entry: {

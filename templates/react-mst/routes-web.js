@@ -3,8 +3,8 @@ import Bundle from './bundle'
 import { withRouter, Redirect } from 'react-router'
 import { Switch, Route } from 'react-router-dom';
 import { observer, Provider, inject } from 'mobx-react';
-import loadPage1_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_1/page1_1.js';
-import loadPage1_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_2/page1_2.js';
+import loadPage1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1/page1.js';
+import loadPage2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page2/page2.js';
 //{importLoadPage}//
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
@@ -12,21 +12,21 @@ import Sider from './src/web/components/sider';
 const HeaderWithRouter = withRouter(Header)
 const SiderWithRouter = withRouter(Sider)
 const loadBundles = {
-  loadPage1_1,
-  loadPage1_2,
+  loadPage1,
+  loadPage2,
   //{loadPage}//
 };
 
 /**
- * 页面1-1
+ * 页面page1
  */
-const Page1_1 = inject("store")(
+const Page1 = inject("store")(
   observer(({ store }) => nj`
     <${PageWrap}>
-      <${Bundle} load=${loadPage1_1} store=${store} isPc loadBundles=${loadBundles}>
-        ${(_Page1_1) => {
-          const Page1_1 = withRouter(_Page1_1)
-          return nj`<${Page1_1}/>`();
+      <${Bundle} load=${loadPage1} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Page1) => {
+          const Page1 = withRouter(_Page1)
+          return nj`<${Page1}/>`();
         }}
       </${Bundle}>
     </${PageWrap}>
@@ -34,15 +34,15 @@ const Page1_1 = inject("store")(
 );
 
 /**
- * 页面1-2
+ * 页面page2
  */
-const Page1_2 = inject("store")(
+const Page2 = inject("store")(
   observer(({ store }) => nj`
     <${PageWrap}>
-      <${Bundle} load=${loadPage1_2} store=${store} isPc loadBundles=${loadBundles}>
-        ${(_Page1_2) => {
-          const Page1_2 = withRouter(_Page1_2)
-          return nj`<${Page1_2}/>`();
+      <${Bundle} load=${loadPage2} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Page2) => {
+          const Page2 = withRouter(_Page2)
+          return nj`<${Page2}/>`();
         }}
       </${Bundle}>
     </${PageWrap}>
@@ -65,9 +65,9 @@ const PageWrap = inject("store")(
 
 const routes = () => nj`
   <router-Switch>
-    <Route exact path='/' component=${Page1_1}/>
-    <Route exact path='/Page1_1' component=${Page1_1} />
-    <Route exact path='/Page1_2' component=${Page1_2} />
+    <Route exact path='/' component=${Page1}/>
+    <Route exact path='/Page1' component=${Page1} />
+    <Route exact path='/Page2' component=${Page2} />
     <!--//{route}//-->
     <Redirect from='*' to='/'/>
   </router-Switch>
