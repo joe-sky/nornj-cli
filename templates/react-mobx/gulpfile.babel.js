@@ -174,21 +174,6 @@ gulp.task('server', done => {
   });
 });
 
-//将es6代码转为es5供发布用
-gulp.task("lib", () => {
-  gulp.src('./src/**/*.m.less').pipe(gulp.dest('./lib'));
-  gulp.src('./src/**/*.t.html').pipe(gulp.dest('./lib'));
-
-  return gulp.src(['./src/**/*.js', '!./src/pages/**/*.js'])
-    .pipe(env.set({
-      BABEL_ENV: 'development'
-    }))
-    .pipe(babel({
-      plugins: ['external-helpers']
-    }))
-    .pipe(gulp.dest('./lib'));
-});
-
 //默认任务
 let defaultTasks = ['build-js', 'build-lib', 'build-img'];
 if (argv.w) {
