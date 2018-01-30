@@ -2,33 +2,41 @@
   #set($title="page2")
   #set($page="page2/")
 <% } %>
-<#-if #{!(useLayout)}#>
+
 <!DOCTYPE html>
 <html>
-<#-headElements />
+<% if (web) { %>
+#parse("pages/common/headElements.vm")
+<% } else { %>
+<$include src="./common/headElements.html" />
+<% } %>
 <body>
-<#-resourceElements />
+  <% if (web) { %>
+  #parse("pages/common/resourceElements.vm")
+  <% } else { %>
+  <$include src="./common/resourceElements.html" />
+  <% } %>
 <link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" />
-</#-if>
+
   <link href="/resources/app/css/pages/page2/container.css?ver=<%=ver%>" rel="stylesheet" />
   <section id="container"></section>
   <script type="text/nornj" data-auto data-target="#container">
     <Container>
       <#tmpl>
-        <div class="vicb-pagecontainer">
-          <vicb-Header no=2 />
-          <section class="vicb-body">
-            <aside class="vicb-aside">
-              <vicb-Sider />
+        <div class="fjb-pagecontainer">
+          <fjb-Header no=2 />
+          <section class="fjb-body">
+            <aside class="fjb-aside">
+              <Sider />
             </aside>
-            <section class="vicb-main">
+            <section class="fjb-main">
               <ant-Breadcrumb>
                 <ant-BreadcrumbItem>Home</ant-BreadcrumbItem>
                 <ant-BreadcrumbItem>List</ant-BreadcrumbItem>
-                <ant-BreadcrumbItem>Page 2</ant-BreadcrumbItem>
+                <ant-BreadcrumbItem>page2</ant-BreadcrumbItem>
               </ant-Breadcrumb>
-              <section class="vicb-content {styles.content}">
-                <vicb-DataTable store={page2Store} />
+              <section class="fjb-content {styles.content}">
+                <DataTable />
               </section>
             </section>
           </section>
@@ -36,9 +44,12 @@
       </#tmpl>
     </Container>
   </script>
-<#-if #{!(useLayout)}#>
-<#-bottomElements />
+
+  <% if (web) { %>
+  #parse("pages/common/bottomElements.vm")
+  <% } else { %>
+  <$include src="./common/bottomElements.html" />
+  <% } %>
 <script src="/resources/app/pages/page2/container.js?ver=<%=ver%>"></script>
 </body>
 </html>
-</#-if>

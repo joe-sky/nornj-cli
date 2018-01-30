@@ -4,6 +4,7 @@ const path = require('path');
 const glob = require('glob');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const modifyVars = Object.assign({});
 
 //需要webpack排除的依赖包
 const webpackExternals = {
@@ -121,9 +122,7 @@ module.exports = function(webpack, config, isProd, useWatch, useHmr) {
             }, 'postcss-loader', {
               loader: 'less-loader',
               options: {
-                "modifyVars": {
-                  "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
-                }
+                "modifyVars": modifyVars
               }
             }]
           }),

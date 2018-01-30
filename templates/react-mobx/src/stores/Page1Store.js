@@ -24,7 +24,7 @@ export default class Page1Store {
           this.pageSize = 10;
           this.count = 0;
           this.tableData = [];
-          Notification.error({ description: '获取表格数据出错，错误是:' + result.msg, duration: null });
+          Notification.error({ description: '获取表格数据出错，异常是:' + result.msg, duration: null });
         }
       });
     }, {

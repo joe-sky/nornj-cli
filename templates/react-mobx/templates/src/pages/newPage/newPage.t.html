@@ -1,17 +1,12 @@
 <template name="dataTable">
-  <vic-DataGrid localMode={false}
-                showPageSize={true}
-                showDataCount={true}
-                showDataFilter={true}
-                :tableProps="{
-                  size: 'middle',
-                  rowKey: 'vendorCode'
-                }"
-                {columns}
-                {rowSelection}
-                {onPageChange}
-                data={store.tableData}
-                count={store.count}
-                pageIndex={store.pageIndex}
-                pageSize={store.pageSize} />
+  <ant-Table dataSource={toJS(store.tableData)}
+             rowKey="test1"
+             {columns}
+             bordered
+             :pagination="{
+               current: store.pageIndex,
+               pageSize: store.pageSize,
+               total: store.count,
+               onChange: onPageChange
+             }"/>
 </template>

@@ -65,18 +65,6 @@ gulp.task('build-js', () => {
 gulp.task('build-lib', () => {
   const config = getConfig();
 
-  //fj
-  gulp.src('./node_modules/flarej/dist/**/*.*')
-    .pipe(gulp.dest(getConfig().resourcePath + 'libs/flarej'));
-
-  //mobx
-  gulp.src('./node_modules/mobx/lib/mobx.umd.*')
-    .pipe(gulp.dest(config.resourcePath + 'libs'));
-  gulp.src('./node_modules/mobx-react/index.js')
-    .pipe(uglify())
-    .pipe(rename('mobx-react.min.js'))
-    .pipe(gulp.dest(config.resourcePath + 'libs'));
-
   //font-awesome
   gulp.src('./node_modules/font-awesome/css/*.*')
     .pipe(gulp.dest(getConfig().resourcePath + 'libs/font-awesome/css'));
@@ -84,16 +72,10 @@ gulp.task('build-lib', () => {
     .pipe(gulp.dest(getConfig().resourcePath + 'libs/font-awesome/fonts'));
 
   return gulp.src([
-      './node_modules/vic-common/resources/libs/**/*.*',
-      '!./node_modules/vic-common/resources/libs/antd/fonts/**/*.*',
-      './node_modules/nornj/dist/*.*',
-      './node_modules/nornj-react/dist/*.*',
       './node_modules/jquery/dist/jquery.min.js',
-      './node_modules/react/dist/react.min.js',
-      './node_modules/react-dom/dist/react-dom.min.js',
-      './node_modules/systemjs/dist/system.js',
       './node_modules/js-cookie/src/js.cookie.js',
       './node_modules/es6-promise/dist/*.js',
+      './node_modules/flarej/vendor/babelHelpers.min.js'
     ])
     .pipe(gulp.dest(getConfig().resourcePath + 'libs'));
 });

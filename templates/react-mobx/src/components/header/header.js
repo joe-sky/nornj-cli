@@ -7,8 +7,8 @@ import 'flarej/lib/components/antd/menu';
 import styles from './header.m.less';
 import template from './header.t.html';
 
+@registerTmpl('fjb-Header')
 @observer
-@registerTmpl('vicb-Header')
 export default class Header extends Component {
   static defaultProps = {
     no: '1'

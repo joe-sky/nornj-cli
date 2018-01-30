@@ -1,9 +1,7 @@
 import 'flarej/vendor/normalize.less';
 import 'flarej/lib/styles/grid';
 import 'flarej/lib/components/grid';
-import 'vic-common/resources/styles/base.less';
 import '../../resources/styles/base.less';
-import 'vic-common/lib/common/base';
 import { toJS } from 'mobx';
 import nj, { registerFilter, registerExtension } from 'nornj';
 import 'nornj-react/mobx';

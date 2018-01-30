@@ -15,20 +15,20 @@
   <script type="text/nornj" data-auto data-target="#container">
     <Container>
       <#tmpl>
-        <div class="vicb-pagecontainer">
-          <vicb-Header no=#{pageName}# />
-          <section class="vicb-body">
-            <aside class="vicb-aside">
-              <vicb-Sider />
+        <div class="fjb-pagecontainer">
+          <fjb-Header no=#{pageName}# />
+          <section class="fjb-body">
+            <aside class="fjb-aside">
+              <Sider />
             </aside>
-            <section class="vicb-main">
+            <section class="fjb-main">
               <ant-Breadcrumb>
                 <ant-BreadcrumbItem>Home</ant-BreadcrumbItem>
                 <ant-BreadcrumbItem>List</ant-BreadcrumbItem>
                 <ant-BreadcrumbItem>#{pageName}#</ant-BreadcrumbItem>
               </ant-Breadcrumb>
-              <section class="vicb-content {styles.content}">
-                <vicb-DataTable store={#{pageName}#Store} />
+              <section class="fjb-content {styles.content}">
+                <DataTable />
               </section>
             </section>
           </section>

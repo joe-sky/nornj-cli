@@ -1,42 +1,41 @@
 ﻿import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import '../../common/containerConfig';
 import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/breadcrumb';
-import 'vic-common/lib/components/dataGrid';
+import 'flarej/lib/components/antd/table';
 import { Message } from 'flarej/lib/components/antd/message';
 import { autobind } from 'core-decorators';
 import '../../components/header';
 import '../../components/sider';
+import ContainerHoc from '../../components/higherOrders/container';
 import styles from './page2.m.less';
 import tmpls from './page2.t.html';
 import Page2Store from '../../stores/Page2Store';
 const page2Store = new Page2Store();
 
 //页面容器组件
+@inject('store')
 @observer
-@registerTmpl('Container')
 class Container extends Component {
   componentDidMount() {
-    //删除加载loading层
-    $('#vic_loading_main').remove();
-    $('#vic_loading-mask_main').fadeOut(200, function() {
-      $(this).remove();
-    });
+    const closeLoading = Message.loading('正在加载数据...', 0);
+    this.props.store.getTableData(1, this.props.store.pageSize).then(() => closeLoading());
   }
 
   render() {
     return this.props.tmpls[0](this, {
-      styles,
-      page2Store
+      styles
     });
   }
 }
+ContainerHoc('Container', Container, page2Store);
 
+@registerTmpl('DataTable')
+@inject('store')
 @observer
-@registerTmpl('vicb-DataTable')
 class DataTable extends Component {
   state = {
     columns: [{
@@ -118,17 +117,15 @@ class DataTable extends Component {
   };
 
   @autobind
-  onPageChange(pageIndex, pageSize, isInit) {
-    // if (isInit) {
-    //   return;
-    // }
-    
+  onPageChange(page, pageSize) {
     const closeLoading = Message.loading('正在加载数据...', 0);
-    this.props.store.getTableData(pageIndex, pageSize).then(() => closeLoading());
+    this.props.store.getTableData(page, pageSize).then(() => closeLoading());
   }
 
   render() {
-    return tmpls.dataTable(this.state, this.props, this, { styles });
+    return tmpls.dataTable(this.state, this.props, this, {
+      styles
+    });
   }
 }
 

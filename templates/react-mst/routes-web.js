@@ -1,5 +1,5 @@
 import React from 'react';
-import Bundle from './bundle'
+import Bundle from './Bundle'
 import { withRouter, Redirect } from 'react-router'
 import { Switch, Route } from 'react-router-dom';
 import { observer, Provider, inject } from 'mobx-react';

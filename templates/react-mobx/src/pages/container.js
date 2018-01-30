@@ -5,19 +5,11 @@ import { registerTmpl } from 'nornj-react';
 import '../common/containerConfig';
 import 'flarej/lib/components/antd/button';
 import { autobind } from 'core-decorators';
+import ContainerHoc from '../components/higherOrders/container';
 
 //页面容器组件
 @observer
-@registerTmpl('Container')
 class Container extends Component {
-  componentDidMount() {
-    //删除加载loading层
-    $('#vic_loading_main').remove();
-    $('#vic_loading-mask_main').fadeOut(200, function(){
-      $(this).remove();
-    });
-  }
-
   @autobind
   goPage1() {
     location.href = '/page1';
@@ -41,6 +33,7 @@ class Container extends Component {
     `(this);
   }
 }
+ContainerHoc('Container', Container);
 
 if (module.hot) {
   module.hot.accept();
