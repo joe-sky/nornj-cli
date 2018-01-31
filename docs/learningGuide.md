@@ -6,7 +6,7 @@
 
 本脚手架基于`ES6 + babel`环境，并使用`Webpack`进行打包。
 
-* [ES6 + babel](#es6-+-babel)
+* [ES6 + babel](#es6--babel)
 * [webpack](#webpack)
 
 #### ES6 + Babel
