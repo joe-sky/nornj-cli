@@ -4,26 +4,29 @@
 
 ### 开发环境
 
-本脚手架基于`ES6+`环境，并使用`Webpack`进行打包。
+本脚手架基于`ES6 + babel`环境，并使用`Webpack`进行打包。
 
-* [ES6+](#es6)
+* [ES6 + babel](#es6-+-babel)
 * [webpack](#webpack)
 
-#### ES6+
+#### ES6 + Babel
 
-`ES6+`提供了很多之前js版本没有的功能，比如`class`、`解构赋值`、`模块系统`、`for of循环`、`异步操作API Promise`等等，可显著提升开发效率及代码规范性。
+`ES6(ES2015)`(以及更新的版本ES2016、ES2017等)提供了很多之前js版本没有的功能，比如`class`、`解构赋值`、`模块系统`、`for of循环`、`异步操作API Promise`等等，可显著提升开发效率及代码规范性。配合js代码编译器`Babel`，我们现在就可以放心地使用下一代js语法。
 
 * [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
 * [ES6 学习笔记](https://segmentfault.com/a/1190000002904199)
 * [全面解析ECMAScript 6模块系统](http://www.csdn.net/article/2015-04-30/2824595-Modules-in-ES6)
 * [大白话讲解Promise(一)](http://www.cnblogs.com/lvdabao/p/es6-promise-1.html)
 * [深入理解fetch](http://www.jianshu.com/p/35123b048e5e)
+* [Babel 中文文档](https://babeljs.cn/)
 
 #### Webpack
 
-`Webpack`是现今最流行的前端模块打包工具。
+`Webpack`是现今最流行的前端模块打包工具，可配合`Babel`转换`ES6`代码，对当前各种主流前端框架均有非常完善的生态支持。
 
+* [Webpack 中文文档](https://doc.webpack-china.org/concepts/)
 * [入门Webpack，看这篇就够了](http://www.jianshu.com/p/42e11515c10f)
+* [Webpack3.X版 成神之路](http://jspang.com/2017/09/16/webpack3-2/)
 
 ### 技术与框架列表
 
@@ -55,8 +58,9 @@
 
 * [MobX 中文文档](http://cn.mobx.js.org/)
 * [10分钟极速入门 MobX 与 React](http://www.tuicool.com/articles/yYnmi26)
-* [Mobx-state-tree 文档](https://github.com/mobxjs/mobx-state-tree)
-* [Mobx-state-tree 文档(v0.9.5)](https://github.com/mobxjs/mobx-state-tree/tree/0.9.5)
+* [我为什么从Redux迁移到了Mobx](https://tech.youzan.com/mobx_vs_redux/)
+* [Mobx-state-tree github文档](https://github.com/mobxjs/mobx-state-tree)
+* [Mobx-state-tree github文档(v0.9.5)](https://github.com/mobxjs/mobx-state-tree/tree/0.9.5)
 
 #### NornJ
 
