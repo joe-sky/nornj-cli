@@ -2,22 +2,14 @@
   #set($title="page1")
   #set($page="page1/")
 <% } %>
-
+<#-if #{!(useLayout)}#>
 <!DOCTYPE html>
 <html>
-<% if (web) { %>
-#parse("pages/common/headElements.vm")
-<% } else { %>
-<$include src="./common/headElements.html" />
-<% } %>
+<#-headElements />
 <body>
-  <% if (web) { %>
-  #parse("pages/common/resourceElements.vm")
-  <% } else { %>
-  <$include src="./common/resourceElements.html" />
-  <% } %>
+<#-resourceElements />
 <link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" />
-
+</#-if>
   <link href="/resources/app/css/pages/page1/container.css?ver=<%=ver%>" rel="stylesheet" />
   <section id="container"></section>
   <script type="text/nornj" data-auto data-target="#container">
@@ -44,12 +36,9 @@
       </#tmpl>
     </Container>
   </script>
-
-  <% if (web) { %>
-  #parse("pages/common/bottomElements.vm")
-  <% } else { %>
-  <$include src="./common/bottomElements.html" />
-  <% } %>
+<#-if #{!(useLayout)}#>
+<#-bottomElements />
 <script src="/resources/app/pages/page1/container.js?ver=<%=ver%>"></script>
 </body>
 </html>
+</#-if>

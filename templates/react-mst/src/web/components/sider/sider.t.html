@@ -1,6 +1,6 @@
 <template name="menuCnt">
   <#if {item.type == 'item'}>
-    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-item {store.sider.current == item.index ? ('cur', '')}">
+    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-item {store.sider.current.toLowerCase() == item.index.toLowerCase() ? ('cur', '')}">
       {item.name}
     </router-Link>
     <#elseif {item.type == 'group'}>

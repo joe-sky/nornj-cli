@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
 import nj from 'nornj';
+import { LocaleProvider } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 export default function(name, ComposedComponent, store) {
   @observer
@@ -17,9 +19,11 @@ export default function(name, ComposedComponent, store) {
 
     render() {
       return nj `
-        <mobx-Provider store=${store}>
-          <${ComposedComponent} ref=${c => this.component = c} ...${this.props} />
-        </mobx-Provider>
+        <${LocaleProvider} locale=${zhCN}>
+          <mobx-Provider store=${store}>
+            <${ComposedComponent} ref=${c => this.component = c} ...${this.props} />
+          </mobx-Provider>
+        </${LocaleProvider}>
       ` ();
     }
   }

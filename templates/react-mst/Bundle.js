@@ -1,4 +1,5 @@
-import { Component } from 'react'
+import { Component } from 'react';
+import { capitalize } from './src/utils/util';
 
 class Bundle extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Bundle extends Component {
       }
       Promise.all(fetchs).then(() => {
         if (isPc) {
-          this.load({ load: loadBundles[`load${store.sider.current}`] });
+          this.load({ load: loadBundles[`load${capitalize(store.sider.current)}`] });
         } else {
           this.load(this.props);
         }

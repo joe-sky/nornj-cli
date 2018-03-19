@@ -9,14 +9,16 @@ program.version(require('../package').version);
 program.usage('<command>');
 
 //Print current version(https://github.com/tj/commander.js/issues/560)
-var vPos = process.argv.indexOf('-v');
+const vPos = process.argv.indexOf('-v');
 if (vPos > -1) {
   process.argv[vPos] = '-V';
 }
+const CNPM_DESCRIPTION = 'Use china mirror of npm';
 
 program
   .command('init')
   .description('Init a new project')
+  .option('--cnpm', CNPM_DESCRIPTION)
   .action(() => {
     require('../lib/init')();
   });
@@ -31,7 +33,8 @@ program
 
 program
   .command('upgrade')
-  .description('Upgrade to new version')
+  .description('Upgrade to the latest version')
+  .option('--cnpm', CNPM_DESCRIPTION)
   .action(() => {
     require('../lib/upgrade')();
   });
@@ -39,6 +42,7 @@ program
 program
   .command('install')
   .description('Install npm packages')
+  .option('--cnpm', CNPM_DESCRIPTION)
   .alias('i')
   .action(() => {
     require('../lib/install')();
@@ -47,6 +51,7 @@ program
 program
   .command('update')
   .description('Update npm packages')
+  .option('--cnpm', CNPM_DESCRIPTION)
   .alias('up')
   .action(() => {
     require('../lib/install')('update');

@@ -1,4 +1,5 @@
 # NornJ-cli
+
 The CLI for scaffolding NornJ template projects, and do more things.
 
 ### 安装
@@ -36,7 +37,7 @@ Project Name: projectName
 * 进入已有项目目录后，输入如下命令创建新页面：
 
 ```sh
-nj add-page [pageName] # 或nj ap
+nj add-page [pageName]  # 或nj ap
 
 # 请选择要生成的页面类型
 What type of page do you want to generate ?
@@ -66,19 +67,34 @@ nj -v
 #### cli版本更新
 
 ```sh
-nj upgrade  # 更新cli到最新版
+nj upgrade  # 更新cli版本到最新版
 ```
 
 #### 安装npm包
 
+与`npm install`相同，区别在于部署在私服上的包会自动从私服安装：
+
 ```sh
-nj install # 或nj i
+nj install  # 或nj i
 ```
 
 #### 更新npm包
 
+与`npm update`相同，区别在于部署在私服上的包会自动从私服更新：
+
 ```sh
-nj update # 或nj up
+nj update  # 或nj up
+```
+
+### 可选择使用npm国内镜像
+
+当网络访问npm比较慢时，可选择使用`npm国内镜像`来安装。方法为在各命令后添加`--cnpm`参数：
+
+```sh
+nj init --cnpm
+nj upgrade --cnpm
+nj install --cnpm
+nj update --cnpm
 ```
 
 ### React + Mobx + 前端模板相关技术学习资料
