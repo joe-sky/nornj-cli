@@ -69,6 +69,98 @@ export default class Demo extends Component {
 </ant-Select>
 ```
 
+## 表单组件使用方法
+
+表单组件示例页面[请点这里](https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst/src/web/pages/formExample)：
+
+![form example](images/antd1.png?raw=true)
+
+### 支持表单控件双向数据绑定
+
+上述表单示例页面使用`NornJ`的`#mobx-model`语法实现了mobx变量与表单组件的双向数据绑定，关于`#mobx-model`语法的介绍及文档[请点这里](https://joe-sky.github.io/nornj-guide/templateSyntax/inlineExtensionTag.html#mobx-model)。
+
+### 表单验证组件使用方法
+
+`Ant Design`的`Form`组件提供了完善的表单验证方案，文档[请点这里](https://ant.design/components/form-cn/#Form.create(options))。如上述表单示例，在`react-mst`模板中对它原生的使用方法进行了一些针对`NornJ`模板的适配，可使逻辑与展现层代码分离看起来更加清晰，推荐使用。
+
+* 用装饰器语法使用Form.create创建表单高阶组件
+
+```js
+import Form from 'flarej/lib/components/antd/form';
+
+@registerTmpl('AntForm')
+@inject('store')
+@observer
+@Form.create()  //这里的使用方法和官方文档在组件class下面使用Form.create()(AntForm)的效果是一样的
+@observer
+class AntForm extends Component {
+  ...
+}
+```
+
+* 将getFieldDecorator方法放到组件的方法中编写
+
+```html
+<template name="antForm">
+  <div class="{styles.formExample}">
+    <h2>Ant Design 表单验证示例</h2>
+    <ant-Form>
+      <!-- formItemParams是自定义的nornj全局过滤器，用于初始化FormItem组件的默认样式等，是在utils/nj.configs.js里定义的 -->
+      <ant-Form.Item label="表单元素1" {...formItemParams()}>
+        <!-- 这里可以写getFieldDecorator方法的各参数，比如用initialValue设置初始值 -->
+        <#formEl1 initialValue={formExample.antInputValue}>
+          <ant-Input />
+        </#formEl1>
+      </ant-Form.Item>
+      <ant-Form.Item label="表单元素2" {...formItemParams()}>
+        <#formEl2 initialValue={formExample.antSelectValue}>
+          <ant-Select placeholder="请选择">
+            <ant-Option value="1">测试数据1</ant-Option>
+            <ant-Option value="2">测试数据2</ant-Option>
+            <ant-Option value="3">测试数据3</ant-Option>
+          </ant-Select>
+        </#formEl2>
+      </ant-Form.Item>
+      <div class={styles.btnArea}>
+        <ant-Button htmlType="submit" onClick={onAntSubmit}>提交</ant-Button>
+        <ant-Button onClick={onAntReset}>重置</ant-Button>
+      </div>
+    </ant-Form>
+  </div>
+</template>
+```
+
+```js
+@registerTmpl('AntForm')
+@inject('store')
+@observer
+@Form.create()
+@observer
+class AntForm extends Component {
+
+  /*
+   (1)name参数为<#formEl1>的标签名，即formEl1
+   (2)props参数为<#formEl1>的各行内属性，类型为对象
+   (3)result参数为<#formEl1>的子标签，类型为函数。执行它可获取<#formEl1>的子标签
+   */
+  formEl1({ name, props, result }) {
+    return this.props.form.getFieldDecorator(name, {...{
+      rules: [{ required: true, message: '表单元素1不能为空！' }]
+    }, ...props})(result());
+  },
+
+  formEl2({ name, props, result }) {
+    return this.props.form.getFieldDecorator(name, {...{
+      rules: [{ required: true, message: '表单元素2不能为空！' }]
+    }, ...props})(result());
+  }
+
+  ...
+}
+```
+
+上述表单的完整示例代码[请参考这里](https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst/src/web/pages/formExample)。
+
 ## 可能会遇到的问题
 
 1. 如果`Ant Design`的版本升级后增加了一个新组件`NewComponent`，`FlareJ`中还没有封装时该怎么做？

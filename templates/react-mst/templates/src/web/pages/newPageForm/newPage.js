@@ -60,12 +60,6 @@ class AntForm extends Component {
     }, ...props})(result());
   }
 
-  formEl1({ name, props, result }) {
-    return this.props.form.getFieldDecorator(name, {...{
-      rules: [{ required: true, message: '表单元素1不能为空！' }]
-    }, ...props})(result());
-  }
-
   formEl2({ name, props, result }) {
     return this.props.form.getFieldDecorator(name, {...{
       rules: [{ required: true, message: '表单元素2不能为空！' }]

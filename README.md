@@ -43,6 +43,7 @@ nj add-page [pageName]  # 或nj ap
 What type of page do you want to generate ?
 > default  # 增删改查
   chart    # 图表
+  form     # 表单
   empty    # 空页面
 
 # 输入新创建的页面名称
