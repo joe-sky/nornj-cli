@@ -67,7 +67,8 @@ module.exports = {
           loader: 'nornj-loader',
           options: {
             outputH: true,
-            delimiters: 'react'
+            delimiters: 'react',
+            extensionConfig: require('nornj-react/mobx/extensionConfig')
           }
         }]
       },

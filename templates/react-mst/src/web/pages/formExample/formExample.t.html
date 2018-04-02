@@ -1,0 +1,134 @@
+<template name="container">
+  <div>
+    <fj-col l=6>
+      <AntForm />
+    </fj-col>
+    <fj-col l=6>
+      <!--Element-React的部分表单组件无法在ie9和ie10运行-->
+      <#unless {isIElt11}><ElForm /></#unless>
+    </fj-col>
+  </div>
+</template>
+
+<template name="antForm">
+  <div class="{styles.formExample}">
+    <h2>Ant Design 表单控件示例</h2>
+    <div>
+      <div class="{styles.formEls}">
+        <ant-Input :#mobx-model="inputValue" />
+        <div>
+          inputValue：<i style="color:purple;">{inputValue}</i>
+        </div>
+      </div>
+      <div class="{styles.formEls}">
+        <ant-Input.TextArea :#mobx-model="textareaValue" />
+        <div>
+          textareaValue：<i style="color:purple;">{textareaValue}</i>
+        </div>
+      </div>
+      <div class="{styles.formEls}">
+        <ant-Select :#mobx-model="selectValue" style="width:100%;" placeholder="请选择">
+          <ant-Option value="1">测试数据1</ant-Option>
+          <ant-Option value="2">测试数据2</ant-Option>
+          <ant-Option value="3">测试数据3</ant-Option>
+        </ant-Select>
+        <div>
+          selectValue：<i style="color:purple;">{selectValue}</i>
+        </div>
+      </div>
+      <div class="{styles.formEls}">
+        <ant-Checkbox.Group :#mobx-model="checkboxValue">
+          <ant-Checkbox value="1">Option A</ant-Checkbox>
+          <ant-Checkbox value="2">Option B</ant-Checkbox>
+          <ant-Checkbox value="3">Option C</ant-Checkbox>
+        </ant-Checkbox.Group>
+        <div>
+          checkboxValue：<i style="color:purple;">{checkboxValue}</i>
+        </div>
+      </div>
+    </div>
+    <h2>Ant Design 表单验证示例</h2>
+    <ant-Form>
+      <ant-Form.Item label="表单元素1" {...formItemParams()}>
+        <#formEl1 initialValue={formExample.antInputValue}>
+          <ant-Input />
+        </#formEl1>
+      </ant-Form.Item>
+      <ant-Form.Item label="表单元素2" {...formItemParams()}>
+        <#formEl2 initialValue={formExample.antSelectValue}>
+          <ant-Select placeholder="请选择">
+            <ant-Option value="1">测试数据1</ant-Option>
+            <ant-Option value="2">测试数据2</ant-Option>
+            <ant-Option value="3">测试数据3</ant-Option>
+          </ant-Select>
+        </#formEl2>
+      </ant-Form.Item>
+      <ant-Form.Item label="表单元素3" {...formItemParams()}>
+        <#formEl3 initialValue={formExample.antRadioValue}>
+          <ant-Radio.Group>
+            <ant-Radio value="1">选项1</ant-Radio>
+            <ant-Radio value="2">选项2</ant-Radio>
+            <ant-Radio value="3">选项3</ant-Radio>
+          </ant-Radio.Group>
+        </#formEl3>
+      </ant-Form.Item>
+      <ant-Form.Item label="表单元素4" {...formItemParams()}>
+        <#formEl4 initialValue={formExample.antCheckboxValue}>
+          <ant-Checkbox.Group>
+            <ant-Checkbox value="1">Option A</ant-Checkbox>
+            <ant-Checkbox value="2">Option B</ant-Checkbox>
+            <ant-Checkbox value="3">Option C</ant-Checkbox>
+          </ant-Checkbox.Group>
+        </#formEl4>
+      </ant-Form.Item>
+      <ant-Form.Item label="表单元素5" {...formItemParams()}>
+        <#formEl5 initialValue={formExample.antDate}>
+          <ant-DatePicker />
+        </#formEl5>
+      </ant-Form.Item>
+      <div class={styles.btnArea}>
+        <ant-Button htmlType="submit" onClick={onAntSubmit}>提交</ant-Button>
+        <ant-Button onClick={onAntReset}>重置</ant-Button>
+      </div>
+    </ant-Form>
+  </div>
+</template>
+
+<template name="elForm">
+  <div class="{styles.formExample}">
+    <h2>Element-React 表单验证示例</h2>
+    <el-Form model={formExample.formModel} {rules} ref="form" labelWidth="100">
+      <el-Form.Item label="表单元素1" prop="formEl1">
+        <el-Input :#mst-model="formExample.elInputValue" />
+      </el-Form.Item>
+      <el-Form.Item label="表单元素2" prop="formEl2">
+        <el-Select placeholder="请选择" :#mst-model="formExample.elSelectValue">
+          <el-Select.Option label="测试数据1" value="1"></el-Select.Option>
+          <el-Select.Option label="测试数据2" value="2"></el-Select.Option>
+          <el-Select.Option label="测试数据3" value="3"></el-Select.Option>
+        </el-Select>
+      </el-Form.Item>
+      <el-Form.Item label="表单元素3" prop="formEl3">
+        <el-Radio.Group :#mst-model="formExample.elRadioValue">
+          <el-Radio value="1">选项1</el-Radio>
+          <el-Radio value="2">选项2</el-Radio>
+          <el-Radio value="3">选项3</el-Radio>
+        </el-Radio.Group>
+      </el-Form.Item>
+      <el-Form.Item label="表单元素4" prop="formEl4">
+        <el-Checkbox.Group :#mst-model="formExample.elCheckboxValue">
+          <el-Checkbox label="1">Option A</el-Checkbox>
+          <el-Checkbox label="2">Option B</el-Checkbox>
+          <el-Checkbox label="3">Option C</el-Checkbox>
+        </el-Checkbox.Group>
+      </el-Form.Item>
+      <el-Form.Item label="表单元素5" prop="formEl5">
+        <el-DatePicker placeholder="选择日期" :#mst-model="formExample.elDate" />
+      </el-Form.Item>
+    </el-Form>
+    <div class={styles.btnArea}>
+      <ant-Button htmlType="submit" onClick={onElSubmit}>提交</ant-Button>
+      <ant-Button onClick={onElReset}>重置</ant-Button>
+    </div>
+  </div>
+</template>

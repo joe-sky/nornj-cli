@@ -61,5 +61,15 @@ registerFilter({
     }
 
     return (v.length > len && mediaQuery('(max-width: 1400px)')) ? v.substr(0, len) + '...' : v;
+  },
+  formItemParams: (span = 4) => {
+    return {
+      labelCol: {
+        span
+      },
+      wrapperCol: {
+        span: 24 - span
+      }
+    };
   }
 });

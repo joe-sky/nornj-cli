@@ -4,6 +4,7 @@ import HeaderStore from "./headerStore";
 import SiderStore from "./siderStore";
 import Page1Store from "./pages/page1Store";
 import Page2Store from "./pages/page2Store";
+import FormExampleStore from "./pages/formExampleStore";
 //{importStore}//
 
 const RootStore = types.model("RootStore", {
@@ -36,7 +37,7 @@ const RootStore = types.model("RootStore", {
         name: '二级菜单2',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page3', index: 'Page3', name: '页面3' },
+          { type: 'item', level: 3, link: '/FormExample', index: 'FormExample', name: '页面3' },
           { type: 'item', level: 3, link: '/Page4', index: 'Page4', name: '页面4' },
         ]
       }]
@@ -69,6 +70,7 @@ const RootStore = types.model("RootStore", {
 
   page1: types.optional(Page1Store, {}),
   page2: types.optional(Page2Store, {}),
+  formExample: types.optional(FormExampleStore, {}),
   //{pageStore}//
 });
 
