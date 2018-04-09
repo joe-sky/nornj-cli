@@ -8,7 +8,7 @@ import { autobind } from 'core-decorators';
 import 'flarej/lib/components/antd/radio';
 import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/cascader';
-import 'flarej/lib/components/antd/datepicker';
+import 'flarej/lib/components/antd/datePicker';
 import 'flarej/lib/components/antd/checkbox';
 
 import Message from 'flarej/lib/components/antd/message';
