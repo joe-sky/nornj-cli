@@ -31,7 +31,7 @@ class Container extends Component {
     });
   }
 }
-ContainerHoc('Container', Container, #{pageName.toLocaleLowerCase()}#Store);
+ContainerHoc('Container', Container, #{pageName.toLocaleLowerCase()}#Store); 
 
 @registerTmpl('DataTable')
 @inject('store')
