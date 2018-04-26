@@ -52,12 +52,33 @@ Page Name: pageName
 
 #### 选择项目模板
 
-| 名称           | 描述                      |
-|:---------------|:-------------------------|
-| react-mst      | 基于React+Mobx-state-tree的单页面项目 |
-| react-mobx     | 基于React+Mobx的多页面项目 |
-| Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 |
-| Y-Dept/react-mobx-ls | 基于React+Mobx的多页面项目(接入零智平台) |
+| 名称           | 描述                      | 模板源码地址                |
+|:---------------|:-------------------------|:--------------------------|
+| react-mst      | 基于React+Mobx-state-tree的单页面项目 | |
+| react-mobx     | 基于React+Mobx的多页面项目 |  |
+| Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 | https://github.com/Y-Dept/template-saas |
+| Y-Dept/react-mobx-ls | 基于React+Mobx的多页面项目(接入零智平台) | https://github.com/Y-Dept/react-mobx-ls |
+
+#### 使用自定义模板
+
+1. 在github上创建一个新的模板项目即可，结构类似于[Y-Dept/template-saas(单页)](https://github.com/Y-Dept/template-saas)或[Y-Dept/react-mobx-ls(多页)](https://github.com/Y-Dept/react-mobx-ls)。
+
+2. 然后使用以下命令即可下载并初始化：
+
+```sh
+nj init
+
+# 请按上下键选择项目模板
+Please select a project template:
+  react-mst
+  react-mobx
+  Y-Dept/template-saas
+  Y-Dept/react-mobx-ls
+> other
+
+# 选择other，然后按照github地址输入"用户(或组织)名/项目名"，例如"https://github.com/Y-Dept/template-saas"中的"Y-Dept/template-saas"
+Template Name: UserName/ProjectName
+```
 
 #### 查看cli当前版本
 
