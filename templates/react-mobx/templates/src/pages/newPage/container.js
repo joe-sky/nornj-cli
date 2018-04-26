@@ -14,7 +14,7 @@ import ContainerHoc from '../../components/higherOrders/container';
 import styles from './#{pageName}#.m.less';
 import tmpls from './#{pageName}#.t.html';
 import #{pageName | pascal}#Store from '../../stores/#{pageName | pascal}#Store';
-const #{pageName}#Store = new #{pageName | pascal}#Store();
+const #{pageName.toLocaleLowerCase()}#Store = new #{pageName | pascal}#Store();
 
 //页面容器组件
 @inject('store')
@@ -31,7 +31,7 @@ class Container extends Component {
     });
   }
 }
-ContainerHoc('Container', Container, #{pageName}#Store);
+ContainerHoc('Container', Container, #{pageName.toLocaleLowerCase()}#Store); 
 
 @registerTmpl('DataTable')
 @inject('store')
