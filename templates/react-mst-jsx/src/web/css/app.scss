@@ -1,0 +1,109 @@
+@media only screen and (-webkit-min-device-pixel-ratio: 2){html{-webkit-text-size-adjust:none}}
+body,div,p,h1,h2,h3,h4,h5,h6,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,table,th,td{margin:0;padding:0;}address,cite,em,i{font-style:normal;}li{list-style:none;}a{text-decoration:none;}a:hover{text-decoration:underline;}legend{color:#000;}fieldset,img{border:0;}table{border-collapse:collapse;border-spacing:0;}
+body {
+    color:#333; background: #f4f5f8;
+    -webkit-appearance: none;
+    -webkit-font-smoothing:auto;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+body,
+html {
+  min-width: 1280px;
+}
+.clearfix:after, .wrapper:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+.tl { text-align:left;}
+.tc { text-align:center;}
+.tr { text-align:right;}
+.fl { float:left;}
+.fr { float:right;}
+.layout-box { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; }
+
+.middle *{ display:inline-block;vertical-align:middle;}
+.middle option{ display:block;}
+
+#page-wrap{transition:all .5s ease-out;}
+.isMenuOpen{padding-left:200px;}
+
+.fj-row::before,
+.fj-row::after,
+.fj-row-left::before,
+.fj-row-left::after,
+.fj-row-right::before,
+.fj-row-right::after, {
+  display: table;
+  content: " ";
+}
+.fj-row::after,
+.fj-row-left::after,
+.fj-row-right::after, {
+  clear: both;
+}
+
+.propMenu {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-top: 16px;
+  margin-right: 40px;
+  color: #919090;
+}
+
+.propTooltip {
+  width: 180px;
+  height: 220px;
+}
+
+.propTitle {
+  height: 30px;
+  line-height: 30px;
+  font-size: 1rem;
+  padding-left: 5px;
+}
+
+.propBody {
+  height: 190px;
+  overflow-y: auto;
+}
+
+.propItem {
+  height: 30px;
+  line-height: 30px;
+}
+
+.basePanel {
+  height: 550px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,.2);
+  border-color: #CCCCDA;
+  border-width: 1px;
+  border-style: solid;
+
+  .basePanelTitle {
+    height: 40px;
+    line-height: 45px;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    padding-left: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
+
+div.fj-area-chart-area {
+  overflow: visible;
+}
+
+.vicb-logo {
+  width: 120px;
+  height: 31px;
+  background: #1d5c5c;
+  border-radius: 6px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 30px;
+  float: left;
+}

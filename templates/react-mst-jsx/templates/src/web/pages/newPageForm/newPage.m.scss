@@ -1,0 +1,23 @@
+.#{pageName}#{
+  padding: 100px 100px 40px 30px;
+  background-color: #fff;
+
+  h2 {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+}
+
+.formEls {
+  padding: 5px 80px 20px 80px;
+}
+
+.btnArea {
+  text-align: center;
+
+  :global {
+    .ant-btn {
+      margin-right: 15px;
+    }
+  }
+}

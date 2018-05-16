@@ -5,7 +5,7 @@
     </fj-col>
     <fj-col l=6>
       <!--Element-React的部分表单组件无法在ie9和ie10运行-->
-      <#unless {isIElt11}><ElForm /></#unless>
+      <#if {!isIElt11}><ElForm /></#if>
     </fj-col>
   </div>
 </template>

@@ -1,6 +1,6 @@
 # NornJ-cli
 
-The CLI for scaffolding NornJ template projects, and do more things.
+The CLI for scaffolding [NornJ](https://github.com/joe-sky/nornj) template projects, and do more things.
 
 ### 安装
 
@@ -20,6 +20,7 @@ nj init
 # 请按上下键选择项目模板
 Please select a project template:
 > react-mst
+  react-mst-jsx
   react-mobx
   Y-Dept/template-saas
   Y-Dept/react-mobx-ls
@@ -54,7 +55,8 @@ Page Name: pageName
 
 | 名称           | 描述                      | 模板源码地址                |
 |:---------------|:-------------------------|:--------------------------|
-| react-mst      | 基于React+Mobx-state-tree的单页面项目 | |
+| react-mst      | 基于React+Mobx-state-tree的单页面项目，组件开发规范默认使用NornJ | |
+| react-mst-jsx      | 基于React+Mobx-state-tree的单页面项目，组件开发规范默认使用JSX | |
 | react-mobx     | 基于React+Mobx的多页面项目 |  |
 | Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 | https://github.com/Y-Dept/template-saas |
 | Y-Dept/react-mobx-ls | 基于React+Mobx的多页面项目(接入零智平台) | https://github.com/Y-Dept/react-mobx-ls |
@@ -71,6 +73,7 @@ nj init
 # 请按上下键选择项目模板
 Please select a project template:
   react-mst
+  react-mst-jsx
   react-mobx
   Y-Dept/template-saas
   Y-Dept/react-mobx-ls

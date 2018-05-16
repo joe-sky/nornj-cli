@@ -1,0 +1,92 @@
+.page1 {
+  background-color: #fff;
+  padding: 100px 40px 40px;
+
+  h2 {
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+
+  .handlerBox {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+  }
+
+  .handlerBox:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .lable {
+    float: left;
+    margin-right: 10px;
+    line-height: 28px;
+  }
+
+  .input {
+    width: 200px;
+    margin-right: 20px;
+    border-color: #d9d9d9;
+  }
+}
+
+.btnArea {
+  text-align: center;
+  padding: 10px;
+}
+
+.treeWrap {
+  height: 420px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.checks {
+  border-top: 1px solid #eaeaea;
+  margin-top: 15px;
+  padding: 15px 0;
+  text-align: center;
+}
+
+:global {
+  .ant-table-thead tr th {
+    text-align: center;
+  }
+
+  .ant-table-tbody tr td {
+    text-align: center;
+    padding: 10px 5px;
+
+    .btn-link {
+      margin: 0 5px;
+    }
+  }
+
+  .frombox {
+    padding: 20px;
+
+    li {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .textarea {
+      width: 100%;
+      border: 1px solid #d9d9d9;
+    }
+
+    .red:before {
+      content: '*';
+      color: red;
+      font-size: 14px;
+      position: absolute;
+      margin: 3px;
+    }
+  }
+
+  .btn {
+    margin-right: 20px;
+  }
+}

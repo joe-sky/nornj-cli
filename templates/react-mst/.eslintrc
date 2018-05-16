@@ -24,12 +24,12 @@
     "react/jsx-curly-spacing": 0,
     "react/jsx-indent-props": [ 1, 2 ],
     "react/jsx-indent": [ 1, 2 ],
-    "jsx-quotes": [ 1, "prefer-single" ],
+    "jsx-quotes": [ 1, "prefer-double" ],
     "camelcase": [
       1,
       { "properties": "always" }
     ],
-    "comma-dangle": [ 1, "never" ],
+    "comma-dangle": [ 0, "never" ],
     "semi": [ 1, "always" ],
     "quotes": [ 1, "single" ],
     "strict": [ 2, "global" ]

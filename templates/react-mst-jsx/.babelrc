@@ -1,0 +1,71 @@
+{
+  "presets": ["react", "stage-0"],
+  "env": {
+    "development": {
+      "presets": ["env"],
+      "plugins": [
+        "syntax-dynamic-import",
+        ["import", [
+          {"libraryName": "antd", "style": true},
+          {
+            "libraryName": "flarej",
+            "libraryDirectory": "lib-p/components",
+            "style": true
+          }
+        ] ],
+        [
+          "styled-jsx/babel",
+          { "plugins": ["styled-jsx-plugin-sass"] }
+        ],
+        "nornj-in-jsx",
+        ["transform-object-rest-spread"],
+        "transform-decorators-legacy", [
+          "transform-class-properties",
+          { "loose": false }
+        ],
+        "transform-object-assign", [
+          "transform-es2015-classes",
+          { "loose": true }
+        ],
+        [
+          "transform-es2015-for-of",
+          { "loose": true }
+        ]
+      ]
+    },
+    "production": {
+      "presets": [
+        ["env", { "modules": false }]
+      ],
+      "plugins": [
+        "syntax-dynamic-import",
+        ["import", [
+          {"libraryName": "antd", "style": true},
+          {
+            "libraryName": "flarej",
+            "libraryDirectory": "lib-p/components",
+            "style": true
+          }
+        ] ],
+        [
+          "styled-jsx/babel",
+          { "plugins": ["styled-jsx-plugin-sass"] }
+        ],
+        "nornj-in-jsx",
+        ["transform-object-rest-spread"],
+        "transform-decorators-legacy", [
+          "transform-class-properties",
+          { "loose": false }
+        ],
+        "transform-object-assign", [
+          "transform-es2015-classes",
+          { "loose": true }
+        ],
+        [
+          "transform-es2015-for-of",
+          { "loose": true }
+        ]
+      ]
+    }
+  }
+}
