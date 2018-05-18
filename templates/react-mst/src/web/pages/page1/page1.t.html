@@ -21,7 +21,7 @@
 </template>
 
 <template name="modalForm">
-  <ant-Modal width={500} visible="{tabName == '增加角色' ? (page1.addModalVisible, page1.editModalVisible)}" footer={null} onCancel={onAddModalCancel}>
+  <ant-Modal width={500} visible="{tabName == '增加角色' ?: (page1.addModalVisible, page1.editModalVisible)}" footer={null} onCancel={onAddModalCancel}>
     <ant-Tabs activeKey={page1.activeKey} onChange={onTabChange}>
       <ant-TabPane tab="增加角色" key="tab1">
         <ul class="frombox">
@@ -35,7 +35,7 @@
           </li>
         </ul>
       </ant-TabPane>
-      <ant-TabPane tab="配置权限" key="tab2" disabled="{tabName == '增加角色' ? page1.isDisable}">
+      <ant-TabPane tab="配置权限" key="tab2" disabled="{tabName == '增加角色' ?: page1.isDisable}">
         <div class="{styles.treeWrap}">
           <ant-Tree checkable
                     onExpand={onExpand}
@@ -47,7 +47,7 @@
           </ant-Tree>
         </div>
         <div class="{styles.btnArea}">
-          <ant-Button class="btn" onClick={onSavePermission} disabled="{tabName == '编辑角色' ? page1.saveBtnDisabled}">保存</ant-Button>
+          <ant-Button class="btn" onClick={onSavePermission} disabled="{tabName == '编辑角色' ?: page1.saveBtnDisabled}">保存</ant-Button>
           <ant-Button class="btn" onClick={onAddCancel}>取消</ant-Button>
         </div>
       </ant-TabPane>

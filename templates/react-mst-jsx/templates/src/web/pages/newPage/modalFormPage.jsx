@@ -24,7 +24,7 @@ export default class ModalFormPage extends Component {
 
   //获取树节点的展开形式
   getExpandedKeys(arr) {
-    return arr.filter(n => n.level == 1 || n.level == 2).map(m => { return m.id.toString() });
+    return arr.filter(n => n.level == 1 || n.level == 2).map(m => { return m.id.toString(); });
   }
 
   getDefaultCheckedKeys() {
@@ -42,7 +42,7 @@ export default class ModalFormPage extends Component {
   getAllCheckedKeys(key) {
     const _map = toJS(this.props.store.#{pageName}#.authTreeDataMap);
     if (key.length > 1) {
-      let pids = key.map(item => { return _map[item].pids })
+      let pids = key.map(item => { return _map[item].pids; })
       return Array.from(new Set([].concat(...pids)));
     } else {
       return _map[key].pids;
@@ -107,7 +107,7 @@ export default class ModalFormPage extends Component {
       let params = {
         roleName: #{pageName}#.addInputRole,
         roleDescribe: #{pageName}#.addInputDes
-      }
+      };
       if (this.props.tabName == '编辑角色' && #{pageName}#.roleId != null) {
         params.roleId = #{pageName}#.roleId;
       }
@@ -161,7 +161,7 @@ export default class ModalFormPage extends Component {
       const disableCheckbox = this.disabledTreeNodes.indexOf(item.title) > -1 ? true : false;
 
       if (item.children) {
-        const disabled = level == 1 ? true : item.children.filter(n => this.disabledTreeNodes.indexOf(n.title) > -1).length > 0
+        const disabled = level == 1 ? true : item.children.filter(n => this.disabledTreeNodes.indexOf(n.title) > -1).length > 0;
         level++;
 
         return (

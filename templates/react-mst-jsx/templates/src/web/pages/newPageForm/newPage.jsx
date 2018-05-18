@@ -37,11 +37,11 @@ export default class #{pageName | pascal}# extends Component {
         <Col l={6}>
           <AntFormExample />
         </Col>
-        <Col l={6} >
+        <Col l={6}>
           {/*Element-React的部分表单组件无法在ie9和ie10运行*/}
           <if condition={!isIElt11}><ElFormExample /></if>
-        </Col >
-      </div >
+        </Col>
+      </div>
     );
   }
 }

@@ -38,7 +38,7 @@ export default class #{pageName | pascal}# extends Component {
       #{pageName}#.getRoleManagementData(),
       #{pageName}#.getRoleMenuTree().then(() => #{pageName}#.initTree())
     ]).then(() => {
-      closeLoading()
+      closeLoading();
     });
   }
 
@@ -54,11 +54,11 @@ export default class #{pageName | pascal}# extends Component {
       Promise.all([
         this.props.store.#{pageName}#.getRoleManagementData(),
       ]).then(() => {
-        closeLoading()
+        closeLoading();
       });
     } else {
       const { store: { #{pageName}# } } = this.props;
-      const searchRole = #{pageName}#.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1)
+      const searchRole = #{pageName}#.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1);
       #{pageName}#.setTableData(searchRole);
     }
   }
@@ -141,7 +141,7 @@ export default class #{pageName | pascal}# extends Component {
     Promise.all([
       #{pageName}#.getRoleMenuTree({ roleId: record.roleId }).then(() => #{pageName}#.initTree()),
     ]).then(() => {
-      closeLoading()
+      closeLoading();
     });
   }
 
@@ -159,7 +159,7 @@ export default class #{pageName | pascal}# extends Component {
         this.selectedRowKeys = selectedRowKeys;
         this.selectedRows = selectedRows;
       }
-    }
+    };
   }
 
   render() {

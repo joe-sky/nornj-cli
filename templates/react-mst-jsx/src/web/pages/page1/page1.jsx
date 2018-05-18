@@ -38,7 +38,7 @@ export default class Page1 extends Component {
       page1.getRoleManagementData(),
       page1.getRoleMenuTree().then(() => page1.initTree())
     ]).then(() => {
-      closeLoading()
+      closeLoading();
     });
   }
 
@@ -54,11 +54,11 @@ export default class Page1 extends Component {
       Promise.all([
         this.props.store.page1.getRoleManagementData(),
       ]).then(() => {
-        closeLoading()
+        closeLoading();
       });
     } else {
       const { store: { page1 } } = this.props;
-      const searchRole = page1.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1)
+      const searchRole = page1.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1);
       page1.setTableData(searchRole);
     }
   }
@@ -141,7 +141,7 @@ export default class Page1 extends Component {
     Promise.all([
       page1.getRoleMenuTree({ roleId: record.roleId }).then(() => page1.initTree()),
     ]).then(() => {
-      closeLoading()
+      closeLoading();
     });
   }
 
@@ -159,7 +159,7 @@ export default class Page1 extends Component {
         this.selectedRowKeys = selectedRowKeys;
         this.selectedRows = selectedRows;
       }
-    }
+    };
   }
 
   render() {

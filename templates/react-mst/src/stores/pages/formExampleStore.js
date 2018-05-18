@@ -1,9 +1,10 @@
-import { types } from "mobx-state-tree";
+import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../../utils/notification';
 
-const FormExampleStore = types.model("FormExampleStore", {
+const FormExampleStore = types
+  .model('FormExampleStore', {
     antInputValue: '示例数据',
     antSelectValue: '1',
     antRadioValue: '2',
@@ -28,24 +29,22 @@ const FormExampleStore = types.model("FormExampleStore", {
       };
     }
   }))
-  .actions(self => {
-    return {
-      setElInputValue(v) {
-        self.elInputValue = v;
-      },
-      setElSelectValue(v) {
-        self.elSelectValue = v;
-      },
-      setElRadioValue(v) {
-        self.elRadioValue = v;
-      },
-      setElCheckboxValue(v) {
-        self.elCheckboxValue = v;
-      },
-      setElDate(v) {
-        self.elDate = v;
-      }
-    };
-  });
+  .actions(self => ({
+    setElInputValue(v) {
+      self.elInputValue = v;
+    },
+    setElSelectValue(v) {
+      self.elSelectValue = v;
+    },
+    setElRadioValue(v) {
+      self.elRadioValue = v;
+    },
+    setElCheckboxValue(v) {
+      self.elCheckboxValue = v;
+    },
+    setElDate(v) {
+      self.elDate = v;
+    }
+  }));
 
 export default FormExampleStore;
