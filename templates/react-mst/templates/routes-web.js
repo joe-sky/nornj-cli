@@ -13,16 +13,16 @@ load#{pageName | pascal}#,
  * 页面#{pageName}#
  */
 const #{pageName | pascal}# = inject("store")(
-  observer(({ store }) => nj`
+  observer(({ store }) => t`
     <${PageWrap}>
-      <${Bundle} load=${load#{pageName | pascal}#} store=${store} isPc loadBundles=${loadBundles}>
-        ${(_#{pageName | pascal}#) => {
+      <${Bundle} load=${load#{pageName | pascal}#} store=${store} isPc loadBundles=${loadBundles}>${
+        (_#{pageName | pascal}#) => {
           const #{pageName | pascal}# = withRouter(_#{pageName | pascal}#)
-          return nj`<${#{pageName | pascal}#}/>`();
-        }}
-      </${Bundle}>
+          return t`<${#{pageName | pascal}#}/>`;
+        }
+      }</${Bundle}>
     </${PageWrap}>
-  `())
+  `)
 );
 
 //{pageComponent}//

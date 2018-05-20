@@ -16,7 +16,8 @@
       1,
       2,
       {
-        "SwitchCase": 1
+        "SwitchCase": 1,
+        "ignoredNodes": ["TemplateLiteral > *"]
       }
     ],
     "react/jsx-curly-spacing": 0,

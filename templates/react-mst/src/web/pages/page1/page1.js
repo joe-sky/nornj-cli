@@ -39,7 +39,7 @@ export default class Page1 extends Component {
       page1.getRoleManagementData(),
       page1.getRoleMenuTree().then(() => page1.initTree())
     ]).then(() => {
-      closeLoading()
+      closeLoading();
     });
   }
 
@@ -55,11 +55,11 @@ export default class Page1 extends Component {
       Promise.all([
         this.props.store.page1.getRoleManagementData(),
       ]).then(() => {
-        closeLoading()
+        closeLoading();
       });
     } else {
       const { store: { page1 } } = this.props;
-      const searchRole = page1.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1)
+      const searchRole = page1.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1);
       page1.setTableData(searchRole);
     }
   }
@@ -142,7 +142,7 @@ export default class Page1 extends Component {
     Promise.all([
       page1.getRoleMenuTree({ roleId: record.roleId }).then(() => page1.initTree()),
     ]).then(() => {
-      closeLoading()
+      closeLoading();
     });
   }
 
@@ -160,7 +160,7 @@ export default class Page1 extends Component {
         this.selectedRowKeys = selectedRowKeys;
         this.selectedRows = selectedRows;
       }
-    }
+    };
   }
 
   render() {
@@ -182,7 +182,7 @@ class ModalForm extends Component {
 
   //获取树节点的展开形式
   getExpandedKeys(arr) {
-    return arr.filter(n => n.level == 1 || n.level == 2).map(m => { return m.id.toString() });
+    return arr.filter(n => n.level == 1 || n.level == 2).map(m => { return m.id.toString(); });
   }
 
   getDefaultCheckedKeys() {
@@ -200,7 +200,7 @@ class ModalForm extends Component {
   getAllCheckedKeys(key) {
     const _map = toJS(this.props.store.page1.authTreeDataMap);
     if (key.length > 1) {
-      let pids = key.map(item => { return _map[item].pids })
+      let pids = key.map(item => { return _map[item].pids; });
       return Array.from(new Set([].concat(...pids)));
     } else {
       return _map[key].pids;
@@ -265,7 +265,7 @@ class ModalForm extends Component {
       let params = {
         roleName: page1.addInputRole,
         roleDescribe: page1.addInputDes
-      }
+      };
       if (this.props.tabName == '编辑角色' && page1.roleId != null) {
         params.roleId = page1.roleId;
       }
@@ -319,7 +319,7 @@ class ModalForm extends Component {
       const disableCheckbox = this.disabledTreeNodes.indexOf(item.title) > -1 ? true : false;
 
       if (item.children) {
-        const disabled = level == 1 ? true : item.children.filter(n => this.disabledTreeNodes.indexOf(n.title) > -1).length > 0
+        const disabled = level == 1 ? true : item.children.filter(n => this.disabledTreeNodes.indexOf(n.title) > -1).length > 0;
         level++;
 
         return nj `

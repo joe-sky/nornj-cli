@@ -1,13 +1,13 @@
-import { types } from "mobx-state-tree";
-import { CommonStore } from "./commonStore";
-import HeaderStore from "./headerStore";
-import SiderStore from "./siderStore";
-import Page1Store from "./pages/page1Store";
-import Page2Store from "./pages/page2Store";
-import FormExampleStore from "./pages/formExampleStore";
+import { types } from 'mobx-state-tree';
+import { CommonStore } from './commonStore';
+import HeaderStore from './headerStore';
+import SiderStore from './siderStore';
+import Page1Store from './pages/page1Store';
+import Page2Store from './pages/page2Store';
+import FormExampleStore from './pages/formExampleStore';
 //{importStore}//
 
-const RootStore = types.model("RootStore", {
+const RootStore = types.model('RootStore', {
   common: types.optional(CommonStore, {}),
 
   header: types.optional(HeaderStore, {

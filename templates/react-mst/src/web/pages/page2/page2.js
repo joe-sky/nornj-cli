@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { observable, computed, toJS } from 'mobx'
+import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
@@ -17,7 +17,7 @@ import 'flarej/lib/components/ECharts/lineChart';
 import 'flarej/lib/components/ECharts/pieChart';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
-import graphic from 'echarts/lib/util/graphic.js'
+import graphic from 'echarts/lib/util/graphic.js';
 import { autobind } from 'core-decorators';
 import styles from './page2.m.scss';
 import tmpls from './page2.t.html';
@@ -33,12 +33,12 @@ export default class Page2 extends Component {
   }
 
   componentDidMount() {
-    this.onSearch()
+    this.onSearch();
   }
 
   @autobind
   onSearch() {
-    const closeLoading = Message.loading('正在获取数据...', 0)
+    const closeLoading = Message.loading('正在获取数据...', 0);
     Promise.all([
       this.props.store.page2.getSummaryData(),
       this.props.store.page2.getGrowthData(),
@@ -74,7 +74,7 @@ class EvalSummary extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     const { store: { page2 } } = this.props;
@@ -84,7 +84,6 @@ class EvalSummary extends Component {
     });
   }
 }
-
 
 @registerTmpl('totalComparePage2')
 @inject('store')
@@ -122,14 +121,14 @@ class TotalCompare extends Component {
             params = params.slice(0, 1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach(function(item) {
+          params.forEach(function (item) {
             result += `<div>
                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
                            <span>${item.seriesName}:</span>
                            <span>${item.data || '--'}</span>
                        </div>`;
           });
-          return result
+          return result;
         }
       },
       toolbox: { show: false },
@@ -179,18 +178,18 @@ class TotalCompare extends Component {
   }
 
   @computed get salesData() {
-    const lineData = toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[1].map(item => (item / 10000).toFixed(2)))
+    const lineData = toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[1].map(item => (item / 10000).toFixed(2)));
     return [{
-        name: '属性1',
-        type: 'bar',
-        barWidth: '30px',
-        data: toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[0].map(item => (item / 10000).toFixed(2)))
-      },
-      {
-        name: '属性2',
-        type: 'line',
-        data: this.showMode === null ? [] : lineData
-      }
+      name: '属性1',
+      type: 'bar',
+      barWidth: '30px',
+      data: toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[0].map(item => (item / 10000).toFixed(2)))
+    },
+    {
+      name: '属性2',
+      type: 'line',
+      data: this.showMode === null ? [] : lineData
+    }
     ];
   };
 
@@ -217,14 +216,14 @@ class TotalCompare extends Component {
             params = params.slice(0, 1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach(function(item) {
+          params.forEach(function (item) {
             result += `<div>
                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
                            <span>${item.seriesName}:</span>
                            <span>${item.data || '--'}%</span>
                        </div>`;
           });
-          return result
+          return result;
         }
       },
       toolbox: { show: false },
@@ -276,21 +275,22 @@ class TotalCompare extends Component {
   @computed get salesRatesData() {
     const lineData = toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[1].map(item => (item * 100).toFixed(2)));
     return [{
-        name: '属性1',
-        type: 'line',
-        data: toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[0].map(item => (item * 100).toFixed(2)))
-      },
-      {
-        name: '属性2',
-        type: 'line',
-        data: this.showMode === null ? [] : lineData
-      }
+      name: '属性1',
+      type: 'line',
+      data: toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[0].map(item => (item * 100).toFixed(2)))
+    },
+    {
+      name: '属性2',
+      type: 'line',
+      data: this.showMode === null ? [] : lineData
+    }
     ];
   };
 
   @computed get growthOptions() {
     let dataX = [],
       unit = '';
+
     switch (this.switchIndex) {
       case 'a':
         dataX = toJS(this.props.store.page2.growthDataUV && this.props.store.page2.growthDataUV[2]);
@@ -298,7 +298,7 @@ class TotalCompare extends Component {
         break;
       case 'b':
         dataX = toJS(this.props.store.page2.growthDataUVConvert && this.props.store.page2.growthDataUVConvert[2]);
-        unit = '%'
+        unit = '%';
         break;
       case 'c':
         dataX = toJS(this.props.store.page2.growthDataUser && this.props.store.page2.growthDataUser[2]);
@@ -309,6 +309,7 @@ class TotalCompare extends Component {
         unit = '';
         break;
     }
+
     return {
       grid: {
         left: '3%',
@@ -331,14 +332,14 @@ class TotalCompare extends Component {
             params = params.slice(0, 1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach(function(item) {
+          params.forEach(function (item) {
             result += `<div>
                             <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
                             <span>${item.seriesName}:</span>
                             <span>${item.data || '--'}${unit}</span>
                         </div>`;
           });
-          return result
+          return result;
         }
       },
       toolbox: { show: false },
@@ -409,15 +410,15 @@ class TotalCompare extends Component {
         break;
     }
     return [{
-        name: '属性1',
-        type: 'line',
-        data: data1
-      },
-      {
-        name: '属性2',
-        type: 'line',
-        data: this.showMode === null ? [] : data2
-      }
+      name: '属性1',
+      type: 'line',
+      data: data1
+    },
+    {
+      name: '属性2',
+      type: 'line',
+      data: this.showMode === null ? [] : data2
+    }
     ];
   };
 
@@ -427,7 +428,7 @@ class TotalCompare extends Component {
 
   @autobind
   onGrowthTypeChange(e) {
-    this.switchIndex = e.target.value
+    this.switchIndex = e.target.value;
   }
 
   render() {
@@ -458,13 +459,13 @@ class CategoryCompare extends Component {
       tooltip: {
         trigger: 'item',
         // formatter: "{a} <br/>{b} : {c} ({d}%)",
-        formatter: function(params) {
+        formatter: function (params) {
           var result = `<div>${params.name}</div>`;
           result += `<div>
                               <span>${params.seriesName}:</span>
-                              <span>${params.seriesName == '属性2'? '' : '('+params.data.value+')'} ${params.percent}%</span>
+                              <span>${params.seriesName == '属性2' ? '' : '(' + params.data.value + ')'} ${params.percent}%</span>
                           </div>`;
-          return result
+          return result;
         }
       },
       toolbox: { show: false },
@@ -494,64 +495,64 @@ class CategoryCompare extends Component {
     }
 
     return [{
-        name: '属性2',
-        radius: '40%',
-        center: ['25%', '50%'],
-        label: {
-          normal: {
-            show: false
-          },
-          emphasis: {
-            show: true
-          }
+      name: '属性2',
+      radius: '40%',
+      center: ['25%', '50%'],
+      label: {
+        normal: {
+          show: false
         },
-        lableLine: {
-          normal: {
-            show: false
-          },
-          emphasis: {
-            show: true
-          }
-        },
-        data: _data1,
-        itemStyle: {
-          emphasis: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
+        emphasis: {
+          show: true
         }
       },
-      {
-        name: '属性1',
-        type: 'pie',
-        radius: '40%',
-        center: ['75%', '50%'],
-        label: {
-          normal: {
-            show: false
-          },
-          emphasis: {
-            show: true
-          }
+      lableLine: {
+        normal: {
+          show: false
         },
-        lableLine: {
-          normal: {
-            show: false
-          },
-          emphasis: {
-            show: true
-          }
-        },
-        data: _data2,
-        itemStyle: {
-          emphasis: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
+        emphasis: {
+          show: true
+        }
+      },
+      data: _data1,
+      itemStyle: {
+        emphasis: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
       }
+    },
+    {
+      name: '属性1',
+      type: 'pie',
+      radius: '40%',
+      center: ['75%', '50%'],
+      label: {
+        normal: {
+          show: false
+        },
+        emphasis: {
+          show: true
+        }
+      },
+      lableLine: {
+        normal: {
+          show: false
+        },
+        emphasis: {
+          show: true
+        }
+      },
+      data: _data2,
+      itemStyle: {
+        emphasis: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
     ];
   };
 
@@ -616,7 +617,7 @@ class CategoryCompare extends Component {
           textStyle: {
             color: '#333'
           },
-          formatter: `{value}%`
+          formatter: '{value}%'
         }
       },
       series: [{
@@ -650,15 +651,15 @@ class CategoryCompare extends Component {
 
   @computed get barCategoryData() {
     return [{
-        name: '属性1',
-        type: 'bar',
-        data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
-      },
-      {
-        name: '属性2',
-        type: 'bar',
-        data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
-      }
+      name: '属性1',
+      type: 'bar',
+      data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
+    },
+    {
+      name: '属性2',
+      type: 'bar',
+      data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
+    }
     ];
   };
 
@@ -713,10 +714,10 @@ class BrandCompare extends Component {
             result += `<div>
                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
                            <span>${item.seriesName}:</span>
-                           <span>${item.data || '--'}${item.seriesName=='指标1'?'':'%'}</span>
+                           <span>${item.data || '--'}${item.seriesName == '指标1' ? '' : '%'}</span>
                        </div>`;
           });
-          return result
+          return result;
         }
       },
       toolbox: { show: false },
@@ -742,127 +743,127 @@ class BrandCompare extends Component {
         data: toJS(this.trendsChartDataX)
       },
       yAxis: [{
-          type: 'value',
-          scale: true,
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: '#e5e5e5'
-            }
-          },
-          axisLine: {
-            lineStyle: {
-              color: '#e5e5e5'
-            }
-          },
-          axisLabel: {
-            textStyle: {
-              color: '#333'
-            }
+        type: 'value',
+        scale: true,
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: '#e5e5e5'
           }
         },
-        {
-          type: 'value',
-          scale: true,
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: '#e5e5e5'
-            }
-          },
-          axisLine: {
-            lineStyle: {
-              color: '#e5e5e5'
-            }
-          },
-          axisLabel: {
-            textStyle: {
-              color: '#333'
-            }
+        axisLine: {
+          lineStyle: {
+            color: '#e5e5e5'
+          }
+        },
+        axisLabel: {
+          textStyle: {
+            color: '#333'
           }
         }
+      },
+      {
+        type: 'value',
+        scale: true,
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: '#e5e5e5'
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: '#e5e5e5'
+          }
+        },
+        axisLabel: {
+          textStyle: {
+            color: '#333'
+          }
+        }
+      }
       ],
       series: [{
-          name: '属性2增长率',
-          type: 'line',
-          yAxisIndex: 1,
-          smooth: true,
-          itemStyle: {
-            normal: {
-              color: '#616dd3'
-            }
-          },
-          lineStyle: {
-            normal: {
-              color: '#616dd3'
-            }
-          },
-          areaStyle: {
-            normal: {
-              color: new graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: .5,
-                color: 'rgba(97, 109, 211, .3)'
-              }, {
-                offset: 1,
-                color: 'rgba(255, 255, 255, .2)'
-              }])
-            }
+        name: '属性2增长率',
+        type: 'line',
+        yAxisIndex: 1,
+        smooth: true,
+        itemStyle: {
+          normal: {
+            color: '#616dd3'
           }
         },
-        {
-          name: '品牌增长率',
-          type: 'line',
-          yAxisIndex: 1,
-          smooth: true,
-          itemStyle: {
-            normal: {
-              color: '#616dd3'
-            }
-          },
-          lineStyle: {
-            normal: {
-              color: '#616dd3'
-            }
-          },
-          areaStyle: {
-            normal: {
-              color: new graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: .5,
-                color: 'rgba(97, 109, 211, .3)'
-              }, {
-                offset: 1,
-                color: 'rgba(255, 255, 255, .2)'
-              }])
-            }
+        lineStyle: {
+          normal: {
+            color: '#616dd3'
           }
         },
-        {
-          name: '指标1',
-          type: 'bar',
-          barWidth: '60%'
+        areaStyle: {
+          normal: {
+            color: new graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: .5,
+              color: 'rgba(97, 109, 211, .3)'
+            }, {
+              offset: 1,
+              color: 'rgba(255, 255, 255, .2)'
+            }])
+          }
         }
+      },
+      {
+        name: '品牌增长率',
+        type: 'line',
+        yAxisIndex: 1,
+        smooth: true,
+        itemStyle: {
+          normal: {
+            color: '#616dd3'
+          }
+        },
+        lineStyle: {
+          normal: {
+            color: '#616dd3'
+          }
+        },
+        areaStyle: {
+          normal: {
+            color: new graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: .5,
+              color: 'rgba(97, 109, 211, .3)'
+            }, {
+              offset: 1,
+              color: 'rgba(255, 255, 255, .2)'
+            }])
+          }
+        }
+      },
+      {
+        name: '指标1',
+        type: 'bar',
+        barWidth: '60%'
+      }
       ]
     };
   };
 
   @observable trendsChartData = [{
-      name: '属性2增长率',
-      type: 'line',
-      data: [],
-      yAxisIndex: 1
-    },
-    {
-      name: '属性1增长率',
-      type: 'line',
-      data: [],
-      yAxisIndex: 1
-    },
-    {
-      name: '指标1',
-      type: 'bar',
-      barWidth: '50px',
-      data: []
-    }
+    name: '属性2增长率',
+    type: 'line',
+    data: [],
+    yAxisIndex: 1
+  },
+  {
+    name: '属性1增长率',
+    type: 'line',
+    data: [],
+    yAxisIndex: 1
+  },
+  {
+    name: '指标1',
+    type: 'bar',
+    barWidth: '50px',
+    data: []
+  }
   ];
 
   @observable trendsChartTop = 1;
@@ -896,26 +897,26 @@ class BrandCompare extends Component {
         this.props.store.page2.setChecked(item, false);
         this.props.store.page2.removeCompareDockData(item);
       }
-    }
+    };
   }
 
   @autobind
   viewTrends(item, index) {
     return (e) => {
-      this.trendsChartTop = index * 135 + index + 1 + (15 * index)
+      this.trendsChartTop = index * 135 + index + 1 + (15 * index);
       setTimeout(() => {
         this.trendsChartVisible = true;
         this.trendsChartData[0].data = this.showMode === null ? [] : toJS(item.trendsData[0].map(item => parseFloat((item * 100).toFixed(2))));
         this.trendsChartData[1].data = toJS(item.trendsData[1].map(item => parseFloat((item * 100).toFixed(2))));
         this.trendsChartData[2].data = toJS(item.trendsData[2].map(item => parseFloat((item / 10000).toFixed(2))));
         this.trendsChartDataX = toJS(item.trendsData[3]);
-      }, 300)
-    }
+      }, 300);
+    };
   }
 
   @autobind
   closeTrendsChart() {
-    this.trendsChartVisible = false
+    this.trendsChartVisible = false;
   }
 
   @autobind
@@ -926,7 +927,7 @@ class BrandCompare extends Component {
 
   @autobind
   onPaging(page, pageSize) {
-    const closeLoading = Message.loading('正在获取数据...', 0)
+    const closeLoading = Message.loading('正在获取数据...', 0);
     Promise.all([
       this.props.store.page2.getBrandCompareList()
     ]).then(() => {
@@ -953,7 +954,7 @@ class CompareDock extends Component {
     return (e) => {
       this.props.store.page2.removeCompareDockData(item);
       this.props.store.page2.setChecked(item, false);
-    }
+    };
   }
 
   @autobind
@@ -969,7 +970,7 @@ class CompareDock extends Component {
 
   render() {
     const { store: { page2 } } = this.props;
-    
+
     return tmpls.compareDock(this.state, this.props, this, {
       styles,
       page2

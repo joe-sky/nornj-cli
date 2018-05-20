@@ -23,15 +23,15 @@
     <fj-Col l="3">
       <div class="{styles.summaryItem}">
         <div class="{styles.field}">指标1</div>
-        <div class="{styles.num}">{page2.summaryData.gmv / 10000 .('toFixed')(2)}万元</div>
+        <div class="{styles.num}">{(page2.summaryData.gmv / 10000).toFixed(2)}万元</div>
         <div class="{styles.rates} clearfix">
-          <div class="{page2.summaryData.gmvYOY > 0 ?(styles.red,styles.green)} fl">
+          <div class="{page2.summaryData.gmvYOY > 0 ?: (styles.red,styles.green)} fl">
             <div>同比</div>
-            <div>{page2.summaryData.gmvYOY > 0 ?('+','')}{page2.summaryData.gmvYOY}%</div>
+            <div>{page2.summaryData.gmvYOY > 0 ?: ('+','')}{page2.summaryData.gmvYOY}%</div>
           </div>
-          <div class="{page2.summaryData.gmvMOM > 0 ?(styles.red,styles.green)} fr">
+          <div class="{page2.summaryData.gmvMOM > 0 ?: (styles.red,styles.green)} fr">
             <div>环比</div>
-            <div>{page2.summaryData.gmvMOM > 0 ?('+','')}{page2.summaryData.gmvMOM}%</div>
+            <div>{page2.summaryData.gmvMOM > 0 ?: ('+','')}{page2.summaryData.gmvMOM}%</div>
           </div>
         </div>
       </div>
@@ -41,13 +41,13 @@
         <div class="{styles.field}">指标2</div>
         <div class="{styles.num}">{page2.summaryData.uv}</div>
         <div class="{styles.rates} clearfix">
-          <div class="{page2.summaryData.uvYOY > 0 ?(styles.red,styles.green)} fl">
+          <div class="{page2.summaryData.uvYOY > 0 ?: (styles.red,styles.green)} fl">
             <div>同比</div>
-            <div>{page2.summaryData.uvYOY > 0 ?('+','')}{page2.summaryData.uvYOY}%</div>
+            <div>{page2.summaryData.uvYOY > 0 ?: ('+','')}{page2.summaryData.uvYOY}%</div>
           </div>
-          <div class="{page2.summaryData.uvMOM > 0 ?(styles.red,styles.green)} fr">
+          <div class="{page2.summaryData.uvMOM > 0 ?: (styles.red,styles.green)} fr">
             <div>环比</div>
-            <div>{page2.summaryData.uvMOM > 0 ?('+','')}{page2.summaryData.uvMOM}%</div>
+            <div>{page2.summaryData.uvMOM > 0 ?: ('+','')}{page2.summaryData.uvMOM}%</div>
           </div>
         </div>
       </div>
@@ -57,13 +57,13 @@
         <div class="{styles.field}">指标3</div>
         <div class="{styles.num}">{page2.summaryData.uvRates}%</div>
         <div class="{styles.rates} clearfix">
-          <div class="{page2.summaryData.uvRatesYOY > 0 ?(styles.red,styles.green)} fl">
+          <div class="{page2.summaryData.uvRatesYOY > 0 ?: (styles.red,styles.green)} fl">
             <div>同比</div>
-            <div>{page2.summaryData.uvRatesYOY > 0 ?('+','')}{page2.summaryData.uvRatesYOY}%</div>
+            <div>{page2.summaryData.uvRatesYOY > 0 ?: ('+','')}{page2.summaryData.uvRatesYOY}%</div>
           </div>
-          <div class="{page2.summaryData.uvRatesMOM > 0 ?(styles.red,styles.green)} fr">
+          <div class="{page2.summaryData.uvRatesMOM > 0 ?: (styles.red,styles.green)} fr">
             <div>环比</div>
-            <div>{page2.summaryData.uvRatesMOM > 0 ?('+','')}{page2.summaryData.uvRatesMOM}%</div>
+            <div>{page2.summaryData.uvRatesMOM > 0 ?: ('+','')}{page2.summaryData.uvRatesMOM}%</div>
           </div>
         </div>
       </div>
@@ -73,13 +73,13 @@
         <div class="{styles.field}">指标4</div>
         <div class="{styles.num}">{page2.summaryData.userCount}</div>
         <div class="{styles.rates} clearfix">
-          <div class="{page2.summaryData.userCountYOY > 0 ?(styles.red,styles.green)} fl">
+          <div class="{page2.summaryData.userCountYOY > 0 ?: (styles.red,styles.green)} fl">
             <div>同比</div>
-            <div>{page2.summaryData.userCountYOY > 0 ?('+','')}{page2.summaryData.userCountYOY}%</div>
+            <div>{page2.summaryData.userCountYOY > 0 ?: ('+','')}{page2.summaryData.userCountYOY}%</div>
           </div>
           <div class="{styles.red} fr">
             <div>环比</div>
-            <div>{page2.summaryData.userCountMOM > 0 ?('+','')}{page2.summaryData.userCountMOM}%</div>
+            <div>{page2.summaryData.userCountMOM > 0 ?: ('+','')}{page2.summaryData.userCountMOM}%</div>
           </div>
         </div>
       </div>
@@ -113,16 +113,16 @@
           </thead>
           <tbody>
             <tr class="{styles.row1}">
-              <td>{page2.growthDataTable.(0).(0) >(0) ?('+','')}{page2.growthDataTable.(0).(0) | percent(2) ||('--')}</td>
-              <td>{page2.growthDataTable.(0).(1) >(0) ?('+','')}{page2.growthDataTable.(0).(1) | percent(2) ||('--')}</td>
-              <td>{page2.growthDataTable.(0).(3) >(0) ?('+','')}{page2.growthDataTable.(0).(3) | percent(2) ||('--')}</td>
-              <td>{page2.growthDataTable.(0).(2).('toFixed')(2) ||('')}元</td>
+              <td>{page2.growthDataTable[0][0] > 0 ?: ('+','')}{page2.growthDataTable[0][0] | percent(2) || '--'}</td>
+              <td>{page2.growthDataTable[0][1] > 0 ?: ('+','')}{page2.growthDataTable[0][1] | percent(2) || '--'}</td>
+              <td>{page2.growthDataTable[0][3] > 0 ?: ('+','')}{page2.growthDataTable[0][3] | percent(2) || '--'}</td>
+              <td>{page2.growthDataTable[0][2].toFixed(2) || ''}元</td>
             </tr>
             <tr class="{styles.row2}">
-              <td>{page2.growthDataTable.(1).(0) >(0) ?('+','')}{page2.growthDataTable.(1).(0) | percent(2) ||('--')}</td>
-              <td>{page2.growthDataTable.(1).(1) >(0) ?('+','')}{page2.growthDataTable.(1).(1) | percent(2) ||('--')}</td>
-              <td>{page2.growthDataTable.(1).(3) >(0) ?('+','')}{page2.growthDataTable.(1).(3) | percent(2) ||('--')}</td>
-              <td>{page2.growthDataTable.(1).(2).('toFixed')(2) ||('--')}元</td>
+              <td>{page2.growthDataTable[1][0] > 0 ?: ('+','')}{page2.growthDataTable[1][0] | percent(2) || '--'}</td>
+              <td>{page2.growthDataTable[1][1] > 0 ?: ('+','')}{page2.growthDataTable[1][1] | percent(2) || '--'}</td>
+              <td>{page2.growthDataTable[1][3] > 0 ?: ('+','')}{page2.growthDataTable[1][3] | percent(2) || '--'}</td>
+              <td>{page2.growthDataTable[1][2].toFixed(2) || '--'}元</td>
             </tr>
           </tbody>
         </table>
@@ -149,7 +149,7 @@
     </h3>
     <#if {page2.showSubCategoryBlock}>
       <div class="{styles.subCategoryBlock}">
-        <fj-Row class="{styles.categoryCompare} {currentView == 1 ?(styles.showCategoryCompare,'')} clearfix" gutter="30" key={@index}>
+        <fj-Row class="{styles.categoryCompare} {currentView == 1 ?: (styles.showCategoryCompare,'')} clearfix" gutter="30" key={@index}>
           <fj-Col l="6">
             <div class="{styles.tit}">指标1占比分布对比</div>
             <ec-PieChart ref="ecPieCategory" option={toJS(pieCategoryOptions)} data={toJS(pieCategoryData)} update={true}/>
@@ -163,7 +163,7 @@
             <ec-BarChart ref="ecBarCategory" option={toJS(barCategoryOptions)} data={toJS(barCategoryData)} update={true}/>
           </fj-Col>
         </fj-Row>
-        <div class="{styles.tableWrap} {currentView != 1 ?(styles.showTableWrap,'')}">
+        <div class="{styles.tableWrap} {currentView != 1 ?: (styles.showTableWrap,'')}">
           <table>
             <thead>
               <tr>
@@ -193,19 +193,19 @@
                 <tr key={@index}>
                   <td><span>{rank}</span></td>
                   <td>{name}</td>
-                  <td>{salesAmount / 10000 .('toFixed')(2)}</td>
-                  <td>{salesRates * 100 .('toFixed')(2)}%</td>
-                  <td>{salesGrowthRates * 100 .('toFixed')(2)}%</td>
-                  <td>{uvGrowth * 100 .('toFixed')(2)}%</td>
-                  <td>{uvConvert * 100 .('toFixed')(2)}%</td>
-                  <td>{price.('toFixed')(2)}</td>
-                  <td>{userGrowth * 100 .('toFixed')(2)}%</td>
-                  <td>{salesRates1 * 100 .('toFixed')(2)}%</td>
-                  <td>{salesGrowthRates1 * 100 .('toFixed')(2)}%</td>
-                  <td>{uvGrowth1 * 100 .('toFixed')(2)}%</td>
-                  <td>{uvConvert1 * 100 .('toFixed')(2)}%</td>
-                  <td>{price1.('toFixed')(2)}</td>
-                  <td>{userGrowth1 * 100 .('toFixed')(2)}%</td>
+                  <td>{(salesAmount / 10000).toFixed(2)}</td>
+                  <td>{(salesRates * 100).toFixed(2)}%</td>
+                  <td>{(salesGrowthRates * 100).toFixed(2)}%</td>
+                  <td>{(uvGrowth * 100).toFixed(2)}%</td>
+                  <td>{(uvConvert * 100).toFixed(2)}%</td>
+                  <td>{price.toFixed(2)}</td>
+                  <td>{(userGrowth * 100).toFixed(2)}%</td>
+                  <td>{(salesRates1 * 100).toFixed(2)}%</td>
+                  <td>{(salesGrowthRates1 * 100).toFixed(2)}%</td>
+                  <td>{(uvGrowth1 * 100).toFixed(2)}%</td>
+                  <td>{(uvConvert1 * 100).toFixed(2)}%</td>
+                  <td>{price1.toFixed(2)}</td>
+                  <td>{(userGrowth1 * 100).toFixed(2)}%</td>
                 </tr>
               </#each>
             </tbody>
@@ -221,7 +221,7 @@
 <!--brandCompare：start-->
 <template name="brandCompare">
   <div class="{styles.brandCompareList}">
-    <div class="{styles.trendsChart} {trendsChartVisible ?(styles.trendsChartShow, '')}" style="top:{trendsChartTop}px">
+    <div class="{styles.trendsChart} {trendsChartVisible ?: (styles.trendsChartShow, '')}" style="top:{trendsChartTop}px">
       <span class="{styles.trendsChartClose}" onClick={closeTrendsChart}>X</span>
       <ec-LineChart ref="ecTrendsChart" option={toJS(trendsChartOptions)} data={toJS(trendsChartData)} update={true}/>
     </div>
@@ -316,7 +316,7 @@
               </fj-Col>
               <fj-Col l="6">
                 <div class="{styles.brandText}">{brandName}</div>
-                <div>指标1：{salesAmount.('toFixed')(2)}万元</div>
+                <div>指标1：{salesAmount.toFixed(2)}万元</div>
                 <fj-Row class="clearfix">
                   <fj-Col l="6">
                     <div>指标1同比增长：{uvGrowth | percent(2)}</div>
@@ -324,7 +324,7 @@
                   </fj-Col>
                   <fj-Col l="6">
                     <div>指标3同比增长：{userGrowth | percent(2)}</div>
-                    <div>指标4：{price.('toFixed')(2)}元</div>
+                    <div>指标4：{price.toFixed(2)}元</div>
                   </fj-Col>
                 </fj-Row>
               </fj-Col>
@@ -350,7 +350,7 @@
 
 <!--compareDock:start-->
 <template name="compareDock">
-  <div class="{styles.compareDock} {store.page2.compareDockVisible ?(styles.compareDockShow, '')}">
+  <div class="{styles.compareDock} {store.page2.compareDockVisible ?: (styles.compareDockShow, '')}">
     <div class="{styles.compareDockTit}">
       <span class="{styles.compareDockClose}" onClick={closeCompareDock}>X</span>
       <span>Compare Dock</span>
