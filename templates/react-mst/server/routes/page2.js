@@ -276,7 +276,7 @@ router.get('/getBrandCompareList', function(req, res) {
         "uvRates": 0.5
       },
       {
-        "id": 114,
+        "id": 118,
         "rank": 5,
         "brandLogo": "",
         "brandName": "品牌5",

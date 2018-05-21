@@ -1,2 +1,2 @@
-﻿import comp from './sider';
+﻿import comp from './sider.jsx';
 export default comp;

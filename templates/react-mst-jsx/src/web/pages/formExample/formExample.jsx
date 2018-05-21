@@ -4,14 +4,16 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import Form from 'flarej/lib/components/antd/form';
-import Input from 'flarej/lib/components/antd/input';
-import Select from 'flarej/lib/components/antd/select';
-import Radio from 'flarej/lib/components/antd/radio';
-import Button from 'flarej/lib/components/antd/button';
-import Cascader from 'flarej/lib/components/antd/cascader';
-import DatePicker from 'flarej/lib/components/antd/datePicker';
-import Checkbox from 'flarej/lib/components/antd/checkbox';
+import {
+  Form,
+  Input,
+  Select,
+  Radio,
+  Button,
+  Cascader,
+  DatePicker,
+  Checkbox
+} from 'antd';
 import ElForm from 'flarej/lib/components/element/form';
 import ElInput from 'flarej/lib/components/element/input';
 import ElSelect from 'flarej/lib/components/element/select';

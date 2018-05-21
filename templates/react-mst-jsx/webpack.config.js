@@ -73,7 +73,7 @@ module.exports = {
         }]
       },
       {
-        test: /\.template(-[\s\S]+)*.html(\?[\s\S]+)*$/,
+        test: /\.template(-[\s\S]+)*.nj.html(\?[\s\S]+)*$/,
         use: [{
           loader: 'nornj-loader'
         }]
@@ -177,7 +177,7 @@ module.exports.plugins = [
   }),
   new HtmlWebpackPlugin({
     filename: process.env.Project + '/index.html',
-    template: './index.template-' + process.env.Project + '.html',
+    template: './index.template-' + process.env.Project + '.nj.html',
     inject: 'true',
     chunks: ['vendor', 'app'],
     path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`
@@ -186,7 +186,7 @@ module.exports.plugins = [
     inject: 'true',
     chunks: ['vendor', 'appHome'],
     filename: process.env.Project + '/home.html',
-    template: './index.template-' + process.env.Project + '.html',
+    template: './index.template-' + process.env.Project + '.nj.html',
     path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`
   }),
   new webpack.NamedModulesPlugin(),

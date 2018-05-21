@@ -268,14 +268,17 @@ const Page2Store = types
       }
     },
     removeCompareDockData(item) {
-      self.compareDockData && self.compareDockData.splice(self.compareDockData.findIndex((i) => i.id == item.id), 1);
+      if(self.compareDockData) {
+        self.compareDockData.splice(self.compareDockData.findIndex((i) => i.id == item.id), 1);
+        self.compareDockData = [...self.compareDockData];
+      }
     },
     clearCompareDockData() {
       self.compareDockData = self.compareDockData && toJS(self.compareDockData).splice(0, 1);
-      self.brandCompareList = self.brandCompareList.map(item => {
+      self.brandCompareList = [...self.brandCompareList.map(item => {
         item.isChecked = false;
         return item;
-      });
+      })];
     },
     setCompareDockVisible(visible) {
       self.compareDockVisible = visible;

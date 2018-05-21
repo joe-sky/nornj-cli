@@ -5,15 +5,17 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import Table from 'flarej/lib/components/antd/table';
-import Input from 'flarej/lib/components/antd/input';
-import Button from 'flarej/lib/components/antd/button';
-import Pagination from 'flarej/lib/components/antd/pagination';
-import Tabs from 'flarej/lib/components/antd/tabs';
-import Checkbox from 'flarej/lib/components/antd/checkbox';
-import Modal from 'flarej/lib/components/antd/modal';
-import Tree from 'flarej/lib/components/antd/tree';
-import Message from 'flarej/lib/components/antd/message';
+import {
+  Table,
+  Input,
+  Button,
+  Pagination,
+  Tabs,
+  Checkbox,
+  Modal,
+  Tree,
+  Message
+} from 'antd';
 import Notification from '../../../utils/notification';
 import styles from './#{pageName}#.m.scss';
 
