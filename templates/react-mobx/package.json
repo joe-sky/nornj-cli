@@ -1,5 +1,5 @@
 {
-  "name": "nj-react-mobx-boilerplate",
+  "name": "nornj-react-mobx-boilerplate",
   "version": "1.0.0",
   "description": "NornJ + React + Mobx boilerplate",
   "main": "lib/common/base.js",

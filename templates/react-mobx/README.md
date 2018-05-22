@@ -1,4 +1,4 @@
-﻿nj-react-mobx-boilerplate
+﻿nornj-react-mobx-boilerplate
 ====
 
 > `NornJ`+`React`+`Mobx`项目模板，可以此项目为模板快速创建新项目。

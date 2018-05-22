@@ -1,7 +1,7 @@
 {
-  "name": "nj-react-mst-boilerplate",
+  "name": "nornj-react-mst-boilerplate",
   "version": "1.0.0",
-  "description": "React + Mobx-state-tree项目模板",
+  "description": "NornJ + React + Mobx-state-tree boilerplate",
   "main": "app.js",
   "scripts": {
     "dev": "npm run dev-web",

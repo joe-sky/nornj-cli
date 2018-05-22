@@ -4,9 +4,9 @@ import Bundle from './Bundle';
 import { withRouter, Redirect } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 import { observer, Provider, inject } from 'mobx-react';
-import loadPage1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1/page1.jsx';
-import loadPage2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page2/page2.jsx';
-import loadFormExample from 'bundle-loader?lazy&name=[name]!./src/web/pages/formExample/formExample.jsx';
+import loadPage1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1/page1.js';
+import loadPage2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page2/page2.js';
+import loadFormExample from 'bundle-loader?lazy&name=[name]!./src/web/pages/formExample/formExample.js';
 //{importLoadPage}//
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
@@ -29,7 +29,7 @@ const Page1 = inject('store')(
       <${Bundle} load=${loadPage1} store=${store} isPc loadBundles=${loadBundles}>${
         (_Page1) => {
           const Page1 = withRouter(_Page1);
-          return t`<${Page1}/>`;
+          return t`<${Page1} />`;
         }
       }</${Bundle}>
     </${PageWrap}>
@@ -45,7 +45,7 @@ const Page2 = inject('store')(
       <${Bundle} load=${loadPage2} store=${store} isPc loadBundles=${loadBundles}>${
         (_Page2) => {
           const Page2 = withRouter(_Page2);
-          return t`<${Page2}/>`;
+          return t`<${Page2} />`;
         }
       }</${Bundle}>
     </${PageWrap}>
@@ -61,7 +61,7 @@ const FormExample = inject('store')(
       <${Bundle} load=${loadFormExample} store=${store} isPc loadBundles=${loadBundles}>${
         (_FormExample) => {
           const FormExample = withRouter(_FormExample);
-          return t`<${FormExample}/>`;
+          return t`<${FormExample} />`;
         }
       }</${Bundle}>
     </${PageWrap}>
@@ -84,12 +84,12 @@ const PageWrap = inject('store')(
 
 const routes = () => t`
   <router-Switch>
-    <Route exact path='/' component=${Page1}/>
-    <Route exact path='/Page1' component=${Page1} />
-    <Route exact path='/Page2' component=${Page2} />
-    <Route exact path='/FormExample' component=${FormExample} />
+    <Route exact path="/" component=${Page1}/>
+    <Route exact path="/Page1" component=${Page1} />
+    <Route exact path="/Page2" component=${Page2} />
+    <Route exact path="/FormExample" component=${FormExample} />
     <!--//{route}//-->
-    <Redirect from='*' to='/'/>
+    <Redirect from="*" to="/"/>
   </router-Switch>
 `;
 

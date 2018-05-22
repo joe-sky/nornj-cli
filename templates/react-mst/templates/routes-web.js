@@ -12,13 +12,13 @@ load#{pageName | pascal}#,
 /**
  * 页面#{pageName}#
  */
-const #{pageName | pascal}# = inject("store")(
+const #{pageName | pascal}# = inject('store')(
   observer(({ store }) => t`
     <${PageWrap}>
       <${Bundle} load=${load#{pageName | pascal}#} store=${store} isPc loadBundles=${loadBundles}>${
         (_#{pageName | pascal}#) => {
           const #{pageName | pascal}# = withRouter(_#{pageName | pascal}#)
-          return t`<${#{pageName | pascal}#}/>`;
+          return t`<${#{pageName | pascal}#} />`;
         }
       }</${Bundle}>
     </${PageWrap}>
@@ -30,6 +30,6 @@ const #{pageName | pascal}# = inject("store")(
 
 <#-template name="route">
 __extraComment__-->
-    <Route exact path='/#{pageName | pascal}#' component=${#{pageName | pascal}#} />
+    <Route exact path="/#{pageName | pascal}#" component=${#{pageName | pascal}#} />
     <!--//{route}//
 </#-template>

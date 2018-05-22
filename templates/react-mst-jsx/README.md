@@ -1,4 +1,4 @@
-nj-react-mst-boilerplate
+nornj-react-mst-boilerplate
 ====
 
 > `NornJ`+`React`+`Mobx-state-tree`项目模板，可以此项目为模板快速创建新项目。

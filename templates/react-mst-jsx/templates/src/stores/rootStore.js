@@ -1,5 +1,5 @@
 ﻿<#-template name="importStore">
-import #{pageName | pascal}#Store from "./pages/#{pageName}#Store";
+import #{pageName | pascal}#Store from './pages/#{pageName}#Store';
 //{importStore}//
 </#-template>
 

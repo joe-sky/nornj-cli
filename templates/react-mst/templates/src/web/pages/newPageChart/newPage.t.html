@@ -94,9 +94,9 @@
     <fj-Col l="6">
       <div class="{styles.leftBlock}">
         <div class="{styles.chartTit}">指标1趋势</div>
-        <ec-LineChart ref="ecSales" option={toJS(salesOptions)} data={toJS(salesData)} update={true}/>
+        <ec-LineChart ref="ecSales" option={toJS(salesOptions)} data={toJS(salesData)} />
         <div class="{styles.chartTit}">指标1同比增长率趋势</div>
-        <ec-LineChart ref="ecSalesRates" option={toJS(salesRatesOptions)} data={toJS(salesRatesData)} update={true}/>
+        <ec-LineChart ref="ecSalesRates" option={toJS(salesRatesOptions)} data={toJS(salesRatesData)} />
       </div>
     </fj-Col>
     <fj-Col l="6">
@@ -132,7 +132,7 @@
           <ant-RadioButton value="c">指标3</ant-RadioButton>
           <ant-RadioButton value="d">指标4</ant-RadioButton>
         </ant-RadioGroup>
-        <ec-LineChart ref="ecGrowth" option={toJS(growthOptions)} data={toJS(growthData)} update={true}/>            
+        <ec-LineChart ref="ecGrowth" option={toJS(growthOptions)} data={toJS(growthData)} />            
       </div>
     </fj-Col>
   </fj-Row>
@@ -152,7 +152,7 @@
         <fj-Row class="{styles.categoryCompare} {currentView == 1 ?: (styles.showCategoryCompare,'')} clearfix" gutter="30" key={@index}>
           <fj-Col l="6">
             <div class="{styles.tit}">指标1占比分布对比</div>
-            <ec-PieChart ref="ecPieCategory" option={toJS(pieCategoryOptions)} data={toJS(pieCategoryData)} update={true}/>
+            <ec-PieChart ref="ecPieCategory" option={toJS(pieCategoryOptions)} data={toJS(pieCategoryData)} />
             <fj-Row class="tc clearfix">
               <fj-Col l="6">属性1</fj-Col>
               <fj-Col l="6">属性2</fj-Col>
@@ -160,7 +160,7 @@
           </fj-Col>
           <fj-Col l="6">
             <div class="{styles.tit}">指标1增长率对比</div>
-            <ec-BarChart ref="ecBarCategory" option={toJS(barCategoryOptions)} data={toJS(barCategoryData)} update={true}/>
+            <ec-BarChart ref="ecBarCategory" option={toJS(barCategoryOptions)} data={toJS(barCategoryData)} />
           </fj-Col>
         </fj-Row>
         <div class="{styles.tableWrap} {currentView != 1 ?: (styles.showTableWrap,'')}">
@@ -223,7 +223,7 @@
   <div class="{styles.brandCompareList}">
     <div class="{styles.trendsChart} {trendsChartVisible ?: (styles.trendsChartShow, '')}" style="top:{trendsChartTop}px">
       <span class="{styles.trendsChartClose}" onClick={closeTrendsChart}>X</span>
-      <ec-LineChart ref="ecTrendsChart" option={toJS(trendsChartOptions)} data={toJS(trendsChartData)} update={true}/>
+      <ec-LineChart ref="ecTrendsChart" option={toJS(trendsChartOptions)} data={toJS(trendsChartData)} />
     </div>
     <#if {#{pageName}#.showCompareTable}>
       <div class="{styles.compareTable}">
