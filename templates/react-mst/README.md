@@ -6,9 +6,9 @@ nornj-react-mst-boilerplate
 ## 构建命令
 
 ```sh
-npm run dev-web         #启动node端本地调试server，然后使用http://localhost:8080/dist/web访问页面
-npm run build-web       #构建生产代码到dist目录
-npm run build-web-test  #构建生产代码到dist目录，使用测试环境配置
+npm run dev         #启动node端本地调试server，然后使用http://localhost:8080/dist/web访问页面
+npm run build       #构建生产代码到dist目录
+npm run build-test  #构建生产代码到dist目录，使用测试环境配置
 ```
 
 #{learningGuide}#
