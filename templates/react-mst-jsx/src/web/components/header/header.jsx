@@ -1,7 +1,7 @@
 ﻿import React, { Component, PropTypes } from 'react';
 import { observable, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj, { template as t } from 'nornj';
+import nj, { mustache as m } from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 
@@ -105,7 +105,7 @@ export default class Header extends Component {
           </each>
         </ul>
         <div className="login-wrap middle">
-          <a className="link">{t`{${store}.common.userInfo.pin}`}</a>
+          <a className="link">{m`${store}.common.userInfo.pin`}</a>
           <a className="avatar"><img src={require('../../images/pic-header.png')} alt={''} /></a>
           <a className="link" href={logoutUrl}>注销</a>
         </div>

@@ -55,9 +55,9 @@ Page Name: pageName
 
 | 名称           | 描述                      | 模板源码地址                |
 |:---------------|:-------------------------|:--------------------------|
-| react-mst      | 基于React+Mobx-state-tree的单页面项目，组件开发规范默认使用NornJ | |
-| react-mst-jsx      | 基于React+Mobx-state-tree的单页面项目，组件开发规范默认使用JSX | |
-| react-mobx     | 基于React+Mobx的多页面项目 |  |
+| react-mst      | 基于React+Mobx-state-tree的单页面项目，组件开发规范默认使用NornJ | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst |
+| react-mst-jsx      | 基于React+Mobx-state-tree的单页面项目，组件开发规范默认使用JSX | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-jsx |
+| react-mobx     | 基于React+Mobx的多页面项目 | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mobx |
 | Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 | https://github.com/Y-Dept/template-saas |
 | Y-Dept/react-mobx-ls | 基于React+Mobx的多页面项目(接入零智平台) | https://github.com/Y-Dept/react-mobx-ls |
 
