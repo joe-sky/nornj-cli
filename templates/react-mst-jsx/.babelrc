@@ -15,7 +15,7 @@
         ] ],
         [
           "styled-jsx/babel",
-          { "plugins": ["styled-jsx-plugin-sass"] }
+          { "plugins": ["styled-jsx-plugin-sass", "styled-jsx-plugin-postcss"] }
         ],
         "nornj-in-jsx",
         ["transform-object-rest-spread"],
@@ -49,7 +49,7 @@
         ] ],
         [
           "styled-jsx/babel",
-          { "plugins": ["styled-jsx-plugin-sass"] }
+          { "plugins": ["styled-jsx-plugin-sass", "styled-jsx-plugin-postcss"] }
         ],
         "nornj-in-jsx",
         ["transform-object-rest-spread"],
