@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
-import { fetchData } from 'flarej/lib/utils/fetchConfig';
+import axios from 'axios';
 import Notification from '../../utils/notification';
 
 const #{pageName | pascal}#Store = types
@@ -21,9 +21,10 @@ const #{pageName | pascal}#Store = types
     },
 
     getModData(params) {
-      return fetchData(`${__HOST}/#{pageName}#/getModData`,
-        self.setModData,
-        params, { method: 'get' })
+      return axios.get(`${__HOST}/#{pageName}#/getModData`, {
+        params
+      })
+        .then(self.setModData)
         .catch((ex) => {
           Notification.error({
             description: '获取数据异常:' + ex,
@@ -32,7 +33,7 @@ const #{pageName | pascal}#Store = types
         });
     },
 
-    setModData(result) {
+    setModData({ data: result }) {
       if (result.success) {
         self.modData = result.data;
       } else {

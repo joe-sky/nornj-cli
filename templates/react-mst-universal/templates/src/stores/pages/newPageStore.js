@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
-import { fetchData } from 'flarej/lib/utils/fetchConfig';
+import axios from 'axios';
 import Notification from '../../utils/notification';
 
 const #{pageName | pascal}#Store = types
@@ -142,9 +142,10 @@ const #{pageName | pascal}#Store = types
     },
 
     getRoleMenuTree(params) {
-      return fetchData(`${__HOST}/#{pageName}#/getRoleMenuTree`,
-        self.setRoleMenuTree,
-        params, { method: 'get' })
+      return axios.get(`${__HOST}/#{pageName}#/getRoleMenuTree`, {
+        params
+      })
+        .then(self.setRoleMenuTree)
         .catch((ex) => {
           Notification.error({
             description: '获取角色权限数据异常:' + ex,
@@ -153,7 +154,7 @@ const #{pageName | pascal}#Store = types
         });
     },
 
-    setRoleMenuTree(result) {
+    setRoleMenuTree({ data: result }) {
       if (result.success) {
         self.menuData = result.data;
         self.authTreeDataMap = self.getAuthTreeDataMap(result.data);
@@ -167,9 +168,10 @@ const #{pageName | pascal}#Store = types
     },
 
     getRoleManagementData(params) {
-      return fetchData(`${__HOST}/#{pageName}#/getRoleManagementData`,
-        self.setRoleManagementData,
-        params, { method: 'get' })
+      return axios.get(`${__HOST}/#{pageName}#/getRoleManagementData`, {
+        params
+      })
+        .then(self.setRoleManagementData)
         .catch((ex) => {
           Notification.error({
             description: '获取角色管理数据异常:' + ex,
@@ -178,7 +180,7 @@ const #{pageName | pascal}#Store = types
         });
     },
 
-    setRoleManagementData(result) {
+    setRoleManagementData({ data: result }) {
       if (result.success) {
         const data = result.data;
         self.tableDataO = self.tableData = data.length > 0 ? data : [];
@@ -191,9 +193,10 @@ const #{pageName | pascal}#Store = types
     },
 
     searchRole(params) {
-      return fetchData(`${__HOST}/#{pageName}#/searchRole`,
-        self.setSearchRole,
-        params, { method: 'get' })
+      return axios.get(`${__HOST}/#{pageName}#/searchRole`, {
+        params
+      })
+        .then(self.setSearchRole)
         .catch((ex) => {
           Notification.error({
             description: '获取角色数据异常:' + ex,
@@ -202,7 +205,7 @@ const #{pageName | pascal}#Store = types
         });
     },
 
-    setSearchRole(result) {
+    setSearchRole({ data: result }) {
       if (result.success) {
         const data = result.data;
         self.searchData = data;
@@ -215,9 +218,8 @@ const #{pageName | pascal}#Store = types
     },
 
     saveRole(params) {
-      return fetchData(`${__HOST}/#{pageName}#/saveRole`,
-        self.setSaveRole,
-        params, { method: 'post' })
+      return axios.post(`${__HOST}/#{pageName}#/saveRole`, params)
+        .then(self.setSaveRole)
         .catch((ex) => {
           Notification.error({
             description: '添加角色数据异常:' + ex,
@@ -226,7 +228,7 @@ const #{pageName | pascal}#Store = types
         });
     },
 
-    setSaveRole(result) {
+    setSaveRole({ data: result }) {
       if (result.success) {
         const data = result.data;
         self.addRoleId = data.roleId;
@@ -242,9 +244,8 @@ const #{pageName | pascal}#Store = types
     },
 
     saveRolePermission(params) {
-      return fetchData(`${__HOST}/#{pageName}#/saveRolePermission`,
-        self.setSaveRolePermission,
-        params, { method: 'post' })
+      return axios.post(`${__HOST}/#{pageName}#/saveRolePermission`, params)
+        .then(self.setSaveRolePermission)
         .catch((ex) => {
           Notification.error({
             description: '添加角色权限数据异常:' + ex,
@@ -253,7 +254,7 @@ const #{pageName | pascal}#Store = types
         });
     },
 
-    setSaveRolePermission(result) {
+    setSaveRolePermission({ data: result }) {
       if (result.success) {
         Notification.success({ description: '添加角色权限成功！', duration: 2 });
       } else {
@@ -265,9 +266,8 @@ const #{pageName | pascal}#Store = types
     },
 
     deleteRole(params) {
-      return fetchData(`${__HOST}/#{pageName}#/deleteRole`,
-        self.setDeleteRole,
-        params, { method: 'post' })
+      return axios.post(`${__HOST}/#{pageName}#/deleteRole`, params)
+        .then(self.setDeleteRole)
         .catch((ex) => {
           Notification.error({
             description: '删除角色数据异常:' + ex,
@@ -276,7 +276,7 @@ const #{pageName | pascal}#Store = types
         });
     },
 
-    setDeleteRole(result) {
+    setDeleteRole({ data: result }) {
       if (result.success) {
         Notification.success({ description: '删除角色成功！', duration: null });
       } else {

@@ -14,7 +14,7 @@ import nj from 'nornj';
 import 'nornj-react/mobx';
 import 'nornj-react/router';
 import './src/utils/nj.configs';
-import { template as t, compileH, registerComponent } from 'nornj';
+import { compileH, registerComponent } from 'nornj';
 import { withRouter } from 'react-router';
 import { HashRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -26,8 +26,10 @@ import { onSnapshot } from 'mobx-state-tree';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
-import Notification from 'flarej/lib/components/antd/notification';
-import { LocaleProvider } from 'antd';
+import {
+  Notification,
+  LocaleProvider
+} from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import { createNotification } from './src/utils/notification';
 createNotification(Notification);
@@ -38,17 +40,18 @@ const rootStore = RootStore.create({});
 // })
 
 const renderApp = appRoutes => {
-  ReactDOM.render(t`
-    <${LocaleProvider} locale=${zhCN}>
-      <mobx-Provider store=${rootStore}>
+  ReactDOM.render(
+    <LocaleProvider locale={zhCN}>
+      <Provider store={rootStore}>
         <HashRouter>
           <div id="outer-container">
-            ${appRoutes()}
+            {appRoutes()}
           </div>
         </HashRouter>
-      </mobx-Provider>
-    </${LocaleProvider}>
-  `, document.getElementById('app'));
+      </Provider>
+    </LocaleProvider>,
+    document.getElementById('app')
+  );
 };
 renderApp(routes);
 
