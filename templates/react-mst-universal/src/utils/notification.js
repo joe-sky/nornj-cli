@@ -1,4 +1,4 @@
-import Message from 'flarej/lib/components/antd/message';
+import { Message } from 'antd';
 const Notification = {};
 export default Notification;
 

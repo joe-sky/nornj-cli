@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.2.4] 2018.05.29
+
+* 🌟 `react-mst-universal`模板`ECharts`组件改为使用`echarts-for-react`。
+
 ## [v0.2.3] 2018.05.28
 
 * 🌟 `react-mst-jsx`模板更名为`react-mst-universal`，请求数据改为使用`axios`。

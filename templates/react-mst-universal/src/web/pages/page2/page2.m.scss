@@ -39,7 +39,7 @@
       
       .leftBlock{
         border:1px solid #eee;border-radius: 5px;width:95%;margin:0 auto;padding:20px;padding-top:0;height:484px;
-        :global .fj-area-chart-area{height:175px !important;}
+        :global .echarts-for-react{height:175px !important;}
         .chartTit{padding:20px 0 10px 0;font-size: 14px;}
       }
 
@@ -64,7 +64,7 @@
           }
           img{width:25px;display:block;margin:0 auto;}
         }
-        :global .fj-area-chart-area{height:200px !important;margin-top:30px;}
+        :global .echarts-for-react{height:200px !important;margin-top:30px;}
         :global .ant-radio-group{margin-top:40px;}
       }
     }
@@ -81,7 +81,7 @@
 
           .tit{font-size: 14px;padding:0 0 20px 10px;}
           :global {
-            .fj-area-chart-area{height:300px !important;}
+            .echarts-for-react{height:300px !important;}
           } 
       }
       .showCategoryCompare{
@@ -170,7 +170,7 @@
         position: absolute;top:1px;right:1px;width:60%;height: 134px;background: #fff;z-index: 1;opacity: 0;visibility: hidden;transition:all .3s ease-out;padding-right:50px;transform:translateX(100%);
 
         .trendsChartClose{color: #999;display: inline-block;width: 25px;height: 25px;font-size: 14px;position: absolute;top: 7px;right: 5px;font-weight: 200;text-align: center;line-height: 100%;cursor: pointer;}
-        :global .fj-area-chart-area{height:134px !important;}
+        :global .echarts-for-react{height:134px !important;}
       }
       .trendsChartShow{opacity: 1;visibility: visible;transform:translateX(0);}
 

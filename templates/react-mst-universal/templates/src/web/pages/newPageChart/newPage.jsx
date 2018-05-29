@@ -16,14 +16,18 @@ import {
   Pagination,
   Message
 } from 'antd';
+import ReactEcharts from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/component/title';
+import 'echarts/lib/component/legend';
 import 'echarts/lib/component/visualMap';
 import 'echarts/lib/component/calendar';
-import BarChart from 'flarej/lib/components/ECharts/barChart';
-import LineChart from 'flarej/lib/components/ECharts/lineChart';
-import PieChart from 'flarej/lib/components/ECharts/pieChart';
-import Notification from '../../../utils/notification';
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/chart/line';
+import 'echarts/lib/chart/pie';
 import graphic from 'echarts/lib/util/graphic.js';
+import Notification from '../../../utils/notification';
 import { autobind } from 'core-decorators';
 import styles from './#{pageName}#.m.scss';
 
@@ -256,7 +260,8 @@ class TotalCompare extends Component {
             color: '#333'
           }
         }
-      }
+      },
+      series: this.salesData
     };
   }
 
@@ -351,7 +356,8 @@ class TotalCompare extends Component {
           },
           formatter: '{value}%'
         }
-      }
+      },
+      series: this.salesRatesData
     };
   };
 
@@ -467,7 +473,8 @@ class TotalCompare extends Component {
           },
           formatter: `{value}${unit}`
         }
-      }
+      },
+      series: this.growthData
     };
   };
 
@@ -522,9 +529,15 @@ class TotalCompare extends Component {
         <Col span={12}>
           <div className={styles.leftBlock}>
             <div className={styles.chartTit}>指标1趋势</div>
-            <LineChart ref="ecSales" option={toJS(this.salesOptions)} data={toJS(this.salesData)} />
+            <ReactEcharts echarts={echarts}
+                          option={toJS(this.salesOptions)}
+                          notMerge={true}
+                          ref="ecSales" />
             <div className={styles.chartTit}>指标1同比增长率趋势</div>
-            <LineChart ref="ecSalesRates" option={toJS(this.salesRatesOptions)} data={toJS(this.salesRatesData)} />
+            <ReactEcharts echarts={echarts}
+                          option={toJS(this.salesRatesOptions)}
+                          notMerge={true}
+                          ref="ecSalesRates" />
           </div>
         </Col>
         <Col span={12}>
@@ -560,7 +573,10 @@ class TotalCompare extends Component {
               <Radio.Button value="c">指标3</Radio.Button>
               <Radio.Button value="d">指标4</Radio.Button>
             </Radio.Group>
-            <LineChart ref="ecGrowth" option={toJS(this.growthOptions)} data={toJS(this.growthData)} update={true} />
+            <ReactEcharts echarts={echarts}
+                          option={toJS(this.growthOptions)}
+                          notMerge={true}
+                          ref="ecGrowth" />
           </div>
         </Col>
       </Row>
@@ -599,7 +615,8 @@ class CategoryCompare extends Component {
       legend: {
         left: 'center',
         data: toJS(this.props.store.#{pageName}#.pieSubCategoryData && this.props.store.#{pageName}#.pieSubCategoryData[2])
-      }
+      },
+      series: this.pieCategoryData
     };
   };
 
@@ -623,6 +640,7 @@ class CategoryCompare extends Component {
 
     return [{
       name: '属性2',
+      type: 'pie',
       radius: '40%',
       center: ['25%', '50%'],
       label: {
@@ -747,32 +765,7 @@ class CategoryCompare extends Component {
           formatter: '{value}%'
         }
       },
-      series: [{
-        name: '属性1',
-        type: 'bar',
-        smooth: true,
-        itemStyle: {
-          normal: {
-            color: '#616dd3'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#616dd3'
-          }
-        },
-        areaStyle: {
-          normal: {
-            color: new graphic.LinearGradient(0, 0, 0, 1, [{
-              offset: .5,
-              color: 'rgba(97, 109, 211, .3)'
-            }, {
-              offset: 1,
-              color: 'rgba(255, 255, 255, .2)'
-            }])
-          }
-        }
-      }]
+      series: this.barCategoryData
     };
   };
 
@@ -812,7 +805,10 @@ class CategoryCompare extends Component {
             <Row className={`${styles.categoryCompare} ${this.currentView == 1 ? styles.showCategoryCompare : ''}`} gutter={30}>
               <Col span={12}>
                 <div className={styles.tit}>指标1占比分布对比</div>
-                <PieChart ref="ecPieCategory" option={toJS(this.pieCategoryOptions)} data={toJS(this.pieCategoryData)} />
+                <ReactEcharts echarts={echarts}
+                              option={toJS(this.pieCategoryOptions)}
+                              notMerge={true}
+                              ref="ecPieCategory" />
                 <Row className="tc">
                   <Col span={12}>属性1</Col>
                   <Col span={12}>属性2</Col>
@@ -820,7 +816,10 @@ class CategoryCompare extends Component {
               </Col>
               <Col span={12}>
                 <div className={styles.tit}>指标1增长率对比</div>
-                <BarChart ref="ecBarCategory" option={toJS(this.barCategoryOptions)} data={toJS(this.barCategoryData)} />
+                <ReactEcharts echarts={echarts}
+                              option={toJS(this.barCategoryOptions)}
+                              notMerge={true}
+                              ref="ecBarCategory" />
               </Col>
             </Row>
             <div className={`${styles.tableWrap} ${this.currentView != 1 ? styles.showTableWrap : ''}`}>
@@ -980,88 +979,31 @@ class BrandCompare extends Component {
         }
       }
       ],
-      series: [{
-        name: '属性2增长率',
-        type: 'line',
-        yAxisIndex: 1,
-        smooth: true,
-        itemStyle: {
-          normal: {
-            color: '#616dd3'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#616dd3'
-          }
-        },
-        areaStyle: {
-          normal: {
-            color: new graphic.LinearGradient(0, 0, 0, 1, [{
-              offset: .5,
-              color: 'rgba(97, 109, 211, .3)'
-            }, {
-              offset: 1,
-              color: 'rgba(255, 255, 255, .2)'
-            }])
-          }
-        }
-      },
-      {
-        name: '品牌增长率',
-        type: 'line',
-        yAxisIndex: 1,
-        smooth: true,
-        itemStyle: {
-          normal: {
-            color: '#616dd3'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#616dd3'
-          }
-        },
-        areaStyle: {
-          normal: {
-            color: new graphic.LinearGradient(0, 0, 0, 1, [{
-              offset: .5,
-              color: 'rgba(97, 109, 211, .3)'
-            }, {
-              offset: 1,
-              color: 'rgba(255, 255, 255, .2)'
-            }])
-          }
-        }
-      },
-      {
-        name: '指标1',
-        type: 'bar',
-        barWidth: '60%'
-      }
-      ]
+      series: this.trendsChartData
     };
   };
 
-  @observable trendsChartData = [{
-    name: '属性2增长率',
-    type: 'line',
-    data: [],
-    yAxisIndex: 1
-  },
-  {
-    name: '属性1增长率',
-    type: 'line',
-    data: [],
-    yAxisIndex: 1
-  },
-  {
-    name: '指标1',
-    type: 'bar',
-    barWidth: '50px',
-    data: []
+  @computed get trendsChartData() {
+    return [{
+      name: '属性2增长率',
+      type: 'line',
+      data: [],
+      yAxisIndex: 1
+    },
+    {
+      name: '属性1增长率',
+      type: 'line',
+      data: [],
+      yAxisIndex: 1
+    },
+    {
+      name: '指标1',
+      type: 'bar',
+      barWidth: '50px',
+      data: []
+    }
+    ];
   }
-  ];
 
   @observable trendsChartTop = 1;
 
@@ -1139,7 +1081,10 @@ class BrandCompare extends Component {
       <div className={styles.brandCompareList}>
         <div className={`${styles.trendsChart} ${this.trendsChartVisible ? styles.trendsChartShow : ''}`} style={{ top: `${this.trendsChartTop}px` }}>
           <span className={styles.trendsChartClose} onClick={this.closeTrendsChart}>X</span>
-          <LineChart ref="ecTrendsChart" option={toJS(this.trendsChartOptions)} data={toJS(this.trendsChartData)} />
+          <ReactEcharts echarts={echarts}
+                        option={toJS(this.trendsChartOptions)}
+                        notMerge={true}
+                        ref="ecTrendsChart" />
         </div>
         <if condition={#{pageName}#.showCompareTable}>
           <div className={styles.compareTable}>

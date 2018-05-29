@@ -2,8 +2,6 @@ import 'whatwg-fetch';
 !window.requestAnimationFrame && (window.requestAnimationFrame = function (callback) {
   setTimeout(callback, 0);
 });
-import 'flarej/lib/styles/grid';
-import 'flarej/lib/components/grid';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createClass from 'create-react-class';
