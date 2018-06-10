@@ -64,7 +64,8 @@ export default class Sider extends Component {
           .bm-menu-wrap {
             z-index: 102 !important;
           }
-          .site-logo{
+          
+          .site-logo {
             background-color: #3bbabb;
             height:80px;
             line-height:80px;
@@ -76,7 +77,8 @@ export default class Sider extends Component {
             top: 0;
             left: 0;
           }
-          .site-menu-tit{
+          
+          .site-menu-tit {
             height:60px;
             line-height:60px;
             color:#cfd0d0;
@@ -88,6 +90,7 @@ export default class Sider extends Component {
             width: 100%;
             background: #1b3149;
           }
+
           .site-menu-cnt{
             height:100%;
             overflow:auto;
@@ -138,7 +141,8 @@ export default class Sider extends Component {
           /* Wrapper for item list */
           .bm-item-list {
             color: #b8b7ad;
-            a{
+
+            a {
               color: #6f7082;
               display:block;
               font-size: 14px;
@@ -147,19 +151,23 @@ export default class Sider extends Component {
               transition: all .5s;
               text-align: center;
           
-              &:hover{
+              &:hover {
                 text-decoration: none;
                 color:#fff;
                 background: #1f3750;
               }
             }
-            a.cur{
+
+            a.cur {
               color:#fff;
               background: #1f3750;
             }
-            .menu-group{ cursor: pointer; }
+
+            .menu-group {
+              cursor: pointer;
+            }
           
-            .menu-tit{
+            .menu-tit {
               border-bottom:1px solid #4e5169;
               color: #777889;
               padding:.2rem;
@@ -176,6 +184,7 @@ export default class Sider extends Component {
                 clear: both;
               }
             }
+
             .icon {
               display: inline-block;
               width: 22px;
@@ -210,12 +219,9 @@ export default class Sider extends Component {
             // .menu-group:nth-child(8) {
             //   .icon { background-image: url(../../images/icon-m7.png); }
             // }
-          
           }
           
-          
-          
-          .menu-cnt{
+          .menu-cnt {
             background: #1b3149;
             transition: all .3s ease-out;
             overflow: hidden;
@@ -224,8 +230,10 @@ export default class Sider extends Component {
               border-bottom:1px solid #4e5169;
             }
           }
-          .menu-cnt.expanded{
+
+          .menu-cnt.expanded {
           }
+          
           /* Styling of overlay */
           .bm-overlay {
             background: rgba(0, 0, 0, 0.3);

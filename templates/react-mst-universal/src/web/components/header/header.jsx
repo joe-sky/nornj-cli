@@ -35,10 +35,16 @@ export default class Header extends Component {
             transition: all .5s ease-out;
             box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
           
-            ul{padding-left:80px;transition: all .5s ease-out;}
-            &.isMenuOpen > ul{padding-left:0;}
+            ul {
+              padding-left:80px;
+              transition: all .5s ease-out;
+            }
+
+            &.isMenuOpen > ul {
+              padding-left:0;
+            }
           
-            li{
+            li {
               float: left;
               text-align: center;
               line-height: 80px;
@@ -48,7 +54,7 @@ export default class Header extends Component {
               overflow: hidden;
               cursor: pointer;
           
-              a{
+              a {
                 color: #b7becc;
                 display: inline-block;
                 height: 79px;
@@ -65,36 +71,48 @@ export default class Header extends Component {
                   transition: all .5s;
               }
           
-              .site-nav{ float: left;}
-          
-            }
-          
-            li.cur{
-              color:#333;
-          
-              &:after {
-                  bottom:0;
+              .site-nav {
+                float: left;
               }
             }
           
-            .login-wrap{
+            li.cur {
+              color:#333;
+          
+              &:after {
+                bottom:0;
+              }
+            }
+          
+            .login-wrap {
               float: right;
               padding:14px 18px 0 0;
           
-              a.link{
+              a.link {
                 font-size: 14px;color: #777792;margin:0 30px;
                 &.cur {
                   color:#35a5a6;
                 }
               }
           
-              span{color: #ebebeb;font-size:12px;}
+              span {
+                color: #ebebeb;
+                font-size:12px;
+              }
           
-              .avatar{
-                width:50px;height:50px;border-radius: 50%;background-position: center center;background-repeat: no-repeat;
-                display:inline-block; 
+              .avatar {
+                width:50px;
+                height:50px;
+                border-radius: 50%;
+                background-position: center center;
+                background-repeat: no-repeat;
+                display:inline-block;
           
-                img{width:50px;height:50px;border-radius: 50%;}
+                img {
+                  width:50px;
+                  height:50px;
+                  border-radius: 50%;
+                }
               }
             }
           }
