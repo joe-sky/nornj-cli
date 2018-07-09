@@ -33,3 +33,7 @@ __extraComment__-->
     <Route exact path="/#{pageName | pascal}#" component=${#{pageName | pascal}#} />
     <!--//{route}//
 </#-template>
+
+<#-template name="clearRegex">
+<!--__extraComment__-->
+</#-template>

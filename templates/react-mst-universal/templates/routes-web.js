@@ -1,5 +1,5 @@
 <#-template name="importLoadPage">
-import load#{pageName | pascal}# from 'bundle-loader?lazy&name=[name]!./src/web/pages/#{pageName}#/#{pageName}#.jsx';
+import load#{pageName | pascal}# from 'bundle-loader?lazy&name=[name]!./src/web/pages/#{pageName}#/#{pageName}##{!exName ?: ('.jsx', exName)}#';
 //{importLoadPage}//
 </#-template>
 
@@ -32,4 +32,8 @@ const #{pageName | pascal}# = inject('store')(
 __extraComment__*/}
     <Route exact path="/#{pageName | pascal}#" component={#{pageName | pascal}#} />
     {/*//{route}//
+</#-template>
+
+<#-template name="clearRegex">
+\\{\\/\\*__extraComment__\\*\\/\\}
 </#-template>

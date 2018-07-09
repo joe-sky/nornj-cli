@@ -70,6 +70,9 @@
     "postcss-pxtorem": "^4.0.1",
     "postcss-smart-import": "^0.7.2",
     "precss": "^1.4.0",
+    "prettier": "^1.13.5",
+    "prettier-eslint": "^8.8.1",
+    "prettier-stylelint": "^0.4.2",
     "prop-types": "^15.6.0",
     "react-hot-loader": "^3.1.2",
     "redux-devtools": "^3.3.2",
@@ -131,6 +134,15 @@
   },
   "njCliConfig": {
     "templateType": "single-page",
-    "useJsx": true
+    "pageTemplates": [
+      "default",
+      "chart",
+      "form",
+      "empty",
+      "default-nornj",
+      "chart-nornj",
+      "form-nornj",
+      "empty-nornj"
+    ]
   }
 }

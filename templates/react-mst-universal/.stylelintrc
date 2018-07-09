@@ -1,5 +1,7 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard"
+  ],
   "rules": {
     "string-quotes": "single",
     "property-no-unknown": [
@@ -18,11 +20,11 @@
         ]
       }
     ],
-    "selector-pseudo-element-colon-notation": "single",
+    "selector-pseudo-element-colon-notation": null,
     "no-descending-specificity": null,
     "number-leading-zero": null,
     "at-rule-no-unknown": null,
-    "at-rule-empty-line-before": "never",
+    "at-rule-empty-line-before": null,
     "no-eol-whitespace": [
       true,
       {
@@ -35,6 +37,10 @@
         ignore: ["comments"]
       }
     ],
-    "no-missing-end-of-source-newline": null
+    "no-missing-end-of-source-newline": null,
+    "color-hex-case": null,
+    "color-hex-length": null,
+    "block-no-empty": null,
+    "declaration-colon-newline-after": null
   }
 }
