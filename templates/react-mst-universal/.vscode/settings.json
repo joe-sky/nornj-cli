@@ -6,7 +6,7 @@
     "nornj": "html"
   },
   "workbench.iconTheme": "nornj-icons",
-  "eslint.autoFixOnSave": true,
-  "editor.formatOnSave": true,
+  // "eslint.autoFixOnSave": true,
+  // "editor.formatOnSave": true,
   "prettier.stylelintIntegration": true
 }
