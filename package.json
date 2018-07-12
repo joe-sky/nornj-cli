@@ -15,7 +15,11 @@
     "README.md"
   ],
   "scripts": {
-    "tar": "node lib/tar"
+    "tar": "node lib/tar",
+    "format": "prettier-eslint --write lib/**/*.js",
+    "format-css-react-mst-universal": "prettier-stylelint --write templates/react-mst-universal/src/**/*.{css,less,scss}",
+    "format-js-react-mst-universal": "prettier-eslint --write templates/react-mst-universal/**/*.{js,jsx}",
+    "format-react-mst-universal": "npm run format-css-react-mst-universal && npm run format-js-react-mst-universal"
   },
   "repository": {
     "type": "git",
@@ -50,6 +54,10 @@
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.8.2",
+    "prettier": "^1.13.7",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1",
+    "prettier-stylelint": "^0.4.2",
     "stylelint": "^9.2.1",
     "stylelint-config-standard": "^18.2.0"
   }

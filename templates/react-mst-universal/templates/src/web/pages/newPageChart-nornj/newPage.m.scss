@@ -1,0 +1,209 @@
+@mixin ellipsis { text-overflow: ellipsis;white-space: nowrap;overflow: hidden; }
+
+.#{pageName}#{
+  padding-top:60px;
+
+  .bePageCnt{
+    margin:20px;
+    padding:20px 20px 150px 20px;
+    background: #fff;
+
+    .conditionWrap{
+      border-bottom:1px solid #eee;padding-bottom:20px;
+
+      .field {display: inline-block;width:12%;}
+    }
+    .pageTitle{
+      font-size: 18px;font-weight: normal;padding: 30px 0;position:relative;line-height:100%;padding-left:10px;
+      &:before{content:'';position: absolute;left:0;height:16px;width:3px;background: #e13a25;}
+    }
+    .pageSubTitle{
+      font-size: 16px;font-weight: normal;padding: 30px 0;position:relative;line-height:100%;padding-left:10px;
+      &:before{content:'';position: absolute;left:0;height:16px;width:3px;background: #e13a25;}
+    }
+    .summary{
+      .summaryItem{
+        border:1px solid #eee;border-radius: 5px;width:90%;margin:0 auto;padding:10px;
+        .field{color:#999;@include ellipsis;}
+        .num{font-size: 20px;text-align: center;padding: 10px 0;@include ellipsis;}
+        .rates{font-size: 12px;text-align: center;}
+        .red{color:#e13a25}
+        .green{color:#25e17d}
+      }
+      .summaryItem:hover {
+        border:1px solid #ff3e00;
+        box-shadow: 0 0 4px 1px #ffd0c1;
+      }
+    }
+
+    .totalCompare{
+      
+      .leftBlock{
+        border:1px solid #eee;border-radius: 5px;width:95%;margin:0 auto;padding:20px;padding-top:0;height:484px;
+        :global .fj-area-chart-area{height:175px !important;}
+        .chartTit{padding:20px 0 10px 0;font-size: 14px;}
+      }
+
+      .rightBlock{
+        border:1px solid #eee;border-radius: 5px;width:95%;margin:0 auto;padding:20px;height:484px;
+        table{
+          table-layout: fixed;width:100%;font-size:12px;margin-top:10px;border:1px solid #eee;
+          th{
+            font-weight: normal;background: #eee;padding:5px 0;text-align:center;
+            &:last-of-type{
+              width:25%
+            }
+          }
+          td{text-align: center;padding:5px 0;line-height: 25px;height: 25px;}
+          .row1{
+            td{
+              color:#e13a25;
+            }
+          }
+          .row2{
+            td{color:#4f89c4}
+          }
+          img{width:25px;display:block;margin:0 auto;}
+        }
+        :global .fj-area-chart-area{height:200px !important;margin-top:30px;}
+        :global .ant-radio-group{margin-top:40px;}
+      }
+    }
+    
+    .categoryCompareWrap{
+      .toolsBar{
+        span{display: inline-block;width:25px;height: 25px;margin-left:10px; cursor: pointer;}
+      }
+      .subCategoryBlock{
+        position: relative;min-height: 362px;
+      }
+      .categoryCompare{
+          opacity: 0;transition: all 1s;position: absolute;top:0;left:0;width:100%;height: 362px;visibility: hidden;
+
+          .tit{font-size: 14px;padding:0 0 20px 10px;}
+          :global {
+            .fj-area-chart-area{height:300px !important;}
+          } 
+      }
+      .showCategoryCompare{
+        opacity: 1;visibility: visible;
+      }
+      .tableWrap{
+        width:100%;overflow-x:auto;margin-top:10px;opacity: 0;visibility: hidden; transition: all 1s;position: absolute;top:0;left:0;width:100%;max-height: 362px;overflow-y: auto;
+          table{
+          width:100%;border:1px solid #e6e6e6;
+          th{
+            white-space: nowrap;padding:10px;font-weight: normal;background: #f1f1f1;color: #666;
+
+            &:first-of-type{text-align: left;}
+          }
+          tr:first-of-type{
+            th:nth-of-type(3){
+              border-right:1px solid #e6e6e6;
+            }
+          }
+          tr:nth-of-type(2){
+            th:nth-of-type(7){
+              border-right:1px solid #e6e6e6;
+            }
+          }
+          td{
+            white-space: nowrap;padding:10px;border-bottom:1px solid #e6e6e6;text-align:center;
+            &:first-of-type{text-align: left;}
+            &:last-of-type{text-align: right;}
+            &:nth-of-type(2){text-align: left;}
+            &:nth-of-type(9){border-right:1px solid #e6e6e6;}
+          }
+        }
+      }
+      .showTableWrap{
+        opacity: 1;visibility: visible;
+      }
+    }
+
+    .brandCompareList{
+      position: relative;overflow:hidden;
+      .brandCompareItemWrap{
+        .brandCompareItem{
+          border:1px solid #eee; padding:20px;margin-bottom:15px;box-shadow:0 0 6px rgba(255,85,47,0.3);border-radius:5px;position: relative;transition:all .3s;
+          & > div{
+            white-space: nowrap;
+            
+            &:first-of-type {
+              text-align: center;
+              span{ display: inline-block;margin-top:20px;padding:0 10px; height: 30px;line-height: 30px;text-align: center;background: #ccc;font-size: 20px;color: #fff;border-radius:5px;}
+            }
+            &:nth-of-type(2){
+              text-align: center;
+              img{max-width: 100%;}
+            }
+            &:nth-of-type(3){
+              color:#999;font-size:12px;@include ellipsis;
+              .brandText{ font-size: 22px;color: #333; }
+            }
+            &:nth-of-type(4){
+              text-align: center;@include ellipsis;
+              & > div {padding: 4px 0;}
+              .salesGrowthText{font-size: 14px;}
+
+            }
+          }
+          .rank{
+            position: absolute;top:0;left:0;display: inline-block;margin-top:20px;padding:0 25px; height: 30px;line-height: 30px;text-align: center;background: #de463d;font-size: 20px;color: #fff;
+            em{
+              position: absolute;
+              top:0;right:-5px;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 15px 0 15px 5px;
+              border-color: transparent transparent transparent #de453d;
+            }
+          }
+        }
+        .brandCompareItem:hover {
+          border-color:#ff552f; 
+          box-shadow:0 0 6px rgba(255,85,47,0.3);
+        }
+      }
+
+      .trendsChart{
+        position: absolute;top:1px;right:1px;width:60%;height: 134px;background: #fff;z-index: 1;opacity: 0;visibility: hidden;transition:all .3s ease-out;padding-right:50px;transform:translateX(100%);
+
+        .trendsChartClose{color: #999;display: inline-block;width: 25px;height: 25px;font-size: 14px;position: absolute;top: 7px;right: 5px;font-weight: 200;text-align: center;line-height: 100%;cursor: pointer;}
+        :global .fj-area-chart-area{height:134px !important;}
+      }
+      .trendsChartShow{opacity: 1;visibility: visible;transform:translateX(0);}
+
+      .paginationWrap{text-align: center;margin:10px auto;}
+      
+    }
+
+    .compareDock{
+      position:fixed; bottom:-100%; right:3%;width:75%;height:180px;background: #fff;border:1px solid #eee;z-index: 2;transition:all .3s ease-out;box-shadow:0 0 30px rgba(0,0,0,.3);
+      .compareDockTit{
+        height: 30px;background: #eee;line-height: 30px;padding:0 10px;position:relative;
+        .compareDockClose{color: #999;display: inline-block;width: 25px;height: 25px;font-size: 14px;position: absolute;top: 7px;right: 5px;font-weight: 200;text-align: center;line-height: 100%;cursor: pointer;}
+      }
+
+      :global .fj-col3{border-right:1px solid #eee;height:150px;font-size: 12px;padding-top:50px;position:relative;}
+      .iconDeleteCompareItem{color: #999;display: inline-block;width: 25px;height: 25px;font-size: 14px;position: absolute;top: 7px;right: 5px;font-weight: 200;text-align: center;line-height: 100%;cursor: pointer;}
+      .name{font-size: 14px;}
+      img {max-width: 100%;}
+    }
+    .compareDockShow{bottom:0;}
+
+    .compareTable{
+      border:1px solid #eee;
+      .compareTableTitle{
+        height: 30px;background: #eee;line-height: 30px;padding:0 10px;
+        .compareTableClose{float:right; color: #999;width: 25px;height: 25px;line-height: 25px;margin-top:2px; font-size: 14px;font-weight: 200;text-align: center;cursor: pointer;}
+      }
+      table{
+        table-layout: fixed;width:100%;
+        th,td{padding:10px;border:1px solid #eee;text-align: center;}
+
+      }
+    }
+  }
+}

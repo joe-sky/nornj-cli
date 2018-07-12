@@ -30,87 +30,89 @@ export default class Header extends Component {
             height: 79px;
             border-bottom: 1px solid #ebebeb;
             position: fixed;
-            width:100%;
+            width: 100%;
             z-index: 100;
-            transition: all .5s ease-out;
-            box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
-          
+            transition: all 0.5s ease-out;
+            box-shadow: 0 1px 3px 0 rgba(0, 34, 77, 0.05);
+
             ul {
-              padding-left:80px;
-              transition: all .5s ease-out;
+              padding-left: 80px;
+              transition: all 0.5s ease-out;
             }
 
             &.isMenuOpen > ul {
-              padding-left:0;
+              padding-left: 0;
             }
-          
+
             li {
               float: left;
               text-align: center;
               line-height: 80px;
-              margin-left:60px;
+              margin-left: 60px;
               position: relative;
               height: 79px;
               overflow: hidden;
               cursor: pointer;
-          
+
               a {
                 color: #b7becc;
                 display: inline-block;
                 height: 79px;
               }
-          
+
               &:after {
-                  content: '';
-                  width:100%;
-                  height: 2px;
-                  background: #3bbabb;
-                  position: absolute;
-                  bottom:-2px;
-                  left:0;
-                  transition: all .5s;
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: #3bbabb;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                transition: all 0.5s;
               }
-          
+
               .site-nav {
                 float: left;
               }
             }
-          
+
             li.cur {
-              color:#333;
-          
+              color: #333;
+
               &:after {
-                bottom:0;
+                bottom: 0;
               }
             }
-          
+
             .login-wrap {
               float: right;
-              padding:14px 18px 0 0;
-          
+              padding: 14px 18px 0 0;
+
               a.link {
-                font-size: 14px;color: #777792;margin:0 30px;
+                font-size: 14px;
+                color: #777792;
+                margin: 0 30px;
                 &.cur {
-                  color:#35a5a6;
+                  color: #35a5a6;
                 }
               }
-          
+
               span {
                 color: #ebebeb;
-                font-size:12px;
+                font-size: 12px;
               }
-          
+
               .avatar {
-                width:50px;
-                height:50px;
+                width: 50px;
+                height: 50px;
                 border-radius: 50%;
                 background-position: center center;
                 background-repeat: no-repeat;
-                display:inline-block;
-          
+                display: inline-block;
+
                 img {
-                  width:50px;
-                  height:50px;
+                  width: 50px;
+                  height: 50px;
                   border-radius: 50%;
                 }
               }
@@ -119,13 +121,19 @@ export default class Header extends Component {
         `}</style>
         <ul className="site-nav">
           <each of={store.sider.menuData}>
-            <li key={index} className={store.header.current == index ? 'cur' : ''} onClick={this.navChanged(index)}>{item.name}</li>
+            <li key={index} className={store.header.current == index ? 'cur' : ''} onClick={this.navChanged(index)}>
+              {item.name}
+            </li>
           </each>
         </ul>
         <div className="login-wrap middle">
           <a className="link">{m`${store}.common.userInfo.pin`}</a>
-          <a className="avatar"><img src={require('../../images/pic-header.png')} alt={''} /></a>
-          <a className="link" href={logoutUrl}>注销</a>
+          <a className="avatar">
+            <img src={require('../../images/pic-header.png')} alt={''} />
+          </a>
+          <a className="link" href={logoutUrl}>
+            注销
+          </a>
         </div>
       </header>
     );

@@ -19,8 +19,8 @@ export function createNotification(notification, isMobile) {
         return;
       }
 
-      if (description.indexOf('您尚未开通此品类/品牌数据权限') > -1
-        || description.indexOf('您尚未开通任何品类/品牌数据权限') > -1) {
+      if (description.indexOf('message1') > -1
+        || description.indexOf('message2') > -1) {
         if (!Notification.showAuth) {
           Notification.showAuth = true;
           return notification.warning({ title, description, duration: null, onClose: () => Notification.showAuth = false });

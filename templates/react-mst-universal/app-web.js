@@ -1,7 +1,8 @@
 import 'whatwg-fetch';
-!window.requestAnimationFrame && (window.requestAnimationFrame = function (callback) {
-  setTimeout(callback, 0);
-});
+!window.requestAnimationFrame &&
+  (window.requestAnimationFrame = function(callback) {
+    setTimeout(callback, 0);
+  });
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createClass from 'create-react-class';
@@ -24,10 +25,7 @@ import { onSnapshot } from 'mobx-state-tree';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
-import {
-  Notification,
-  LocaleProvider
-} from 'antd';
+import { Notification, LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import { createNotification } from './src/utils/notification';
 createNotification(Notification);
@@ -42,9 +40,7 @@ const renderApp = appRoutes => {
     <LocaleProvider locale={zhCN}>
       <Provider store={rootStore}>
         <HashRouter>
-          <div id="outer-container">
-            {appRoutes()}
-          </div>
+          <div id="outer-container">{appRoutes()}</div>
         </HashRouter>
       </Provider>
     </LocaleProvider>,

@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj, {
-  mustache as m
-} from 'nornj';
+import nj, { mustache as m } from 'nornj';
 import { registerTmpl } from 'nornj-react';
-import {
-  Row,
-  Col,
-  Radio,
-  Button,
-  Cascader,
-  DatePicker,
-  Checkbox,
-  Pagination,
-  Message
-} from 'antd';
+import { Row, Col, Radio, Button, Cascader, DatePicker, Checkbox, Pagination, Message } from 'antd';
 import ReactEcharts from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/tooltip';
@@ -36,7 +24,6 @@ import styles from './page2.m.scss';
 @observer
 @registerTmpl('Page2')
 export default class Page2 extends Component {
-
   constructor(props) {
     super(props);
   }
@@ -63,7 +50,9 @@ export default class Page2 extends Component {
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const {
+      store: { page2 }
+    } = this.props;
 
     return (
       <div className={styles.page2}>
@@ -89,18 +78,17 @@ export default class Page2 extends Component {
 @inject('store')
 @observer
 class EvalSummary extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
-    const { store: { page2 } } = this.props;
+    const {
+      store: { page2 }
+    } = this.props;
 
     return (
       <Row className={styles.summary}>
@@ -111,11 +99,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${page2.summaryData.gmvYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{page2.summaryData.gmvYOY > 0 ? '+' : ''}{page2.summaryData.gmvYOY}%</div>
+                <div>
+                  {page2.summaryData.gmvYOY > 0 ? '+' : ''}
+                  {page2.summaryData.gmvYOY}%
+                </div>
               </div>
               <div className={`${page2.summaryData.gmvMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{page2.summaryData.gmvMOM > 0 ? '+' : ''}{page2.summaryData.gmvMOM}%</div>
+                <div>
+                  {page2.summaryData.gmvMOM > 0 ? '+' : ''}
+                  {page2.summaryData.gmvMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -127,11 +121,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${page2.summaryData.uvYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{page2.summaryData.uvYOY > 0 ? '+' : ''}{page2.summaryData.uvYOY}%</div>
+                <div>
+                  {page2.summaryData.uvYOY > 0 ? '+' : ''}
+                  {page2.summaryData.uvYOY}%
+                </div>
               </div>
               <div className={`${page2.summaryData.uvMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{page2.summaryData.uvMOM > 0 ? '+' : ''}{page2.summaryData.uvMOM}%</div>
+                <div>
+                  {page2.summaryData.uvMOM > 0 ? '+' : ''}
+                  {page2.summaryData.uvMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -143,11 +143,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${page2.summaryData.uvRatesYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{page2.summaryData.uvRatesYOY > 0 ? '+' : ''}{page2.summaryData.uvRatesYOY}%</div>
+                <div>
+                  {page2.summaryData.uvRatesYOY > 0 ? '+' : ''}
+                  {page2.summaryData.uvRatesYOY}%
+                </div>
               </div>
               <div className={`${page2.summaryData.uvRatesMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{page2.summaryData.uvRatesMOM > 0 ? '+' : ''}{page2.summaryData.uvRatesMOM}%</div>
+                <div>
+                  {page2.summaryData.uvRatesMOM > 0 ? '+' : ''}
+                  {page2.summaryData.uvRatesMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -159,11 +165,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${page2.summaryData.userCountYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{page2.summaryData.userCountYOY > 0 ? '+' : ''}{page2.summaryData.userCountYOY}%</div>
+                <div>
+                  {page2.summaryData.userCountYOY > 0 ? '+' : ''}
+                  {page2.summaryData.userCountYOY}%
+                </div>
               </div>
               <div className={`${styles.red} fr`}>
                 <div>环比</div>
-                <div>{page2.summaryData.userCountMOM > 0 ? '+' : ''}{page2.summaryData.userCountMOM}%</div>
+                <div>
+                  {page2.summaryData.userCountMOM > 0 ? '+' : ''}
+                  {page2.summaryData.userCountMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -176,7 +188,6 @@ class EvalSummary extends Component {
 @inject('store')
 @observer
 class TotalCompare extends Component {
-
   @observable switchIndex = 'a';
 
   @observable showMode = '';
@@ -185,7 +196,8 @@ class TotalCompare extends Component {
     this.showMode = true;
   }
 
-  @computed get salesOptions() {
+  @computed
+  get salesOptions() {
     return {
       grid: {
         left: '0',
@@ -203,14 +215,16 @@ class TotalCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(0, 1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach(function (item) {
+          params.forEach(function(item) {
             result += `<div>
-                           <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                           <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                             item.color
+                           }"></span>
                            <span>${item.seriesName}:</span>
                            <span>${item.data || '--'}</span>
                        </div>`;
@@ -265,23 +279,30 @@ class TotalCompare extends Component {
     };
   }
 
-  @computed get salesData() {
-    const lineData = toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[1].map(item => (item / 10000).toFixed(2)));
-    return [{
-      name: '属性1',
-      type: 'bar',
-      barWidth: '30px',
-      data: toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[0].map(item => (item / 10000).toFixed(2)))
-    },
-    {
-      name: '属性2',
-      type: 'line',
-      data: this.showMode === null ? [] : lineData
-    }
+  @computed
+  get salesData() {
+    const lineData = toJS(
+      this.props.store.page2.salesData && this.props.store.page2.salesData[1].map(item => (item / 10000).toFixed(2))
+    );
+    return [
+      {
+        name: '属性1',
+        type: 'bar',
+        barWidth: '30px',
+        data: toJS(
+          this.props.store.page2.salesData && this.props.store.page2.salesData[0].map(item => (item / 10000).toFixed(2))
+        )
+      },
+      {
+        name: '属性2',
+        type: 'line',
+        data: this.showMode === null ? [] : lineData
+      }
     ];
-  };
+  }
 
-  @computed get salesRatesOptions() {
+  @computed
+  get salesRatesOptions() {
     return {
       grid: {
         left: '3%',
@@ -299,14 +320,16 @@ class TotalCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(0, 1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach(function (item) {
+          params.forEach(function(item) {
             result += `<div>
-                           <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                           <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                             item.color
+                           }"></span>
                            <span>${item.seriesName}:</span>
                            <span>${item.data || '--'}%</span>
                        </div>`;
@@ -359,24 +382,33 @@ class TotalCompare extends Component {
       },
       series: this.salesRatesData
     };
-  };
+  }
 
-  @computed get salesRatesData() {
-    const lineData = toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[1].map(item => (item * 100).toFixed(2)));
-    return [{
-      name: '属性1',
-      type: 'line',
-      data: toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[0].map(item => (item * 100).toFixed(2)))
-    },
-    {
-      name: '属性2',
-      type: 'line',
-      data: this.showMode === null ? [] : lineData
-    }
+  @computed
+  get salesRatesData() {
+    const lineData = toJS(
+      this.props.store.page2.salesRatesData &&
+        this.props.store.page2.salesRatesData[1].map(item => (item * 100).toFixed(2))
+    );
+    return [
+      {
+        name: '属性1',
+        type: 'line',
+        data: toJS(
+          this.props.store.page2.salesRatesData &&
+            this.props.store.page2.salesRatesData[0].map(item => (item * 100).toFixed(2))
+        )
+      },
+      {
+        name: '属性2',
+        type: 'line',
+        data: this.showMode === null ? [] : lineData
+      }
     ];
-  };
+  }
 
-  @computed get growthOptions() {
+  @computed
+  get growthOptions() {
     let dataX = [],
       unit = '';
 
@@ -416,14 +448,16 @@ class TotalCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(0, 1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach(function (item) {
+          params.forEach(function(item) {
             result += `<div>
-                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                              item.color
+                            }"></span>
                             <span>${item.seriesName}:</span>
                             <span>${item.data || '--'}${unit}</span>
                         </div>`;
@@ -476,41 +510,67 @@ class TotalCompare extends Component {
       },
       series: this.growthData
     };
-  };
+  }
 
-  @computed get growthData() {
+  @computed
+  get growthData() {
     let data1 = [],
       data2 = [];
     switch (this.switchIndex) {
       case 'a':
-        data1 = toJS(this.props.store.page2.growthDataUV && this.props.store.page2.growthDataUV[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataUV && this.props.store.page2.growthDataUV[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(
+          this.props.store.page2.growthDataUV &&
+            this.props.store.page2.growthDataUV[0].map(item => (item * 100).toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.page2.growthDataUV &&
+            this.props.store.page2.growthDataUV[1].map(item => (item * 100).toFixed(2))
+        );
         break;
       case 'b':
-        data1 = toJS(this.props.store.page2.growthDataUVConvert && this.props.store.page2.growthDataUVConvert[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataUVConvert && this.props.store.page2.growthDataUVConvert[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(
+          this.props.store.page2.growthDataUVConvert &&
+            this.props.store.page2.growthDataUVConvert[0].map(item => (item * 100).toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.page2.growthDataUVConvert &&
+            this.props.store.page2.growthDataUVConvert[1].map(item => (item * 100).toFixed(2))
+        );
         break;
       case 'c':
-        data1 = toJS(this.props.store.page2.growthDataUser && this.props.store.page2.growthDataUser[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataUser && this.props.store.page2.growthDataUser[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(
+          this.props.store.page2.growthDataUser &&
+            this.props.store.page2.growthDataUser[0].map(item => (item * 100).toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.page2.growthDataUser &&
+            this.props.store.page2.growthDataUser[1].map(item => (item * 100).toFixed(2))
+        );
         break;
       case 'd':
-        data1 = toJS(this.props.store.page2.growthDataPrice && this.props.store.page2.growthDataPrice[0].map(item => (item).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataPrice && this.props.store.page2.growthDataPrice[1].map(item => (item).toFixed(2)));
+        data1 = toJS(
+          this.props.store.page2.growthDataPrice &&
+            this.props.store.page2.growthDataPrice[0].map(item => item.toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.page2.growthDataPrice &&
+            this.props.store.page2.growthDataPrice[1].map(item => item.toFixed(2))
+        );
         break;
     }
-    return [{
-      name: '属性1',
-      type: 'line',
-      data: data1
-    },
-    {
-      name: '属性2',
-      type: 'line',
-      data: this.showMode === null ? [] : data2
-    }
+    return [
+      {
+        name: '属性1',
+        type: 'line',
+        data: data1
+      },
+      {
+        name: '属性2',
+        type: 'line',
+        data: this.showMode === null ? [] : data2
+      }
     ];
-  };
+  }
 
   constructor(props) {
     super(props);
@@ -522,22 +582,18 @@ class TotalCompare extends Component {
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const {
+      store: { page2 }
+    } = this.props;
 
     return (
       <Row className={styles.totalCompare}>
         <Col span={12}>
           <div className={styles.leftBlock}>
             <div className={styles.chartTit}>指标1趋势</div>
-            <ReactEcharts echarts={echarts}
-                          option={toJS(this.salesOptions)}
-                          notMerge={true}
-                          ref="ecSales" />
+            <ReactEcharts echarts={echarts} option={toJS(this.salesOptions)} notMerge={true} ref="ecSales" />
             <div className={styles.chartTit}>指标1同比增长率趋势</div>
-            <ReactEcharts echarts={echarts}
-                          option={toJS(this.salesRatesOptions)}
-                          notMerge={true}
-                          ref="ecSalesRates" />
+            <ReactEcharts echarts={echarts} option={toJS(this.salesRatesOptions)} notMerge={true} ref="ecSalesRates" />
           </div>
         </Col>
         <Col span={12}>
@@ -554,15 +610,33 @@ class TotalCompare extends Component {
               </thead>
               <tbody>
                 <tr className={styles.row1}>
-                  <td>{m`${page2}.growthDataTable[0][0] > 0` ? '+' : ''}{m`${page2}.growthDataTable[0][0] | percent(2) || '--'`}</td>
-                  <td>{m`${page2}.growthDataTable[0][1] > 0` ? '+' : ''}{m`${page2}.growthDataTable[0][1] | percent(2) || '--'`}</td>
-                  <td>{m`${page2}.growthDataTable[0][3] > 0` ? '+' : ''}{m`${page2}.growthDataTable[0][3] | percent(2) || '--'`}</td>
+                  <td>
+                    {m`${page2}.growthDataTable[0][0] > 0` ? '+' : ''}
+                    {m`${page2}.growthDataTable[0][0] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {m`${page2}.growthDataTable[0][1] > 0` ? '+' : ''}
+                    {m`${page2}.growthDataTable[0][1] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {m`${page2}.growthDataTable[0][3] > 0` ? '+' : ''}
+                    {m`${page2}.growthDataTable[0][3] | percent(2) || '--'`}
+                  </td>
                   <td>{m`${page2}.growthDataTable[0][2].toFixed(2) || '--'`}元</td>
                 </tr>
                 <tr className={styles.row2}>
-                  <td>{m`${page2}.growthDataTable[1][0] > 0` ? '+' : ''}{m`${page2}.growthDataTable[1][0] | percent(2) || '--'`}</td>
-                  <td>{m`${page2}.growthDataTable[1][1] > 0` ? '+' : ''}{m`${page2}.growthDataTable[1][1] | percent(2) || '--'`}</td>
-                  <td>{m`${page2}.growthDataTable[1][3] > 0` ? '+' : ''}{m`${page2}.growthDataTable[1][3] | percent(2) || '--'`}</td>
+                  <td>
+                    {m`${page2}.growthDataTable[1][0] > 0` ? '+' : ''}
+                    {m`${page2}.growthDataTable[1][0] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {m`${page2}.growthDataTable[1][1] > 0` ? '+' : ''}
+                    {m`${page2}.growthDataTable[1][1] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {m`${page2}.growthDataTable[1][3] > 0` ? '+' : ''}
+                    {m`${page2}.growthDataTable[1][3] | percent(2) || '--'`}
+                  </td>
                   <td>{m`${page2}.growthDataTable[1][2].toFixed(2) || '--'`}元</td>
                 </tr>
               </tbody>
@@ -573,10 +647,7 @@ class TotalCompare extends Component {
               <Radio.Button value="c">指标3</Radio.Button>
               <Radio.Button value="d">指标4</Radio.Button>
             </Radio.Group>
-            <ReactEcharts echarts={echarts}
-                          option={toJS(this.growthOptions)}
-                          notMerge={true}
-                          ref="ecGrowth" />
+            <ReactEcharts echarts={echarts} option={toJS(this.growthOptions)} notMerge={true} ref="ecGrowth" />
           </div>
         </Col>
       </Row>
@@ -587,10 +658,10 @@ class TotalCompare extends Component {
 @inject('store')
 @observer
 class CategoryCompare extends Component {
-
   @observable currentView = 1; // 1:'chart' | 2:'table'
 
-  @computed get pieCategoryOptions() {
+  @computed
+  get pieCategoryOptions() {
     return {
       grid: {
         left: '3%',
@@ -602,11 +673,13 @@ class CategoryCompare extends Component {
       tooltip: {
         trigger: 'item',
         // formatter: "{a} <br/>{b} : {c} ({d}%)",
-        formatter: function (params) {
+        formatter: function(params) {
           var result = `<div>${params.name}</div>`;
           result += `<div>
                               <span>${params.seriesName}:</span>
-                              <span>${params.seriesName == '属性2' ? '' : '(' + params.data.value + ')'} ${params.percent}%</span>
+                              <span>${params.seriesName == '属性2' ? '' : '(' + params.data.value + ')'} ${
+            params.percent
+          }%</span>
                           </div>`;
           return result;
         }
@@ -618,9 +691,10 @@ class CategoryCompare extends Component {
       },
       series: this.pieCategoryData
     };
-  };
+  }
 
-  @computed get pieCategoryData() {
+  @computed
+  get pieCategoryData() {
     let _data1 = [],
       _data2 = [];
     if (this.props.store.page2.pieSubCategoryData) {
@@ -638,70 +712,72 @@ class CategoryCompare extends Component {
       });
     }
 
-    return [{
-      name: '属性2',
-      type: 'pie',
-      radius: '40%',
-      center: ['25%', '50%'],
-      label: {
-        normal: {
-          show: false
+    return [
+      {
+        name: '属性2',
+        type: 'pie',
+        radius: '40%',
+        center: ['25%', '50%'],
+        label: {
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: true
+          }
         },
-        emphasis: {
-          show: true
+        lableLine: {
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: true
+          }
+        },
+        data: _data1,
+        itemStyle: {
+          emphasis: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
         }
       },
-      lableLine: {
-        normal: {
-          show: false
+      {
+        name: '属性1',
+        type: 'pie',
+        radius: '40%',
+        center: ['75%', '50%'],
+        label: {
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: true
+          }
         },
-        emphasis: {
-          show: true
-        }
-      },
-      data: _data1,
-      itemStyle: {
-        emphasis: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        lableLine: {
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: true
+          }
+        },
+        data: _data2,
+        itemStyle: {
+          emphasis: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
         }
       }
-    },
-    {
-      name: '属性1',
-      type: 'pie',
-      radius: '40%',
-      center: ['75%', '50%'],
-      label: {
-        normal: {
-          show: false
-        },
-        emphasis: {
-          show: true
-        }
-      },
-      lableLine: {
-        normal: {
-          show: false
-        },
-        emphasis: {
-          show: true
-        }
-      },
-      data: _data2,
-      itemStyle: {
-        emphasis: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
-        }
-      }
-    }
     ];
-  };
+  }
 
-  @computed get barCategoryOptions() {
+  @computed
+  get barCategoryOptions() {
     return {
       grid: {
         left: '3%',
@@ -767,48 +843,61 @@ class CategoryCompare extends Component {
       },
       series: this.barCategoryData
     };
-  };
+  }
 
-  @computed get barCategoryData() {
-    return [{
-      name: '属性1',
-      type: 'bar',
-      data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
-    },
-    {
-      name: '属性2',
-      type: 'bar',
-      data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
-    }
+  @computed
+  get barCategoryData() {
+    return [
+      {
+        name: '属性1',
+        type: 'bar',
+        data: toJS(
+          this.props.store.page2.barSubCategoryData &&
+            this.props.store.page2.barSubCategoryData[0].map(item => (item * 100).toFixed(2))
+        )
+      },
+      {
+        name: '属性2',
+        type: 'bar',
+        data: toJS(
+          this.props.store.page2.barSubCategoryData &&
+            this.props.store.page2.barSubCategoryData[1].map(item => (item * 100).toFixed(2))
+        )
+      }
     ];
-  };
+  }
 
   @autobind
   switchView(index) {
-    return (e) => {
+    return e => {
       this.currentView = index;
     };
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const {
+      store: { page2 }
+    } = this.props;
 
     return (
       <div className={styles.categoryCompareWrap}>
         <h3 className={styles.pageSubTitle}>
-          <div className={`${styles.toolsBar} fr`}>
-          </div>
+          <div className={`${styles.toolsBar} fr`} />
           <span>Category Compare</span>
         </h3>
         <if condition={page2.showSubCategoryBlock}>
           <div className={styles.subCategoryBlock}>
-            <Row className={`${styles.categoryCompare} ${this.currentView == 1 ? styles.showCategoryCompare : ''}`} gutter={30}>
+            <Row
+              className={`${styles.categoryCompare} ${this.currentView == 1 ? styles.showCategoryCompare : ''}`}
+              gutter={30}>
               <Col span={12}>
                 <div className={styles.tit}>指标1占比分布对比</div>
-                <ReactEcharts echarts={echarts}
-                              option={toJS(this.pieCategoryOptions)}
-                              notMerge={true}
-                              ref="ecPieCategory" />
+                <ReactEcharts
+                  echarts={echarts}
+                  option={toJS(this.pieCategoryOptions)}
+                  notMerge={true}
+                  ref="ecPieCategory"
+                />
                 <Row className="tc">
                   <Col span={12}>属性1</Col>
                   <Col span={12}>属性2</Col>
@@ -816,10 +905,12 @@ class CategoryCompare extends Component {
               </Col>
               <Col span={12}>
                 <div className={styles.tit}>指标1增长率对比</div>
-                <ReactEcharts echarts={echarts}
-                              option={toJS(this.barCategoryOptions)}
-                              notMerge={true}
-                              ref="ecBarCategory" />
+                <ReactEcharts
+                  echarts={echarts}
+                  option={toJS(this.barCategoryOptions)}
+                  notMerge={true}
+                  ref="ecBarCategory"
+                />
               </Col>
             </Row>
             <div className={`${styles.tableWrap} ${this.currentView != 1 ? styles.showTableWrap : ''}`}>
@@ -850,7 +941,9 @@ class CategoryCompare extends Component {
                 <tbody>
                   <each of={page2.tableSubCategoryData}>
                     <tr key={index}>
-                      <td><span>{item.rank}</span></td>
+                      <td>
+                        <span>{item.rank}</span>
+                      </td>
                       <td>{item.name}</td>
                       <td>{(item.salesAmount / 10000).toFixed(2)}</td>
                       <td>{(item.salesRates * 100).toFixed(2)}%</td>
@@ -880,10 +973,10 @@ class CategoryCompare extends Component {
 @inject('store')
 @observer
 class BrandCompare extends Component {
-
   @observable trendsChartVisible = false;
   @observable trendsChartDataX = [];
-  @computed get trendsChartOptions() {
+  @computed
+  get trendsChartOptions() {
     return {
       grid: {
         left: '3%',
@@ -901,14 +994,16 @@ class BrandCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach((item) => {
+          params.forEach(item => {
             result += `<div>
-                           <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                           <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                             item.color
+                           }"></span>
                            <span>${item.seriesName}:</span>
                            <span>${item.data || '--'}${item.seriesName == '指标1' ? '' : '%'}</span>
                        </div>`;
@@ -938,70 +1033,73 @@ class BrandCompare extends Component {
         },
         data: toJS(this.trendsChartDataX)
       },
-      yAxis: [{
-        type: 'value',
-        scale: true,
-        splitLine: {
-          show: true,
-          lineStyle: {
-            color: '#e5e5e5'
+      yAxis: [
+        {
+          type: 'value',
+          scale: true,
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#333'
+            }
           }
         },
-        axisLine: {
-          lineStyle: {
-            color: '#e5e5e5'
-          }
-        },
-        axisLabel: {
-          textStyle: {
-            color: '#333'
+        {
+          type: 'value',
+          scale: true,
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#333'
+            }
           }
         }
-      },
-      {
-        type: 'value',
-        scale: true,
-        splitLine: {
-          show: true,
-          lineStyle: {
-            color: '#e5e5e5'
-          }
-        },
-        axisLine: {
-          lineStyle: {
-            color: '#e5e5e5'
-          }
-        },
-        axisLabel: {
-          textStyle: {
-            color: '#333'
-          }
-        }
-      }
       ],
       series: this.trendsChartData
     };
-  };
+  }
 
-  @computed get trendsChartData() {
-    return [{
-      name: '属性2增长率',
-      type: 'line',
-      data: [],
-      yAxisIndex: 1
-    },
-    {
-      name: '属性1增长率',
-      type: 'line',
-      data: [],
-      yAxisIndex: 1
-    },
-    {
-      name: '指标1',
-      type: 'bar',
-      barWidth: '50px',
-      data: []
-    }
+  @computed
+  get trendsChartData() {
+    return [
+      {
+        name: '属性2增长率',
+        type: 'line',
+        data: [],
+        yAxisIndex: 1
+      },
+      {
+        name: '属性1增长率',
+        type: 'line',
+        data: [],
+        yAxisIndex: 1
+      },
+      {
+        name: '指标1',
+        type: 'bar',
+        barWidth: '50px',
+        data: []
+      }
     ];
   }
 
@@ -1017,7 +1115,7 @@ class BrandCompare extends Component {
 
   @autobind
   onBrandChecked(item) {
-    return (e) => {
+    return e => {
       if (e.target.checked) {
         this.props.store.page2.setCompareDockVisible(true);
         if (this.props.store.page2.compareDockData) {
@@ -1026,7 +1124,10 @@ class BrandCompare extends Component {
             this.props.store.page2.setCompareDockData(item);
           } else {
             e.target.checked = false;
-            Notification.error({ description: '最多可以对比三个品牌', duration: 2 });
+            Notification.error({
+              description: '最多可以对比三个品牌',
+              duration: 2
+            });
           }
         } else {
           this.props.store.page2.setChecked(item, true);
@@ -1041,11 +1142,12 @@ class BrandCompare extends Component {
 
   @autobind
   viewTrends(item, index) {
-    return (e) => {
-      this.trendsChartTop = index * 135 + index + 1 + (15 * index);
+    return e => {
+      this.trendsChartTop = index * 135 + index + 1 + 15 * index;
       setTimeout(() => {
         this.trendsChartVisible = true;
-        this.trendsChartData[0].data = this.showMode === null ? [] : toJS(item.trendsData[0].map(item => parseFloat((item * 100).toFixed(2))));
+        this.trendsChartData[0].data =
+          this.showMode === null ? [] : toJS(item.trendsData[0].map(item => parseFloat((item * 100).toFixed(2))));
         this.trendsChartData[1].data = toJS(item.trendsData[1].map(item => parseFloat((item * 100).toFixed(2))));
         this.trendsChartData[2].data = toJS(item.trendsData[2].map(item => parseFloat((item / 10000).toFixed(2))));
         this.trendsChartDataX = toJS(item.trendsData[3]);
@@ -1067,29 +1169,32 @@ class BrandCompare extends Component {
   @autobind
   onPaging(page, pageSize) {
     const closeLoading = Message.loading('正在获取数据...', 0);
-    Promise.all([
-      this.props.store.page2.getBrandCompareList()
-    ]).then(() => {
+    Promise.all([this.props.store.page2.getBrandCompareList()]).then(() => {
       closeLoading();
     });
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const {
+      store: { page2 }
+    } = this.props;
 
     return (
       <div className={styles.brandCompareList}>
-        <div className={`${styles.trendsChart} ${this.trendsChartVisible ? styles.trendsChartShow : ''}`} style={{ top: `${this.trendsChartTop}px` }}>
-          <span className={styles.trendsChartClose} onClick={this.closeTrendsChart}>X</span>
-          <ReactEcharts echarts={echarts}
-                        option={toJS(this.trendsChartOptions)}
-                        notMerge={true}
-                        ref="ecTrendsChart" />
+        <div
+          className={`${styles.trendsChart} ${this.trendsChartVisible ? styles.trendsChartShow : ''}`}
+          style={{ top: `${this.trendsChartTop}px` }}>
+          <span className={styles.trendsChartClose} onClick={this.closeTrendsChart}>
+            X
+          </span>
+          <ReactEcharts echarts={echarts} option={toJS(this.trendsChartOptions)} notMerge={true} ref="ecTrendsChart" />
         </div>
         <if condition={page2.showCompareTable}>
           <div className={styles.compareTable}>
             <div className={styles.compareTableTitle}>
-              <span className={styles.compareTableClose} onClick={this.closeCompareTable}>X</span>
+              <span className={styles.compareTableClose} onClick={this.closeCompareTable}>
+                X
+              </span>
               Brand Compare
             </div>
             <table>
@@ -1169,11 +1274,17 @@ class BrandCompare extends Component {
             <div className={styles.brandCompareItemWrap}>
               <each of={page2.brandCompareList}>
                 <Row className={styles.brandCompareItem} key={index}>
-                  <span className={styles.rank}>{item.rank}<em></em></span>
-                  <Col span={2}>
-                  </Col>
+                  <span className={styles.rank}>
+                    {item.rank}
+                    <em />
+                  </span>
+                  <Col span={2} />
                   <Col span={4}>
-                    <div><Checkbox onChange={this.onBrandChecked(item)} checked={item.isChecked}>加入对比</Checkbox></div>
+                    <div>
+                      <Checkbox onChange={this.onBrandChecked(item)} checked={item.isChecked}>
+                        加入对比
+                      </Checkbox>
+                    </div>
                   </Col>
                   <Col span={12}>
                     <div className={styles.brandText}>{item.brandName}</div>
@@ -1190,7 +1301,9 @@ class BrandCompare extends Component {
                     </Row>
                   </Col>
                   <Col span={6}>
-                    <div className={styles.salesGrowthText}>指标1同比增长：{m`${item}.salesAmountGrowth | percent(2)`}</div>
+                    <div className={styles.salesGrowthText}>
+                      指标1同比增长：{m`${item}.salesAmountGrowth | percent(2)`}
+                    </div>
                     <div>指标2同比增长率：{m`${item}.categoryGrowth | percent(2)`}</div>
                     <div>
                       <Button onClick={this.viewTrends(item, index)}>查看趋势</Button>
@@ -1214,7 +1327,7 @@ class BrandCompare extends Component {
 class CompareDock extends Component {
   @autobind
   deleteCompareItem(item) {
-    return (e) => {
+    return e => {
       this.props.store.page2.removeCompareDockData(item);
       this.props.store.page2.setChecked(item, false);
     };
@@ -1232,22 +1345,27 @@ class CompareDock extends Component {
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const {
+      store: { page2 }
+    } = this.props;
 
     return (
       <div className={`${styles.compareDock} ${page2.compareDockVisible ? styles.compareDockShow : ''}`}>
         <div className={styles.compareDockTit}>
-          <span className={styles.compareDockClose} onClick={this.closeCompareDock}>X</span>
+          <span className={styles.compareDockClose} onClick={this.closeCompareDock}>
+            X
+          </span>
           <span>Compare Dock</span>
         </div>
         <Row>
           <each of={page2.compareDockData}>
             <if condition={item.id != 0}>
               <Col span={6} key={index}>
-                <span className={styles.iconDeleteCompareItem} onClick={this.deleteCompareItem(item)}>X</span>
+                <span className={styles.iconDeleteCompareItem} onClick={this.deleteCompareItem(item)}>
+                  X
+                </span>
                 <Row>
-                  <Col span={12}>
-                  </Col>
+                  <Col span={12} />
                   <Col span={12}>
                     <div>排名：{item.rank}</div>
                     <div>指标1增长率：{m`${item}.salesAmountGrowth | percent(2)`}</div>

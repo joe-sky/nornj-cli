@@ -10,7 +10,7 @@ const FormExampleStore = types
     antRadioValue: '2',
     elInputValue: '示例数据',
     elSelectValue: '1',
-    elRadioValue: '2',
+    elRadioValue: '2'
   })
   .volatile(self => ({
     antCheckboxValue: [],

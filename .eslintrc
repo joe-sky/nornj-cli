@@ -1,10 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "babel",
-    "import",
-    "react"
-  ],
+  "plugins": ["babel", "import", "react"],
   "env": {
     "browser": true,
     "node": true,
@@ -22,28 +18,16 @@
     ],
     "react/jsx-curly-spacing": 0,
     "react/jsx-indent-props": 0,
-    "react/jsx-indent": [
-      1,
-      2
-    ],
-    "jsx-quotes": [
-      1,
-      "prefer-double"
-    ],
+    "react/jsx-indent": [1, 2],
+    "jsx-quotes": [1, "prefer-double"],
     "camelcase": [
       1,
       {
         "properties": "always"
       }
     ],
-    "comma-dangle": [
-      0,
-      "never"
-    ],
-    "semi": [
-      1,
-      "always"
-    ],
+    "comma-dangle": [0, "never"],
+    "semi": [1, "always"],
     "quotes": [
       1,
       "single",
@@ -51,10 +35,7 @@
         "allowTemplateLiterals": true
       }
     ],
-    "strict": [
-      0,
-      "global"
-    ],
+    "strict": [0, "global"],
     "no-multiple-empty-lines": [
       1,
       {

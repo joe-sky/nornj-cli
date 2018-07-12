@@ -39,12 +39,11 @@ const Page1Store = types
 
     getDefaultCheckedKeys() {
       let keys = [];
-      self.menuData.filter(n => n.level == 3)
-        .forEach(item => {
-          if (item.selected) {
-            keys.push(item.id.toString());
-          }
-        });
+      self.menuData.filter(n => n.level == 3).forEach(item => {
+        if (item.selected) {
+          keys.push(item.id.toString());
+        }
+      });
       return keys;
     },
 
@@ -62,17 +61,15 @@ const Page1Store = types
         return null;
       }
 
-      return authList
-        .filter(n => n.level == level && (!node ? true : n.pid == node.id.toString()))
-        .map(n => {
-          authMap[n.id].pids = pids;
+      return authList.filter(n => n.level == level && (!node ? true : n.pid == node.id.toString())).map(n => {
+        authMap[n.id].pids = pids;
 
-          return {
-            key: n.id.toString(),
-            title: n.name,
-            children: self.getAuthTreeData(authList, authMap, level + 1, n, [...pids, n.id.toString()])
-          };
-        });
+        return {
+          key: n.id.toString(),
+          title: n.name,
+          children: self.getAuthTreeData(authList, authMap, level + 1, n, [...pids, n.id.toString()])
+        };
+      });
     }
   }))
   .actions(self => ({
@@ -142,11 +139,12 @@ const Page1Store = types
     },
 
     getRoleMenuTree(params) {
-      return axios.get(`${__HOST}/page1/getRoleMenuTree`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page1/getRoleMenuTree`, {
+          params
+        })
         .then(self.setRoleMenuTree)
-        .catch((ex) => {
+        .catch(ex => {
           Notification.error({
             description: '获取角色权限数据异常:' + ex,
             duration: null
@@ -168,11 +166,12 @@ const Page1Store = types
     },
 
     getRoleManagementData(params) {
-      return axios.get(`${__HOST}/page1/getRoleManagementData`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page1/getRoleManagementData`, {
+          params
+        })
         .then(self.setRoleManagementData)
-        .catch((ex) => {
+        .catch(ex => {
           Notification.error({
             description: '获取角色管理数据异常:' + ex,
             duration: null
@@ -193,11 +192,12 @@ const Page1Store = types
     },
 
     searchRole(params) {
-      return axios.get(`${__HOST}/page1/searchRole`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page1/searchRole`, {
+          params
+        })
         .then(self.setSearchRole)
-        .catch((ex) => {
+        .catch(ex => {
           Notification.error({
             description: '获取角色数据异常:' + ex,
             duration: null
@@ -218,9 +218,10 @@ const Page1Store = types
     },
 
     saveRole(params) {
-      return axios.post(`${__HOST}/page1/saveRole`, params)
+      return axios
+        .post(`${__HOST}/page1/saveRole`, params)
         .then(self.setSaveRole)
-        .catch((ex) => {
+        .catch(ex => {
           Notification.error({
             description: '添加角色数据异常:' + ex,
             duration: null
@@ -234,7 +235,6 @@ const Page1Store = types
         self.addRoleId = data.roleId;
         Notification.success({ description: '添加角色成功！', duration: 2 });
         self.setDisable(false);
-
       } else {
         Notification.error({
           description: '添加角色数据异常:' + result.message,
@@ -244,9 +244,10 @@ const Page1Store = types
     },
 
     saveRolePermission(params) {
-      return axios.post(`${__HOST}/page1/saveRolePermission`, params)
+      return axios
+        .post(`${__HOST}/page1/saveRolePermission`, params)
         .then(self.setSaveRolePermission)
-        .catch((ex) => {
+        .catch(ex => {
           Notification.error({
             description: '添加角色权限数据异常:' + ex,
             duration: null
@@ -256,7 +257,10 @@ const Page1Store = types
 
     setSaveRolePermission({ data: result }) {
       if (result.success) {
-        Notification.success({ description: '添加角色权限成功！', duration: 2 });
+        Notification.success({
+          description: '添加角色权限成功！',
+          duration: 2
+        });
       } else {
         Notification.error({
           description: '添加角色权限数据异常:' + result.message,
@@ -266,9 +270,10 @@ const Page1Store = types
     },
 
     deleteRole(params) {
-      return axios.post(`${__HOST}/page1/deleteRole`, params)
+      return axios
+        .post(`${__HOST}/page1/deleteRole`, params)
         .then(self.setDeleteRole)
-        .catch((ex) => {
+        .catch(ex => {
           Notification.error({
             description: '删除角色数据异常:' + ex,
             duration: null
@@ -280,7 +285,10 @@ const Page1Store = types
       if (result.success) {
         Notification.success({ description: '删除角色成功！', duration: null });
       } else {
-        Notification.error({ description: '删除角色数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '删除角色数据异常:' + result.message,
+          duration: null
+        });
       }
     }
   }));

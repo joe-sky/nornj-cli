@@ -63,10 +63,7 @@ const Page2Store = types
         userCountMOM: 0
       };
     }),
-    growthDataTable: types.optional(types.array(types.array(types.number)), () => [
-      [0, 0, 0, 0],
-      [0, 0, 0, 0]
-    ]),
+    growthDataTable: types.optional(types.array(types.array(types.number)), () => [[0, 0, 0, 0], [0, 0, 0, 0]]),
     brandCompareListTotalCount: types.optional(types.number, () => 0),
     compareDockVisible: types.optional(types.boolean, () => false),
     showCompareTable: types.optional(types.boolean, () => false),
@@ -87,10 +84,14 @@ const Page2Store = types
   }))
   .actions(self => ({
     getSummaryData() {
-      return axios.get(`${__HOST}/page2/getSummaryData`)
+      return axios
+        .get(`${__HOST}/page2/getSummaryData`)
         .then(self.setSummaryData)
-        .catch((ex) => {
-          Notification.error({ description: '获取Summary数据错误:' + ex, duration: null });
+        .catch(ex => {
+          Notification.error({
+            description: '获取Summary数据错误:' + ex,
+            duration: null
+          });
         });
     },
     setSummaryData({ data: result }) {
@@ -129,16 +130,23 @@ const Page2Store = types
           };
         }
       } else {
-        Notification.error({ description: '获取Summary数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '获取Summary数据异常:' + result.message,
+          duration: null
+        });
       }
     },
     getGrowthData(params) {
-      return axios.get(`${__HOST}/page2/growthData`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page2/growthData`, {
+          params
+        })
         .then(self.setGrowthData)
-        .catch((ex) => {
-          Notification.error({ description: '获取Growth数据错误:' + ex, duration: null });
+        .catch(ex => {
+          Notification.error({
+            description: '获取Growth数据错误:' + ex,
+            duration: null
+          });
         });
     },
     setGrowthData({ data: result }) {
@@ -151,81 +159,88 @@ const Page2Store = types
         self.growthDataUser = data.growthDataUser;
         self.growthDataPrice = data.growthDataPrice;
         if (data.growthDataTable == null || data.growthDataTable.length == 0) {
-          self.growthDataTable = [
-            [0, 0, 0, 0],
-            [0, 0, 0, 0]
-          ];
+          self.growthDataTable = [[0, 0, 0, 0], [0, 0, 0, 0]];
         } else {
           if (data.growthDataTable[0].length == 0 && data.growthDataTable[1].length == 0) {
-            self.growthDataTable = [
-              [0, 0, 0, 0],
-              [0, 0, 0, 0]
-            ];
+            self.growthDataTable = [[0, 0, 0, 0], [0, 0, 0, 0]];
           } else {
             self.growthDataTable = data.growthDataTable;
           }
         }
       } else {
-        Notification.error({ description: '获取Growth数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '获取Growth数据异常:' + result.message,
+          duration: null
+        });
       }
     },
     getSubCategoryData(params) {
-      return axios.get(`${__HOST}/page2/getSubCategoryData`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page2/getSubCategoryData`, {
+          params
+        })
         .then(self.setSubCategoryData)
-        .catch((ex) => {
-          Notification.error({ description: '获取SubCategory数据错误:' + ex, duration: null });
+        .catch(ex => {
+          Notification.error({
+            description: '获取SubCategory数据错误:' + ex,
+            duration: null
+          });
         });
     },
     setSubCategoryData({ data: result }) {
       if (result.success) {
         if (result.data) {
-          const data = result.data || [
-            [],
-            [],
-            []
-          ];
+          const data = result.data || [[], [], []];
           self.pieSubCategoryData = [data[0], data[1], data[2]];
           self.setShowSubCategoryBlock(true);
         } else {
           self.setShowSubCategoryBlock(false);
         }
       } else {
-        Notification.error({ description: '获取SubCategory数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '获取SubCategory数据异常:' + result.message,
+          duration: null
+        });
         self.setShowSubCategoryBlock(false);
       }
     },
     getBarSubCategoryData(params) {
-      return axios.get(`${__HOST}/page2/getBarSubCategoryData`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page2/getBarSubCategoryData`, {
+          params
+        })
         .then(self.setBarSubCategoryData)
-        .catch((ex) => {
-          Notification.error({ description: '获取BarSubCategory数据错误:' + ex, duration: null });
+        .catch(ex => {
+          Notification.error({
+            description: '获取BarSubCategory数据错误:' + ex,
+            duration: null
+          });
         });
     },
     setBarSubCategoryData({ data: result }) {
       if (result.success) {
         if (result.data) {
-          const data = result.data || [
-            [],
-            [],
-            []
-          ];
+          const data = result.data || [[], [], []];
           self.barSubCategoryData = [data[0], data[1], data[2]];
         }
       } else {
-        Notification.error({ description: '获取BarSubCategory数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '获取BarSubCategory数据异常:' + result.message,
+          duration: null
+        });
       }
     },
     getTableSubCategoryData(params) {
-      return axios.get(`${__HOST}/page2/getTableSubCategoryData`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page2/getTableSubCategoryData`, {
+          params
+        })
         .then(self.setTableSubCategoryData)
-        .catch((ex) => {
-          Notification.error({ description: '获取TableSubCategory数据错误:' + ex, duration: null });
+        .catch(ex => {
+          Notification.error({
+            description: '获取TableSubCategory数据错误:' + ex,
+            duration: null
+          });
         });
     },
     setTableSubCategoryData({ data: result }) {
@@ -233,16 +248,23 @@ const Page2Store = types
         const data = result.data;
         self.tableSubCategoryData = data;
       } else {
-        Notification.error({ description: '获取TableSubCategory数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '获取TableSubCategory数据异常:' + result.message,
+          duration: null
+        });
       }
     },
     getBrandCompareList(params) {
-      return axios.get(`${__HOST}/page2/getBrandCompareList`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page2/getBrandCompareList`, {
+          params
+        })
         .then(self.setBrandCompareList)
-        .catch((ex) => {
-          Notification.error({ description: '获取BrandCompare数据错误:' + ex, duration: null });
+        .catch(ex => {
+          Notification.error({
+            description: '获取BrandCompare数据错误:' + ex,
+            duration: null
+          });
         });
     },
     setBrandCompareList({ data: result }) {
@@ -254,7 +276,10 @@ const Page2Store = types
         });
         self.brandCompareListTotalCount = result.total;
       } else {
-        Notification.error({ description: '获取BrandCompare数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '获取BrandCompare数据异常:' + result.message,
+          duration: null
+        });
       }
     },
     setCompareDockData(item) {
@@ -266,17 +291,19 @@ const Page2Store = types
       }
     },
     removeCompareDockData(item) {
-      if(self.compareDockData) {
-        self.compareDockData.splice(self.compareDockData.findIndex((i) => i.id == item.id), 1);
+      if (self.compareDockData) {
+        self.compareDockData.splice(self.compareDockData.findIndex(i => i.id == item.id), 1);
         self.compareDockData = [...self.compareDockData];
       }
     },
     clearCompareDockData() {
       self.compareDockData = self.compareDockData && toJS(self.compareDockData).splice(0, 1);
-      self.brandCompareList = [...self.brandCompareList.map(item => {
-        item.isChecked = false;
-        return item;
-      })];
+      self.brandCompareList = [
+        ...self.brandCompareList.map(item => {
+          item.isChecked = false;
+          return item;
+        })
+      ];
     },
     setCompareDockVisible(visible) {
       self.compareDockVisible = visible;
@@ -285,19 +312,23 @@ const Page2Store = types
       self.showCompareTable = visible;
     },
     getBrandCompareItemForCategory(params) {
-      return axios.get(`${__HOST}/page2/getBrandCompareItemForCategory`, {
-        params
-      })
+      return axios
+        .get(`${__HOST}/page2/getBrandCompareItemForCategory`, {
+          params
+        })
         .then(self.setBrandCompareItemForCategory)
-        .catch((ex) => {
-          Notification.error({ description: '获取BrandCompareItemForCategory数据错误:' + ex, duration: null });
+        .catch(ex => {
+          Notification.error({
+            description: '获取BrandCompareItemForCategory数据错误:' + ex,
+            duration: null
+          });
         });
     },
     setBrandCompareItemForCategory({ data: result }) {
       if (result.success) {
         let data = result.data;
         if (self.compareDockData) {
-          self.compareDockData.splice(self.compareDockData.findIndex((i) => i.id == data.id), 1);
+          self.compareDockData.splice(self.compareDockData.findIndex(i => i.id == data.id), 1);
           data.salesAmount = null;
           data.salesAmountRates = null;
           data.userCount = null;
@@ -315,7 +346,10 @@ const Page2Store = types
           self.setCompareDockData(data);
         }
       } else {
-        Notification.error({ description: '获取BrandCompareItemForCategory数据异常:' + result.message, duration: null });
+        Notification.error({
+          description: '获取BrandCompareItemForCategory数据异常:' + result.message,
+          duration: null
+        });
       }
     },
     setShowSubCategoryBlock(value) {

@@ -12,6 +12,7 @@ import Sider from './src/web/components/sider';
 
 const HeaderWithRouter = withRouter(Header);
 const SiderWithRouter = withRouter(Sider);
+// prettier-ignore
 const loadBundles = {
   loadPage1,
   loadPage2,
@@ -26,7 +27,7 @@ const Page1 = inject('store')(
   observer(({ store }) => (
     <PageWrap>
       <Bundle load={loadPage1} store={store} isPc loadBundles={loadBundles}>
-        {(_Page1) => {
+        {_Page1 => {
           const Page1 = withRouter(_Page1);
           return <Page1 />;
         }}
@@ -42,7 +43,7 @@ const Page2 = inject('store')(
   observer(({ store }) => (
     <PageWrap>
       <Bundle load={loadPage2} store={store} isPc loadBundles={loadBundles}>
-        {(_Page2) => {
+        {_Page2 => {
           const Page2 = withRouter(_Page2);
           return <Page2 />;
         }}
@@ -58,7 +59,7 @@ const FormExample = inject('store')(
   observer(({ store }) => (
     <PageWrap>
       <Bundle load={loadFormExample} store={store} isPc loadBundles={loadBundles}>
-        {(_FormExample) => {
+        {_FormExample => {
           const FormExample = withRouter(_FormExample);
           return <FormExample />;
         }}

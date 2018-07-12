@@ -30,7 +30,6 @@ registerFilter({
   },
   toFixed: (v, bit) => {
     if (v != null && v != '-') {
-
       if (!(bit && bit._njOpts)) {
         v = (v / bit).toFixed(2);
       } else {
@@ -52,7 +51,7 @@ registerFilter({
     }
 
     const bit = val >= 100 ? 2 : 4;
-    return (noThousands && !noThousands._njOpts) ? fmt.toFixed(bit) : nj.filters.thousands(fmt, bit);
+    return noThousands && !noThousands._njOpts ? fmt.toFixed(bit) : nj.filters.thousands(fmt, bit);
   },
   parseInt: v => parseInt(v),
   clipText: (v, len) => {
@@ -60,7 +59,7 @@ registerFilter({
       return '';
     }
 
-    return (v.length > len && mediaQuery('(max-width: 1400px)')) ? v.substr(0, len) + '...' : v;
+    return v.length > len && mediaQuery('(max-width: 1400px)') ? v.substr(0, len) + '...' : v;
   },
   formItemParams: (span = 4) => {
     return {

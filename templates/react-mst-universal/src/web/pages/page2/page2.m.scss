@@ -306,7 +306,7 @@
           box-shadow: 0 0 6px rgba(255, 85, 47, 0.3);
           border-radius: 5px;
           position: relative;
-          transition: all .3s;
+          transition: all 0.3s;
 
           & > div {
             white-space: nowrap;
@@ -404,7 +404,7 @@
         z-index: 1;
         opacity: 0;
         visibility: hidden;
-        transition: all .3s ease-out;
+        transition: all 0.3s ease-out;
         padding-right: 50px;
         transform: translateX(100%);
 
@@ -449,8 +449,8 @@
       background: #fff;
       border: 1px solid #eee;
       z-index: 2;
-      transition: all .3s ease-out;
-      box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+      transition: all 0.3s ease-out;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 
       .compareDockTit {
         height: 30px;

@@ -59,15 +59,15 @@ const SiderStore = types
       self.menuData = menuData;
     },
     setMenuDataByIndex(isExpanded, index) {
-      self.currentMenuData.forEach(function (item) {
+      self.currentMenuData.forEach(function(item) {
         item.setExpanded(false);
       });
-      self.currentMenuData.find((item) => item.index == index).setExpanded(isExpanded);
+      self.currentMenuData.find(item => item.index == index).setExpanded(isExpanded);
     },
 
     setCurrentMenu() {
       let href = window.location.href;
-      href = href.substring(href.lastIndexOf('\/') + 1, href.length);
+      href = href.substring(href.lastIndexOf('/') + 1, href.length);
 
       //初始化一级菜单
       let menu0 = self.menuData[0];
@@ -78,11 +78,11 @@ const SiderStore = types
       }
 
       const menu = self.currentMenuData;
-      const children = menu.map(function (item) {
+      const children = menu.map(function(item) {
         return item.children;
       });
-      const nameArray = children.map(function (item) {
-        return item.map(function (item) {
+      const nameArray = children.map(function(item) {
+        return item.map(function(item) {
           return item.index;
         });
       });
