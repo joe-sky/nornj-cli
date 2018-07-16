@@ -40,8 +40,8 @@ Project Name: projectName
 ```sh
 nj add-page [pageName]  # 或nj ap
 
-# 请选择要生成的页面类型
-What type of page do you want to generate ?
+# 请选择生成时要使用的页面模板
+Which page template do you want to use?
 > default  # 增删改查
   chart    # 图表
   form     # 表单
@@ -49,6 +49,39 @@ What type of page do you want to generate ?
 
 # 输入新创建的页面名称
 Page Name: pageName
+```
+
+#### 在已有代码中增加新组件
+
+* 进入已有项目目录后，输入如下命令创建新组件：
+
+```sh
+nj add-component [componentName]  # 或nj ac
+
+# 请选择生成时要使用的组件模板
+Which component template do you want to use?
+> default       # 默认
+  stateless     # 无状态组件
+  higher-order  # 高阶组件
+
+# 输入新创建的组件名称
+Component Name: componentName
+```
+
+#### 在已有代码中增加新Store
+
+* 进入已有项目目录后，输入如下命令创建新Store：
+
+```sh
+nj add-store [storeName]  # 或nj as
+
+# 请选择生成时要使用的Store模板
+Which store template do you want to use?
+> default       # 默认使用axios
+  default-fetch # 使用fetch
+
+# 输入新创建的Store名称
+Store Name: storeName
 ```
 
 #### 选择项目模板

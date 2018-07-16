@@ -32,6 +32,22 @@ program
   });
 
 program
+  .command('add-component')
+  .description('Add a new component')
+  .alias('ac')
+  .action(() => {
+    require('../lib/addComponent')();
+  });
+
+program
+  .command('add-store')
+  .description('Add a new store')
+  .alias('as')
+  .action(() => {
+    require('../lib/addStore')();
+  });
+
+program
   .command('upgrade')
   .description('Upgrade to the latest version')
   .option('--cnpm', CNPM_DESCRIPTION)

@@ -143,6 +143,14 @@
       "chart-nornj",
       "form-nornj",
       "empty-nornj"
+    ],
+    "componentTemplates": [
+      "default",
+      "default-nornj"
+    ],
+    "storeTemplates": [
+      "default",
+      "default-fetch"
     ]
   }
 }
