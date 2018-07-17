@@ -7,6 +7,7 @@ import Page2Store from './pages/page2Store';
 import FormExampleStore from './pages/formExampleStore';
 //{importStore}//
 
+// prettier-ignore
 const RootStore = types.model('RootStore', {
   common: types.optional(CommonStore, {}),
 
@@ -127,7 +128,7 @@ const RootStore = types.model('RootStore', {
 
   page1: types.optional(Page1Store, {}),
   page2: types.optional(Page2Store, {}),
-  formExample: types.optional(FormExampleStore, {})
+  formExample: types.optional(FormExampleStore, {}),
   //{pageStore}//
 });
 

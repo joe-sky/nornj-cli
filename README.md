@@ -2,6 +2,10 @@
 
 The CLI for scaffolding [NornJ](https://github.com/joe-sky/nornj) template projects, and do more things.
 
+[![NPM Version][npm-image]][npm-url]
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![NPM Downloads][downloads-image]][npm-url]
+
 ### 安装
 
 ```sh
@@ -33,7 +37,7 @@ Template Name: anyTemplateName
 Project Name: projectName
 ```
 
-#### 在已有代码中增加新页面
+#### 添加新页面
 
 * 进入已有项目目录后，输入如下命令创建新页面：
 
@@ -51,7 +55,7 @@ Which page template do you want to use?
 Page Name: pageName
 ```
 
-#### 在已有代码中增加新组件
+#### 添加新组件
 
 * 进入已有项目目录后，输入如下命令创建新组件：
 
@@ -68,7 +72,7 @@ Which component template do you want to use?
 Component Name: componentName
 ```
 
-#### 在已有代码中增加新Store
+#### 添加新Store
 
 * 进入已有项目目录后，输入如下命令创建新Store：
 
@@ -163,3 +167,7 @@ nj update --cnpm
 ## License
 
 MIT
+
+[npm-image]: https://img.shields.io/npm/v/nornj-cli.svg
+[downloads-image]: https://img.shields.io/npm/dm/nornj-cli.svg
+[npm-url]: https://www.npmjs.org/package/nornj-cli

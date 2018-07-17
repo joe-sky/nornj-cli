@@ -7,6 +7,7 @@ import Page2Store from './pages/page2Store';
 import FormExampleStore from './pages/formExampleStore';
 //{importStore}//
 
+// prettier-ignore
 const RootStore = types.model('RootStore', {
   common: types.optional(CommonStore, {}),
 

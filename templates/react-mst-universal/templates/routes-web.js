@@ -35,5 +35,5 @@ __extraComment__*/}
 </#-template>
 
 <#-template name="clearRegex">
-\\{\\/\\*__extraComment__\\*\\/\\}
+\{\/\*__extraComment__\*\/\}
 </#-template>

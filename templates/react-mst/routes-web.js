@@ -13,6 +13,7 @@ import Sider from './src/web/components/sider';
 
 const HeaderWithRouter = withRouter(Header);
 const SiderWithRouter = withRouter(Sider);
+// prettier-ignore
 const loadBundles = {
   loadPage1,
   loadPage2,
