@@ -1,5 +1,4 @@
-﻿import * as React from 'react';
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
@@ -18,7 +17,7 @@ export default class #{componentName | pascal}# extends Component {
   }
 
   @observable inputValue = '';
-  @observable textValue = '';
+  @observable textValue = '#{componentName | pascal}#';
   @observable editing = false;
 
   @autobind
@@ -34,6 +33,10 @@ export default class #{componentName | pascal}# extends Component {
 
     this.editing = true;
     this.inputValue = this.textValue;
+
+    setTimeout(() => {
+      this.refs.input.refs.input.select();
+    }, 50);
   }
 
   @autobind
