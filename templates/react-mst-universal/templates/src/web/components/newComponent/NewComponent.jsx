@@ -35,7 +35,7 @@ export default class #{componentName | pascal}# extends Component {
     this.inputValue = this.textValue;
 
     setTimeout(() => {
-      this.refs.input.refs.input.select();
+      this.refs.input.input.select();
     }, 50);
   }
 
@@ -47,7 +47,7 @@ export default class #{componentName | pascal}# extends Component {
 
   render() {
     return (
-      <div class={styles.#{componentName}#} onClick={this.onClick}>
+      <div className={styles.#{componentName}#} onClick={this.onClick}>
         <if condition={this.editing}>
           <Input value={this.inputValue} onChange={this.onChange} onBlur={this.onBlur} ref="input" />
           <else>{this.textValue}</else>
