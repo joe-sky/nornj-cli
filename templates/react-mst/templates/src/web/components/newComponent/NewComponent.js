@@ -36,7 +36,7 @@ export default class #{componentName | pascal}# extends Component {
     this.inputValue = this.textValue;
 
     setTimeout(() => {
-      this.refs.input.refs.input.select();
+      this.refs.input.input.select();
     }, 50);
   }
 
