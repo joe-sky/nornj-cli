@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import { Component, PropTypes } from 'react';
 import { toJS, transaction } from 'mobx';
 import { observer, inject } from 'mobx-react';
@@ -25,19 +25,19 @@ export default class Sider extends Component {
   selectMenu(index) {
     return e => {
       this.props.store.sider.setCurrent(index);
-    }
+    };
   }
 
   @autobind
   toggleMenu(item) {
     return e => {
-      this.props.store.sider.setMenuDataByIndex(!item.expanded, item.index)
+      this.props.store.sider.setMenuDataByIndex(!item.expanded, item.index);
     };
   }
 
   @autobind
   isMenuOpen(state) {
-    this.props.store.sider.setMenu(state.isOpen)
+    this.props.store.sider.setMenu(state.isOpen);
   }
 
   render() {
@@ -45,14 +45,18 @@ export default class Sider extends Component {
       return items.map(item => {
         return tmpls.menuCnt(this.props, this, { item, generateMenu });
       });
-    }
+    };
 
-    const menuCnt = generateMenu(this.props.store.sider.currentMenuData)
-    return tmpls.menu({
-      menuCnt,
-      components: {
-        'burger-Menu': Menu
-      }
-    }, this.props, this);
+    const menuCnt = generateMenu(this.props.store.sider.currentMenuData);
+    return tmpls.menu(
+      {
+        menuCnt,
+        components: {
+          'burger-Menu': Menu
+        }
+      },
+      this.props,
+      this
+    );
   }
 }

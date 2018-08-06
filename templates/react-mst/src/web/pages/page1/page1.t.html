@@ -10,9 +10,9 @@
     </div>
 
     <ant-Table rowSelection={rowSelection}
-               columns={toJS(tableColumns)}
-               dataSource={toJS(tableData)}
-               bordered />
+      columns={toJS(tableColumns)}
+      dataSource={toJS(tableData)}
+      bordered />
 
     <ModalFormPage1 tabName="增加角色" />
     <ModalFormPage1 tabName="编辑角色" />
@@ -26,7 +26,7 @@
       <ant-TabPane tab="增加角色" key="tab1">
         <ul class="frombox">
           <li>角色名称 <span class="red"></span></li>
-          <li><ant-input onChange={onAddInputRoleChange} value="{page1.addInputRole}"/></li>
+          <li><ant-input onChange={onAddInputRoleChange} value="{page1.addInputRole}" /></li>
           <li>角色描述</li>
           <li><ant-TextArea rows={4} onChange={onAddInputDesChange} class="textarea" value="{page1.addInputDes}" /></li>
           <li class="{styles.btnArea}">
@@ -38,11 +38,11 @@
       <ant-TabPane tab="配置权限" key="tab2" disabled="{tabName == '增加角色' ?: page1.isDisable}">
         <div class="{styles.treeWrap}">
           <ant-Tree checkable
-                    onExpand={onExpand}
-                    expandedKeys={toJS(page1.expandedKeys)}
-                    {autoExpandParent}
-                    onCheck={onCheck}
-                    checkedKeys={toJS(page1.checkedKeys)}>
+            onExpand={onExpand}
+            expandedKeys={toJS(page1.expandedKeys)}
+            {autoExpandParent}
+            onCheck={onCheck}
+            checkedKeys={toJS(page1.checkedKeys)}>
             {loop(treeData)}
           </ant-Tree>
         </div>

@@ -16,7 +16,7 @@ export default class Header extends Component {
     return e => {
       this.props.store.header.setCurrent(index);
       this.props.history.push('/' + this.props.store.sider.menuData[index].children[0].children[0].index);
-    }
+    };
   }
 
   render() {

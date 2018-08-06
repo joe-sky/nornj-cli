@@ -7,8 +7,9 @@
 @mixin antTab {
   .ant-tabs-bar {
     border-bottom-width: 18px;
-    border-bottom-color: #F4F5F8;
+    border-bottom-color: #f4f5f8;
   }
+
   .ant-tabs-tab {
     font-size: 1rem;
     padding-left: 0 !important;
@@ -18,16 +19,20 @@
     color: #c4c9d2;
     height: 60px !important;
     line-height: 45px;
+
     &.ant-tabs-tab-active {
       color: #333333;
     }
+
     &:hover {
       color: #c4c9d2 !important;
     }
+
     &.ant-tabs-tab-active:hover {
       color: #333333 !important;
     }
   }
+
   .ant-tabs-ink-bar {
     background-color: #3bbabb;
   }

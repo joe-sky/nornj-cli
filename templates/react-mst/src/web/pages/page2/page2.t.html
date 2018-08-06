@@ -6,9 +6,9 @@
 
       <h3 class="{styles.pageSubTitle}">Total Compare</h3>
       <totalComparePage2 />
-      
+
       <categoryComparePage2 />
-      
+
       <h3 class="{styles.pageSubTitle}">Compare Dock</h3>
       <brandComparePage2 />
 
@@ -132,7 +132,7 @@
           <ant-RadioButton value="c">指标3</ant-RadioButton>
           <ant-RadioButton value="d">指标4</ant-RadioButton>
         </ant-RadioGroup>
-        <ec-LineChart ref="ecGrowth" option={toJS(growthOptions)} data={toJS(growthData)} />            
+        <ec-LineChart ref="ecGrowth" option={toJS(growthOptions)} data={toJS(growthData)} />
       </div>
     </fj-Col>
   </fj-Row>
@@ -213,7 +213,7 @@
         </div>
       </div>
     </#if>
-    
+
   </div>
 </template>
 <!--categoryCompare：end-->
@@ -236,7 +236,7 @@
             <tr>
               <th>指标1</th>
               <#each {page2.compareDockData}>
-              <th key={@index}>{brandName}</th>
+                <th key={@index}>{brandName}</th>
               </#each>
             </tr>
           </thead>
@@ -244,61 +244,61 @@
             <tr>
               <td>指标2</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{salesAmountGrowth | percent(2)}</td>
+                <td key={@index}>{salesAmountGrowth | percent(2)}</td>
               </#each>
             </tr>
             <tr>
               <td>指标3</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{userGrowth | percent(2)}</td>
+                <td key={@index}>{userGrowth | percent(2)}</td>
               </#each>
             </tr>
             <tr>
               <td>指标4</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{uvGrowth | percent(2)}</td>
+                <td key={@index}>{uvGrowth | percent(2)}</td>
               </#each>
             </tr>
             <tr>
               <td>指标5</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{price ||('--')}</td>
+                <td key={@index}>{price ||('--')}</td>
               </#each>
             </tr>
             <tr>
               <td>指标6</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{salesAmount ||('--')}</td>
+                <td key={@index}>{salesAmount ||('--')}</td>
               </#each>
             </tr>
             <tr>
               <td>指标7</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{salesAmountRates | percent(2)}</td>
+                <td key={@index}>{salesAmountRates | percent(2)}</td>
               </#each>
             </tr>
             <tr>
               <td>指标8</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{userCount ||('--')}</td>
+                <td key={@index}>{userCount ||('--')}</td>
               </#each>
             </tr>
             <tr>
               <td>指标9</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{userCountRates | percent(2)}</td>
+                <td key={@index}>{userCountRates | percent(2)}</td>
               </#each>
             </tr>
             <tr>
               <td>指标10</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{uv ||('--')}</td>
+                <td key={@index}>{uv ||('--')}</td>
               </#each>
             </tr>
             <tr>
               <td>指标11</td>
               <#each {page2.compareDockData}>
-              <td key={@index}>{uvRates | percent(2)}</td>
+                <td key={@index}>{uvRates | percent(2)}</td>
               </#each>
             </tr>
           </tbody>
@@ -357,24 +357,24 @@
     </div>
     <fj-Row class="clearfix">
       <#each {store.page2.compareDockData}>
-        <#if {id != 0}>      
-        <fj-Col l="3" key="{@index}">
-          <span class="{styles.iconDeleteCompareItem}" onClick={deleteCompareItem(this)}>X</span>
-          <fj-Row class="clearfix">
-            <fj-Col l="6">
-            </fj-Col>
-            <fj-Col l="6">
-              <div>排名：{rank}</div>
-              <div>指标1增长率：{salesAmountGrowth | percent(2)}</div>
-              <div class="{styles.name}">{brandName}</div>
-            </fj-Col>
-          </fj-Row>
-        </fj-Col>
+        <#if {id != 0}>
+          <fj-Col l="3" key="{@index}">
+            <span class="{styles.iconDeleteCompareItem}" onClick={deleteCompareItem(this)}>X</span>
+            <fj-Row class="clearfix">
+              <fj-Col l="6">
+              </fj-Col>
+              <fj-Col l="6">
+                <div>排名：{rank}</div>
+                <div>指标1增长率：{salesAmountGrowth | percent(2)}</div>
+                <div class="{styles.name}">{brandName}</div>
+              </fj-Col>
+            </fj-Row>
+          </fj-Col>
         </#if>
       </#each>
       <fj-Col l="3" class="tc">
-        <ant-Button onClick={compareIt}>开始对比</ant-Button>        
-      </fj-Col>      
+        <ant-Button onClick={compareIt}>开始对比</ant-Button>
+      </fj-Col>
     </fj-Row>
   </div>
 </template>

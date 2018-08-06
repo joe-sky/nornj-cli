@@ -4,41 +4,29 @@
     "development": {
       "presets": ["env"],
       "plugins": [
-        ["import", {"libraryName": "antd", "style": true} ],
+        "syntax-dynamic-import",
+        ["import", { "libraryName": "antd", "style": true }],
+        "nornj-in-jsx",
         ["transform-object-rest-spread"],
-        "transform-decorators-legacy", [
-          "transform-class-properties",
-          { "loose": false }
-        ],
-        "transform-object-assign", [
-          "transform-es2015-classes",
-          { "loose": true }
-        ],
-        [
-          "transform-es2015-for-of",
-          { "loose": true }
-        ]
+        "transform-decorators-legacy",
+        ["transform-class-properties", { "loose": false }],
+        "transform-object-assign",
+        ["transform-es2015-classes", { "loose": true }],
+        ["transform-es2015-for-of", { "loose": true }]
       ]
     },
     "production": {
-      "presets": [
-        ["env", { "modules": false }]
-      ],
+      "presets": [["env", { "modules": false }]],
       "plugins": [
-        ["import", {"libraryName": "antd", "style": true} ],
+        "syntax-dynamic-import",
+        ["import", { "libraryName": "antd", "style": true }],
+        "nornj-in-jsx",
         ["transform-object-rest-spread"],
-        "transform-decorators-legacy", [
-          "transform-class-properties",
-          { "loose": false }
-        ],
-        "transform-object-assign", [
-          "transform-es2015-classes",
-          { "loose": true }
-        ],
-        [
-          "transform-es2015-for-of",
-          { "loose": true }
-        ]
+        "transform-decorators-legacy",
+        ["transform-class-properties", { "loose": false }],
+        "transform-object-assign",
+        ["transform-es2015-classes", { "loose": true }],
+        ["transform-es2015-for-of", { "loose": true }]
       ]
     }
   }

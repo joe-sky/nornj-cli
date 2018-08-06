@@ -1,0 +1,12 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "emmet.includeLanguages": {
+    "nornj": "html"
+  },
+  "workbench.iconTheme": "nornj-icons",
+  // "eslint.autoFixOnSave": true,
+  // "editor.formatOnSave": true,
+  "prettier.stylelintIntegration": true
+}

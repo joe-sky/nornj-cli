@@ -1,35 +1,38 @@
 ﻿.bm-menu-wrap {
   z-index: 102 !important;
 }
-.site-logo{
+
+.site-logo {
   background-color: #3bbabb;
   //background:#3bbabb url(../../images/logo.png) center no-repeat;
-  height:80px;
-  line-height:80px;
-  font-size:18px;
-  color:#fff;
-  padding-left:28px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 18px;
+  color: #fff;
+  padding-left: 28px;
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
 }
-.site-menu-tit{
-  height:60px;
-  line-height:60px;
-  color:#cfd0d0;
-  padding-left:30px;
-  border-bottom:1px solid #4e5169;
+
+.site-menu-tit {
+  height: 60px;
+  line-height: 60px;
+  color: #cfd0d0;
+  padding-left: 30px;
+  border-bottom: 1px solid #4e5169;
   position: absolute;
   top: 80px;
   left: 0;
   width: 100%;
   background: #1b3149;
 }
-.site-menu-cnt{
-  height:100%;
-  overflow:auto;
-  padding-top:140px;
+
+.site-menu-cnt {
+  height: 100%;
+  overflow: auto;
+  padding-top: 140px;
 }
 
 /* Position and sizing of burger button */
@@ -51,10 +54,12 @@
 .bm-cross-button {
   height: 29px !important;
   width: 29px !important;
-  top:97px !important;
+  top: 97px !important;
   background: url(../../images/btn-close-menu.png) no-repeat;
 
-  .bm-cross{display: none;}
+  .bm-cross {
+    display: none;
+  }
 }
 
 /* Color/shape of close button cross */
@@ -76,50 +81,58 @@
 /* Wrapper for item list */
 .bm-item-list {
   color: #b8b7ad;
-  a{
+
+  a {
     color: #6f7082;
-    display:block;
+    display: block;
     font-size: 14px;
     height: 40px;
     line-height: 40px;
-    transition: all .5s;
+    transition: all 0.5s;
     text-align: center;
 
-    &:hover{
+    &:hover {
       text-decoration: none;
-      color:#fff;
+      color: #fff;
       background: #1f3750;
     }
   }
-  a.cur{
-    color:#fff;
+
+  a.cur {
+    color: #fff;
     background: #1f3750;
   }
-  .menu-group{ cursor: pointer; }
 
-  .menu-tit{
-    border-bottom:1px solid #4e5169;
+  .menu-group {
+    cursor: pointer;
+  }
+
+  .menu-tit {
+    border-bottom: 1px solid #4e5169;
     color: #777889;
-    padding:.2rem;
-    padding:20px 30px;
-    transition: all .5s;
-    &:hover{
+    padding: 0.2rem;
+    padding: 20px 30px;
+    transition: all 0.5s;
+
+    &:hover {
       text-decoration: none;
-      color:#fff;
+      color: #fff;
       background: #1b3149;
     }
+
     &:after {
-      content:'';
+      content: '';
       display: table;
       clear: both;
     }
   }
+
   .icon {
     display: inline-block;
     width: 22px;
     height: 22px;
-    margin-right:5px;
-    float:left;
+    margin-right: 5px;
+    float: left;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -148,22 +161,22 @@
   // .menu-group:nth-child(8) {
   //   .icon { background-image: url(../../images/icon-m7.png); }
   // }
-
 }
 
-
-
-.menu-cnt{
+.menu-cnt {
   background: #1b3149;
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
   overflow: hidden;
   height: 0;
+
   a:last-child {
-    border-bottom:1px solid #4e5169;
+    border-bottom: 1px solid #4e5169;
   }
 }
-.menu-cnt.expanded{
+
+.menu-cnt.expanded {
 }
+
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
