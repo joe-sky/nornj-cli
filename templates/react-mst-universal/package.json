@@ -7,6 +7,7 @@
     "dev": "node -v | npm run server | cross-env Project=web webpack-dev-server --host 0.0.0.0 --inline --hot --progress",
     "build": "cross-env Project=web NODE_ENV=production webpack --progress --hide-modules",
     "build-test": "cross-env Project=web BABEL_ENV=development NODE_ENV=test webpack --progress --hide-modules",
+    "build-local": "cross-env Project=local NODE_ENV=production webpack --progress --hide-modules",
     "server": "nodemon ./server/app.js",
     "lint": "eslint src"
   },

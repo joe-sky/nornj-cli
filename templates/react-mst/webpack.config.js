@@ -7,18 +7,19 @@
 
 const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
+const isLocal = process.env.Project == 'local';
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20170928';
 const modifyVars = Object.assign({});
 
 module.exports = {
   entry: {
-    app: ['react-hot-loader/patch', path.resolve(__dirname, './app-' + process.env.Project + '.js')],
+    app: ['react-hot-loader/patch', path.resolve(__dirname, './app-' + (!isLocal ? process.env.Project : 'web') + '.js')],
     vendor: ['./src/utils/vendorIndex.js', 'react', 'react-dom', 'react-router', 'mobx', 'mobx-react', 'mobx-state-tree', 'nornj', 'nornj-react', 'core-decorators']
   },
   output: {
     path: path.resolve(__dirname, './dist/'),
-    publicPath: (isProd || isTest) ? '' : '/dist/',
+    publicPath: (isProd || isTest) ? (!isLocal ? '' : '../') : '/dist/',
     filename: process.env.Project + `/${VERSION}/[name].js`,
     chunkFilename: process.env.Project + `/${VERSION}/[name].chunk.js`
   },
@@ -177,17 +178,17 @@ module.exports.plugins = [
   }),
   new HtmlWebpackPlugin({
     filename: process.env.Project + '/index.html',
-    template: './index.template-' + process.env.Project + '.nj.html',
+    template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
     inject: 'true',
     chunks: ['vendor', 'app'],
-    path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`
+    path: (isProd || isTest) ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
   }),
   new HtmlWebpackPlugin({
     inject: 'true',
     chunks: ['vendor', 'appHome'],
     filename: process.env.Project + '/home.html',
-    template: './index.template-' + process.env.Project + '.nj.html',
-    path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`
+    template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
+    path: (isProd || isTest) ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
   }),
   new webpack.NamedModulesPlugin(),
   new webpack.DefinePlugin({
