@@ -8,11 +8,7 @@ import loadPage1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1/page
 import loadPage2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page2/page2.js';
 import loadFormExample from 'bundle-loader?lazy&name=[name]!./src/web/pages/formExample/formExample.js';
 //{importLoadPage}//
-import Header from './src/web/components/header';
-import Sider from './src/web/components/sider';
 
-const HeaderWithRouter = withRouter(Header);
-const SiderWithRouter = withRouter(Sider);
 // prettier-ignore
 const loadBundles = {
   loadPage1,
@@ -73,12 +69,8 @@ const FormExample = inject('store')(
 
 const PageWrap = inject('store')(
   observer(({ store, children }) => t`
-    <div>
-      <${SiderWithRouter}/>
-      <${HeaderWithRouter}/>
-      <div id="page-wrap" class=${store.sider.isOpen ? 'isMenuOpen' : ''}>
-        ${children}
-      </div>
+    <div id="page-wrap" class=${store.sider.isOpen ? 'isMenuOpen' : ''}>
+      ${children}
     </div>
   `)
 );

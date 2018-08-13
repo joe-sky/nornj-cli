@@ -31,6 +31,10 @@ import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import { createNotification } from './src/utils/notification';
 createNotification(Notification);
+import Header from './src/web/components/header';
+import Sider from './src/web/components/sider';
+const HeaderWithRouter = withRouter(Header);
+const SiderWithRouter = withRouter(Sider);
 
 const rootStore = RootStore.create({});
 // onSnapshot(rootStore, (snapshot) => {
@@ -43,6 +47,8 @@ const renderApp = appRoutes => {
       <mobx-Provider store=${rootStore}>
         <HashRouter>
           <div id="outer-container">
+            <${HeaderWithRouter} />
+            <${SiderWithRouter} />
             ${appRoutes()}
           </div>
         </HashRouter>

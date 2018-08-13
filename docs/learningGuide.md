@@ -1,4 +1,4 @@
-## React + Mobx + 前端模板的相关技术学习资料
+## React + Mobx + NornJ的相关技术学习资料
 
 `React + Mobx + NornJ`开发模式快速上手教程[请点这里](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)。
 
@@ -36,6 +36,7 @@
 * [Mobx](#mobx)
 * [NornJ](#nornj)
 * [CSS Modules](#css-modules)
+* [styled-jsx](#styled-jsx)
 * [Ant Design](#ant-design)
 * [Echarts](#echarts)
 * [FlareJ](#flarej)
@@ -54,26 +55,34 @@
 
 #### Mobx
 
-`MobX`是一个可提供响应式编程的状态管理库，`React`和`MobX`是一对强力组合。
+`MobX`是一个可提供响应式编程的状态管理库，`React`和`MobX`是一对强力组合。而`Mobx-state-tree`是`MobX`官方提供的状态容器方案，可编写更规范的`MobX`代码。
 
 * [MobX 中文文档](http://cn.mobx.js.org/)
 * [10分钟极速入门 MobX 与 React](http://www.tuicool.com/articles/yYnmi26)
 * [我为什么从Redux迁移到了Mobx](https://tech.youzan.com/mobx_vs_redux/)
 * [Mobx-state-tree github文档](https://github.com/mobxjs/mobx-state-tree)
-* [Mobx-state-tree github文档(v0.9.5)](https://github.com/mobxjs/mobx-state-tree/tree/0.9.5)
+<!-- * [Mobx-state-tree github文档(v0.9.5)](https://github.com/mobxjs/mobx-state-tree/tree/0.9.5) -->
 
 #### NornJ
 
-`NornJ`是可同时支持渲染字符串和`React`组件的前端模板引擎，可覆盖很多`JSX`做不到的使用场景，也可配合`JSX`使用。
+`NornJ`是可同时支持渲染字符串和`React`组件的前端模板引擎，可覆盖很多`JSX`做不到的使用场景，也可配合`JSX`使用(babel-plugin-nornj-in-jsx)。
 
 * [github地址](https://github.com/joe-sky/nornj)
-* [NornJ中文指南](https://joe-sky.gitbooks.io/nornj-guide)
+* [NornJ指南](https://joe-sky.gitbooks.io/nornj-guide)
+* [babel-plugin-nornj-in-jsx插件文档](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)
 
 #### CSS Modules
 
 `CSS Modules`是一种可以提供局部css样式的解决方案。
 
 * [CSS Modules 用法教程](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)
+
+#### styled-jsx
+
+`styled-jsx`是一种可以直接在JSX标签中编写css样式的解决方案。
+
+* [github文档](https://github.com/zeit/styled-jsx)
+* [React拾遗：从10种现在流行的 CSS 解决方案谈谈我的最爱 （下）](https://juejin.im/post/5b3dd2d25188251b193d2d7e)
 
 #### Ant Design
 

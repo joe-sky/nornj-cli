@@ -100,7 +100,7 @@
     "axios": "^0.18.0",
     "bundle-loader": "^0.5.5",
     "console-polyfill": "^0.3.0",
-    "echarts": "^3.8.5",
+    "echarts": "^4.1.0",
     "echarts-for-react": "^2.0.11",
     "element-react": "^1.4.10",
     "element-theme-default": "^1.4.13",

@@ -92,7 +92,7 @@ Store Name: storeName
 
 | 名称           | 描述                      | 模板源码地址                |
 |:---------------|:-------------------------|:--------------------------|
-| react-mst-universal      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-jsx`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/tree/master/packages/babel-plugin-nornj-in-jsx)</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
+| react-mst-universal      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-jsx`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
 | react-mst      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`NornJ`</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst |
 | react-mobx     | 基于React+Mobx的多页面项目 | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mobx |
 | Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 | https://github.com/Y-Dept/template-saas |
@@ -159,7 +159,7 @@ nj install --cnpm
 nj update --cnpm
 ```
 
-### React + Mobx + 前端模板相关技术学习资料
+### React + Mobx + NornJ相关技术学习资料
 
 * [学习资料汇总](https://github.com/joe-sky/nornj-cli/blob/master/docs/learningGuide.md)
 * [快速上手文档](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)
