@@ -12,6 +12,12 @@ React.PropTypes = PropTypes;
 import nj from 'nornj';
 import 'nornj-react/mobx';
 import 'nornj-react/router';
+import 'flarej/lib/components/antd/input';
+import 'flarej/lib/components/antd/cascader';
+import 'flarej/lib/components/antd/checkbox';
+import 'flarej/lib/components/antd/datePicker';
+import 'flarej/lib/components/antd/radio';
+import 'flarej/lib/components/antd/switch';
 import './src/utils/nj.configs';
 import { compileH, registerComponent } from 'nornj';
 import { withRouter } from 'react-router';
@@ -29,6 +35,10 @@ import { Notification, LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import { createNotification } from './src/utils/notification';
 createNotification(Notification);
+import Header from './src/web/components/header';
+import Sider from './src/web/components/sider';
+const HeaderWithRouter = withRouter(Header);
+const SiderWithRouter = withRouter(Sider);
 
 const rootStore = RootStore.create({});
 // onSnapshot(rootStore, (snapshot) => {
@@ -40,7 +50,11 @@ const renderApp = appRoutes => {
     <LocaleProvider locale={zhCN}>
       <Provider store={rootStore}>
         <HashRouter>
-          <div id="outer-container">{appRoutes()}</div>
+          <div id="outer-container">
+            <HeaderWithRouter />
+            <SiderWithRouter />
+            {appRoutes()}
+          </div>
         </HashRouter>
       </Provider>
     </LocaleProvider>,

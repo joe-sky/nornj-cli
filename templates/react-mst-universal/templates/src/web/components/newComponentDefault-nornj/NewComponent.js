@@ -22,11 +22,6 @@ export default class #{componentName | pascal}# extends Component {
   @observable editing = false;
 
   @autobind
-  onChange(e) {
-    this.inputValue = e.target.value;
-  }
-
-  @autobind
   onClick() {
     if (this.editing) {
       return;

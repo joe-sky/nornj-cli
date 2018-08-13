@@ -34,11 +34,6 @@ export default class Page1 extends Component {
   }
 
   @autobind
-  onInputRole(e) {
-    this.inputRole = e.target.value;
-  }
-
-  @autobind
   onSearch() {
     if (this.inputRole == '') {
       const closeLoading = Message.loading('正在获取数据...', 0);
@@ -181,7 +176,7 @@ export default class Page1 extends Component {
         <h2>角色管理 page1</h2>
         <div className={styles.handlerBox}>
           <span className={styles.lable}>角色名称</span>
-          <Input className={styles.input} value={this.inputRole} onChange={this.onInputRole} />
+          <Input className={styles.input} n-mobx-model="inputRole" />
           <Button className="btn" onClick={this.onSearch}>
             查询
           </Button>

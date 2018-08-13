@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj, { mustache as m } from 'nornj';
+import nj, { expression as n } from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { Row, Col, Radio, Button, Cascader, DatePicker, Checkbox, Pagination, Message } from 'antd';
 import ReactEcharts from 'echarts-for-react/lib/core';
@@ -611,33 +611,33 @@ class TotalCompare extends Component {
               <tbody>
                 <tr className={styles.row1}>
                   <td>
-                    {m`${page2}.growthDataTable[0][0] > 0` ? '+' : ''}
-                    {m`${page2}.growthDataTable[0][0] | percent(2) || '--'`}
+                    {n`${page2}.growthDataTable[0][0] > 0` ? '+' : ''}
+                    {n`${page2}.growthDataTable[0][0] | percent(2) || '--'`}
                   </td>
                   <td>
-                    {m`${page2}.growthDataTable[0][1] > 0` ? '+' : ''}
-                    {m`${page2}.growthDataTable[0][1] | percent(2) || '--'`}
+                    {n`${page2}.growthDataTable[0][1] > 0` ? '+' : ''}
+                    {n`${page2}.growthDataTable[0][1] | percent(2) || '--'`}
                   </td>
                   <td>
-                    {m`${page2}.growthDataTable[0][3] > 0` ? '+' : ''}
-                    {m`${page2}.growthDataTable[0][3] | percent(2) || '--'`}
+                    {n`${page2}.growthDataTable[0][3] > 0` ? '+' : ''}
+                    {n`${page2}.growthDataTable[0][3] | percent(2) || '--'`}
                   </td>
-                  <td>{m`${page2}.growthDataTable[0][2].toFixed(2) || '--'`}元</td>
+                  <td>{n`${page2}.growthDataTable[0][2].toFixed(2) || '--'`}元</td>
                 </tr>
                 <tr className={styles.row2}>
                   <td>
-                    {m`${page2}.growthDataTable[1][0] > 0` ? '+' : ''}
-                    {m`${page2}.growthDataTable[1][0] | percent(2) || '--'`}
+                    {n`${page2}.growthDataTable[1][0] > 0` ? '+' : ''}
+                    {n`${page2}.growthDataTable[1][0] | percent(2) || '--'`}
                   </td>
                   <td>
-                    {m`${page2}.growthDataTable[1][1] > 0` ? '+' : ''}
-                    {m`${page2}.growthDataTable[1][1] | percent(2) || '--'`}
+                    {n`${page2}.growthDataTable[1][1] > 0` ? '+' : ''}
+                    {n`${page2}.growthDataTable[1][1] | percent(2) || '--'`}
                   </td>
                   <td>
-                    {m`${page2}.growthDataTable[1][3] > 0` ? '+' : ''}
-                    {m`${page2}.growthDataTable[1][3] | percent(2) || '--'`}
+                    {n`${page2}.growthDataTable[1][3] > 0` ? '+' : ''}
+                    {n`${page2}.growthDataTable[1][3] | percent(2) || '--'`}
                   </td>
-                  <td>{m`${page2}.growthDataTable[1][2].toFixed(2) || '--'`}元</td>
+                  <td>{n`${page2}.growthDataTable[1][2].toFixed(2) || '--'`}元</td>
                 </tr>
               </tbody>
             </table>
@@ -1210,19 +1210,19 @@ class BrandCompare extends Component {
                 <tr>
                   <td>指标2</td>
                   <each of={page2.compareDockData}>
-                    <td key={index}>{m`${item}.salesAmountGrowth | percent(2)`}</td>
+                    <td key={index}>{n`${item}.salesAmountGrowth | percent(2)`}</td>
                   </each>
                 </tr>
                 <tr>
                   <td>指标3</td>
                   <each of={page2.compareDockData}>
-                    <td key={index}>{m`${item}.userGrowth | percent(2)`}</td>
+                    <td key={index}>{n`${item}.userGrowth | percent(2)`}</td>
                   </each>
                 </tr>
                 <tr>
                   <td>指标4</td>
                   <each of={page2.compareDockData}>
-                    <td key={index}>{m`${item}.uvGrowth | percent(2)`}</td>
+                    <td key={index}>{n`${item}.uvGrowth | percent(2)`}</td>
                   </each>
                 </tr>
                 <tr>
@@ -1240,7 +1240,7 @@ class BrandCompare extends Component {
                 <tr>
                   <td>指标7</td>
                   <each of={page2.compareDockData}>
-                    <td key={index}>{m`${item}.salesAmountRates | percent(2)`}</td>
+                    <td key={index}>{n`${item}.salesAmountRates | percent(2)`}</td>
                   </each>
                 </tr>
                 <tr>
@@ -1252,7 +1252,7 @@ class BrandCompare extends Component {
                 <tr>
                   <td>指标9</td>
                   <each of={page2.compareDockData}>
-                    <td key={index}>{m`${item}.userCountRates | percent(2)`}</td>
+                    <td key={index}>{n`${item}.userCountRates | percent(2)`}</td>
                   </each>
                 </tr>
                 <tr>
@@ -1264,7 +1264,7 @@ class BrandCompare extends Component {
                 <tr>
                   <td>指标11</td>
                   <each of={page2.compareDockData}>
-                    <td key={index}>{m`${item}.uvRates | percent(2)`}</td>
+                    <td key={index}>{n`${item}.uvRates | percent(2)`}</td>
                   </each>
                 </tr>
               </tbody>
@@ -1291,20 +1291,20 @@ class BrandCompare extends Component {
                     <div>指标1：{item.salesAmount.toFixed(2)}万元</div>
                     <Row>
                       <Col span={12}>
-                        <div>指标1同比增长：{m`${item}.uvGrowth | percent(2)`}</div>
-                        <div>指标2转化率：{m`${item}.uvConversion | percent(2)`}</div>
+                        <div>指标1同比增长：{n`${item}.uvGrowth | percent(2)`}</div>
+                        <div>指标2转化率：{n`${item}.uvConversion | percent(2)`}</div>
                       </Col>
                       <Col span={12}>
-                        <div>指标3同比增长：{m`${item}.userGrowth | percent(2)`}</div>
+                        <div>指标3同比增长：{n`${item}.userGrowth | percent(2)`}</div>
                         <div>指标4：{item.price.toFixed(2)}元</div>
                       </Col>
                     </Row>
                   </Col>
                   <Col span={6}>
                     <div className={styles.salesGrowthText}>
-                      指标1同比增长：{m`${item}.salesAmountGrowth | percent(2)`}
+                      指标1同比增长：{n`${item}.salesAmountGrowth | percent(2)`}
                     </div>
-                    <div>指标2同比增长率：{m`${item}.categoryGrowth | percent(2)`}</div>
+                    <div>指标2同比增长率：{n`${item}.categoryGrowth | percent(2)`}</div>
                     <div>
                       <Button onClick={this.viewTrends(item, index)}>查看趋势</Button>
                     </div>
@@ -1368,7 +1368,7 @@ class CompareDock extends Component {
                   <Col span={12} />
                   <Col span={12}>
                     <div>排名：{item.rank}</div>
-                    <div>指标1增长率：{m`${item}.salesAmountGrowth | percent(2)`}</div>
+                    <div>指标1增长率：{n`${item}.salesAmountGrowth | percent(2)`}</div>
                     <div className={styles.name}>{item.brandName}</div>
                   </Col>
                 </Row>

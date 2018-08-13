@@ -44,11 +44,6 @@ export default class #{pageName | pascal}# extends Component {
   }
 
   @autobind
-  onInputRole(e) {
-    this.inputRole = e.target.value;
-  }
-
-  @autobind
   onSearch() {
     if (this.inputRole == '') {
       const closeLoading = Message.loading('正在获取数据...', 0);

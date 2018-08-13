@@ -21,11 +21,6 @@ export default class #{componentName | pascal}# extends Component {
   @observable editing = false;
 
   @autobind
-  onChange(e) {
-    this.inputValue = e.target.value;
-  }
-
-  @autobind
   onClick() {
     if (this.editing) {
       return;
@@ -49,7 +44,7 @@ export default class #{componentName | pascal}# extends Component {
     return (
       <div className={styles.#{componentName}#} onClick={this.onClick}>
         <if condition={this.editing}>
-          <Input value={this.inputValue} onChange={this.onChange} onBlur={this.onBlur} ref="input" />
+          <Input n-mobx-model="inputValue" onBlur={this.onBlur} ref="input" />
           <else>{this.textValue}</else>
         </if>
       </div>

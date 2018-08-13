@@ -11,7 +11,7 @@
             { "libraryName": "antd", "style": true },
             {
               "libraryName": "flarej",
-              "libraryDirectory": "lib-p/components",
+              "libraryDirectory": "lib/components",
               "style": true
             }
           ]
@@ -36,7 +36,7 @@
             { "libraryName": "antd", "style": true },
             {
               "libraryName": "flarej",
-              "libraryDirectory": "lib-p/components",
+              "libraryDirectory": "lib/components",
               "style": true
             }
           ]

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Component, PropTypes } from 'react';
 import { toJS, transaction } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj, { mustache as m } from 'nornj';
+import nj, { expression as n } from 'nornj';
 import { Link } from 'react-router-dom';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';

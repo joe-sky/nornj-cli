@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj, {
-  mustache as m,
-  css as s
-} from 'nornj';
+import nj, { expression as n } from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import {
@@ -71,19 +68,19 @@ class AntFormExample extends Component {
         <h2>Ant Design 表单控件示例</h2>
         <div>
           <div className={styles.formEls}>
-            <Input value={this.inputValue} onChange={e => this.inputValue = e.target.value} />
+            <Input n-mobx-model="inputValue" />
             <div>
-              inputValue：<i style={s`color:purple`}>{this.inputValue}</i>
+              inputValue：<i n-style="color:purple">{this.inputValue}</i>
             </div>
           </div>
           <div className={styles.formEls}>
-            <Input.TextArea value={this.textareaValue} onChange={e => this.textareaValue = e.target.value} />
+            <Input.TextArea n-mobx-model="textareaValue" />
             <div>
-              textareaValue：<i style={s`color:purple`}>{this.textareaValue}</i>
+              textareaValue：<i n-style="color:purple">{this.textareaValue}</i>
             </div>
           </div>
           <div className={styles.formEls}>
-            <Select value={this.selectValue} onChange={value => this.selectValue = value} style={{ width: '100%' }} placeholder="请选择">
+            <Select n-mobx-model="selectValue" n-style="width:100%" placeholder="请选择">
               <Select.Option value="1">测试数据1</Select.Option>
               <Select.Option value="2">测试数据2</Select.Option>
               <Select.Option value="3">测试数据3</Select.Option>
@@ -93,19 +90,19 @@ class AntFormExample extends Component {
             </div>
           </div>
           <div className={styles.formEls}>
-            <Checkbox.Group value={toJS(this.checkboxValue)} onChange={value => this.checkboxValue = value}>
+            <Checkbox.Group n-mobx-model="checkboxValue">
               <Checkbox value="1">Option A</Checkbox>
               <Checkbox value="2">Option B</Checkbox>
               <Checkbox value="3">Option C</Checkbox>
             </Checkbox.Group>
             <div>
-              checkboxValue：<i style={s`color:purple`}>{this.checkboxValue}</i>
+              checkboxValue：<i n-style="color:purple">{this.checkboxValue}</i>
             </div>
           </div>
         </div>
         <h2>Ant Design 表单验证示例</h2>
         <Form>
-          <Form.Item label="表单元素1" {...m`formItemParams(3)`}>
+          <Form.Item label="表单元素1" {...n`formItemParams(3)`}>
             {
               this.props.form.getFieldDecorator('formEl1', {
                 initialValue: #{pageName}#.antInputValue,
@@ -115,7 +112,7 @@ class AntFormExample extends Component {
               )
             }
           </Form.Item>
-          <Form.Item label="表单元素2" {...m`formItemParams(3)`}>
+          <Form.Item label="表单元素2" {...n`formItemParams(3)`}>
             {
               this.props.form.getFieldDecorator('formEl2', {
                 initialValue: #{pageName}#.antSelectValue,
@@ -129,7 +126,7 @@ class AntFormExample extends Component {
               )
             }
           </Form.Item>
-          <Form.Item label="表单元素3" {...m`formItemParams(3)`}>
+          <Form.Item label="表单元素3" {...n`formItemParams(3)`}>
             {
               this.props.form.getFieldDecorator('formEl3', {
                 initialValue: #{pageName}#.antRadioValue,
@@ -143,7 +140,7 @@ class AntFormExample extends Component {
               )
             }
           </Form.Item>
-          <Form.Item label="表单元素4" {...m`formItemParams(3)`}>
+          <Form.Item label="表单元素4" {...n`formItemParams(3)`}>
             {
               this.props.form.getFieldDecorator('formEl4', {
                 initialValue: #{pageName}#.antCheckboxValue,
@@ -157,7 +154,7 @@ class AntFormExample extends Component {
               )
             }
           </Form.Item>
-          <Form.Item label="表单元素5" {...m`formItemParams(3)`}>
+          <Form.Item label="表单元素5" {...n`formItemParams(3)`}>
             {
               this.props.form.getFieldDecorator('formEl5', {
                 initialValue: #{pageName}#.antDate,
