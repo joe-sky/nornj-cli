@@ -20,8 +20,9 @@ class Bundle extends Component {
       }
       Promise.all(fetchs).then(() => {
         if (isPc) {
+          const current = capitalize(store.sider.current);
           this.load({
-            load: loadBundles[`load${capitalize(store.sider.current)}`]
+            load: loadBundles[`load${current.indexOf('/') >= 0 ? current.split('/')[0] : current}`]
           });
         } else {
           this.load(this.props);

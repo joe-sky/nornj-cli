@@ -159,9 +159,9 @@ nj install --cnpm
 nj update --cnpm
 ```
 
-### React + Mobx + NornJ相关技术学习资料
+### 相关文档
 
-* [学习资料汇总](https://github.com/joe-sky/nornj-cli/blob/master/docs/learningGuide.md)
+* [技术与框架列表](https://github.com/joe-sky/nornj-cli/blob/master/docs/learningGuide.md)
 * [快速上手文档](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)
 
 ## License

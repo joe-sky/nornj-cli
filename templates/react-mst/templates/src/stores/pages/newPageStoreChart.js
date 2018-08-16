@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree';
 import { toJS } from 'mobx';
-import { fetchData } from 'flarej/lib/utils/fetchConfig';
+import fetchData from 'flarej/lib/utils/fetchData';
 import Notification from '../../utils/notification';
 
 const BrandCompareItem = types

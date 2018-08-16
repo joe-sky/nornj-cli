@@ -167,9 +167,12 @@ const Page1Store = types
 
     getRoleManagementData(params) {
       return axios
-        .get(`${__HOST}/page1/getRoleManagementData`, {
-          params
-        })
+        .get(
+          __Remote ? `${__HOST}/remoteServer/page1/getRoleManagementData` : `${__HOST}/page1/getRoleManagementData`,
+          {
+            params
+          }
+        )
         .then(self.setRoleManagementData)
         .catch(ex => {
           Notification.error({

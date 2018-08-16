@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree';
 import { toJS } from 'mobx';
-import axios from 'axios';
+import fetchData from 'flarej/lib/utils/fetchData';
 import Notification from '../../utils/notification';
 
 const BrandCompareItem = types
@@ -87,13 +87,15 @@ const #{pageName | pascal}#Store = types
   }))
   .actions(self => ({
     getSummaryData() {
-      return axios.get(`${__HOST}/#{pageName}#/getSummaryData`)
-        .then(self.setSummaryData)
+      return fetchData(
+        `${__HOST}/#{pageName}#/getSummaryData`,
+        self.setSummaryData,
+        null, { method: 'get' })
         .catch((ex) => {
           Notification.error({ description: '获取Summary数据错误:' + ex, duration: null });
         });
     },
-    setSummaryData({ data: result }) {
+    setSummaryData(result) {
       if (result.success) {
         const data = result.data;
         if (data) {
@@ -133,15 +135,15 @@ const #{pageName | pascal}#Store = types
       }
     },
     getGrowthData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/growthData`, {
-        params
-      })
-        .then(self.setGrowthData)
+      return fetchData(
+        `${__HOST}/#{pageName}#/growthData`,
+        self.setGrowthData,
+        params, { method: 'get' })
         .catch((ex) => {
           Notification.error({ description: '获取Growth数据错误:' + ex, duration: null });
         });
     },
-    setGrowthData({ data: result }) {
+    setGrowthData(result) {
       if (result.success) {
         const data = result.data;
         self.salesData = data.salesData;
@@ -170,15 +172,15 @@ const #{pageName | pascal}#Store = types
       }
     },
     getSubCategoryData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getSubCategoryData`, {
-        params
-      })
-        .then(self.setSubCategoryData)
+      return fetchData(
+        `${__HOST}/#{pageName}#/getSubCategoryData`,
+        self.setSubCategoryData,
+        params, { method: 'get' })
         .catch((ex) => {
           Notification.error({ description: '获取SubCategory数据错误:' + ex, duration: null });
         });
     },
-    setSubCategoryData({ data: result }) {
+    setSubCategoryData(result) {
       if (result.success) {
         if (result.data) {
           const data = result.data || [
@@ -197,15 +199,15 @@ const #{pageName | pascal}#Store = types
       }
     },
     getBarSubCategoryData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getBarSubCategoryData`, {
-        params
-      })
-        .then(self.setBarSubCategoryData)
+      return fetchData(
+        `${__HOST}/#{pageName}#/getBarSubCategoryData`,
+        self.setBarSubCategoryData,
+        params, { method: 'get' })
         .catch((ex) => {
           Notification.error({ description: '获取BarSubCategory数据错误:' + ex, duration: null });
         });
     },
-    setBarSubCategoryData({ data: result }) {
+    setBarSubCategoryData(result) {
       if (result.success) {
         if (result.data) {
           const data = result.data || [
@@ -220,15 +222,15 @@ const #{pageName | pascal}#Store = types
       }
     },
     getTableSubCategoryData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getTableSubCategoryData`, {
-        params
-      })
-        .then(self.setTableSubCategoryData)
+      return fetchData(
+        `${__HOST}/#{pageName}#/getTableSubCategoryData`,
+        self.setTableSubCategoryData,
+        params, { method: 'get' })
         .catch((ex) => {
           Notification.error({ description: '获取TableSubCategory数据错误:' + ex, duration: null });
         });
     },
-    setTableSubCategoryData({ data: result }) {
+    setTableSubCategoryData(result) {
       if (result.success) {
         const data = result.data;
         self.tableSubCategoryData = data;
@@ -237,15 +239,15 @@ const #{pageName | pascal}#Store = types
       }
     },
     getBrandCompareList(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getBrandCompareList`, {
-        params
-      })
-        .then(self.setBrandCompareList)
+      return fetchData(
+        `${__HOST}/#{pageName}#/getBrandCompareList`,
+        self.setBrandCompareList,
+        params, { method: 'get' })
         .catch((ex) => {
           Notification.error({ description: '获取BrandCompare数据错误:' + ex, duration: null });
         });
     },
-    setBrandCompareList({ data: result }) {
+    setBrandCompareList(result) {
       if (result.success) {
         const data = result.data;
         self.brandCompareList = data.map(item => {
@@ -285,15 +287,15 @@ const #{pageName | pascal}#Store = types
       self.showCompareTable = visible;
     },
     getBrandCompareItemForCategory(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getBrandCompareItemForCategory`, {
-        params
-      })
-        .then(self.setBrandCompareItemForCategory)
+      return fetchData(
+        `${__HOST}/#{pageName}#/getBrandCompareItemForCategory`,
+        self.setBrandCompareItemForCategory,
+        params, { method: 'get' })
         .catch((ex) => {
           Notification.error({ description: '获取BrandCompareItemForCategory数据错误:' + ex, duration: null });
         });
     },
-    setBrandCompareItemForCategory({ data: result }) {
+    setBrandCompareItemForCategory(result) {
       if (result.success) {
         let data = result.data;
         if (self.compareDockData) {

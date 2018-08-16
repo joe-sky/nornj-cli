@@ -14,12 +14,26 @@ const modifyVars = Object.assign({});
 
 module.exports = {
   entry: {
-    app: ['react-hot-loader/patch', path.resolve(__dirname, './app-' + (!isLocal ? process.env.Project : 'web') + '.js')],
-    vendor: ['./src/utils/vendorIndex.js', 'react', 'react-dom', 'react-router', 'mobx', 'mobx-react', 'mobx-state-tree', 'nornj', 'nornj-react', 'core-decorators']
+    app: [
+      'react-hot-loader/patch',
+      path.resolve(__dirname, './app-' + (!isLocal ? process.env.Project : 'web') + '.js')
+    ],
+    vendor: [
+      './src/utils/vendorIndex.js',
+      'react',
+      'react-dom',
+      'react-router',
+      'mobx',
+      'mobx-react',
+      'mobx-state-tree',
+      'nornj',
+      'nornj-react',
+      'core-decorators'
+    ]
   },
   output: {
     path: path.resolve(__dirname, './dist/'),
-    publicPath: (isProd || isTest) ? (!isLocal ? '' : '../') : '/dist/',
+    publicPath: isProd || isTest ? (!isLocal ? '' : '../') : '/dist/',
     filename: process.env.Project + `/${VERSION}/[name].js`,
     chunkFilename: process.env.Project + `/${VERSION}/[name].chunk.js`
   },
@@ -30,10 +44,12 @@ module.exports = {
     extensions: ['.web.js', '.ts', '.tsx', '.js', '.jsx', '.css', '.scss', '.less']
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
-        use: [{
+        use: [
+          {
             loader: 'babel-loader?cacheDirectory',
             options: {
               presets: ['react', ['es2015', { modules: false }], 'es2016'],
@@ -48,12 +64,14 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        use: [{
-          loader: 'babel-loader?cacheDirectory',
-          options: {
-            plugins: ['external-helpers']
+        use: [
+          {
+            loader: 'babel-loader?cacheDirectory',
+            options: {
+              plugins: ['external-helpers']
+            }
           }
-        }],
+        ],
         exclude: /node_modules/
       },
       // {
@@ -64,78 +82,101 @@ module.exports = {
       // },
       {
         test: /\.t.html(\?[\s\S]+)*$/,
-        use: [{
-          loader: 'nornj-loader',
-          options: {
-            outputH: true,
-            delimiters: 'react',
-            extensionConfig: require('nornj-react/mobx/extensionConfig')
+        use: [
+          {
+            loader: 'nornj-loader',
+            options: {
+              outputH: true,
+              delimiters: 'react',
+              extensionConfig: require('nornj-react/mobx/extensionConfig')
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.template(-[\s\S]+)*.html(\?[\s\S]+)*$/,
-        use: [{
-          loader: 'nornj-loader'
-        }]
+        use: [
+          {
+            loader: 'nornj-loader'
+          }
+        ]
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader"
-        }, {
-          loader: "postcss-loader"
-        }, {
-          loader: "sass-loader"
-        }],
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ],
         exclude: /.m.scss$/
       },
       {
         test: /\.m.scss$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader",
-          options: {
-            modules: true,
-            localIdentName: '[name]__[local]-[hash:base64:5]'
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]-[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader'
           }
-        }, {
-          loader: "postcss-loader"
-        }, {
-          loader: "sass-loader"
-        }]
+        ]
       },
       {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              minimize: (isProd || isTest),
-              sourceMap: !isProd
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: isProd || isTest,
+                sourceMap: !isProd
+              }
+            },
+            'postcss-loader',
+            {
+              loader: 'less-loader',
+              options: {
+                modifyVars: modifyVars
+              }
             }
-          }, 'postcss-loader', {
-            loader: 'less-loader',
-            options: {
-              "modifyVars": modifyVars
-            }
-          }]
+          ]
         }),
         exclude: /.m.less$/
       },
       {
         test: /\.m.less$/,
-        use: ['style-loader', {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            localIdentName: '[name]__[local]-[hash:base64:5]'
-          }
-        }, 'postcss-loader', 'less-loader']
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]-[hash:base64:5]'
+            }
+          },
+          'postcss-loader',
+          'less-loader'
+        ]
       },
       {
         test: /\.css$/,
@@ -143,22 +184,28 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: ((isProd || isTest) ? '/' : '') + process.env.Project + '/images/[hash:8][name].[ext]'
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: (isProd || isTest ? '/' : '') + process.env.Project + '/images/[hash:8][name].[ext]'
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-        use: ['url-loader?limit=10000&name=' + ((isProd || isTest) ? '/' : '') + process.env.Project + '/fonts/[name].[ext]?[hash]']
+        use: [
+          'url-loader?limit=10000&name=' +
+            (isProd || isTest ? '/' : '') +
+            process.env.Project +
+            '/fonts/[name].[ext]?[hash]'
+        ]
       }
     ]
   }
-}
-
+};
 
 module.exports.plugins = [
   new webpack.optimize.CommonsChunkPlugin({
@@ -181,30 +228,32 @@ module.exports.plugins = [
     template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
     inject: 'true',
     chunks: ['vendor', 'app'],
-    path: (isProd || isTest) ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
+    path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
   }),
   new HtmlWebpackPlugin({
     inject: 'true',
     chunks: ['vendor', 'appHome'],
     filename: process.env.Project + '/home.html',
     template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
-    path: (isProd || isTest) ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
+    path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
   }),
   new webpack.NamedModulesPlugin(),
   new webpack.DefinePlugin({
-    __ENV: (isProd || isTest) ? "'pro'" : "'dev'",
-    __HOST: (isProd || isTest) ? "''" : "'http://localhost:8089'",
+    __ENV: isProd || isTest ? "'pro'" : "'dev'",
+    __HOST: isProd || isTest ? "''" : "'http://localhost:8089'",
     'process.env': {
-      'NODE_ENV': JSON.stringify(isProd ? 'production' : 'development')
+      NODE_ENV: JSON.stringify(isProd ? 'production' : 'development')
     }
   }),
-  new CopyWebpackPlugin([{
-    context: './src/vendor/',
-    from: '*',
-    to: path.join(__dirname, '/dist/' + process.env.Project + '/js/')
-  }]),
+  new CopyWebpackPlugin([
+    {
+      context: './src/vendor/',
+      from: '*',
+      to: path.join(__dirname, '/dist/' + process.env.Project + '/js/')
+    }
+  ]),
   new ExtractTextPlugin({ filename: process.env.Project + `/css/${VERSION}/[name].css`, allChunks: true }),
-  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
+  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
 ];
 
 if (isProd || isTest) {
@@ -223,13 +272,13 @@ if (isProd || isTest) {
       exclude: /node_modules/,
       sourceMap: true
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin()
     // new webpack.optimize.ModuleConcatenationPlugin()
   ]);
 
   if (isTest) {
-    module.exports.devtool = '#cheap-module-source-map'
+    module.exports.devtool = '#cheap-module-source-map';
   }
 } else {
-  module.exports.devtool = 'source-map'
+  module.exports.devtool = 'source-map';
 }
