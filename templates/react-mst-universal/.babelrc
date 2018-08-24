@@ -50,6 +50,37 @@
         ["transform-es2015-classes", { "loose": true }],
         ["transform-es2015-for-of", { "loose": true }]
       ]
+    },
+    "test": {
+      "presets": ["env"],
+      "plugins": [
+        "syntax-dynamic-import",
+        [
+          "import",
+          [
+            { "libraryName": "antd", "style": true },
+            {
+              "libraryName": "flarej",
+              "libraryDirectory": "lib/components",
+              "style": true
+            }
+          ]
+        ],
+        ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-sass", "styled-jsx-plugin-postcss"] }],
+        "nornj-in-jsx",
+        [
+          "nornj-loader",
+          {
+            "extensions": [".t.html"]
+          }
+        ],
+        ["transform-object-rest-spread"],
+        "transform-decorators-legacy",
+        ["transform-class-properties", { "loose": false }],
+        "transform-object-assign",
+        ["transform-es2015-classes", { "loose": true }],
+        ["transform-es2015-for-of", { "loose": true }]
+      ]
     }
   }
 }

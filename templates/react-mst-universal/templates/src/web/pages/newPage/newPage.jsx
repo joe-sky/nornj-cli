@@ -18,8 +18,8 @@ import {
 } from 'antd';
 import Notification from '../../../utils/notification';
 import styles from './#{pageName}#.m.scss';
-import ModalFormPage from './modalFormPage.jsx';
-import ModalDetailPage from './modalDetailPage.jsx';
+import ModalFormPage from './modalFormPage';
+import ModalDetailPage from './modalDetailPage';
 
 //页面容器组件
 @registerTmpl('#{pageName | pascal}#')

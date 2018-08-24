@@ -11,6 +11,8 @@ npm run dev-remote        #启动webpack-dev-server本地调试，接口使用�
 npm run build             #构建生产代码到dist目录
 npm run build-test        #构建生产代码到dist目录，使用测试环境配置
 npm run build-local       #构建生产代码到dist目录，可以本地离线访问
+npm test                  #运行单元测试
+npm run coverage          #生成单元测试覆盖率报告
 ```
 
 ## 使用后端server联调

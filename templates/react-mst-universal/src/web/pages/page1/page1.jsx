@@ -8,8 +8,8 @@ import { autobind } from 'core-decorators';
 import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, Message } from 'antd';
 import Notification from '../../../utils/notification';
 import styles from './page1.m.scss';
-import ModalFormPage from './modalFormPage.jsx';
-import ModalDetailPage from './modalDetailPage.jsx';
+import ModalFormPage from './modalFormPage';
+import ModalDetailPage from './modalDetailPage';
 
 //页面容器组件
 @registerTmpl('Page1')
