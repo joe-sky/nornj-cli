@@ -13,7 +13,9 @@
     "server": "nodemon ./server/app.js",
     "lint": "eslint src",
     "test": "jest --config=test/jest.config.json",
-    "coverage": "jest --coverage --config=test/jest.config.json"
+    "coverage": "jest --coverage --config=test/jest.config.json",
+    "test:e2e": "jest --config=test/jest.config.e2e.json",
+    "e2e": "node ./test/run-e2e.js"
   },
   "author": "joe_sky",
   "license": "MIT",
