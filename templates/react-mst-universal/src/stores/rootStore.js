@@ -5,6 +5,7 @@ import SiderStore from './siderStore';
 import Page1Store from './pages/page1Store';
 import Page2Store from './pages/page2Store';
 import FormExampleStore from './pages/formExampleStore';
+import SimpleExampleStore from './pages/simpleExampleStore';
 //{importStore}//
 
 // prettier-ignore
@@ -63,8 +64,8 @@ const RootStore = types.model('RootStore', {
               {
                 type: 'item',
                 level: 3,
-                link: '/Page4',
-                index: 'Page4',
+                link: '/SimpleExample',
+                index: 'SimpleExample',
                 name: '页面4'
               }
             ]
@@ -129,6 +130,7 @@ const RootStore = types.model('RootStore', {
   page1: types.optional(Page1Store, {}),
   page2: types.optional(Page2Store, {}),
   formExample: types.optional(FormExampleStore, {}),
+  simpleExample: types.optional(SimpleExampleStore, {}),
   //{pageStore}//
 });
 

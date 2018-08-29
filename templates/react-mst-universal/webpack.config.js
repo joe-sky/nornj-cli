@@ -2,23 +2,22 @@
   path = require('path'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+  OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
+  UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
+  opn = require('opn');
 
 const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const isLocal = process.env.Project == 'local';
 const isRemote = process.env.Remote == 'true';
 const pxToRem = require('postcss-pxtorem');
-const VERSION = '20170928';
+const VERSION = '20180829';
 const modifyVars = Object.assign({});
 
 module.exports = {
+  mode: isProd ? 'production' : 'development',
   entry: {
-    app: [
-      'react-hot-loader/patch',
-      path.resolve(__dirname, './app-' + (!isLocal ? process.env.Project : 'web') + '.js')
-    ],
     vendor: [
       './src/utils/vendorIndex.js',
       'react',
@@ -30,6 +29,11 @@ module.exports = {
       'nornj',
       'nornj-react',
       'core-decorators'
+    ],
+    app: [
+      './src/utils/vendorIndex.js',
+      'react-hot-loader/patch',
+      path.resolve(__dirname, './app-' + (!isLocal ? process.env.Project : 'web') + '.js')
     ]
   },
   output: {
@@ -52,6 +56,9 @@ module.exports = {
         secure: false,
         changeOrigin: true
       }
+    },
+    after: () => {
+      opn('http://localhost:8080/dist/web');
     }
   },
   module: {
@@ -153,25 +160,24 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: isProd || isTest,
-                sourceMap: !isProd
-              }
-            },
-            'postcss-loader',
-            {
-              loader: 'less-loader',
-              options: {
-                modifyVars: modifyVars
-              }
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: isProd || isTest,
+              sourceMap: !isProd
             }
-          ]
-        }),
+          },
+          'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true,
+              modifyVars: modifyVars
+            }
+          }
+        ],
         exclude: /.m.less$/
       },
       {
@@ -215,14 +221,47 @@ module.exports = {
         ]
       }
     ]
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          test: 'vendor',
+          enforce: true
+        },
+        styles: {
+          name: 'styles',
+          test: /\.less$/,
+          chunks: 'all',
+          priority: 20,
+          enforce: true
+        }
+      }
+    },
+    minimizer: [
+      new UglifyJSPlugin({
+        cache: true,
+        parallel: true,
+        uglifyOptions: {
+          compress: {
+            drop_debugger: true,
+            drop_console: true,
+            dead_code: true
+          },
+          output: {
+            comments: false
+          }
+        }
+        // sourceMap: true, // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
   }
 };
 
 module.exports.plugins = [
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    filename: process.env.Project + `/${VERSION}/vendors.min.js`
-  }),
   new webpack.LoaderOptionsPlugin({
     options: {
       postcss: [
@@ -238,14 +277,7 @@ module.exports.plugins = [
     filename: process.env.Project + '/index.html',
     template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
     inject: 'true',
-    chunks: ['vendor', 'app'],
-    path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
-  }),
-  new HtmlWebpackPlugin({
-    inject: 'true',
-    chunks: ['vendor', 'appHome'],
-    filename: process.env.Project + '/home.html',
-    template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
+    // chunks: ['vendor', 'styles', 'app'],
     path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
   }),
   new webpack.NamedModulesPlugin(),
@@ -264,30 +296,14 @@ module.exports.plugins = [
       to: path.join(__dirname, '/dist/' + process.env.Project + '/js/')
     }
   ]),
-  new ExtractTextPlugin({ filename: process.env.Project + `/css/${VERSION}/[name].css`, allChunks: true }),
+  new MiniCssExtractPlugin({
+    filename: process.env.Project + `/css/${VERSION}/[name].css`,
+    chunkFilename: process.env.Project + `/css/${VERSION}/[name].css`
+  }),
   new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
 ];
 
 if (isProd || isTest) {
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compressor: {
-    //     pure_getters: true,
-    //     unsafe: true,
-    //     unsafe_comps: true,
-    //     screw_ie8: false,
-    //     warnings: false
-    //   },
-    //   sourceMap: true
-    // }),
-    new UglifyJSPlugin({
-      exclude: /node_modules/,
-      sourceMap: true
-    }),
-    new webpack.optimize.OccurrenceOrderPlugin()
-    // new webpack.optimize.ModuleConcatenationPlugin()
-  ]);
-
   if (isTest) {
     module.exports.devtool = '#cheap-module-source-map';
   }

@@ -5,6 +5,7 @@ describe('Page1', () => {
   let page;
 
   beforeAll(async () => {
+    jest.setTimeout(30000);
     browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   });
 

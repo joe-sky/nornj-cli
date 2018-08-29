@@ -6,6 +6,7 @@ import { observer, Provider, inject } from 'mobx-react';
 import loadPage1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1/page1.jsx';
 import loadPage2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page2/page2.jsx';
 import loadFormExample from 'bundle-loader?lazy&name=[name]!./src/web/pages/formExample/formExample.jsx';
+import loadSimpleExample from 'bundle-loader?lazy&name=[name]!./src/web/pages/simpleExample/simpleExample.jsx';
 //{importLoadPage}//
 
 // prettier-ignore
@@ -13,6 +14,7 @@ const loadBundles = {
   loadPage1,
   loadPage2,
   loadFormExample,
+  loadSimpleExample,
   //{loadPage}//
 };
 
@@ -64,6 +66,22 @@ const FormExample = inject('store')(
   ))
 );
 
+/**
+ * 页面simpleExample
+ */
+const SimpleExample = inject('store')(
+  observer(({ store }) => (
+    <PageWrap>
+      <Bundle load={loadSimpleExample} store={store} isPc loadBundles={loadBundles}>
+        {(_SimpleExample) => {
+          const SimpleExample = withRouter(_SimpleExample);
+          return <SimpleExample />;
+        }}
+      </Bundle>
+    </PageWrap>
+  ))
+);
+
 //{pageComponent}//
 
 const PageWrap = inject('store')(
@@ -80,6 +98,7 @@ const routes = () => (
     <Route exact path="/Page1" component={Page1} />
     <Route exact path="/Page2" component={Page2} />
     <Route exact path="/FormExample" component={FormExample} />
+    <Route exact path="/SimpleExample" component={SimpleExample} />
     {/*//{route}//*/}
     <Redirect from="*" to="/" />
   </Switch>

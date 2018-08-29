@@ -32,6 +32,9 @@ app.use('/page1', page1);
 const page2 = require('./routes/page2');
 app.use('/page2', page2);
 
+const simpleExample = require('./routes/simpleExample');
+app.use('/simpleExample', simpleExample);
+
 //{pages}//
 
 const { resultData } = require('./common/utils');

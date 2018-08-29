@@ -1,8 +1,3 @@
-import 'whatwg-fetch';
-!window.requestAnimationFrame &&
-  (window.requestAnimationFrame = function(callback) {
-    setTimeout(callback, 0);
-  });
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createClass from 'create-react-class';
