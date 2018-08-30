@@ -11,6 +11,7 @@ const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const isLocal = process.env.Project == 'local';
 const isRemote = process.env.Remote == 'true';
+const useBrowser = process.env.BROWSER != 'none';
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20180829';
 const modifyVars = Object.assign({});
@@ -58,7 +59,7 @@ module.exports = {
       }
     },
     after: () => {
-      opn('http://localhost:8080/dist/web');
+      useBrowser && opn('http://localhost:8080/dist/web');
     }
   },
   module: {

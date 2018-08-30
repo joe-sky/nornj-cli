@@ -21,15 +21,6 @@ const MenuItem = types
     }
   }))
   .actions(self => ({
-    afterCreate() {
-      if (self.level === 3) {
-        const siderStore = getParent(getParent(self.topMenuData));
-        if (!siderStore.mapLevel3) {
-          siderStore.mapLevel3 = {}; //创建三级菜单map以便于查找
-        }
-        siderStore.mapLevel3[self.link.toLowerCase()] = self;
-      }
-    },
     setExpanded(isExpanded) {
       self.expanded = isExpanded;
     }
@@ -66,6 +57,24 @@ const SiderStore = types
       self.currentMenuData.find((item) => item.index == index).setExpanded(isExpanded);
     },
 
+    getCurrentMenuItem(pageName) {
+      let ret;
+      self.menuData &&
+        self.menuData.forEach(menuItem => {
+          menuItem.children &&
+            menuItem.children.forEach(menuItem => {
+              menuItem.children &&
+                menuItem.children.forEach(menuItem => {
+                  if (menuItem.index.toLowerCase() === pageName) {
+                    ret = menuItem;
+                  }
+                });
+            });
+        });
+
+      return ret;
+    },
+
     setCurrentMenu() {
       let href = window.location.href;
       href = href.substring(href.lastIndexOf('\/') + 1, href.length);
@@ -73,7 +82,7 @@ const SiderStore = types
       //初始化一级菜单
       let menu0 = self.menuData[0];
       if (href.trim() !== '') {
-        self.root.header.setCurrent(self.mapLevel3['/' + href.toLowerCase()].topMenuIndex);
+        self.root.header.setCurrent(self.getCurrentMenuItem(href.toLowerCase()).topMenuIndex);
       } else if (menu0) {
         self.root.header.setCurrent(0);
       }

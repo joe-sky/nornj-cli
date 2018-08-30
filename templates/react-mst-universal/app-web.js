@@ -7,6 +7,8 @@ React.PropTypes = PropTypes;
 import nj from 'nornj';
 import 'nornj-react/mobx';
 import 'nornj-react/router';
+import 'flarej/lib/components/grid';
+import 'flarej/lib/styles/grid';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/cascader';
 import 'flarej/lib/components/antd/checkbox';
