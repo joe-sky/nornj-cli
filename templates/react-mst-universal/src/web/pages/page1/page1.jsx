@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj from 'nornj';
+import nj, {
+  expression as n
+} from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, Message } from 'antd';
@@ -176,7 +178,7 @@ export default class Page1 extends Component {
         <h2>角色管理 page1</h2>
         <div className={styles.handlerBox}>
           <span className={styles.lable}>角色名称</span>
-          <Input className={styles.input} n-mobx-model="inputRole" />
+          <Input className={styles.input} n-mobx-bind="inputRole" />
           <Button className="btn" onClick={this.onSearch}>
             查询
           </Button>

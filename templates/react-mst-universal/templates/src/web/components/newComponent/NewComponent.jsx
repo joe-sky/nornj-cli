@@ -2,7 +2,9 @@
 import PropTypes from 'prop-types';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj from 'nornj';
+import nj, {
+  expression as n
+} from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import styles from './#{componentName | pascal}#.m.scss';
@@ -44,7 +46,7 @@ export default class #{componentName | pascal}# extends Component {
     return (
       <div className={styles.#{componentName}#} onClick={this.onClick}>
         <if condition={this.editing}>
-          <Input n-mobx-model="inputValue" onBlur={this.onBlur} ref="input" />
+          <Input n-mobx-bind="inputValue" onBlur={this.onBlur} ref="input" />
           <else>{this.textValue}</else>
         </if>
       </div>

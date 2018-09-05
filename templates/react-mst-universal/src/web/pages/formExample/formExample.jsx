@@ -60,20 +60,20 @@ class AntFormExample extends Component {
         <h2>Ant Design 表单控件示例</h2>
         <div>
           <div className={styles.formEls}>
-            <Input n-mobx-model="inputValue" />
+            <Input n-mobx-bind="inputValue" />
             <div>
               inputValue：<i n-style="color:purple">{this.inputValue}</i>
             </div>
           </div>
           <div className={styles.formEls}>
-            <Input.TextArea n-mobx-model="textareaValue" />
+            <Input.TextArea n-mobx-bind="textareaValue" />
             <div>
               textareaValue：<i n-style="color:purple">{this.textareaValue}</i>
             </div>
           </div>
           <div className={styles.formEls}>
             <Select
-              n-mobx-model="selectValue"
+              n-mobx-bind="selectValue"
               n-style="width:100%"
               placeholder="请选择">
               <Select.Option value="1">测试数据1</Select.Option>
@@ -85,7 +85,7 @@ class AntFormExample extends Component {
             </div>
           </div>
           <div className={styles.formEls}>
-            <Checkbox.Group n-mobx-model="checkboxValue">
+            <Checkbox.Group n-mobx-bind="checkboxValue">
               <Checkbox value="1">Option A</Checkbox>
               <Checkbox value="2">Option B</Checkbox>
               <Checkbox value="3">Option C</Checkbox>

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj from 'nornj';
+import nj, {
+  expression as n
+} from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import {
@@ -167,7 +169,7 @@ export default class #{pageName | pascal}# extends Component {
         <h2>角色管理 #{pageName}#</h2>
         <div className={styles.handlerBox}>
           <span className={styles.lable}>角色名称</span>
-          <Input className={styles.input} n-mobx-model="inputRole" />
+          <Input className={styles.input} n-mobx-bind="inputRole" />
           <Button className="btn" onClick={this.onSearch}>查询</Button>
           <Button className="btn" onClick={this.onAddRole}>新增</Button>
           <Button className="btn" onClick={this.onDeleteRole}>删除</Button>

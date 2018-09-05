@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj, { expression as n } from 'nornj';
+import nj, {
+  expression as n
+} from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { Row, Col, Radio, Button, Cascader, DatePicker, Checkbox, Pagination, Message } from 'antd';
 import ReactEcharts from 'echarts-for-react/lib/core';
