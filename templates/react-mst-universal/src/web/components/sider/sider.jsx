@@ -15,6 +15,7 @@ export default class Sider extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.props.store.sider.history = props.history;
   }
 
   componentDidMount() {

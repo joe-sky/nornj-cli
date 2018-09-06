@@ -75,8 +75,8 @@ const SiderStore = types
     },
 
     setCurrentMenu() {
-      let href = window.location.href;
-      href = href.substring(href.lastIndexOf('/') + 1, href.length);
+      let href = self.history.location.pathname.substr(1);
+      href = href.indexOf('/') >= 0 ? href.split('/')[0] : href;
 
       //初始化一级菜单
       let menu0 = self.menuData[0];
