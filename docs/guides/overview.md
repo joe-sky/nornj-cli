@@ -20,7 +20,7 @@
 
 ## 开发模式
 
-本文假定您已经了解开发`React`组件的相关知识。如果您从未接触过`React`开发，可以看下[官方文档中文版的快速开始教程](https://doc.react-china.org/docs/hello-world.html)。
+本文假定您已经了解开发`React`组件的相关知识。如果您从未接触过`React`开发，可以看下[官方文档中文版的快速开始教程](https://react.docschina.org/docs/hello-world.html)。
 
 `NornJ-cli`的重点目标之一在于推广我们公司内部已大量使用的`React + Mobx + NornJ`开发模式，特点如下：
 

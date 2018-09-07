@@ -81,7 +81,8 @@ const SiderStore = types
       //初始化一级菜单
       let menu0 = self.menuData[0];
       if (href.trim() !== '') {
-        self.root.header.setCurrent(self.getCurrentMenuItem(href.toLowerCase()).topMenuIndex);
+        const currentMenuItem = self.getCurrentMenuItem(href.toLowerCase());
+        self.root.header.setCurrent(currentMenuItem ? currentMenuItem.topMenuIndex : 0);
       } else if (menu0) {
         self.root.header.setCurrent(0);
       }

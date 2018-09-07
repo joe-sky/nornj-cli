@@ -8,5 +8,6 @@
   "workbench.iconTheme": "nornj-icons",
   // "eslint.autoFixOnSave": true,
   // "editor.formatOnSave": true,
-  "prettier.stylelintIntegration": true
+  "prettier.stylelintIntegration": true,
+  "window.zoomLevel": 1
 }
