@@ -7,7 +7,7 @@ const {resultData} = require('../common/utils');
 
 router.get('/getModData', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {

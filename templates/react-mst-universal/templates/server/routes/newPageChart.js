@@ -7,7 +7,7 @@ const { resultData } = require('../common/utils');
 
 router.get('/getSummaryData', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {
@@ -32,7 +32,7 @@ router.get('/getSummaryData', function(req, res) {
 
 router.get('/growthData', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {
@@ -80,7 +80,7 @@ router.get('/growthData', function(req, res) {
 
 router.get('/getSubCategoryData', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {
@@ -112,7 +112,7 @@ router.get('/getBarSubCategoryData', function(req, res) {
 
 router.get('/getTableSubCategoryData', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {
@@ -158,7 +158,7 @@ router.get('/getTableSubCategoryData', function(req, res) {
 
 router.get('/getBrandCompareList', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {
@@ -311,7 +311,7 @@ router.get('/getBrandCompareList', function(req, res) {
 
 router.get('/getBrandCompareItemForCategory', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {

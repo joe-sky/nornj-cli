@@ -20,7 +20,7 @@ router.post('/saveRolePermission', function(req, res) {
 
 router.get('/searchRole', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
   Object.assign(ret, resultData, {
     data: [{
@@ -65,7 +65,7 @@ router.post('/saveRole', function(req, res) {
 
 router.get('/getRoleManagementData', function(req, res) {
   res.type('json');
-  let params = req.body,
+  let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {
