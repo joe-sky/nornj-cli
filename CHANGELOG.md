@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [v0.3.3] 2018.10.18
+
+* 🌟 `react-mst-universal`模板：
+1. 升级webpack到v4
+2. 升级babel到v7
+3. 增加单元测试与e2e测试
+
 ## [v0.3.2] 2018.08.16
 
 * 🌟 增加`dev-remote`命令，用于使用代理访问后端数据接口调试。

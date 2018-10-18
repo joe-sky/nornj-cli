@@ -69,9 +69,17 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader?cacheDirectory',
+            loader: 'babel-loader',
             options: {
-              presets: ['react', ['es2015', { modules: false }], 'es2016'],
+              presets: [
+                '@babel/preset-react',
+                [
+                  '@babel/preset-env',
+                  {
+                    modules: false
+                  }
+                ]
+              ],
               // plugins: ['transform-runtime', 'transform-class-properties']
               cacheDirectory: true
             }
@@ -85,9 +93,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: [
           {
-            loader: 'babel-loader?cacheDirectory',
+            loader: 'babel-loader',
             options: {
-              plugins: ['external-helpers']
+              plugins: ['@babel/external-helpers'],
+              cacheDirectory: true
             }
           }
         ],
@@ -100,7 +109,7 @@ module.exports = {
       //   include: /src/,
       // },
       {
-        test: /\.t.html(\?[\s\S]+)*$/,
+        test: /\.t\.html(\?[\s\S]+)*$/,
         use: [
           {
             loader: 'nornj-loader',
@@ -113,7 +122,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.template(-[\s\S]+)*.nj.html(\?[\s\S]+)*$/,
+        test: /\.template(-[\s\S]+)*\.nj\.html(\?[\s\S]+)*$/,
         use: [
           {
             loader: 'nornj-loader'
@@ -136,10 +145,10 @@ module.exports = {
             loader: 'sass-loader'
           }
         ],
-        exclude: /.m.scss$/
+        exclude: /\.m\.scss$/
       },
       {
-        test: /\.m.scss$/,
+        test: /\.m\.scss$/,
         use: [
           {
             loader: 'style-loader'
@@ -179,10 +188,10 @@ module.exports = {
             }
           }
         ],
-        exclude: /.m.less$/
+        exclude: /\.m\.less$/
       },
       {
-        test: /\.m.less$/,
+        test: /\.m\.less$/,
         use: [
           'style-loader',
           {

@@ -126,10 +126,10 @@ module.exports = function(webpack, config, isProd, useWatch, useHmr) {
               }
             }]
           }),
-          exclude: /.m.less$/
+          exclude: /\.m\.less$/
         },
         {
-          test: /\.m.less$/,
+          test: /\.m\.less$/,
           use: ['style-loader', {
             loader: 'css-loader',
             options: {
@@ -149,7 +149,7 @@ module.exports = function(webpack, config, isProd, useWatch, useHmr) {
           exclude: /node_modules/
         },
         {
-          test: /\.t.html(\?[\s\S]+)*$/,
+          test: /\.t\.html(\?[\s\S]+)*$/,
           use: [{
             loader: 'nornj-loader',
             options: {

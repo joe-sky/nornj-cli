@@ -81,7 +81,7 @@ module.exports = {
       //   include: /src/,
       // },
       {
-        test: /\.t.html(\?[\s\S]+)*$/,
+        test: /\.t\.html(\?[\s\S]+)*$/,
         use: [
           {
             loader: 'nornj-loader',
@@ -94,7 +94,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.template(-[\s\S]+)*.html(\?[\s\S]+)*$/,
+        test: /\.template(-[\s\S]+)*\.nj\.html(\?[\s\S]+)*$/,
         use: [
           {
             loader: 'nornj-loader'
@@ -117,10 +117,10 @@ module.exports = {
             loader: 'sass-loader'
           }
         ],
-        exclude: /.m.scss$/
+        exclude: /\.m\.scss$/
       },
       {
-        test: /\.m.scss$/,
+        test: /\.m\.scss$/,
         use: [
           {
             loader: 'style-loader'
@@ -161,10 +161,10 @@ module.exports = {
             }
           ]
         }),
-        exclude: /.m.less$/
+        exclude: /\.m\.less$/
       },
       {
-        test: /\.m.less$/,
+        test: /\.m\.less$/,
         use: [
           'style-loader',
           {
