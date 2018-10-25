@@ -101,7 +101,7 @@
     "prettier-eslint": "^8.8.1",
     "prettier-stylelint": "^0.4.2",
     "prop-types": "^15.6.0",
-    "puppeteer": "^1.7.0",
+    ##{puppeteer}##
     "react-hot-loader": "^3.1.2",
     "redux-devtools": "^3.3.2",
     "sass-loader": "^6.0.6",
