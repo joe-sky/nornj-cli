@@ -1,0 +1,247 @@
+@import './config';
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  html {
+    -webkit-text-size-adjust: none;
+  }
+}
+
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+table,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+address,
+cite,
+em,
+i {
+  font-style: normal;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+legend {
+  color: #000;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  color: #333;
+  background: #efefef;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: auto;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei', sans-serif;
+}
+
+.clearfix:after,
+.wrapper:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tc {
+  text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.layout-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.middle * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.middle option {
+  display: block;
+}
+
+#app {
+  padding-top: $headerHeight;
+}
+
+#appHome {
+  padding-top: $headerHeight;
+}
+
+:global {
+  .am-card-header-content {
+    font-weight: 700;
+  }
+
+  /*
+    .vic-area-chart-area {
+        overflow: visible;
+        $dayHeatMapChartHeight: 420px;
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+            height: $dayHeatMapChartHeight * 1.5;
+        }
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+            height: $dayHeatMapChartHeight * 2;
+        }
+    }
+
+
+    @mixin CCProgress($ratio) {
+        padding:50px * ($ratio - 0.5) 40px * $ratio !important;
+        //overflow: visible !important;
+        .ccProgressInner{
+            $innerHeight: 8px;
+            height: $innerHeight * $ratio !important;
+            margin: auto 40px * $ratio;
+            .currentProgress{
+                height:$innerHeight * $ratio !important;
+                border-radius: $innerHeight * $ratio !important;
+
+                &:after{
+                    width:2px * $ratio !important;
+                    height: 20px * $ratio !important;
+                    top: -6px * $ratio !important;
+                }
+                span{
+                    bottom:-20px * $ratio !important;
+                    width:200px * $ratio !important;
+                    right:-100px * $ratio !important;
+                    font-size: 12px * $ratio !important;
+                }
+            }
+
+            .targetProgress{
+                width:2px * $ratio !important;
+                height: 20px * $ratio !important;
+                top: -6px * $ratio !important;
+
+                span{
+                    top:-15px * $ratio !important;
+                    width:200px * $ratio !important;
+                    left:-100px * $ratio !important;
+                    font-size: 12px * $ratio !important;
+                }
+            }
+        }
+    }
+
+    .ccProgress{
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+            @include CCProgress(2);
+        }
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+            @include CCProgress(3);
+        }
+    }
+    */
+
+  .popup-list-empty {
+    .con {
+      color: #999;
+      height: 5rem;
+      line-height: 5rem;
+      text-align: center;
+    }
+  }
+
+  .popup-list {
+    .am-list-body {
+      height: 5rem;
+      overflow: auto;
+    }
+  }
+
+  .am-modal-header {
+    padding: 10px 15px 11px;
+  }
+
+  .am-modal-close {
+    top: 10px;
+  }
+
+  /** 解决iOS/safari上的bug begin **/
+  .am-segment-item-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+
+  /** 解决iOS/safari上的bug end **/
+}

@@ -1,0 +1,44 @@
+@import '../../css/mixins';
+
+.summaryItem {
+  padding: 10px;
+
+  .field {
+    color: #999;
+    @include ellipsis;
+  }
+
+  .num {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    @include ellipsis;
+  }
+
+  .rates {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .red {
+    color: #e13a25;
+  }
+
+  .green {
+    color: #25e17d;
+  }
+}
+
+.chartTit {
+  line-height: 2em;
+  border-bottom: 1px solid #eee;
+}
+
+:global {
+  .busi-eval-seg-longtext {
+    .am-segment-item:nth-child(3) {
+      font-size: 10px;
+    }
+  }
+}

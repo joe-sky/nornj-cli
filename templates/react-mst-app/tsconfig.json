@@ -1,0 +1,50 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "jsx": "react",
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "allowJs": true
+    },
+	"exclude": [
+        "node_modules",
+        "dist/**",
+        "tmp/**",
+        "node_modules/**",
+        "bower_components/**",
+        "**/.git",
+        "**/.svn",
+        "**/.hg",
+        "**/CVS",
+        "**/.DS_Store"
+    ],
+    "watcherExclude":[
+        "tmp/**",
+        "dist/**",
+        "node_modules/**",
+        "bower_components/**",
+        "**/.git",
+        "**/.svn",
+        "**/.hg",
+        "**/CVS",
+        "**/.DS_Store",
+        "**/.git/objects/**",
+        "**/.git/subtree-cache/**",
+        "**/node_modules/**"
+    ]
+}
