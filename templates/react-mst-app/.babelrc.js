@@ -40,7 +40,7 @@ module.exports = {
       'import',
       {
         libraryName: 'flarej/echarts',
-        customName: name => `flarej/lib/components/ECharts/${name}`,
+        customName: name => `flarej/lib/components/ECharts/${name[0].toLowerCase() + name.substr(1)}`,
         camel2DashComponentName: false
       },
       'fj-echarts'
