@@ -113,7 +113,7 @@
 * [Moment.js](#momentjs)
 * [storejs](#storejs)
 * [js-cookie](#js-cookie)
-* [query-string](#query-string)
+* [querystring](#querystring)
 
 #### Moment.js
 
@@ -134,8 +134,8 @@
 
 * [github文档](https://github.com/js-cookie/js-cookie)
 
-#### query-string
+#### querystring
 
-`query-string`可以用来处理url参数操作。
+`querystring`可以用来处理url参数操作。
 
-* [github文档](https://github.com/sindresorhus/query-string)
+* [github文档](https://github.com/Gozala/querystring)
