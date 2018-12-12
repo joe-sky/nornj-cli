@@ -5,7 +5,7 @@
     </fj-col>
     <fj-col l=6>
       <!--Element-React的部分表单组件无法在ie9和ie10运行-->
-      <#if {!isIElt11}><ElForm#{pageName | pascal}# /></#if>
+      <#if {!isIElt11}><ElemForm#{pageName | pascal}# /></#if>
     </fj-col>
   </div>
 </template>
@@ -94,7 +94,7 @@
   </div>
 </template>
 
-<template name="elForm">
+<template name="elemForm">
   <div class="{styles.#{pageName}#}">
     <h2>Element-React 表单验证示例</h2>
     <el-Form model={#{pageName}#.formModel} {rules} ref="form" labelWidth="100">

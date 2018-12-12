@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
-import 'flarej/lib/components/antd/radio';
-import 'flarej/lib/components/antd/button';
-import 'flarej/lib/components/antd/cascader';
-import 'flarej/lib/components/antd/datePicker';
-import 'flarej/lib/components/antd/checkbox';
-import 'flarej/lib/components/antd/pagination';
+import {
+  Radio,
+  Button,
+  Cascader,
+  DatePicker,
+  Checkbox,
+  Pagination,
+  Message,
+  Notification
+} from 'flarej/antd';
+import {
+  BarChart,
+  LineChart,
+  PieChart
+} from 'flarej/echarts';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/visualMap';
 import 'echarts/lib/component/calendar';
-import 'flarej/lib/components/ECharts/barChart';
-import 'flarej/lib/components/ECharts/lineChart';
-import 'flarej/lib/components/ECharts/pieChart';
-import Message from 'flarej/lib/components/antd/message';
-import Notification from 'flarej/lib/components/antd/notification';
 import graphic from 'echarts/lib/util/graphic.js';
 import { autobind } from 'core-decorators';
 import styles from './#{pageName}#.m.scss';

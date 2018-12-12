@@ -5,17 +5,17 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import 'flarej/lib/components/antd/table';
-import 'flarej/lib/components/antd/input';
-import 'flarej/lib/components/antd/button';
-import 'flarej/lib/components/antd/pagination';
-import 'flarej/lib/components/antd/tabs';
-import 'flarej/lib/components/antd/tree';
-import 'flarej/lib/components/antd/checkbox';
-import Modal from 'flarej/lib/components/antd/modal';
-import Tree from 'flarej/lib/components/antd/tree';
-import Input from 'flarej/lib/components/antd/input';
-import Message from 'flarej/lib/components/antd/message';
+import {
+  Table,
+  Input,
+  Button,
+  Pagination,
+  Tabs,
+  Tree,
+  Checkbox,
+  Modal,
+  Message
+} from 'flarej/antd';
 import Notification from '../../../utils/notification';
 import styles from './#{pageName}#.m.scss';
 import tmpls from './#{pageName}#.t.html';
@@ -160,12 +160,12 @@ export default class #{pageName | pascal}# extends Component {
 
   render() {
     const { store: { #{pageName}# } } = this.props;
-    return tmpls.container(this.props, this, {
+    return tmpls.container({
       styles,
       #{pageName}#,
       tableData: toJS(#{pageName}#.tableData),
       rowSelection: this.getRowSelection(),
-    });
+    }, this.props, this);
   }
 }
 
@@ -373,10 +373,10 @@ class ModalDetail extends Component {
 
   render() {
     const { store: { #{pageName}# } } = this.props;
-    return tmpls.modalDetail(this.props, this, {
+    return tmpls.modalDetail({
       styles,
       #{pageName}#,
       getDetailRowKey: (record, index) => `${record.key}-${index}`
-    });
+    }, this.props, this);
   }
 }

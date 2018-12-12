@@ -45,7 +45,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react/lib/Object.assign': 'object-assign'
+      'react/lib/Object.assign': 'object-assign',
+      'nornj': 'nornj/dist/nornj.runtime.common'
     },
     extensions: ['.web.js', '.ts', '.tsx', '.js', '.jsx', '.css', '.scss', '.less']
   },

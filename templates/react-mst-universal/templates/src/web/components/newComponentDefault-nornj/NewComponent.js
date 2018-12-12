@@ -2,12 +2,11 @@
 import PropTypes from 'prop-types';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import styles from './#{componentName | pascal}#.m.scss';
 import tmpls from './#{componentName | pascal}#.t.html';
-import 'flarej/lib/components/antd/input';
+import { Input } from 'flarej/antd';
 
 @registerTmpl('#{componentName | pascal}#')
 @inject('store')
@@ -42,6 +41,6 @@ export default class #{componentName | pascal}# extends Component {
   }
 
   render() {
-    return tmpls.#{componentName}#(this.props, this, { styles });
+    return tmpls.#{componentName}#({ styles }, this.props, this);
   }
 }

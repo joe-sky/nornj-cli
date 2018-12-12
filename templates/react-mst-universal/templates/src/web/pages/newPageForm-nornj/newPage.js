@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import Form from 'flarej/lib/components/antd/form';
-import 'flarej/lib/components/antd/input';
-import 'flarej/lib/components/antd/select';
-import 'flarej/lib/components/antd/radio';
-import 'flarej/lib/components/antd/button';
-import 'flarej/lib/components/antd/cascader';
-import 'flarej/lib/components/antd/datePicker';
-import 'flarej/lib/components/antd/checkbox';
-import 'flarej/lib/components/element/form';
-import 'flarej/lib/components/element/input';
-import 'flarej/lib/components/element/select';
-import 'flarej/lib/components/element/datePicker';
-import 'flarej/lib/components/element/switch';
-import 'flarej/lib/components/element/checkbox';
-import 'flarej/lib/components/element/radio';
-import 'flarej/lib/components/element/cascader';
+import {
+  Input,
+  Select,
+  Radio,
+  Button,
+  Cascader,
+  DatePicker,
+  Checkbox,
+  Form
+} from 'flarej/antd';
+import {
+  Input as ElInput,
+  Select as ElSelect,
+  Radio as ElRadio,
+  Switch as ElSwitch,
+  Cascader as ElCascader,
+  DatePicker as ElDatePicker,
+  Checkbox as ElCheckbox,
+  Form as ElForm
+} from 'flarej/element';
 import { isIElt11 } from 'flarej/lib/utils/browsers';
 import styles from './#{pageName}#.m.scss';
 import tmpls from './#{pageName}#.t.html';
@@ -109,10 +112,10 @@ class AntForm extends Component {
   }
 }
 
-@registerTmpl('ElForm#{pageName | pascal}#')
+@registerTmpl('ElemForm#{pageName | pascal}#')
 @inject('store')
 @observer
-class ElForm extends Component {
+class ElemForm extends Component {
 
   rules = {
     formEl1: [
@@ -157,7 +160,7 @@ class ElForm extends Component {
 
   render() {
     const { store: { #{pageName}# } } = this.props;
-    return tmpls.elForm({
+    return tmpls.elemForm({
       styles,
       #{pageName}#
     }, this.props, this);

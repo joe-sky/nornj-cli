@@ -7,14 +7,15 @@ React.PropTypes = PropTypes;
 import nj from 'nornj';
 import 'nornj-react/mobx';
 import 'nornj-react/router';
-import 'flarej/lib/components/grid';
-import 'flarej/lib/styles/grid';
-import 'flarej/lib/components/antd/input';
-import 'flarej/lib/components/antd/cascader';
-import 'flarej/lib/components/antd/checkbox';
-import 'flarej/lib/components/antd/datePicker';
-import 'flarej/lib/components/antd/radio';
-import 'flarej/lib/components/antd/switch';
+import { Grid } from 'flarej';
+import {
+  Input,
+  Cascader,
+  Checkbox,
+  DatePicker,
+  Radio,
+  Switch
+} from 'flarej/antd';
 import './src/utils/nj.configs';
 import { compileH, registerComponent } from 'nornj';
 import { withRouter } from 'react-router';

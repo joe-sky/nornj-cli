@@ -2,9 +2,6 @@
 import PropTypes from 'prop-types';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import nj, {
-  expression as n
-} from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import styles from './#{componentName | pascal}#.m.scss';

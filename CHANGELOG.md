@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.4.1] 2018.12.12
+
+* 🌟 `react-mst-universal`模板改为使用`NornJ`的runtime版。
+
 ## [v0.4.0] 2018.11.01
 
 * 🌟 增加`react-mst-app`模板。
