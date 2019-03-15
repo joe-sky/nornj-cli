@@ -3,7 +3,7 @@ import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import { autobind } from 'core-decorators';
 import { Notification } from 'flarej/lib/components/antd/notification';
 
-export default class #{pageName | pascal}#Store {
+export default class #{pageName | capitalize}#Store {
   @observable pageIndex = 1;
   @observable pageSize = 10;
   @observable count = 0;

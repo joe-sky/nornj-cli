@@ -21,10 +21,10 @@ import styles from './#{pageName}#.m.scss';
 import tmpls from './#{pageName}#.t.html';
 
 //页面容器组件
-@registerTmpl('#{pageName | pascal}#')
+@registerTmpl('#{pageName | capitalize}#')
 @inject('store')
 @observer
-export default class #{pageName | pascal}# extends Component {
+export default class #{pageName | capitalize}# extends Component {
   @observable detailModalVisible = false;
   @observable inputRole = '';
   @observable detailData = [];
@@ -174,7 +174,7 @@ export default class #{pageName | pascal}# extends Component {
   }
 }
 
-@registerTmpl('ModalForm#{pageName | pascal}#')
+@registerTmpl('ModalForm#{pageName | capitalize}#')
 @inject('store')
 @observer
 class ModalForm extends Component {
@@ -341,7 +341,7 @@ class ModalForm extends Component {
   }
 }
 
-@registerTmpl('ModalDetail#{pageName | pascal}#')
+@registerTmpl('ModalDetail#{pageName | capitalize}#')
 @inject('store')
 @observer
 class ModalDetail extends Component {

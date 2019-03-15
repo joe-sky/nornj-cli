@@ -1,12 +1,12 @@
 <#-template name="importLoadPage">
-import #{pageName | pascal}# from 'bundle-loader?lazy&name=[name]!./src/app/pages/#{pageName}#/#{pageName}##{!exName ?: ('.jsx', exName)}#';
+import #{pageName | capitalize}# from 'bundle-loader?lazy&name=[name]!./src/app/pages/#{pageName}#/#{pageName}##{!exName ?: ('.jsx', exName)}#';
 //{importLoadPage}//
 </#-template>
 
 <#-template name="FUNC_COMPONENTS">
-#{pageName | pascal}#: {
+#{pageName | capitalize}#: {
     //icon: require('./src/app/images/icon-default.png'),
-    component: #{pageName | pascal}#
+    component: #{pageName | capitalize}#
   },
   //{FUNC_COMPONENTS}//
 </#-template>

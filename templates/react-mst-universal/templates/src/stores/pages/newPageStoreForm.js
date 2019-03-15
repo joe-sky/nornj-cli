@@ -3,8 +3,8 @@ import { observable, toJS } from 'mobx';
 import axios from 'axios';
 import Notification from '../../utils/notification';
 
-const #{pageName | pascal}#Store = types
-  .model('#{pageName | pascal}#Store', {
+const #{pageName | capitalize}#Store = types
+  .model('#{pageName | capitalize}#Store', {
     antInputValue: '示例数据',
     antSelectValue: '1',
     antRadioValue: '2',
@@ -47,4 +47,4 @@ const #{pageName | pascal}#Store = types
     }
   }));
 
-export default #{pageName | pascal}#Store;
+export default #{pageName | capitalize}#Store;

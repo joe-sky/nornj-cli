@@ -77,10 +77,10 @@ function genData(pIndex = 0) {
   rowIDs = [...rowIDs];
 }
 
-@registerTmpl('#{pageName | pascal}#')
+@registerTmpl('#{pageName | capitalize}#')
 @inject('store')
 @observer
-export default class #{pageName | pascal}# extends Component {
+export default class #{pageName | capitalize}# extends Component {
   componentDidMount() {
     this.props.store.header.setPageTitle(this.props.moduleName);
   }
@@ -93,8 +93,8 @@ export default class #{pageName | pascal}# extends Component {
   render() {
     return (
       <div>
-        <#{pageName | pascal}#SearchForm />
-        <#{pageName | pascal}#Grid />
+        <#{pageName | capitalize}#SearchForm />
+        <#{pageName | capitalize}#Grid />
         <Button type="primary">
           新建
         </Button>
@@ -103,10 +103,10 @@ export default class #{pageName | pascal}# extends Component {
   }
 }
 
-@registerTmpl('#{pageName | pascal}#SearchForm')
+@registerTmpl('#{pageName | capitalize}#SearchForm')
 @inject('store')
 @observer
-class #{pageName | pascal}#SearchForm extends Component {
+class #{pageName | capitalize}#SearchForm extends Component {
   statusDataJson = [
     {
       value: '0',
@@ -165,10 +165,10 @@ class #{pageName | pascal}#SearchForm extends Component {
   }
 }
 
-@registerTmpl('#{pageName | pascal}#Grid')
+@registerTmpl('#{pageName | capitalize}#Grid')
 @inject('store')
 @observer
-class #{pageName | pascal}#Grid extends Component {
+class #{pageName | capitalize}#Grid extends Component {
   listViewStyle = {
     height: (document.documentElement.clientHeight * 3) / 4,
     overflow: 'auto'

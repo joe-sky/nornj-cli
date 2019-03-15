@@ -45,8 +45,8 @@ const Summary = types.model('Summary', {
   userCountMOM: 0
 });
 
-const #{pageName | pascal}#Store = types
-  .model('#{pageName | pascal}#Store', {
+const #{pageName | capitalize}#Store = types
+  .model('#{pageName | capitalize}#Store', {
     summaryData: types.optional(Summary, () => {
       return {
         gmv: 0,
@@ -331,4 +331,4 @@ const #{pageName | pascal}#Store = types
     }
   }));
 
-export default #{pageName | pascal}#Store;
+export default #{pageName | capitalize}#Store;

@@ -5,20 +5,20 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import styles from './#{componentName | pascal}#.m.scss';
-import tmpls from './#{componentName | pascal}#.t.html';
+import styles from './#{componentName | capitalize}#.m.scss';
+import tmpls from './#{componentName | capitalize}#.t.html';
 import 'flarej/lib/components/antd/input';
 
-@registerTmpl('#{componentName | pascal}#')
+@registerTmpl('#{componentName | capitalize}#')
 @inject('store')
 @observer
-export default class #{componentName | pascal}# extends Component {
+export default class #{componentName | capitalize}# extends Component {
   constructor(props) {
     super(props);
   }
 
   @observable inputValue = '';
-  @observable textValue = '#{componentName | pascal}#';
+  @observable textValue = '#{componentName | capitalize}#';
   @observable editing = false;
 
   @autobind

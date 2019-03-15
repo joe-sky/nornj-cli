@@ -1,2 +1,2 @@
-﻿import comp from './#{componentName | pascal}#.jsx';
+﻿import comp from './#{componentName | capitalize}#.jsx';
 export default comp;

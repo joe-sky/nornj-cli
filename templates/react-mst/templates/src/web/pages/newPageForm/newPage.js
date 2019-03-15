@@ -25,10 +25,10 @@ import styles from './#{pageName}#.m.scss';
 import tmpls from './#{pageName}#.t.html';
 
 // 页面容器组件
-@registerTmpl('#{pageName | pascal}#')
+@registerTmpl('#{pageName | capitalize}#')
 @inject('store')
 @observer
-export default class #{pageName | pascal}# extends Component {
+export default class #{pageName | capitalize}# extends Component {
   render() {
     const { store: { #{pageName}# } } = this.props;
     return tmpls.container({
@@ -39,7 +39,7 @@ export default class #{pageName | pascal}# extends Component {
   }
 }
 
-@registerTmpl('AntForm#{pageName | pascal}#')
+@registerTmpl('AntForm#{pageName | capitalize}#')
 @inject('store')
 @observer
 @Form.create()
@@ -109,7 +109,7 @@ class AntForm extends Component {
   }
 }
 
-@registerTmpl('ElForm#{pageName | pascal}#')
+@registerTmpl('ElForm#{pageName | capitalize}#')
 @inject('store')
 @observer
 class ElForm extends Component {

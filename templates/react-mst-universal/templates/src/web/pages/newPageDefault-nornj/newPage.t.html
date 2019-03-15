@@ -14,9 +14,9 @@
                dataSource={toJS(tableData)}
                bordered />
 
-    <ModalForm#{pageName | pascal}# tabName="增加角色" />
-    <ModalForm#{pageName | pascal}# tabName="编辑角色" />
-    <ModalDetail#{pageName | pascal}# />
+    <ModalForm#{pageName | capitalize}# tabName="增加角色" />
+    <ModalForm#{pageName | capitalize}# tabName="编辑角色" />
+    <ModalDetail#{pageName | capitalize}# />
   </div>
 </template>
 

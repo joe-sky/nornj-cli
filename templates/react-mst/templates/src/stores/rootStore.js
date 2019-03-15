@@ -1,9 +1,9 @@
 ﻿<#-template name="importStore">
-import #{pageName | pascal}#Store from './pages/#{pageName}#Store';
+import #{pageName | capitalize}#Store from './pages/#{pageName}#Store';
 //{importStore}//
 </#-template>
 
 <#-template name="pageStore">
-#{pageName}#: types.optional(#{pageName | pascal}#Store, {}),
+#{pageName}#: types.optional(#{pageName | capitalize}#Store, {}),
   //{pageStore}//
 </#-template>

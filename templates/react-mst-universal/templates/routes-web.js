@@ -1,10 +1,10 @@
 <#-template name="importLoadPage">
-import load#{pageName | pascal}# from 'bundle-loader?lazy&name=[name]!./src/web/pages/#{pageName}#/#{pageName}##{!exName ?: ('.jsx', exName)}#';
+import load#{pageName | capitalize}# from 'bundle-loader?lazy&name=[name]!./src/web/pages/#{pageName}#/#{pageName}##{!exName ?: ('.jsx', exName)}#';
 //{importLoadPage}//
 </#-template>
 
 <#-template name="loadPage">
-load#{pageName | pascal}#,
+load#{pageName | capitalize}#,
   //{loadPage}//
 </#-template>
 
@@ -12,13 +12,13 @@ load#{pageName | pascal}#,
 /**
  * 页面#{pageName}#
  */
-const #{pageName | pascal}# = inject('store')(
+const #{pageName | capitalize}# = inject('store')(
   observer(({ store }) => (
     <PageWrap>
-      <Bundle load={load#{pageName | pascal}#} store={store} isPc loadBundles={loadBundles}>
-        {(_#{pageName | pascal}#) => {
-          const #{pageName | pascal}# = withRouter(_#{pageName | pascal}#);
-          return <#{pageName | pascal}# />;
+      <Bundle load={load#{pageName | capitalize}#} store={store} isPc loadBundles={loadBundles}>
+        {(_#{pageName | capitalize}#) => {
+          const #{pageName | capitalize}# = withRouter(_#{pageName | capitalize}#);
+          return <#{pageName | capitalize}# />;
         }}
       </Bundle>
     </PageWrap>
@@ -30,7 +30,7 @@ const #{pageName | pascal}# = inject('store')(
 
 <#-template name="route">
 __extraComment__*/}
-    <Route exact path="/#{pageName | pascal}#" component={#{pageName | pascal}#} />
+    <Route exact path="/#{pageName | capitalize}#" component={#{pageName | capitalize}#} />
     {/*//{route}//
 </#-template>
 

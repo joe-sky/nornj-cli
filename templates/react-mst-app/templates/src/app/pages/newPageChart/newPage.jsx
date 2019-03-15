@@ -10,10 +10,10 @@ import { BarChart, LineChart, PieChart } from 'flarej/echarts';
 import Conditions from '../../components/conditions';
 import graphic from 'echarts/lib/util/graphic';
 
-@registerTmpl('#{pageName | pascal}#')
+@registerTmpl('#{pageName | capitalize}#')
 @inject('store')
 @observer
-export default class #{pageName | pascal}# extends Component {
+export default class #{pageName | capitalize}# extends Component {
   @observable
   switchIndex = 0;
   @observable

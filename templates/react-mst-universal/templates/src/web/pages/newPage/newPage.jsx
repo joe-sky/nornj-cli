@@ -21,10 +21,10 @@ import ModalFormPage from './modalFormPage';
 import ModalDetailPage from './modalDetailPage';
 
 //页面容器组件
-@registerTmpl('#{pageName | pascal}#')
+@registerTmpl('#{pageName | capitalize}#')
 @inject('store')
 @observer
-export default class #{pageName | pascal}# extends Component {
+export default class #{pageName | capitalize}# extends Component {
   @observable detailModalVisible = false;
   @observable inputRole = '';
   @observable detailData = [];

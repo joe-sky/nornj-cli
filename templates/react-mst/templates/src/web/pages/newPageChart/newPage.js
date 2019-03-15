@@ -25,8 +25,8 @@ import tmpls from './#{pageName}#.t.html';
 //页面容器组件
 @inject('store')
 @observer
-@registerTmpl('#{pageName | pascal}#')
-export default class #{pageName | pascal}# extends Component {
+@registerTmpl('#{pageName | capitalize}#')
+export default class #{pageName | capitalize}# extends Component {
 
   constructor(props) {
     super(props);
@@ -62,7 +62,7 @@ export default class #{pageName | pascal}# extends Component {
   }
 }
 
-@registerTmpl('evalSummary#{pageName | pascal}#')
+@registerTmpl('evalSummary#{pageName | capitalize}#')
 @inject('store')
 @observer
 class EvalSummary extends Component {
@@ -85,7 +85,7 @@ class EvalSummary extends Component {
   }
 }
 
-@registerTmpl('totalCompare#{pageName | pascal}#')
+@registerTmpl('totalCompare#{pageName | capitalize}#')
 @inject('store')
 @observer
 class TotalCompare extends Component {
@@ -440,7 +440,7 @@ class TotalCompare extends Component {
   }
 }
 
-@registerTmpl('categoryCompare#{pageName | pascal}#')
+@registerTmpl('categoryCompare#{pageName | capitalize}#')
 @inject('store')
 @observer
 class CategoryCompare extends Component {
@@ -680,7 +680,7 @@ class CategoryCompare extends Component {
   }
 }
 
-@registerTmpl('brandCompare#{pageName | pascal}#')
+@registerTmpl('brandCompare#{pageName | capitalize}#')
 @inject('store')
 @observer
 class BrandCompare extends Component {
@@ -945,7 +945,7 @@ class BrandCompare extends Component {
   }
 }
 
-@registerTmpl('compareDock#{pageName | pascal}#')
+@registerTmpl('compareDock#{pageName | capitalize}#')
 @inject('store')
 @observer
 class CompareDock extends Component {

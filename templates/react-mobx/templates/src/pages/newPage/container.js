@@ -13,8 +13,8 @@ import '../../components/sider';
 import ContainerHoc from '../../components/higherOrders/container';
 import styles from './#{pageName}#.m.less';
 import tmpls from './#{pageName}#.t.html';
-import #{pageName | pascal}#Store from '../../stores/#{pageName | pascal}#Store';
-const #{pageName.toLocaleLowerCase()}#Store = new #{pageName | pascal}#Store();
+import #{pageName | capitalize}#Store from '../../stores/#{pageName | capitalize}#Store';
+const #{pageName.toLocaleLowerCase()}#Store = new #{pageName | capitalize}#Store();
 
 //页面容器组件
 @inject('store')

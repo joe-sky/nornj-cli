@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-describe('#{pageName | pascal}#', () => {
+describe('#{pageName | capitalize}#', () => {
   let browser;
   let page;
 
@@ -14,7 +14,7 @@ describe('#{pageName | pascal}#', () => {
 
   beforeEach(async () => {
     page = await browser.newPage();
-    await page.goto('http://localhost:8080/dist/web##{pageName | pascal}#', { waitUntil: 'networkidle2' });
+    await page.goto('http://localhost:8080/dist/web##{pageName | capitalize}#', { waitUntil: 'networkidle2' });
   });
 
   afterEach(() => page.close());

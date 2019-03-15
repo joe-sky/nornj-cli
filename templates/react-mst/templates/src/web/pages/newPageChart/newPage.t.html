@@ -2,17 +2,17 @@
   <div class="{styles.#{pageName}#}">
     <div class="{styles.bePageCnt}">
       <h2 class="{styles.pageTitle}">Summary</h2>
-      <evalSummary#{pageName | pascal}# />
+      <evalSummary#{pageName | capitalize}# />
 
       <h3 class="{styles.pageSubTitle}">Total Compare</h3>
-      <totalCompare#{pageName | pascal}# />
+      <totalCompare#{pageName | capitalize}# />
       
-      <categoryCompare#{pageName | pascal}# />
+      <categoryCompare#{pageName | capitalize}# />
       
       <h3 class="{styles.pageSubTitle}">Compare Dock</h3>
-      <brandCompare#{pageName | pascal}# />
+      <brandCompare#{pageName | capitalize}# />
 
-      <compareDock#{pageName | pascal}# />
+      <compareDock#{pageName | capitalize}# />
     </div>
   </div>
 </template>

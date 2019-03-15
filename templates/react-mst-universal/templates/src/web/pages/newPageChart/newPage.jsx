@@ -31,8 +31,8 @@ import styles from './#{pageName}#.m.scss';
 //页面容器组件
 @inject('store')
 @observer
-@registerTmpl('#{pageName | pascal}#')
-export default class #{pageName | pascal}# extends Component {
+@registerTmpl('#{pageName | capitalize}#')
+export default class #{pageName | capitalize}# extends Component {
 
   constructor(props) {
     super(props);

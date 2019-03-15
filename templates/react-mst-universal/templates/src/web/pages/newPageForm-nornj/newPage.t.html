@@ -1,11 +1,11 @@
 <template name="container">
   <div>
     <fj-col l=6>
-      <AntForm#{pageName | pascal}# />
+      <AntForm#{pageName | capitalize}# />
     </fj-col>
     <fj-col l=6>
       <!--Element-React的部分表单组件无法在ie9和ie10运行-->
-      <#if {!isIElt11}><ElemForm#{pageName | pascal}# /></#if>
+      <#if {!isIElt11}><ElemForm#{pageName | capitalize}# /></#if>
     </fj-col>
   </div>
 </template>

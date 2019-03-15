@@ -5,10 +5,10 @@ import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 
 // 页面容器组件
-@registerTmpl('#{pageName | pascal}#')
+@registerTmpl('#{pageName | capitalize}#')
 @inject('store')
 @observer
-export default class #{pageName | pascal}# extends Component {
+export default class #{pageName | capitalize}# extends Component {
 
   constructor(props) {
     super(props);

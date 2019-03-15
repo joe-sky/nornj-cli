@@ -3,8 +3,8 @@ import { observable, toJS } from 'mobx';
 import fetchData from 'flarej/lib/utils/fetchData';
 import Notification from '../../utils/notification';
 
-const #{pageName | pascal}#Store = types
-  .model('#{pageName | pascal}#Store', {
+const #{pageName | capitalize}#Store = types
+  .model('#{pageName | capitalize}#Store', {
     isDisable: types.optional(types.boolean, true),
     activeKey: types.optional(types.string, 'tab1'),
     addModalVisible: false,
@@ -285,4 +285,4 @@ const #{pageName | pascal}#Store = types
     }
   }));
 
-export default #{pageName | pascal}#Store;
+export default #{pageName | capitalize}#Store;

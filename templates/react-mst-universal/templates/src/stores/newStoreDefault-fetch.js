@@ -3,8 +3,8 @@ import { observable, toJS } from 'mobx';
 import fetchData from 'flarej/lib/utils/fetchData';
 import Notification from '../utils/notification';
 
-const #{storeName | pascal}#Store = types
-  .model('#{storeName | pascal}#Store', {
+const #{storeName | capitalize}#Store = types
+  .model('#{storeName | capitalize}#Store', {
     bool: types.optional(types.boolean, true), // 布尔类型声明
     strs: types.optional(types.string, ''), // 字符串类型声明
     arrs: types.optional(types.array(types.string), []), // 数组类型声明
@@ -44,4 +44,4 @@ const #{storeName | pascal}#Store = types
     }
   }));
 
-export default #{storeName | pascal}#Store;
+export default #{storeName | capitalize}#Store;
