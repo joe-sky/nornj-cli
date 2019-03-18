@@ -126,7 +126,6 @@
 `storejs`可以用来处理本地存储localstorage操作。
 
 * [github文档](https://github.com/jaywcjlove/store.js)
-* [项目中使用实例](http://source.jd.com/app/ai_category_manager/blob/master/end-delimiter/aicm%2Dui/src/components/queryForm/queryForm.js)
 
 #### js-cookie
 

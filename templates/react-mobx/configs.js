@@ -22,12 +22,12 @@
     resourcePathSrc: '../projectName/src/main/webapp/resources/',
     distName: 'app',
     resourcesName: 'resources',
-    webDomain: 'http://projectName.dev.jd.com',
+    webDomain: 'http://projectName.dev.xxx.com',
     indexExtName: '.vm',
     indexPath: '../projectName/target/projectName/WEB-INF/vm/pages',
     indexPathSrc: '../projectName/src/main/webapp/WEB-INF/vm/pages',
     bs: {
-      proxy: 'http://projectName.dev.jd.com',
+      proxy: 'http://projectName.dev.xxx.com',
       port: 3021,
       ui: {
         port: 3011
@@ -40,12 +40,12 @@
     resourcePathSrc: '../projectName/src/main/webapp/resources/',
     distName: 'app',
     resourcesName: 'resources',
-    webDomain: 'http://projectName.jd.com',
+    webDomain: 'http://projectName.xxx.com',
     indexExtName: '.vm',
     indexPath: '../projectName/target/projectName/WEB-INF/vm/pages',
     indexPathSrc: '../projectName/src/main/webapp/WEB-INF/vm/pages',
     bs: {
-      proxy: 'http://projectName.jd.com',
+      proxy: 'http://projectName.xxx.com',
       port: 3021,
       ui: {
         port: 3011
