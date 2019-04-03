@@ -18,10 +18,10 @@ npm install -g nornj-cli      # mac下需要在前面加sudo命令
 nj init
 
 Please select a project template:
-> react-mst  # 请选择项目模板
+> react-mst-universal  # 请选择项目模板
+  react-mst-app
+  react-mst
   react-mobx
-  Y-Dept/template-saas
-  Y-Dept/react-mobx-ls
   other
 
 Project Name: react-mst-test           # 输入新创建项目的目录名称

@@ -13,7 +13,7 @@ export const CommonStore = types
   })
   .views(self => ({
     get isDemo() {
-      return self.userInfo.pin && self.userInfo.pin.trim().toLowerCase() === 'jd_653e751552511';
+      return self.userInfo.pin && self.userInfo.pin.trim().toLowerCase() === 'nj_653e751552511';
     }
   }))
   .actions(self => ({

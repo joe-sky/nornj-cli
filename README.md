@@ -27,8 +27,6 @@ Please select a project template:
   react-mst-app
   react-mst
   react-mobx
-  Y-Dept/template-saas
-  Y-Dept/react-mobx-ls
   other
 
 # 如果选择了other，则可输入任意模板名称
@@ -93,16 +91,16 @@ Store Name: storeName
 
 | 名称           | 描述                      | 模板源码地址                |
 |:---------------|:-------------------------|:--------------------------|
-| react-mst-universal      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-jsx`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
+| react-mst-universal      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-jsx`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)</li><li>预置`eslint`、`stylelint`、`prettier`，可在格式化时对代码风格进行自动检查并修复</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
 | react-mst-app      | `react-mst-universal`的h5版，配置同上 | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-app |
 | react-mst      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`NornJ`</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst |
 | react-mobx     | 基于React+Mobx的多页面项目 | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mobx |
-| Y-Dept/template-saas | 基于React+Mobx-state-tree的SAAS化平台单页面项目 | https://github.com/Y-Dept/template-saas |
-| Y-Dept/react-mobx-ls | 基于React+Mobx的多页面项目(接入零智平台) | https://github.com/Y-Dept/react-mobx-ls |
+| joe-sky/react-mobx-html     | 基于React+Mobx的多页面项目(html版) | https://github.com/joe-sky/react-mobx-html |
+| joe-sky/react-mobx-ftl     | 基于React+Mobx的多页面项目(FreeMarker版) | https://github.com/joe-sky/react-mobx-ftl |
 
 #### 使用自定义模板
 
-1. 在github上创建一个新的模板项目即可，结构类似于[Y-Dept/template-saas(单页)](https://github.com/Y-Dept/template-saas)或[Y-Dept/react-mobx-ls(多页)](https://github.com/Y-Dept/react-mobx-ls)。
+1. 在github上创建一个新的模板项目即可，结构类似于[react-mobx-html](https://github.com/joe-sky/react-mobx-html)或[react-mobx-ftl](https://github.com/joe-sky/react-mobx-ftl)。
 
 2. 然后使用以下命令即可下载并初始化：
 
@@ -112,13 +110,12 @@ nj init
 # 请按上下键选择项目模板
 Please select a project template:
   react-mst-universal
+  react-mst-app
   react-mst
   react-mobx
-  Y-Dept/template-saas
-  Y-Dept/react-mobx-ls
 > other
 
-# 选择other，然后按照github地址输入"用户(或组织)名/项目名"，例如"https://github.com/Y-Dept/template-saas"中的"Y-Dept/template-saas"
+# 选择other，然后按照github地址输入"用户(或组织)名/项目名"，例如"https://github.com/joe-sky/react-mobx-html"中的"joe-sky/react-mobx-htm"
 Template Name: UserName/ProjectName
 ```
 

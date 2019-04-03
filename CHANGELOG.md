@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.4.2] 2019.04.03
+
+* 🌟 推荐安装的vscode插件增加`vscode-styled-components`。
+
 ## [v0.4.1] 2018.12.12
 
 * 🌟 `react-mst-universal`模板改为使用`NornJ`的runtime版。

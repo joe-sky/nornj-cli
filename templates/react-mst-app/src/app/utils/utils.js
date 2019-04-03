@@ -18,11 +18,11 @@ export function analytics(userInfo) {
   // console.log('analytics', str, userInfo);
   $al(
     {
-      app: 'ril-mobile',
+      app: 'nj-mobile',
       version: '1.0',
       loginUser: userInfo.name || '',
       login_ip: '',
-      funcPath: `ril.jd.${str}.view`
+      funcPath: `nj.${str}.view`
     },
     true
   ).initGather();
