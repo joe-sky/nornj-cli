@@ -64,12 +64,12 @@ nj add-component [componentName]  # 或nj ac
 # 请选择生成时要使用的组件模板
 Which component template do you want to use?
 > default       # 默认
-  stateless     # 无状态组件
-  higher-order  # 高阶组件
+  function      # 函数组件
 
 # 输入新创建的组件名称
 Component Name: componentName
 ```
+<!--higher-order  # 高阶组件-->
 
 #### 添加新Store
 
@@ -80,8 +80,8 @@ nj add-store [storeName]  # 或nj as
 
 # 请选择生成时要使用的Store模板
 Which store template do you want to use?
-> default       # 默认使用axios
-  default-fetch # 使用fetch
+> default       # 默认使用mst
+  mobx          # 使用mobx
 
 # 输入新创建的Store名称
 Store Name: storeName
