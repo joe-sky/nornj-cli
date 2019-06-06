@@ -1,5 +1,4 @@
 import { types, getParent } from 'mobx-state-tree';
-import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../utils/notification';
 
 const MenuItem = types
@@ -51,10 +50,10 @@ const SiderStore = types
       self.menuData = menuData;
     },
     setMenuDataByIndex(isExpanded, index) {
-      self.currentMenuData.forEach(function (item) {
+      self.currentMenuData.forEach(function(item) {
         item.setExpanded(false);
       });
-      self.currentMenuData.find((item) => item.index == index).setExpanded(isExpanded);
+      self.currentMenuData.find(item => item.index == index).setExpanded(isExpanded);
     },
 
     getCurrentMenuItem(pageName) {
@@ -76,23 +75,24 @@ const SiderStore = types
     },
 
     setCurrentMenu() {
-      let href = window.location.href;
-      href = href.substring(href.lastIndexOf('\/') + 1, href.length);
+      let href = self.history.location.pathname.substr(1);
+      href = href.indexOf('/') >= 0 ? href.split('/')[0] : href;
 
       //初始化一级菜单
       let menu0 = self.menuData[0];
       if (href.trim() !== '') {
-        self.root.header.setCurrent(self.getCurrentMenuItem(href.toLowerCase()).topMenuIndex);
+        const currentMenuItem = self.getCurrentMenuItem(href.toLowerCase());
+        self.root.header.setCurrent(currentMenuItem ? currentMenuItem.topMenuIndex : 0);
       } else if (menu0) {
         self.root.header.setCurrent(0);
       }
 
       const menu = self.currentMenuData;
-      const children = menu.map(function (item) {
+      const children = menu.map(function(item) {
         return item.children;
       });
-      const nameArray = children.map(function (item) {
-        return item.map(function (item) {
+      const nameArray = children.map(function(item) {
+        return item.map(function(item) {
           return item.index;
         });
       });

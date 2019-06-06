@@ -9,7 +9,8 @@ const HeaderStore = types
     setCurrent(index) {
       self.current = index;
     },
-    setPageTitle(title) { //设置标题
+    setPageTitle(title) {
+      //设置标题
       self.title = title;
     }
   }));

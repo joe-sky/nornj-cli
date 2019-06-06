@@ -17,9 +17,9 @@
   "scripts": {
     "tar": "node lib/tar",
     "format": "prettier-eslint --write lib/**/*.js",
-    "format-css-react-mst-universal": "prettier-stylelint --write templates/react-mst-universal/src/**/*.{css,less,scss}",
-    "format-js-react-mst-universal": "prettier-eslint --write templates/react-mst-universal/**/*.{js,jsx}",
-    "format-react-mst-universal": "npm run format-css-react-mst-universal && npm run format-js-react-mst-universal"
+    "format-css-react-mst": "prettier-stylelint --write templates/react-mst/src/**/*.{css,less,scss}",
+    "format-js-react-mst": "prettier-eslint --write templates/react-mst/**/*.{js,jsx}",
+    "format-react-mst": "npm run format-css-react-mst && npm run format-js-react-mst"
   },
   "repository": {
     "type": "git",

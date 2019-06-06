@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { capitalize } from './src/utils/util';
 
 class Bundle extends Component {
   constructor(props) {
@@ -10,27 +9,17 @@ class Bundle extends Component {
     };
   }
 
-  componentWillMount() {
-    const { store, isPc, loadBundles } = this.props;
-    if (store && !store.common.userInfo) { //获取用户登录信息
-      const fetchs = [store.common.getCurrentUserInfo()];
-      if (isPc) {
-        store.sider.setCurrentMenu();
-      }
-      Promise.all(fetchs).then(() => {
-        if (isPc) {
-          const current = capitalize(store.sider.current);
-          this.load({
-            load: loadBundles[`load${current.indexOf('/') >= 0 ? current.split('/')[0] : current}`]
-          });
-        } else {
-          this.load(this.props);
-        }
+  async componentWillMount() {
+    const { store, loadBundles } = this.props;
+    store.sider.setCurrentMenu();
+
+    if (store && !store.common.userInfo) {
+      await store.common.getCurrentUserInfo(); //获取用户登录信息
+      const current = n`${store}.sider.current | capitalize`;
+      this.load({
+        load: loadBundles[`load${current.indexOf('/') >= 0 ? current.split('/')[0] : current}`]
       });
     } else {
-      if (isPc) {
-        store.sider.setCurrentMenu();
-      }
       this.load(this.props);
     }
   }
@@ -45,7 +34,7 @@ class Bundle extends Component {
     this.setState({
       mod: null
     });
-    props.load((mod) => {
+    props.load(mod => {
       this.setState({
         // handle both es imports and cjs
         mod: mod.default ? mod.default : mod

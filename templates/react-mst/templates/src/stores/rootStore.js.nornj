@@ -1,0 +1,14 @@
+﻿<#-template name="importStore">
+import #{pageName | capitalize}#Store from './pages/#{pageName}#Store';
+//{importStore}//
+</#-template>
+
+<#-template name="pageStore">
+<#-if #{!mobx}#>#{pageName}#: types.optional(#{pageName | capitalize}#Store, {}),
+  </#-if>//{pageStore}//
+</#-template>
+
+<#-template name="pageStoreMobx">
+<#-if #{mobx}#>#{pageName}#: new #{pageName | capitalize}#Store(),
+  </#-if>//{pageStoreMobx}//
+</#-template>

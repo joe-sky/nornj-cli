@@ -1,0 +1,93 @@
+﻿import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { observable } from 'mobx';
+import { observer, inject } from 'mobx-react';<#-if #{isFunc}#>
+import { useLocalStore } from 'mobx-react-lite';
+</#-if>import { Input } from 'nornj-react/antd';
+import styled from 'styled-components';
+
+const Containter = styled.div`
+  height: 30px;
+  line-height: 30px;
+  color: #fc1e1e;
+`;
+
+<#-if #{!isFunc}#>@inject('store')
+@observer
+export default class #{componentName | capitalize}# extends Component {
+  constructor(props) {
+    super(props);
+
+    this.inputRef = React.createRef();
+  }
+
+  @observable inputValue = '';
+  @observable textValue = '#{componentName | capitalize}#';
+  @observable editing = false;
+
+  onClick = () => {
+    if (this.editing) {
+      return;
+    }
+
+    this.editing = true;
+    this.inputValue = this.textValue;
+
+    setTimeout(() => {
+      this.inputRef.current.input.select();
+    }, 50);
+  };
+
+  onBlur = () => {
+    this.textValue = this.inputValue;
+    this.editing = false;
+  };
+
+  render() {
+    return (
+      <Containter onClick={this.onClick}>
+        <If condition={this.editing}>
+          <Input n-mobxBind={this.inputValue} onBlur={this.onBlur} ref={this.inputRef} />
+          <Else>{this.textValue}</Else>
+        </If>
+      </Containter>
+    );
+  }
+}<#-else useString>const #{componentName | capitalize}# = props => {
+  const view = useLocalStore(() => ({
+    inputValue: '',
+    textValue: '#{componentName | capitalize}#',
+    editing: false
+  }));
+
+  const inputRef = useRef();
+
+  const onClick = () => {
+    if (view.editing) {
+      return;
+    }
+
+    view.editing = true;
+    view.inputValue = view.textValue;
+
+    setTimeout(() => {
+      inputRef.current.input.select();
+    }, 50);
+  };
+
+  const onBlur = () => {
+    view.textValue = view.inputValue;
+    view.editing = false;
+  };
+
+  return (
+    <Containter onClick={onClick}>
+      <If condition={view.editing}>
+        <Input n-mobxBind={view.inputValue} onBlur={onBlur} ref={inputRef} />
+        <Else>{view.textValue}</Else>
+      </If>
+    </Containter>
+  );
+};
+
+export default inject('store')(observer(#{componentName | capitalize}#));</#-else></#-if>

@@ -1,0 +1,95 @@
+<#-if #{!mobx}#>import { types } from 'mobx-state-tree';
+</#-if>import { observable, computed, action, toJS } from 'mobx';
+import axios from 'axios';
+import Notification from '../../utils/notification';
+
+<#-if #{mobx}#>class #{pageName | capitalize}#Store {
+  @observable antInputValue = '示例数据';
+  @observable antSelectValue = '1';
+  @observable antRadioValue = '2';
+  @observable elInputValue = '示例数据';
+  @observable elSelectValue = '1';
+  @observable elRadioValue = '2';
+  @observable antCheckboxValue = [];
+  @observable antDate = null;
+  @observable elCheckboxValue = [];
+  @observable elDate = null;
+  @computed get formModel() {
+    return {
+      formEl1: this.elInputValue,
+      formEl2: this.elSelectValue,
+      formEl3: this.elRadioValue,
+      formEl4: this.elCheckboxValue,
+      formEl5: this.elDate
+    };
+  }
+
+  @action
+  setElInputValue(v) {
+    this.elInputValue = v;
+  }
+
+  @action
+  setElSelectValue(v) {
+    this.elSelectValue = v;
+  }
+
+  @action
+  setElRadioValue(v) {
+    this.elRadioValue = v;
+  }
+
+  @action
+  setElCheckboxValue(v) {
+    this.elCheckboxValue = v;
+  }
+
+  @action
+  setElDate(v) {
+    this.elDate = v;
+  }
+}<#-else>const #{pageName | capitalize}#Store = types
+  .model('#{pageName | capitalize}#Store', {
+    antInputValue: '示例数据',
+    antSelectValue: '1',
+    antRadioValue: '2',
+    elInputValue: '示例数据',
+    elSelectValue: '1',
+    elRadioValue: '2',
+  })
+  .volatile(self => ({
+    antCheckboxValue: [],
+    antDate: null,
+    elCheckboxValue: [],
+    elDate: null
+  }))
+  .views(self => ({
+    get formModel() {
+      return {
+        formEl1: self.elInputValue,
+        formEl2: self.elSelectValue,
+        formEl3: self.elRadioValue,
+        formEl4: self.elCheckboxValue,
+        formEl5: self.elDate
+      };
+    }
+  }))
+  .actions(self => ({
+    setElInputValue(v) {
+      self.elInputValue = v;
+    },
+    setElSelectValue(v) {
+      self.elSelectValue = v;
+    },
+    setElRadioValue(v) {
+      self.elRadioValue = v;
+    },
+    setElCheckboxValue(v) {
+      self.elCheckboxValue = v;
+    },
+    setElDate(v) {
+      self.elDate = v;
+    }
+  }));</#-else></#-if>
+
+export default #{pageName | capitalize}#Store;

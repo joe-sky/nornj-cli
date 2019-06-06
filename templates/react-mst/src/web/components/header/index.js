@@ -1,2 +1,2 @@
-﻿import comp from './header';
+﻿import comp from './header.jsx';
 export default comp;

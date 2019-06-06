@@ -26,11 +26,17 @@ app.all('*', function(req, res, next) {
   else next();
 });
 
-const page1 = require('./routes/page1');
-app.use('/page1', page1);
+const defaultExample = require('./routes/defaultExample');
+app.use('/defaultExample', defaultExample);
 
-const page2 = require('./routes/page2');
-app.use('/page2', page2);
+const chartExample = require('./routes/chartExample');
+app.use('/chartExample', chartExample);
+
+const formExample = require('./routes/formExample');
+app.use('/formExample', formExample);
+
+const emptyExample = require('./routes/emptyExample');
+app.use('/emptyExample', emptyExample);
 
 //{pages}//
 
