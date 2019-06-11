@@ -14,13 +14,13 @@ import {
   message
 } from 'nornj-react/antd';
 import Notification from '../../../utils/notification';
-import styles from './#{pageName}#.m.scss';
+import styles from './{%pageName%}.m.scss';
 import ModalFormPage from './modalFormPage';
 import ModalDetailPage from './modalDetailPage';
 
 @inject('store')
 @observer
-export default class #{pageName | capitalize}# extends Component {
+export default class {%pageName | capitalize%} extends Component {
   @observable detailModalVisible = false;
   @observable inputRole = '';
   @observable detailData = [];
@@ -28,12 +28,12 @@ export default class #{pageName | capitalize}# extends Component {
   @observable selectedRows = [];
 
   async componentDidMount() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     const closeLoading = message.loading('正在获取数据...', 0);
     await Promise.all([
-      #{pageName}#.getRoleManagementData(),
-      #{pageName}#.getRoleMenuTree().then(() => #{pageName}#.initTree())
+      {%pageName%}.getRoleManagementData(),
+      {%pageName%}.getRoleMenuTree().then(() => {%pageName%}.initTree())
     ]);
     closeLoading();
   }
@@ -41,26 +41,26 @@ export default class #{pageName | capitalize}# extends Component {
   onSearch = async () => {
     if (this.inputRole == '') {
       const closeLoading = message.loading('正在获取数据...', 0);
-      await this.props.store.#{pageName}#.getRoleManagementData();
+      await this.props.store.{%pageName%}.getRoleManagementData();
       closeLoading();
     } else {
-      const { store: { #{pageName}# } } = this.props;
-      const searchRole = #{pageName}#.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1);
-      #{pageName}#.setTableData(searchRole);
+      const { store: { {%pageName%} } } = this.props;
+      const searchRole = {%pageName%}.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1);
+      {%pageName%}.setTableData(searchRole);
     }
   };
 
   onAddRole = () => {
-    const { store: { #{pageName}# } } = this.props;
-    #{pageName}#.setAddModalVisible(true);
-    #{pageName}#.setDisable(true);
-    #{pageName}#.setActiveKey('tab1');
-    #{pageName}#.setAddInputRole('');
-    #{pageName}#.setAddInputDes('');
+    const { store: { {%pageName%} } } = this.props;
+    {%pageName%}.setAddModalVisible(true);
+    {%pageName%}.setDisable(true);
+    {%pageName%}.setActiveKey('tab1');
+    {%pageName%}.setAddInputRole('');
+    {%pageName%}.setAddInputDes('');
   };
 
   onDeleteRole = () => {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
     if (this.selectedRowKeys.length == 0) {
       Notification.error({ description: '请勾选要删除的角色！', duration: 3 });
     } else {
@@ -70,8 +70,8 @@ export default class #{pageName | capitalize}# extends Component {
           const closeLoading = message.loading('正在获取数据...', 0);
           const roleId = this.selectedRows.map((item) => item.roleId);
 
-          await #{pageName}#.deleteRole({ roleId: roleId });
-          #{pageName}#.getRoleManagementData();
+          await {%pageName%}.deleteRole({ roleId: roleId });
+          {%pageName%}.getRoleManagementData();
           this.selectedRowKeys = [];
           closeLoading();
         }
@@ -108,24 +108,24 @@ export default class #{pageName | capitalize}# extends Component {
   }
 
   onEdit = async (record, index) => {
-    const { store: { #{pageName}# } } = this.props;
-    #{pageName}#.setEditModalVisible(true);
-    #{pageName}#.setSaveBtnDisabled(true);
-    #{pageName}#.setActiveKey('tab1');
-    #{pageName}#.setAddInputRole(record.name);
-    #{pageName}#.setAddInputDes(record.describe);
-    #{pageName}#.setRoleId(record.roleId);
-    #{pageName}#.setDisable(false);
+    const { store: { {%pageName%} } } = this.props;
+    {%pageName%}.setEditModalVisible(true);
+    {%pageName%}.setSaveBtnDisabled(true);
+    {%pageName%}.setActiveKey('tab1');
+    {%pageName%}.setAddInputRole(record.name);
+    {%pageName%}.setAddInputDes(record.describe);
+    {%pageName%}.setRoleId(record.roleId);
+    {%pageName%}.setDisable(false);
 
     const closeLoading = message.loading('正在获取数据...', 0);
-    await #{pageName}#.getRoleMenuTree({ roleId: record.roleId }).then(() => #{pageName}#.initTree());
+    await {%pageName%}.getRoleMenuTree({ roleId: record.roleId }).then(() => {%pageName%}.initTree());
     closeLoading();
   };
 
   onDetail = (record, index) => {
-    const { store: { #{pageName}# } } = this.props;
-    #{pageName}#.setDetailModalVisible(true);
-    #{pageName}#.setDetailData(record.users);
+    const { store: { {%pageName%} } } = this.props;
+    {%pageName%}.setDetailModalVisible(true);
+    {%pageName%}.setDetailData(record.users);
   };
 
   getRowSelection = () => {
@@ -139,11 +139,11 @@ export default class #{pageName | capitalize}# extends Component {
   };
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
-      <div className={styles.#{pageName}#}>
-        <h2>角色管理 #{pageName}#</h2>
+      <div className={styles.{%pageName%}}>
+        <h2>角色管理 {%pageName%}</h2>
         <div className={styles.handlerBox}>
           <span className={styles.label}>角色名称</span>
           <Input className={styles.input} n-mobxBind={this.inputRole} />
@@ -154,7 +154,7 @@ export default class #{pageName | capitalize}# extends Component {
 
         <Table rowSelection={this.getRowSelection()}
           columns={toJS(this.tableColumns)}
-          dataSource={toJS(#{pageName}#.tableData)}
+          dataSource={toJS({%pageName%}.tableData)}
           bordered />
 
         <ModalFormPage tabName="增加角色" />

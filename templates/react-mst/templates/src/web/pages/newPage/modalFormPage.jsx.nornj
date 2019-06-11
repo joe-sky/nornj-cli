@@ -13,7 +13,7 @@ import {
   message
 } from 'nornj-react/antd';
 import Notification from '../../../utils/notification';
-import styles from './#{pageName}#.m.scss';
+import styles from './{%pageName%}.m.scss';
 
 @inject('store')
 @observer
@@ -27,7 +27,7 @@ export default class ModalFormPage extends Component {
 
   getDefaultCheckedKeys() {
     let keys = [];
-    this.props.store.#{pageName}#.menuData.filter(n => n.level == 3)
+    this.props.store.{%pageName%}.menuData.filter(n => n.level == 3)
       .forEach(item => {
         if (item.selected) {
           keys.push(item.id.toString());
@@ -38,7 +38,7 @@ export default class ModalFormPage extends Component {
 
   //获取选中的 checkbox 包含父级未选中状态
   getAllCheckedKeys(key) {
-    const _map = toJS(this.props.store.#{pageName}#.authTreeDataMap);
+    const _map = toJS(this.props.store.{%pageName%}.authTreeDataMap);
     if (key.length > 1) {
       let pids = key.map(item => { return _map[item].pids; })
       return Array.from(new Set([].concat(...pids)));
@@ -48,99 +48,99 @@ export default class ModalFormPage extends Component {
   }
 
   onExpand = expandedKeys => {
-    const { store: { #{pageName}# } } = this.props;
-    #{pageName}#.setExpandedKeys(expandedKeys);
+    const { store: { {%pageName%} } } = this.props;
+    {%pageName%}.setExpandedKeys(expandedKeys);
     this.autoExpandParent = true;
   };
 
   onCheck = checkedKeys => {
-    const { store: { #{pageName}# } } = this.props;
-    #{pageName}#.setSaveBtnDisabled(false);
-    #{pageName}#.setCheckedKeys(checkedKeys);
+    const { store: { {%pageName%} } } = this.props;
+    {%pageName%}.setSaveBtnDisabled(false);
+    {%pageName%}.setCheckedKeys(checkedKeys);
 
     if (checkedKeys.length == 0) {
-      #{pageName}#.setMenuIds([]);
+      {%pageName%}.setMenuIds([]);
     } else {
       let allChecked = Array.from(new Set(this.getAllCheckedKeys(checkedKeys).concat(checkedKeys)));
-      #{pageName}#.setMenuIds(allChecked);
+      {%pageName%}.setMenuIds(allChecked);
     }
   };
 
   onAddModalCancel = () => {
     if (this.props.tabName == '增加角色') {
-      this.props.store.#{pageName}#.setAddModalVisible(false);
+      this.props.store.{%pageName%}.setAddModalVisible(false);
     }
     else {
-      this.props.store.#{pageName}#.setEditModalVisible(false);
+      this.props.store.{%pageName%}.setEditModalVisible(false);
     }
-    this.props.store.#{pageName}#.setSaveBtnDisabled(false);
+    this.props.store.{%pageName%}.setSaveBtnDisabled(false);
   };
 
   onTabChange = key => {
-    this.props.store.#{pageName}#.setActiveKey(key);
+    this.props.store.{%pageName%}.setActiveKey(key);
   };
 
   onAddInputRoleChange = e => {
-    this.props.store.#{pageName}#.setAddInputRole(e.target.value);
+    this.props.store.{%pageName%}.setAddInputRole(e.target.value);
   };
 
   onAddInputDesChange = e => {
-    this.props.store.#{pageName}#.setAddInputDes(e.target.value);
+    this.props.store.{%pageName%}.setAddInputDes(e.target.value);
   };
 
   onAddSaveRole = async () => {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
-    if (#{pageName}#.addInputRole.trim() == '') {
+    if ({%pageName%}.addInputRole.trim() == '') {
       Notification.error({ description: '请输入角色名称！', duration: 1 });
     } else {
       const closeLoading = message.loading('正在获取数据...', 0);
       let params = {
-        roleName: #{pageName}#.addInputRole,
-        roleDescribe: #{pageName}#.addInputDes
+        roleName: {%pageName%}.addInputRole,
+        roleDescribe: {%pageName%}.addInputDes
       };
-      if (this.props.tabName == '编辑角色' && #{pageName}#.roleId != null) {
-        params.roleId = #{pageName}#.roleId;
+      if (this.props.tabName == '编辑角色' && {%pageName%}.roleId != null) {
+        params.roleId = {%pageName%}.roleId;
       }
 
-      await #{pageName}#.saveRole(params);
-      #{pageName}#.getRoleManagementData();
-      #{pageName}#.setActiveKey('tab2');
+      await {%pageName%}.saveRole(params);
+      {%pageName%}.getRoleManagementData();
+      {%pageName%}.setActiveKey('tab2');
       closeLoading();
     }
   };
 
   onAddCancel = () => {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
     if (this.props.tabName == '增加角色') {
-      #{pageName}#.setAddModalVisible(false);
+      {%pageName%}.setAddModalVisible(false);
     } else {
-      #{pageName}#.setEditModalVisible(false);
+      {%pageName%}.setEditModalVisible(false);
     }
   };
 
   onSavePermission = async () => {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     if (this.props.tabName == '增加角色') {
-      await #{pageName}#.saveRolePermission({
-        roleId: #{pageName}#.addRoleId,
-        menuIds: #{pageName}#.menuIds
+      await {%pageName%}.saveRolePermission({
+        roleId: {%pageName%}.addRoleId,
+        menuIds: {%pageName%}.menuIds
       });
-      #{pageName}#.setAddModalVisible(false);
+      {%pageName%}.setAddModalVisible(false);
     } else {
-      await #{pageName}#.saveRolePermission({
-        roleId: #{pageName}#.roleId,
-        menuIds: #{pageName}#.menuIds
+      await {%pageName%}.saveRolePermission({
+        roleId: {%pageName%}.roleId,
+        menuIds: {%pageName%}.menuIds
       });
-      #{pageName}#.setEditModalVisible(false);
+      {%pageName%}.setEditModalVisible(false);
     }
   };
 
   disabledTreeNodes = ['权限管理', '角色管理'];
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
     const TreeNode = Tree.TreeNode;
     let level = 1;
     const loop = data => data.map((item) => {
@@ -160,33 +160,33 @@ export default class ModalFormPage extends Component {
     });
 
     return (
-      <Modal width={500} visible={this.props.tabName == '增加角色' ? #{pageName}#.addModalVisible : #{pageName}#.editModalVisible} footer={null} onCancel={this.onAddModalCancel}>
-        <Tabs activeKey={#{pageName}#.activeKey} onChange={this.onTabChange}>
+      <Modal width={500} visible={this.props.tabName == '增加角色' ? {%pageName%}.addModalVisible : {%pageName%}.editModalVisible} footer={null} onCancel={this.onAddModalCancel}>
+        <Tabs activeKey={{{%pageName%}}.activeKey} onChange={this.onTabChange}>
           <Tabs.TabPane tab="增加角色" key="tab1">
             <ul className="frombox">
               <li>角色名称 <span className="red"></span></li>
-              <li><Input onChange={this.onAddInputRoleChange} value={#{pageName}#.addInputRole} /></li>
+              <li><Input onChange={this.onAddInputRoleChange} value={{{%pageName%}}.addInputRole} /></li>
               <li>角色描述</li>
-              <li><Input.TextArea rows={4} onChange={this.onAddInputDesChange} className="textarea" value={#{pageName}#.addInputDes} /></li>
+              <li><Input.TextArea rows={4} onChange={this.onAddInputDesChange} className="textarea" value={{{%pageName%}}.addInputDes} /></li>
               <li className={styles.btnArea}>
                 <Button className="btn" onClick={this.onAddSaveRole}>保存</Button>
                 <Button className="btn" onClick={this.onAddCancel}>取消</Button>
               </li>
             </ul>
           </Tabs.TabPane>
-          <Tabs.TabPane tab="配置权限" key="tab2" disabled={this.props.tabName == '增加角色' ? #{pageName}#.isDisable : null}>
+          <Tabs.TabPane tab="配置权限" key="tab2" disabled={this.props.tabName == '增加角色' ? {%pageName%}.isDisable : null}>
             <div className={styles.treeWrap}>
               <Tree checkable
                 onExpand={this.onExpand}
-                expandedKeys={toJS(#{pageName}#.expandedKeys)}
+                expandedKeys={toJS({%pageName%}.expandedKeys)}
                 autoExpandParent={this.autoExpandParent}
                 onCheck={this.onCheck}
-                checkedKeys={toJS(#{pageName}#.checkedKeys)}>
-                {loop(toJS(#{pageName}#.authTreeData) || [])}
+                checkedKeys={toJS({%pageName%}.checkedKeys)}>
+                {loop(toJS({%pageName%}.authTreeData) || [])}
               </Tree>
             </div>
             <div className={styles.btnArea}>
-              <Button className="btn" onClick={this.onSavePermission} disabled={this.props.tabName == '编辑角色' ? #{pageName}#.saveBtnDisabled : null}>保存</Button>
+              <Button className="btn" onClick={this.onSavePermission} disabled={this.props.tabName == '编辑角色' ? {%pageName%}.saveBtnDisabled : null}>保存</Button>
               <Button className="btn" onClick={this.onAddCancel}>取消</Button>
             </div>
           </Tabs.TabPane>

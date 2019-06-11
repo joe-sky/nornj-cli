@@ -95,15 +95,7 @@ module.exports = {
         test: /\.template(-[\s\S]+)*\.nj\.html(\?[\s\S]+)*$/,
         use: [
           {
-            loader: 'nornj-loader',
-            options: {
-              delimiters: {
-                extension: '#',
-                prop: '@',
-                strProp: '@'
-              },
-              fixTagName: false
-            }
+            loader: 'nornj-loader'
           }
         ]
       },

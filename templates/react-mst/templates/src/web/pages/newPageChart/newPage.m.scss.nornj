@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 
-.#{pageName}# {
+.{%pageName%} {
   padding-top: 60px;
 
   .bePageCnt {

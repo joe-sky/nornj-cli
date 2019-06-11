@@ -1,9 +1,9 @@
 ﻿import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { observable } from 'mobx';
-import { observer, inject } from 'mobx-react';<#-if #{isFunc}#>
+import { observer, inject } from 'mobx-react';<#if {%isFunc%}>
 import { useLocalStore } from 'mobx-react-lite';
-</#-if>import { Input } from 'nornj-react/antd';
+</#if>import { Input } from 'nornj-react/antd';
 import styled from 'styled-components';
 
 const Containter = styled.div`
@@ -12,9 +12,9 @@ const Containter = styled.div`
   color: #fc1e1e;
 `;
 
-<#-if #{!isFunc}#>@inject('store')
+<#if {%!isFunc%}>@inject('store')
 @observer
-export default class #{componentName | capitalize}# extends Component {
+export default class {%componentName | capitalize%} extends Component {
   constructor(props) {
     super(props);
 
@@ -22,7 +22,7 @@ export default class #{componentName | capitalize}# extends Component {
   }
 
   @observable inputValue = '';
-  @observable textValue = '#{componentName | capitalize}#';
+  @observable textValue = '{%componentName | capitalize%}';
   @observable editing = false;
 
   onClick = () => {
@@ -53,10 +53,10 @@ export default class #{componentName | capitalize}# extends Component {
       </Containter>
     );
   }
-}<#-else useString>const #{componentName | capitalize}# = props => {
+}<#else useString>const {%componentName | capitalize%} = props => {
   const view = useLocalStore(() => ({
     inputValue: '',
-    textValue: '#{componentName | capitalize}#',
+    textValue: '{%componentName | capitalize%}',
     editing: false
   }));
 
@@ -90,4 +90,4 @@ export default class #{componentName | capitalize}# extends Component {
   );
 };
 
-export default inject('store')(observer(#{componentName | capitalize}#));</#-else></#-if>
+export default inject('store')(observer({%componentName | capitalize%}));</#else></#if>

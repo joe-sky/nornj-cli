@@ -37,9 +37,9 @@ const Containter = styled.div`
 
 @inject('store')
 @observer
-export default class #{pageName | capitalize}# extends Component<IProps> {
+export default class {%pageName | capitalize%} extends Component<IProps> {
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
       <AntFormExample />
@@ -74,7 +74,7 @@ class AntFormExampleClass extends Component<IProps> {
   };
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
     
     return (
       <Containter>
@@ -118,7 +118,7 @@ class AntFormExampleClass extends Component<IProps> {
           <Form.Item
             label="表单元素1"
             n-field-formEl1={{
-              initialValue: #{pageName}#.antInputValue,
+              initialValue: {%pageName%}.antInputValue,
               rules: [{ required: true, message: '表单元素1不能为空！' }]
             }}
             n-fieldSpan-3>
@@ -127,7 +127,7 @@ class AntFormExampleClass extends Component<IProps> {
           <Form.Item
             label="表单元素2"
             n-field-formEl2={{
-              initialValue: #{pageName}#.antSelectValue,
+              initialValue: {%pageName%}.antSelectValue,
               rules: [{ required: true, message: '表单元素2不能为空！' }]
             }}
             n-fieldSpan-3>
@@ -140,7 +140,7 @@ class AntFormExampleClass extends Component<IProps> {
           <Form.Item
             label="表单元素3"
             n-field-formEl3={{
-              initialValue: #{pageName}#.antRadioValue,
+              initialValue: {%pageName%}.antRadioValue,
               rules: [{ required: true, message: '表单元素3不能为空！' }]
             }}
             n-fieldSpan-3>
@@ -153,7 +153,7 @@ class AntFormExampleClass extends Component<IProps> {
           <Form.Item
             label="表单元素4"
             n-field-formEl4={{
-              initialValue: #{pageName}#.antCheckboxValue,
+              initialValue: {%pageName%}.antCheckboxValue,
               rules: [{ required: true, message: '表单元素4不能为空！' }]
             }}
             n-fieldSpan-3>
@@ -166,7 +166,7 @@ class AntFormExampleClass extends Component<IProps> {
           <Form.Item
             label="表单元素5"
             n-field-formEl5={{
-              initialValue: #{pageName}#.antDate,
+              initialValue: {%pageName%}.antDate,
               rules: [{ required: true, message: '表单元素5不能为空！' }]
             }}
             n-fieldSpan-3>

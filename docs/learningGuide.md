@@ -39,7 +39,6 @@
 * [styled-jsx](#styled-jsx)
 * [Ant Design](#ant-design)
 * [Echarts](#echarts)
-* [FlareJ](#flarej)
 * [Font Awesome](#font-awesome)
 
 #### React
@@ -95,12 +94,6 @@
 `Echarts`是百度开发的前端图表库。
 
 * [Echarts 官方文档](http://echarts.baidu.com/index.html)
-
-#### FlareJ
-
-`FlareJ`是一个基于`React`和`NornJ`的UI组件库，包含一些易于配合`NornJ`使用的常用组件。
-
-* [github文档](https://github.com/joe-sky/flarej)
 
 #### Font Awesome
 

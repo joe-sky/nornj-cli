@@ -24,11 +24,11 @@ import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/pie';
 import graphic from 'echarts/lib/util/graphic';
 import Notification from '../../../utils/notification';
-import styles from './#{pageName}#.m.scss';
+import styles from './{%pageName%}.m.scss';
 
 @inject('store')
 @observer
-export default class #{pageName | capitalize}# extends Component {
+export default class {%pageName | capitalize%} extends Component {
 
   constructor(props) {
     super(props);
@@ -41,23 +41,23 @@ export default class #{pageName | capitalize}# extends Component {
   onSearch = async () => {
     const closeLoading = message.loading('正在获取数据...', 0);
     await Promise.all([
-      this.props.store.#{pageName}#.getSummaryData(),
-      this.props.store.#{pageName}#.getGrowthData(),
-      this.props.store.#{pageName}#.getSubCategoryData(),
-      this.props.store.#{pageName}#.getBarSubCategoryData(),
-      this.props.store.#{pageName}#.getTableSubCategoryData(),
-      this.props.store.#{pageName}#.getBrandCompareList(),
-      this.props.store.#{pageName}#.getBrandCompareItemForCategory()
+      this.props.store.{%pageName%}.getSummaryData(),
+      this.props.store.{%pageName%}.getGrowthData(),
+      this.props.store.{%pageName%}.getSubCategoryData(),
+      this.props.store.{%pageName%}.getBarSubCategoryData(),
+      this.props.store.{%pageName%}.getTableSubCategoryData(),
+      this.props.store.{%pageName%}.getBrandCompareList(),
+      this.props.store.{%pageName%}.getBrandCompareItemForCategory()
     ]);
-    this.props.store.#{pageName}#.clearCompareDockData();
+    this.props.store.{%pageName%}.clearCompareDockData();
     closeLoading();
   };
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
-      <div className={styles.#{pageName}#}>
+      <div className={styles.{%pageName%}}>
         <div className={styles.bePageCnt}>
           <h2 className={styles.pageTitle}>Summary</h2>
           <EvalSummary />
@@ -91,22 +91,22 @@ class EvalSummary extends Component {
   componentDidMount() { }
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
       <Row className={styles.summary}>
         <Col span={6}>
           <div className={styles.summaryItem}>
             <div className={styles.field}>指标1</div>
-            <div className={styles.num}>{(#{pageName}#.summaryData.gmv / 10000).toFixed(2)}万元</div>
+            <div className={styles.num}>{({%pageName%}.summaryData.gmv / 10000).toFixed(2)}万元</div>
             <div className={`${styles.rates} clearfix`}>
-              <div className={`${#{pageName}#.summaryData.gmvYOY > 0 ? styles.red : styles.green} fl`}>
+              <div className={`${{{%pageName%}}.summaryData.gmvYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{#{pageName}#.summaryData.gmvYOY > 0 ? '+' : ''}{#{pageName}#.summaryData.gmvYOY}%</div>
+                <div>{{{%pageName%}}.summaryData.gmvYOY > 0 ? '+' : ''}{{{%pageName%}}.summaryData.gmvYOY}%</div>
               </div>
-              <div className={`${#{pageName}#.summaryData.gmvMOM > 0 ? styles.red : styles.green} fr`}>
+              <div className={`${{{%pageName%}}.summaryData.gmvMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{#{pageName}#.summaryData.gmvMOM > 0 ? '+' : ''}{#{pageName}#.summaryData.gmvMOM}%</div>
+                <div>{{{%pageName%}}.summaryData.gmvMOM > 0 ? '+' : ''}{{{%pageName%}}.summaryData.gmvMOM}%</div>
               </div>
             </div>
           </div>
@@ -114,15 +114,15 @@ class EvalSummary extends Component {
         <Col span={6}>
           <div className={styles.summaryItem}>
             <div className={styles.field}>指标2</div>
-            <div className={styles.num}>{#{pageName}#.summaryData.uv}</div>
+            <div className={styles.num}>{{{%pageName%}}.summaryData.uv}</div>
             <div className={`${styles.rates} clearfix`}>
-              <div className={`${#{pageName}#.summaryData.uvYOY > 0 ? styles.red : styles.green} fl`}>
+              <div className={`${{{%pageName%}}.summaryData.uvYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{#{pageName}#.summaryData.uvYOY > 0 ? '+' : ''}{#{pageName}#.summaryData.uvYOY}%</div>
+                <div>{{{%pageName%}}.summaryData.uvYOY > 0 ? '+' : ''}{{{%pageName%}}.summaryData.uvYOY}%</div>
               </div>
-              <div className={`${#{pageName}#.summaryData.uvMOM > 0 ? styles.red : styles.green} fr`}>
+              <div className={`${{{%pageName%}}.summaryData.uvMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{#{pageName}#.summaryData.uvMOM > 0 ? '+' : ''}{#{pageName}#.summaryData.uvMOM}%</div>
+                <div>{{{%pageName%}}.summaryData.uvMOM > 0 ? '+' : ''}{{{%pageName%}}.summaryData.uvMOM}%</div>
               </div>
             </div>
           </div>
@@ -130,15 +130,15 @@ class EvalSummary extends Component {
         <Col span={6}>
           <div className={styles.summaryItem}>
             <div className={styles.field}>指标3</div>
-            <div className={styles.num}>{#{pageName}#.summaryData.uvRates}%</div>
+            <div className={styles.num}>{{{%pageName%}}.summaryData.uvRates}%</div>
             <div className={`${styles.rates} clearfix`}>
-              <div className={`${#{pageName}#.summaryData.uvRatesYOY > 0 ? styles.red : styles.green} fl`}>
+              <div className={`${{{%pageName%}}.summaryData.uvRatesYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{#{pageName}#.summaryData.uvRatesYOY > 0 ? '+' : ''}{#{pageName}#.summaryData.uvRatesYOY}%</div>
+                <div>{{{%pageName%}}.summaryData.uvRatesYOY > 0 ? '+' : ''}{{{%pageName%}}.summaryData.uvRatesYOY}%</div>
               </div>
-              <div className={`${#{pageName}#.summaryData.uvRatesMOM > 0 ? styles.red : styles.green} fr`}>
+              <div className={`${{{%pageName%}}.summaryData.uvRatesMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{#{pageName}#.summaryData.uvRatesMOM > 0 ? '+' : ''}{#{pageName}#.summaryData.uvRatesMOM}%</div>
+                <div>{{{%pageName%}}.summaryData.uvRatesMOM > 0 ? '+' : ''}{{{%pageName%}}.summaryData.uvRatesMOM}%</div>
               </div>
             </div>
           </div>
@@ -146,15 +146,15 @@ class EvalSummary extends Component {
         <Col span={6}>
           <div className={styles.summaryItem}>
             <div className={styles.field}>指标4</div>
-            <div className={styles.num}>{#{pageName}#.summaryData.userCount}</div>
+            <div className={styles.num}>{{{%pageName%}}.summaryData.userCount}</div>
             <div className={`${styles.rates} clearfix`}>
-              <div className={`${#{pageName}#.summaryData.userCountYOY > 0 ? styles.red : styles.green} fl`}>
+              <div className={`${{{%pageName%}}.summaryData.userCountYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{#{pageName}#.summaryData.userCountYOY > 0 ? '+' : ''}{#{pageName}#.summaryData.userCountYOY}%</div>
+                <div>{{{%pageName%}}.summaryData.userCountYOY > 0 ? '+' : ''}{{{%pageName%}}.summaryData.userCountYOY}%</div>
               </div>
               <div className={`${styles.red} fr`}>
                 <div>环比</div>
-                <div>{#{pageName}#.summaryData.userCountMOM > 0 ? '+' : ''}{#{pageName}#.summaryData.userCountMOM}%</div>
+                <div>{{{%pageName%}}.summaryData.userCountMOM > 0 ? '+' : ''}{{{%pageName%}}.summaryData.userCountMOM}%</div>
               </div>
             </div>
           </div>
@@ -229,7 +229,7 @@ class TotalCompare extends Component {
             color: '#333'
           }
         },
-        data: toJS(this.props.store.#{pageName}#.salesData && this.props.store.#{pageName}#.salesData[2])
+        data: toJS(this.props.store.{%pageName%}.salesData && this.props.store.{%pageName%}.salesData[2])
       },
       yAxis: {
         show: false,
@@ -257,13 +257,13 @@ class TotalCompare extends Component {
   }
 
   @computed get salesData() {
-    const lineData = toJS(this.props.store.#{pageName}#.salesData && this.props.store.#{pageName}#.salesData[1].map(item => (item / 10000).toFixed(2)));
+    const lineData = toJS(this.props.store.{%pageName%}.salesData && this.props.store.{%pageName%}.salesData[1].map(item => (item / 10000).toFixed(2)));
     return [
       {
         name: '属性1',
         type: 'bar',
         barWidth: '30px',
-        data: toJS(this.props.store.#{pageName}#.salesData && this.props.store.#{pageName}#.salesData[0].map(item => (item / 10000).toFixed(2)))
+        data: toJS(this.props.store.{%pageName%}.salesData && this.props.store.{%pageName%}.salesData[0].map(item => (item / 10000).toFixed(2)))
       },
       {
         name: '属性2',
@@ -326,7 +326,7 @@ class TotalCompare extends Component {
             color: '#333'
           }
         },
-        data: toJS(this.props.store.#{pageName}#.salesRatesData && this.props.store.#{pageName}#.salesRatesData[2])
+        data: toJS(this.props.store.{%pageName%}.salesRatesData && this.props.store.{%pageName%}.salesRatesData[2])
       },
       yAxis: {
         type: 'value',
@@ -354,11 +354,11 @@ class TotalCompare extends Component {
   };
 
   @computed get salesRatesData() {
-    const lineData = toJS(this.props.store.#{pageName}#.salesRatesData && this.props.store.#{pageName}#.salesRatesData[1].map(item => (item * 100).toFixed(2)));
+    const lineData = toJS(this.props.store.{%pageName%}.salesRatesData && this.props.store.{%pageName%}.salesRatesData[1].map(item => (item * 100).toFixed(2)));
     return [{
       name: '属性1',
       type: 'line',
-      data: toJS(this.props.store.#{pageName}#.salesRatesData && this.props.store.#{pageName}#.salesRatesData[0].map(item => (item * 100).toFixed(2)))
+      data: toJS(this.props.store.{%pageName%}.salesRatesData && this.props.store.{%pageName%}.salesRatesData[0].map(item => (item * 100).toFixed(2)))
     },
     {
       name: '属性2',
@@ -374,19 +374,19 @@ class TotalCompare extends Component {
 
     switch (this.switchIndex) {
       case 'a':
-        dataX = toJS(this.props.store.#{pageName}#.growthDataUV && this.props.store.#{pageName}#.growthDataUV[2]);
+        dataX = toJS(this.props.store.{%pageName%}.growthDataUV && this.props.store.{%pageName%}.growthDataUV[2]);
         unit = '%';
         break;
       case 'b':
-        dataX = toJS(this.props.store.#{pageName}#.growthDataUVConvert && this.props.store.#{pageName}#.growthDataUVConvert[2]);
+        dataX = toJS(this.props.store.{%pageName%}.growthDataUVConvert && this.props.store.{%pageName%}.growthDataUVConvert[2]);
         unit = '%';
         break;
       case 'c':
-        dataX = toJS(this.props.store.#{pageName}#.growthDataUser && this.props.store.#{pageName}#.growthDataUser[2]);
+        dataX = toJS(this.props.store.{%pageName%}.growthDataUser && this.props.store.{%pageName%}.growthDataUser[2]);
         unit = '%';
         break;
       case 'd':
-        dataX = toJS(this.props.store.#{pageName}#.growthDataPrice && this.props.store.#{pageName}#.growthDataPrice[2]);
+        dataX = toJS(this.props.store.{%pageName%}.growthDataPrice && this.props.store.{%pageName%}.growthDataPrice[2]);
         unit = '';
         break;
     }
@@ -475,20 +475,20 @@ class TotalCompare extends Component {
       data2 = [];
     switch (this.switchIndex) {
       case 'a':
-        data1 = toJS(this.props.store.#{pageName}#.growthDataUV && this.props.store.#{pageName}#.growthDataUV[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.#{pageName}#.growthDataUV && this.props.store.#{pageName}#.growthDataUV[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(this.props.store.{%pageName%}.growthDataUV && this.props.store.{%pageName%}.growthDataUV[0].map(item => (item * 100).toFixed(2)));
+        data2 = toJS(this.props.store.{%pageName%}.growthDataUV && this.props.store.{%pageName%}.growthDataUV[1].map(item => (item * 100).toFixed(2)));
         break;
       case 'b':
-        data1 = toJS(this.props.store.#{pageName}#.growthDataUVConvert && this.props.store.#{pageName}#.growthDataUVConvert[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.#{pageName}#.growthDataUVConvert && this.props.store.#{pageName}#.growthDataUVConvert[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(this.props.store.{%pageName%}.growthDataUVConvert && this.props.store.{%pageName%}.growthDataUVConvert[0].map(item => (item * 100).toFixed(2)));
+        data2 = toJS(this.props.store.{%pageName%}.growthDataUVConvert && this.props.store.{%pageName%}.growthDataUVConvert[1].map(item => (item * 100).toFixed(2)));
         break;
       case 'c':
-        data1 = toJS(this.props.store.#{pageName}#.growthDataUser && this.props.store.#{pageName}#.growthDataUser[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.#{pageName}#.growthDataUser && this.props.store.#{pageName}#.growthDataUser[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(this.props.store.{%pageName%}.growthDataUser && this.props.store.{%pageName%}.growthDataUser[0].map(item => (item * 100).toFixed(2)));
+        data2 = toJS(this.props.store.{%pageName%}.growthDataUser && this.props.store.{%pageName%}.growthDataUser[1].map(item => (item * 100).toFixed(2)));
         break;
       case 'd':
-        data1 = toJS(this.props.store.#{pageName}#.growthDataPrice && this.props.store.#{pageName}#.growthDataPrice[0].map(item => (item).toFixed(2)));
-        data2 = toJS(this.props.store.#{pageName}#.growthDataPrice && this.props.store.#{pageName}#.growthDataPrice[1].map(item => (item).toFixed(2)));
+        data1 = toJS(this.props.store.{%pageName%}.growthDataPrice && this.props.store.{%pageName%}.growthDataPrice[0].map(item => (item).toFixed(2)));
+        data2 = toJS(this.props.store.{%pageName%}.growthDataPrice && this.props.store.{%pageName%}.growthDataPrice[1].map(item => (item).toFixed(2)));
         break;
     }
 
@@ -515,7 +515,7 @@ class TotalCompare extends Component {
   };
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
       <Row className={styles.totalCompare}>
@@ -545,16 +545,16 @@ class TotalCompare extends Component {
               </thead>
               <tbody>
                 <tr className={styles.row1}>
-                  <td>{n`${#{pageName}#}.growthDataTable[0][0] > 0` ? '+' : ''}{n`${#{pageName}#}.growthDataTable[0][0] | percent(2) || '--'`}</td>
-                  <td>{n`${#{pageName}#}.growthDataTable[0][1] > 0` ? '+' : ''}{n`${#{pageName}#}.growthDataTable[0][1] | percent(2) || '--'`}</td>
-                  <td>{n`${#{pageName}#}.growthDataTable[0][3] > 0` ? '+' : ''}{n`${#{pageName}#}.growthDataTable[0][3] | percent(2) || '--'`}</td>
-                  <td>{n`${#{pageName}#}.growthDataTable[0][2].toFixed(2) || '--'`}元</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[0][0] > 0` ? '+' : ''}{n`${{{%pageName%}}}.growthDataTable[0][0] | percent(2) || '--'`}</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[0][1] > 0` ? '+' : ''}{n`${{{%pageName%}}}.growthDataTable[0][1] | percent(2) || '--'`}</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[0][3] > 0` ? '+' : ''}{n`${{{%pageName%}}}.growthDataTable[0][3] | percent(2) || '--'`}</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[0][2].toFixed(2) || '--'`}元</td>
                 </tr>
                 <tr className={styles.row2}>
-                  <td>{n`${#{pageName}#}.growthDataTable[1][0] > 0` ? '+' : ''}{n`${#{pageName}#}.growthDataTable[1][0] | percent(2) || '--'`}</td>
-                  <td>{n`${#{pageName}#}.growthDataTable[1][1] > 0` ? '+' : ''}{n`${#{pageName}#}.growthDataTable[1][1] | percent(2) || '--'`}</td>
-                  <td>{n`${#{pageName}#}.growthDataTable[1][3] > 0` ? '+' : ''}{n`${#{pageName}#}.growthDataTable[1][3] | percent(2) || '--'`}</td>
-                  <td>{n`${#{pageName}#}.growthDataTable[1][2].toFixed(2) || '--'`}元</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[1][0] > 0` ? '+' : ''}{n`${{{%pageName%}}}.growthDataTable[1][0] | percent(2) || '--'`}</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[1][1] > 0` ? '+' : ''}{n`${{{%pageName%}}}.growthDataTable[1][1] | percent(2) || '--'`}</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[1][3] > 0` ? '+' : ''}{n`${{{%pageName%}}}.growthDataTable[1][3] | percent(2) || '--'`}</td>
+                  <td>{n`${{{%pageName%}}}.growthDataTable[1][2].toFixed(2) || '--'`}元</td>
                 </tr>
               </tbody>
             </table>
@@ -603,7 +603,7 @@ class CategoryCompare extends Component {
       toolbox: { show: false },
       legend: {
         left: 'center',
-        data: toJS(this.props.store.#{pageName}#.pieSubCategoryData && this.props.store.#{pageName}#.pieSubCategoryData[2])
+        data: toJS(this.props.store.{%pageName%}.pieSubCategoryData && this.props.store.{%pageName%}.pieSubCategoryData[2])
       },
       series: this.pieCategoryData
     };
@@ -612,17 +612,17 @@ class CategoryCompare extends Component {
   @computed get pieCategoryData() {
     let _data1 = [],
       _data2 = [];
-    if (this.props.store.#{pageName}#.pieSubCategoryData) {
-      this.props.store.#{pageName}#.pieSubCategoryData[0].forEach((item, i) => {
+    if (this.props.store.{%pageName%}.pieSubCategoryData) {
+      this.props.store.{%pageName%}.pieSubCategoryData[0].forEach((item, i) => {
         _data1.push({
           value: (item / 10000).toFixed(2),
-          name: this.props.store.#{pageName}#.pieSubCategoryData[2][i]
+          name: this.props.store.{%pageName%}.pieSubCategoryData[2][i]
         });
       });
-      this.props.store.#{pageName}#.pieSubCategoryData[1].forEach((item, i) => {
+      this.props.store.{%pageName%}.pieSubCategoryData[1].forEach((item, i) => {
         _data2.push({
           value: (item / 10000).toFixed(2),
-          name: this.props.store.#{pageName}#.pieSubCategoryData[2][i]
+          name: this.props.store.{%pageName%}.pieSubCategoryData[2][i]
         });
       });
     }
@@ -732,7 +732,7 @@ class CategoryCompare extends Component {
           rotate: 30,
           interval: 0
         },
-        data: toJS(this.props.store.#{pageName}#.barSubCategoryData && this.props.store.#{pageName}#.barSubCategoryData[2])
+        data: toJS(this.props.store.{%pageName%}.barSubCategoryData && this.props.store.{%pageName%}.barSubCategoryData[2])
       },
       yAxis: {
         type: 'value',
@@ -764,12 +764,12 @@ class CategoryCompare extends Component {
       {
         name: '属性1',
         type: 'bar',
-        data: toJS(this.props.store.#{pageName}#.barSubCategoryData && this.props.store.#{pageName}#.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
+        data: toJS(this.props.store.{%pageName%}.barSubCategoryData && this.props.store.{%pageName%}.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
       },
       {
         name: '属性2',
         type: 'bar',
-        data: toJS(this.props.store.#{pageName}#.barSubCategoryData && this.props.store.#{pageName}#.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
+        data: toJS(this.props.store.{%pageName%}.barSubCategoryData && this.props.store.{%pageName%}.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
       }
     ];
   };
@@ -781,7 +781,7 @@ class CategoryCompare extends Component {
   };
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
       <div className={styles.categoryCompareWrap}>
@@ -790,7 +790,7 @@ class CategoryCompare extends Component {
           </div>
           <span>Category Compare</span>
         </h3>
-        <If condition={#{pageName}#.showSubCategoryBlock}>
+        <If condition={{{%pageName%}}.showSubCategoryBlock}>
           <div className={styles.subCategoryBlock}>
             <Row className={`${styles.categoryCompare} ${this.currentView == 1 ? styles.showCategoryCompare : ''}`} gutter={30}>
               <Col span={12}>
@@ -836,7 +836,7 @@ class CategoryCompare extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  <Each of={#{pageName}#.tableSubCategoryData}>
+                  <Each of={{{%pageName%}}.tableSubCategoryData}>
                     <tr key={index}>
                       <td><span>{item.rank}</span></td>
                       <td>{item.name}</td>
@@ -1006,22 +1006,22 @@ class BrandCompare extends Component {
   onBrandChecked = item => {
     return (e) => {
       if (e.target.checked) {
-        this.props.store.#{pageName}#.setCompareDockVisible(true);
-        if (this.props.store.#{pageName}#.compareDockData) {
-          if (this.props.store.#{pageName}#.compareDockData.length + 1 < 5) {
-            this.props.store.#{pageName}#.setChecked(item, true);
-            this.props.store.#{pageName}#.setCompareDockData(item);
+        this.props.store.{%pageName%}.setCompareDockVisible(true);
+        if (this.props.store.{%pageName%}.compareDockData) {
+          if (this.props.store.{%pageName%}.compareDockData.length + 1 < 5) {
+            this.props.store.{%pageName%}.setChecked(item, true);
+            this.props.store.{%pageName%}.setCompareDockData(item);
           } else {
             e.target.checked = false;
             Notification.error({ description: '最多可以对比三个品牌', duration: 2 });
           }
         } else {
-          this.props.store.#{pageName}#.setChecked(item, true);
-          this.props.store.#{pageName}#.setCompareDockData(item);
+          this.props.store.{%pageName%}.setChecked(item, true);
+          this.props.store.{%pageName%}.setCompareDockData(item);
         }
       } else {
-        this.props.store.#{pageName}#.setChecked(item, false);
-        this.props.store.#{pageName}#.removeCompareDockData(item);
+        this.props.store.{%pageName%}.setChecked(item, false);
+        this.props.store.{%pageName%}.removeCompareDockData(item);
       }
     };
   };
@@ -1044,21 +1044,21 @@ class BrandCompare extends Component {
   };
 
   closeCompareTable = () => {
-    this.props.store.#{pageName}#.setShowCompareTable(false);
-    this.props.store.#{pageName}#.clearCompareDockData();
+    this.props.store.{%pageName%}.setShowCompareTable(false);
+    this.props.store.{%pageName%}.clearCompareDockData();
   };
 
   onPaging = (page, pageSize) => {
     const closeLoading = message.loading('正在获取数据...', 0);
     Promise.all([
-      this.props.store.#{pageName}#.getBrandCompareList()
+      this.props.store.{%pageName%}.getBrandCompareList()
     ]).then(() => {
       closeLoading();
     });
   };
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
       <div className={styles.brandCompareList}>
@@ -1068,7 +1068,7 @@ class BrandCompare extends Component {
                         option={toJS(this.trendsChartOptions)}
                         notMerge={true} />
         </div>
-        <If condition={#{pageName}#.showCompareTable}>
+        <If condition={{{%pageName%}}.showCompareTable}>
           <div className={styles.compareTable}>
             <div className={styles.compareTableTitle}>
               <span className={styles.compareTableClose} onClick={this.closeCompareTable}>X</span>
@@ -1078,7 +1078,7 @@ class BrandCompare extends Component {
               <thead>
                 <tr>
                   <th>指标1</th>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <th key={index}>{item.brandName}</th>
                   </Each>
                 </tr>
@@ -1086,61 +1086,61 @@ class BrandCompare extends Component {
               <tbody>
                 <tr>
                   <td>指标2</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{n`${item}.salesAmountGrowth | percent(2)`}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标3</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{n`${item}.userGrowth | percent(2)`}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标4</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{n`${item}.uvGrowth | percent(2)`}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标5</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{item.price || '--'}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标6</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{item.salesAmount || '--'}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标7</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{n`${item}.salesAmountRates | percent(2)`}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标8</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{item.userCount || '--'}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标9</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{n`${item}.userCountRates | percent(2)`}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标10</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{item.uv || '--'}</td>
                   </Each>
                 </tr>
                 <tr>
                   <td>指标11</td>
-                  <Each of={#{pageName}#.compareDockData}>
+                  <Each of={{{%pageName%}}.compareDockData}>
                     <td key={index}>{n`${item}.uvRates | percent(2)`}</td>
                   </Each>
                 </tr>
@@ -1149,7 +1149,7 @@ class BrandCompare extends Component {
           </div>
           <Else>
             <div className={styles.brandCompareItemWrap}>
-              <Each of={#{pageName}#.brandCompareList}>
+              <Each of={{{%pageName%}}.brandCompareList}>
                 <Row className={styles.brandCompareItem} key={index}>
                   <span className={styles.rank}>{item.rank}<em></em></span>
                   <Col span={2}>
@@ -1181,7 +1181,7 @@ class BrandCompare extends Component {
                 </Row>
               </Each>
               <div className={styles.paginationWrap}>
-                <Pagination defaultCurrent={1} total={#{pageName}#.brandCompareListTotalCount} onChange={this.onPaging} />
+                <Pagination defaultCurrent={1} total={{{%pageName%}}.brandCompareListTotalCount} onChange={this.onPaging} />
               </div>
             </div>
           </Else>
@@ -1196,31 +1196,31 @@ class BrandCompare extends Component {
 class CompareDock extends Component {
   deleteCompareItem = item => {
     return (e) => {
-      this.props.store.#{pageName}#.removeCompareDockData(item);
-      this.props.store.#{pageName}#.setChecked(item, false);
+      this.props.store.{%pageName%}.removeCompareDockData(item);
+      this.props.store.{%pageName%}.setChecked(item, false);
     };
   };
 
   closeCompareDock = () => {
-    this.props.store.#{pageName}#.setCompareDockVisible(false);
+    this.props.store.{%pageName%}.setCompareDockVisible(false);
   };
 
   compareIt = () => {
-    this.props.store.#{pageName}#.setShowCompareTable(true);
-    this.props.store.#{pageName}#.setCompareDockVisible(false);
+    this.props.store.{%pageName%}.setShowCompareTable(true);
+    this.props.store.{%pageName%}.setCompareDockVisible(false);
   };
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
-      <div className={`${styles.compareDock} ${#{pageName}#.compareDockVisible ? styles.compareDockShow : ''}`}>
+      <div className={`${styles.compareDock} ${{{%pageName%}}.compareDockVisible ? styles.compareDockShow : ''}`}>
         <div className={styles.compareDockTit}>
           <span className={styles.compareDockClose} onClick={this.closeCompareDock}>X</span>
           <span>Compare Dock</span>
         </div>
         <Row>
-          <Each of={#{pageName}#.compareDockData}>
+          <Each of={{{%pageName%}}.compareDockData}>
             <If condition={item.id != 0}>
               <Col span={6} key={index}>
                 <span className={styles.iconDeleteCompareItem} onClick={this.deleteCompareItem(item)}>X</span>

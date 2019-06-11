@@ -45,8 +45,8 @@ const Summary = types.model('Summary', {
   userCountMOM: 0
 });
 
-const #{pageName | capitalize}#Store = types
-  .model('#{pageName | capitalize}#Store', {
+const {%pageName | capitalize%}Store = types
+  .model('{%pageName | capitalize%}Store', {
     summaryData: types.optional(Summary, () => {
       return {
         gmv: 0,
@@ -87,7 +87,7 @@ const #{pageName | capitalize}#Store = types
   }))
   .actions(self => ({
     getSummaryData() {
-      return axios.get(`${__HOST}/#{pageName}#/getSummaryData`)
+      return axios.get(`${__HOST}/{%pageName%}/getSummaryData`)
         .then(self.setSummaryData)
         .catch((ex) => {
           Notification.error({ message: '获取Summary数据错误:' + ex, duration: null });
@@ -133,7 +133,7 @@ const #{pageName | capitalize}#Store = types
       }
     },
     getGrowthData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/growthData`, {
+      return axios.get(`${__HOST}/{%pageName%}/growthData`, {
         params
       })
         .then(self.setGrowthData)
@@ -170,7 +170,7 @@ const #{pageName | capitalize}#Store = types
       }
     },
     getSubCategoryData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getSubCategoryData`, {
+      return axios.get(`${__HOST}/{%pageName%}/getSubCategoryData`, {
         params
       })
         .then(self.setSubCategoryData)
@@ -197,7 +197,7 @@ const #{pageName | capitalize}#Store = types
       }
     },
     getBarSubCategoryData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getBarSubCategoryData`, {
+      return axios.get(`${__HOST}/{%pageName%}/getBarSubCategoryData`, {
         params
       })
         .then(self.setBarSubCategoryData)
@@ -220,7 +220,7 @@ const #{pageName | capitalize}#Store = types
       }
     },
     getTableSubCategoryData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getTableSubCategoryData`, {
+      return axios.get(`${__HOST}/{%pageName%}/getTableSubCategoryData`, {
         params
       })
         .then(self.setTableSubCategoryData)
@@ -237,7 +237,7 @@ const #{pageName | capitalize}#Store = types
       }
     },
     getBrandCompareList(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getBrandCompareList`, {
+      return axios.get(`${__HOST}/{%pageName%}/getBrandCompareList`, {
         params
       })
         .then(self.setBrandCompareList)
@@ -285,7 +285,7 @@ const #{pageName | capitalize}#Store = types
       self.showCompareTable = visible;
     },
     getBrandCompareItemForCategory(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getBrandCompareItemForCategory`, {
+      return axios.get(`${__HOST}/{%pageName%}/getBrandCompareItemForCategory`, {
         params
       })
         .then(self.setBrandCompareItemForCategory)
@@ -331,4 +331,4 @@ const #{pageName | capitalize}#Store = types
     }
   }));
 
-export default #{pageName | capitalize}#Store;
+export default {%pageName | capitalize%}Store;

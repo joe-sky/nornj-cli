@@ -1,4 +1,4 @@
-.#{pageName}# {
+.{%pageName%} {
   background-color: #fff;
   padding: 100px 40px 40px;
 

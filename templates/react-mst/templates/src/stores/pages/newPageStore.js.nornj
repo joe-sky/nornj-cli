@@ -3,8 +3,8 @@ import { observable, toJS } from 'mobx';
 import axios from 'axios';
 import Notification from '../../utils/notification';
 
-const #{pageName | capitalize}#Store = types
-  .model('#{pageName | capitalize}#Store', {
+const {%pageName | capitalize%}Store = types
+  .model('{%pageName | capitalize%}Store', {
     isDisable: types.optional(types.boolean, true),
     activeKey: types.optional(types.string, 'tab1'),
     addModalVisible: false,
@@ -142,7 +142,7 @@ const #{pageName | capitalize}#Store = types
     },
 
     getRoleMenuTree(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getRoleMenuTree`, {
+      return axios.get(`${__HOST}/{%pageName%}/getRoleMenuTree`, {
         params
       })
         .then(self.setRoleMenuTree)
@@ -168,7 +168,7 @@ const #{pageName | capitalize}#Store = types
     },
 
     getRoleManagementData(params) {
-      return axios.get(`${__HOST}/#{pageName}#/getRoleManagementData`, {
+      return axios.get(`${__HOST}/{%pageName%}/getRoleManagementData`, {
         params
       })
         .then(self.setRoleManagementData)
@@ -193,7 +193,7 @@ const #{pageName | capitalize}#Store = types
     },
 
     searchRole(params) {
-      return axios.get(`${__HOST}/#{pageName}#/searchRole`, {
+      return axios.get(`${__HOST}/{%pageName%}/searchRole`, {
         params
       })
         .then(self.setSearchRole)
@@ -218,7 +218,7 @@ const #{pageName | capitalize}#Store = types
     },
 
     saveRole(params) {
-      return axios.post(`${__HOST}/#{pageName}#/saveRole`, params)
+      return axios.post(`${__HOST}/{%pageName%}/saveRole`, params)
         .then(self.setSaveRole)
         .catch((ex) => {
           Notification.error({
@@ -244,7 +244,7 @@ const #{pageName | capitalize}#Store = types
     },
 
     saveRolePermission(params) {
-      return axios.post(`${__HOST}/#{pageName}#/saveRolePermission`, params)
+      return axios.post(`${__HOST}/{%pageName%}/saveRolePermission`, params)
         .then(self.setSaveRolePermission)
         .catch((ex) => {
           Notification.error({
@@ -266,7 +266,7 @@ const #{pageName | capitalize}#Store = types
     },
 
     deleteRole(params) {
-      return axios.post(`${__HOST}/#{pageName}#/deleteRole`, params)
+      return axios.post(`${__HOST}/{%pageName%}/deleteRole`, params)
         .then(self.setDeleteRole)
         .catch((ex) => {
           Notification.error({
@@ -285,4 +285,4 @@ const #{pageName | capitalize}#Store = types
     }
   }));
 
-export default #{pageName | capitalize}#Store;
+export default {%pageName | capitalize%}Store;

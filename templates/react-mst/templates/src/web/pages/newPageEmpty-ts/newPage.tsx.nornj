@@ -15,7 +15,7 @@ const Containter = styled.div`
 
 @inject('store')
 @observer
-export default class #{pageName | capitalize}# extends Component<IProps> {
+export default class {%pageName | capitalize%} extends Component<IProps> {
   constructor(props: IProps) {
     super(props);
   }
@@ -23,11 +23,11 @@ export default class #{pageName | capitalize}# extends Component<IProps> {
   componentDidMount() {}
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
       <Containter>
-        <h2>示例页面 #{pageName}#</h2>
+        <h2>示例页面 {%pageName%}</h2>
         {/*hello code!*/}
       </Containter>
     );

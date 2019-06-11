@@ -1,9 +1,9 @@
-<#-if #{!mobx}#>import { types } from 'mobx-state-tree';
-</#-if>import { observable, toJS, action } from 'mobx';
+<#if {%!mobx%}>import { types } from 'mobx-state-tree';
+</#if>import { observable, toJS, action } from 'mobx';
 import axios from 'axios';
 import Notification from '../../utils/notification';
 
-<#-if #{mobx}#>class #{pageName | capitalize}#Store {
+<#if {%mobx%}>class {%pageName | capitalize%}Store {
   @observable bool = true;
   @observable strs = '';
   @observable arrs: any[] = [];
@@ -11,7 +11,7 @@ import Notification from '../../utils/notification';
 
   @action
   getModData(params: object) {
-    return axios.get(`${__HOST}/#{pageName}#/getModData`, {
+    return axios.get(`${__HOST}/{%pageName%}/getModData`, {
       params
     })
       .then(({ data: result }) => {
@@ -31,8 +31,8 @@ import Notification from '../../utils/notification';
         });
       });
   }
-}<#-else>const #{pageName | capitalize}#Store = types
-  .model('#{pageName | capitalize}#Store', {
+}<#else>const {%pageName | capitalize%}Store = types
+  .model('{%pageName | capitalize%}Store', {
     bool: types.optional(types.boolean, true),
     strs: types.optional(types.string, ''),
     arrs: types.optional(types.array(types.string), []),
@@ -42,12 +42,12 @@ import Notification from '../../utils/notification';
   }))
   .views(self => ({}))
   .actions(_self => {
-    const self = _self as typeof #{pageName | capitalize}#Store.Type;
+    const self = _self as typeof {%pageName | capitalize%}Store.Type;
     return {
       afterCreate() {},
   
       getModData(params: object) {
-        return axios.get(`${__HOST}/#{pageName}#/getModData`, {
+        return axios.get(`${__HOST}/{%pageName%}/getModData`, {
           params
         })
           .then(self.setModData)
@@ -70,6 +70,6 @@ import Notification from '../../utils/notification';
         }
       }
     };
-  });</#-else></#-if>
+  });</#else></#if>
 
-export default #{pageName | capitalize}#Store;
+export default {%pageName | capitalize%}Store;

@@ -13,14 +13,14 @@ import {
   message
 } from 'nornj-react/antd';
 import Notification from '../../../utils/notification';
-import styles from './#{pageName}#.m.scss';
+import styles from './{%pageName%}.m.scss';
 
 @inject('store')
 @observer
 export default class ModalDetailPage extends Component {
   onDetailModalCancel = () => {
-    const { store: { #{pageName}# } } = this.props;
-    #{pageName}#.setDetailModalVisible(false);
+    const { store: { {%pageName%} } } = this.props;
+    {%pageName%}.setDetailModalVisible(false);
   };
 
   @computed get detailColumns() {
@@ -49,11 +49,11 @@ export default class ModalDetailPage extends Component {
   }
 
   render() {
-    const { store: { #{pageName}# } } = this.props;
+    const { store: { {%pageName%} } } = this.props;
 
     return (
-      <Modal width={800} visible={#{pageName}#.detailModalVisible} footer={null} onCancel={this.onDetailModalCancel} title={<div className={styles.modalTitle}>用户明细</div>}>
-        <Table pagination={true} columns={toJS(this.detailColumns)} dataSource={toJS(#{pageName}#.detailData)} rowKey={(record, index) => `${record.key}-${index}`} bordered />
+      <Modal width={800} visible={{{%pageName%}}.detailModalVisible} footer={null} onCancel={this.onDetailModalCancel} title={<div className={styles.modalTitle}>用户明细</div>}>
+        <Table pagination={true} columns={toJS(this.detailColumns)} dataSource={toJS({%pageName%}.detailData)} rowKey={(record, index) => `${record.key}-${index}`} bordered />
       </Modal>
     );
   }
