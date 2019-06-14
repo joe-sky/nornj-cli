@@ -23,9 +23,8 @@ nj init
 
 # 请按上下键选择项目模板
 Please select a project template:
-> react-mst-universal
+> react-mst
   react-mst-app
-  react-mst
   react-mobx
   other
 
@@ -91,12 +90,8 @@ Store Name: storeName
 
 | 名称           | 描述                      | 模板源码地址                |
 |:---------------|:-------------------------|:--------------------------|
-| react-mst-universal      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-jsx`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)</li><li>预置`eslint`、`stylelint`、`prettier`，可在格式化时对代码风格进行自动检查并修复</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
+| react-mst      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-jsx`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)</li><li>预置`eslint`、`stylelint`、`prettier`，可在格式化时对代码风格进行自动检查并修复</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
 | react-mst-app      | `react-mst-universal`的h5版，配置同上 | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-app |
-| react-mst      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`NornJ`</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst |
-| react-mobx     | 基于React+Mobx的多页面项目 | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mobx |
-| joe-sky/react-mobx-html     | 基于React+Mobx的多页面项目(html版) | https://github.com/joe-sky/react-mobx-html |
-| joe-sky/react-mobx-ftl     | 基于React+Mobx的多页面项目(FreeMarker版) | https://github.com/joe-sky/react-mobx-ftl |
 
 #### 使用自定义模板
 
@@ -109,7 +104,6 @@ nj init
 
 # 请按上下键选择项目模板
 Please select a project template:
-  react-mst-universal
   react-mst-app
   react-mst
   react-mobx
@@ -131,22 +125,6 @@ nj -v
 nj upgrade  # 更新cli版本到最新版
 ```
 
-#### 安装npm包
-
-与`npm install`相同，区别在于部署在私服上的包会自动从私服安装：
-
-```sh
-nj install  # 或nj i
-```
-
-#### 更新npm包
-
-与`npm update`相同，区别在于部署在私服上的包会自动从私服更新：
-
-```sh
-nj update  # 或nj up
-```
-
 ### 可选择使用npm国内镜像
 
 当网络访问npm比较慢时，可选择使用`npm国内镜像`来安装。方法为在各命令后添加`--cnpm`参数：
@@ -154,8 +132,6 @@ nj update  # 或nj up
 ```sh
 nj init --cnpm
 nj upgrade --cnpm
-nj install --cnpm
-nj update --cnpm
 ```
 
 ### 相关文档

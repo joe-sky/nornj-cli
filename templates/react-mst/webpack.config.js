@@ -1,4 +1,4 @@
-﻿const webpack = require('webpack'),
+const webpack = require('webpack'),
   path = require('path'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
@@ -13,14 +13,14 @@ const isLocal = process.env.Project == 'local';
 const isRemote = process.env.Remote == 'true';
 const useBrowser = process.env.BROWSER != 'none';
 const pxToRem = require('postcss-pxtorem');
-const VERSION = '20180829';
+const VERSION = '20190613';
 const modifyVars = Object.assign({});
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
     vendor: [
-      './src/utils/vendorIndex.js',
+      './src/utils/polyfills.js',
       'react',
       'react-dom',
       'react-router',
@@ -28,13 +28,11 @@ module.exports = {
       'mobx-react',
       'mobx-state-tree',
       'nornj',
-      'nornj-react',
-      'core-decorators'
+      'nornj-react'
     ],
     app: [
-      './src/utils/vendorIndex.js',
       'react-hot-loader/patch',
-      path.resolve(__dirname, './app-' + (!isLocal ? process.env.Project : 'web') + '.js')
+      path.resolve(__dirname, './src/main.js')
     ]
   },
   output: {
@@ -46,7 +44,7 @@ module.exports = {
   resolve: {
     alias: {
       'react/lib/Object.assign': 'object-assign',
-      nornj: 'nornj/dist/nornj.runtime.common'
+      'react-dom': '@hot-loader/react-dom'
     },
     extensions: ['.web.js', '.ts', '.tsx', '.js', '.jsx', '.css', '.scss', '.less']
   },
@@ -92,7 +90,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.template(-[\s\S]+)*\.nj\.html(\?[\s\S]+)*$/,
+        test: /\.nj\.html(\?[\s\S]+)*$/,
         use: [
           {
             loader: 'nornj-loader'
@@ -255,7 +253,7 @@ module.exports.plugins = [
   }),
   new HtmlWebpackPlugin({
     filename: process.env.Project + '/index.html',
-    template: './index.template-' + (!isLocal ? process.env.Project : 'web') + '.nj.html',
+    template: './index.nj.html',
     inject: 'true',
     // chunks: ['vendor', 'styles', 'app'],
     path: isProd || isTest ? (!isLocal ? process.env.Project + '/' : '') : `/dist/${process.env.Project}/`
@@ -269,13 +267,13 @@ module.exports.plugins = [
       NODE_ENV: JSON.stringify(isProd ? 'production' : 'development')
     }
   }),
-  new CopyWebpackPlugin([
-    {
-      context: './src/vendor/',
-      from: '*',
-      to: path.join(__dirname, '/dist/' + process.env.Project + '/js/')
-    }
-  ]),
+  // new CopyWebpackPlugin([
+  //   {
+  //     context: './src/vendor/',
+  //     from: '*',
+  //     to: path.join(__dirname, '/dist/' + process.env.Project + '/js/')
+  //   }
+  // ]),
   new MiniCssExtractPlugin({
     filename: process.env.Project + `/css/${VERSION}/[name].css`,
     chunkFilename: process.env.Project + `/css/${VERSION}/[name].css`

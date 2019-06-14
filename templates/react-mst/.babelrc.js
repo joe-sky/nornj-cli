@@ -53,7 +53,12 @@ module.exports = {
     [
       'nornj-in-jsx',
       {
-        imports: ['nornj-react/antd']
+        imports: ['nornj-react/antd'],
+        extensionConfig: {
+          switch: {
+            needPrefix: 'onlyUpperCase'
+          }
+        }
       }
     ],
     '@babel/plugin-syntax-import-meta',

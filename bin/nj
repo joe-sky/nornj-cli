@@ -55,24 +55,6 @@ program
     require('../lib/upgrade')();
   });
 
-program
-  .command('install')
-  .description('Install npm packages')
-  .option('--cnpm', CNPM_DESCRIPTION)
-  .alias('i')
-  .action(() => {
-    require('../lib/install')();
-  });
-
-program
-  .command('update')
-  .description('Update npm packages')
-  .option('--cnpm', CNPM_DESCRIPTION)
-  .alias('up')
-  .action(() => {
-    require('../lib/install')('update');
-  });
-
 program.parse(process.argv);
 
 if (!program.args.length) {

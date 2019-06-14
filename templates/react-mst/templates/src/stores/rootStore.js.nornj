@@ -1,4 +1,4 @@
-﻿<#template name="importStore">
+<#template name="importStore">
 import {%pageName | capitalize%}Store from './pages/{%pageName%}Store';
 //{importStore}//
 </#template>
