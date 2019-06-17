@@ -24,7 +24,7 @@ import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/pie';
 import graphic from 'echarts/lib/util/graphic';
 import Notification from '../../../utils/notification';
-import styles from './{%pageName%}.m.scss';
+import styles from './{%pageName | capitalize%}.m.less';
 
 @inject('store')
 @observer

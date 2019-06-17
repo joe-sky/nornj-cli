@@ -13,7 +13,7 @@ import {
   message
 } from 'nornj-react/antd';
 import Notification from '../../../utils/notification';
-import styles from './{%pageName%}.m.scss';
+import styles from './{%pageName | capitalize%}.m.scss';
 
 @inject('store')
 @observer

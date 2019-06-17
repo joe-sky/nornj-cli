@@ -14,9 +14,9 @@ import {
   message
 } from 'nornj-react/antd';
 import Notification from '../../../utils/notification';
-import styles from './{%pageName%}.m.scss';
-import ModalFormPage from './modalFormPage';
-import ModalDetailPage from './modalDetailPage';
+import styles from './{%pageName | capitalize%}.m.less';
+import ModalFormPage from './ModalFormPage';
+import ModalDetailPage from './ModalDetailPage';
 
 @inject('store')
 @observer
@@ -62,7 +62,7 @@ export default class {%pageName | capitalize%} extends Component {
   onDeleteRole = () => {
     const { store: { {%pageName%} } } = this.props;
     if (this.selectedRowKeys.length == 0) {
-      Notification.error({ description: '请勾选要删除的角色！', duration: 3 });
+      Notification.error({ message: '请勾选要删除的角色！', duration: 3 });
     } else {
       Modal.confirm({
         title: '你确认要删除角色吗？',

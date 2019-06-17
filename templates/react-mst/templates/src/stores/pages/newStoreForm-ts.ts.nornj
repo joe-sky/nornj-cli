@@ -1,10 +1,10 @@
 <#if {%!mobx%}>import { types } from 'mobx-state-tree';
 </#if>import { observable, computed, action, toJS } from 'mobx';
-import axios from 'axios';
-import Notification from '../../utils/notification';
+import BaseStore from '../base.{%mobx ? 'store' : 'mst'%}';
+import * as api from '../../services/pages/{%pageName%}';
 import moment from 'moment';
 
-<#if {%mobx%}>class {%pageName | capitalize%}Store {
+<#if {%mobx%}>class {%pageName | capitalize%}Store extends BaseStore {
   @observable antInputValue = '示例数据';
   @observable antSelectValue = '1';
   @observable antRadioValue = '2';
@@ -24,6 +24,7 @@ import moment from 'moment';
       formEl5: this.elDate
     };
   }
+  @observable modData: any = null;
 
   @action
   setElInputValue(v: string) {
@@ -49,8 +50,20 @@ import moment from 'moment';
   setElDate(v: moment.Moment) {
     this.elDate = v;
   }
-}<#else>const {%pageName | capitalize%}Store = types
-  .model('{%pageName | capitalize%}Store', {
+
+  @action
+  getModData(params: object) {
+    return api.getModData(params).then((res: ServiceResponse) =>
+      this.receiveResponse(() => {
+        if (res.data.success) {
+          this.modData = res.data.data;
+        }
+        return res;
+      })
+    );
+  }
+}<#else>const {%pageName | capitalize%}Store = BaseStore.named('{%pageName | capitalize%}Store')
+  .props({
     antInputValue: '示例数据',
     antSelectValue: '1',
     antRadioValue: '2',
@@ -81,17 +94,32 @@ import moment from 'moment';
       setElInputValue(v: string) {
         self.elInputValue = v;
       },
+
       setElSelectValue(v: string) {
         self.elSelectValue = v;
       },
+
       setElRadioValue(v: string) {
         self.elRadioValue = v;
       },
+
       setElCheckboxValue(v: string[]) {
         self.elCheckboxValue = v;
       },
+
       setElDate(v: moment.Moment) {
         self.elDate = v;
+      },
+      
+      getModData(params: object) {
+        return api.getModData(params).then((res: ServiceResponse) =>
+          self.receiveResponse(() => {
+            if (res.data.success) {
+              self.modData = res.data.data;
+            }
+            return res;
+          })
+        );
       }
     };
   });</#else></#if>

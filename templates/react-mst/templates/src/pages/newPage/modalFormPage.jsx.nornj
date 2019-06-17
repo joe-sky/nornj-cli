@@ -13,7 +13,7 @@ import {
   message
 } from 'nornj-react/antd';
 import Notification from '../../../utils/notification';
-import styles from './{%pageName%}.m.scss';
+import styles from './{%pageName | capitalize%}.m.less';
 
 @inject('store')
 @observer
@@ -92,7 +92,7 @@ export default class ModalFormPage extends Component {
     const { store: { {%pageName%} } } = this.props;
 
     if ({%pageName%}.addInputRole.trim() == '') {
-      Notification.error({ description: '请输入角色名称！', duration: 1 });
+      Notification.error({ message: '请输入角色名称！', duration: 1 });
     } else {
       const closeLoading = message.loading('正在获取数据...', 0);
       let params = {

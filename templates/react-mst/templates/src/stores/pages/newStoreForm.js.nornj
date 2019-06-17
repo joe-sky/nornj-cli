@@ -1,9 +1,9 @@
 <#if {%!mobx%}>import { types } from 'mobx-state-tree';
 </#if>import { observable, computed, action, toJS } from 'mobx';
-import axios from 'axios';
-import Notification from '../../utils/notification';
+import BaseStore from '../base.{%mobx ? 'store' : 'mst'%}';
+import * as api from '../../services/pages/{%pageName%}';
 
-<#if {%mobx%}>class {%pageName | capitalize%}Store {
+<#if {%mobx%}>class {%pageName | capitalize%}Store extends BaseStore {
   @observable antInputValue = '示例数据';
   @observable antSelectValue = '1';
   @observable antRadioValue = '2';
@@ -23,6 +23,7 @@ import Notification from '../../utils/notification';
       formEl5: this.elDate
     };
   }
+  @observable modData = null;
 
   @action
   setElInputValue(v) {
@@ -48,8 +49,20 @@ import Notification from '../../utils/notification';
   setElDate(v) {
     this.elDate = v;
   }
-}<#else>const {%pageName | capitalize%}Store = types
-  .model('{%pageName | capitalize%}Store', {
+
+  @action
+  getModData(params) {
+    return api.getModData(params).then(res =>
+      this.receiveResponse(() => {
+        if (res.data.success) {
+          this.modData = res.data.data;
+        }
+        return res;
+      })
+    );
+  }
+}<#else>const {%pageName | capitalize%}Store = BaseStore.named('{%pageName | capitalize%}Store')
+  .props({
     antInputValue: '示例数据',
     antSelectValue: '1',
     antRadioValue: '2',
@@ -78,17 +91,32 @@ import Notification from '../../utils/notification';
     setElInputValue(v) {
       self.elInputValue = v;
     },
+
     setElSelectValue(v) {
       self.elSelectValue = v;
     },
+
     setElRadioValue(v) {
       self.elRadioValue = v;
     },
+
     setElCheckboxValue(v) {
       self.elCheckboxValue = v;
     },
+
     setElDate(v) {
       self.elDate = v;
+    },
+
+    getModData(params) {
+      return api.getModData(params).then(res =>
+        self.receiveResponse(() => {
+          if (res.data.success) {
+            self.modData = res.data.data;
+          }
+          return res;
+        })
+      );
     }
   }));</#else></#if>
 

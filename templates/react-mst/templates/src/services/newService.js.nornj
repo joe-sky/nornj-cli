@@ -1,0 +1,9 @@
+import axios from '../utils/axios';
+
+export async function getModData() {
+  return axios({
+    url: '{%storeName%}/getModData',
+    method: 'get',
+    errorTitle: '获取数据'
+  });
+}

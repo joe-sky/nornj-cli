@@ -1,0 +1,51 @@
+<#if {%!mobx%}>import { types } from 'mobx-state-tree';
+</#if>import { observable, toJS, action } from 'mobx';
+import BaseStore from '../base.{%mobx ? 'store' : 'mst'%}';
+import * as api from '../../services/pages/{%pageName%}';
+
+<#if {%mobx%}>class {%pageName | capitalize%}Store extends BaseStore {
+  @observable bool = true;
+  @observable strs = '';
+  @observable arrs: any[] = [];
+  @observable modData: any = null;
+
+  @action
+  getModData(params: object) {
+    return api.getModData(params).then((res: ServiceResponse) =>
+      this.receiveResponse(() => {
+        if (res.data.success) {
+          this.modData = res.data.data;
+        }
+        return res;
+      })
+    );
+  }
+}<#else>const {%pageName | capitalize%}Store = BaseStore.named('{%pageName | capitalize%}Store')
+  .props({
+    bool: types.optional(types.boolean, true),
+    strs: types.optional(types.string, ''),
+    arrs: types.optional(types.array(types.string), []),
+  })
+  .volatile(self => ({
+    modData: null,
+  }))
+  .views(self => ({}))
+  .actions(_self => {
+    const self = _self as typeof {%pageName | capitalize%}Store.Type;
+    return {
+      afterCreate() {},
+  
+      getModData(params: object) {
+        return api.getModData(params).then((res: ServiceResponse) =>
+          self.receiveResponse(() => {
+            if (res.data.success) {
+              self.modData = res.data.data;
+            }
+            return res;
+          })
+        );
+      }
+    };
+  });</#else></#if>
+
+export default {%pageName | capitalize%}Store;

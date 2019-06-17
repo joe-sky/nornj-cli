@@ -1,0 +1,10 @@
+import axios from '../../utils/axios';
+
+export async function getModData(params) {
+  return axios({
+    url: '{%pageName%}/getModData',
+    method: 'get',
+    params,
+    errorTitle: '获取数据'
+  });
+}

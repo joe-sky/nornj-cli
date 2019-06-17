@@ -1,11 +1,11 @@
 import { types } from 'mobx-state-tree';
-import { CommonStore } from './commonStore';
-import HeaderStore from './headerStore';
-import SiderStore from './siderStore';
-import DefaultExampleStore from './pages/defaultExampleStore';
-import ChartExampleStore from './pages/chartExampleStore';
-import FormExampleStore from './pages/formExampleStore';
-import EmptyExampleStore from './pages/emptyExampleStore';
+import CommonStore from './common.mst';
+import HeaderStore from './header.mst';
+import SiderStore from './sider.mst';
+import DefaultExampleStore from './pages/defaultExample.mst';
+import ChartExampleStore from './pages/chartExample.mst';
+import FormExampleStore from './pages/formExample.store';
+import EmptyExampleStore from './pages/emptyExample.mst';
 //{importStore}//
 
 // prettier-ignore
@@ -87,8 +87,8 @@ const RootStore = types.model('RootStore', {
               {
                 type: 'item',
                 level: 3,
-                link: '/Test5000',
-                index: 'Test5000',
+                link: '/Test10000',
+                index: 'Test10000',
                 name: '页面5'
               },
               {

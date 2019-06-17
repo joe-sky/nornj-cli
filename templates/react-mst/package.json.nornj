@@ -146,7 +146,7 @@
     "mobx-react": "^6.0.2",
     "mobx-react-lite": "^1.4.0",
     "mobx-state-tree": "^3.14.0",
-    "nornj": "^5.0.0-rc.14",
+    "nornj": "^5.0.0-rc.15",
     "nornj-loader": "^5.0.0-rc.2",
     "nornj-react": "^5.0.0-rc.13",
     "react": "^16.8.6",

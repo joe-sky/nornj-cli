@@ -1,5 +1,5 @@
 <#template name="importStore">
-import {%pageName | capitalize%}Store from './pages/{%pageName%}Store';
+import {%pageName | capitalize%}Store from './pages/{%pageName%}.{%mobx ? 'store' : 'mst'%}';
 //{importStore}//
 </#template>
 

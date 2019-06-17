@@ -1,0 +1,63 @@
+import axios from '../../utils/axios';
+
+export async function getSummaryData() {
+  return axios({
+    url: '{%pageName%}/getSummaryData',
+    method: 'get',
+    errorTitle: '获取Summary数据'
+  });
+}
+
+export async function getGrowthData(params) {
+  return axios({
+    url: '{%pageName%}/growthData',
+    method: 'get',
+    params,
+    errorTitle: '获取Growth数据'
+  });
+}
+
+export async function getSubCategoryData(params) {
+  return axios({
+    url: '{%pageName%}/getSubCategoryData',
+    method: 'get',
+    params,
+    errorTitle: '获取SubCategory数据'
+  });
+}
+
+export async function getBarSubCategoryData(params) {
+  return axios({
+    url: '{%pageName%}/getBarSubCategoryData',
+    method: 'get',
+    params,
+    errorTitle: '获取BarSubCategory数据'
+  });
+}
+
+export async function getTableSubCategoryData(params) {
+  return axios({
+    url: '{%pageName%}/getTableSubCategoryData',
+    method: 'get',
+    params,
+    errorTitle: '获取TableSubCategory数据'
+  });
+}
+
+export async function getBrandCompareList(params) {
+  return axios({
+    url: '{%pageName%}/getBrandCompareList',
+    method: 'get',
+    params,
+    errorTitle: '获取BrandCompare数据'
+  });
+}
+
+export async function getBrandCompareItemForCategory(params) {
+  return axios({
+    url: '{%pageName%}/getBrandCompareItemForCategory',
+    method: 'get',
+    params,
+    errorTitle: '获取BrandCompareItemForCategory数据'
+  });
+}

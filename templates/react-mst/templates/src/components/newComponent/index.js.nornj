@@ -1,2 +1,1 @@
-import comp from './{%componentName | capitalize%}.jsx';
-export default comp;
+export { default } from './{%componentName | capitalize%}';

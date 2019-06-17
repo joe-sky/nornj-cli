@@ -1,8 +1,4 @@
-@mixin ellipsis {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
+@import '../../assets/common.less';
 
 .{%pageName%} {
   padding-top: 60px;
@@ -67,14 +63,14 @@
 
         .field {
           color: #999;
-          @include ellipsis;
+          .ellipsis;
         }
 
         .num {
           font-size: 20px;
           text-align: center;
           padding: 10px 0;
-          @include ellipsis;
+          .ellipsis;
         }
 
         .rates {
@@ -339,7 +335,7 @@
             &:nth-of-type(3) {
               color: #999;
               font-size: 12px;
-              @include ellipsis;
+              .ellipsis;
 
               .brandText {
                 font-size: 22px;
@@ -349,7 +345,7 @@
 
             &:nth-of-type(4) {
               text-align: center;
-              @include ellipsis;
+              .ellipsis;
 
               & > div {
                 padding: 4px 0;

@@ -1,9 +1,9 @@
 <#if {%!mobx%}>import { types } from 'mobx-state-tree';
 </#if>import { observable, toJS, action } from 'mobx';
-import BaseStore from './base.{%mobx ? 'store' : 'mst'%}';
-import * as api from '../services/{%storeName%}';
+import BaseStore from '../base.{%mobx ? 'store' : 'mst'%}';
+import * as api from '../../services/pages/{%pageName%}';
 
-<#if {%mobx%}>class {%storeName | capitalize%}Store extends BaseStore {
+<#if {%mobx%}>class {%pageName | capitalize%}Store extends BaseStore {
   @observable bool = true;
   @observable strs = '';
   @observable arrs = [];
@@ -20,7 +20,7 @@ import * as api from '../services/{%storeName%}';
       })
     );
   }
-}<#else>const {%storeName | capitalize%}Store = BaseStore.named('{%storeName | capitalize%}Store')
+}<#else>const {%pageName | capitalize%}Store = BaseStore.named('{%pageName | capitalize%}Store')
   .props({
     bool: types.optional(types.boolean, true),
     strs: types.optional(types.string, ''),
@@ -45,4 +45,4 @@ import * as api from '../services/{%storeName%}';
     }
   }));</#else></#if>
 
-export default {%storeName | capitalize%}Store;
+export default {%pageName | capitalize%}Store;

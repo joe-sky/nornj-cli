@@ -1,9 +1,9 @@
 import { observable, computed, action, toJS } from 'mobx';
-import axios from 'axios';
-import Notification from '../../utils/notification';
+import BaseStore from '../base.store';
+import * as api from '../../services/pages/formExample';
 import moment from 'moment';
 
-class FormExampleStore {
+class FormExampleStore extends BaseStore {
   @observable antInputValue = '示例数据';
   @observable antSelectValue = '1';
   @observable antRadioValue = '2';
@@ -23,6 +23,7 @@ class FormExampleStore {
       formEl5: this.elDate
     };
   }
+  @observable modData: any = null;
 
   @action
   setElInputValue(v: string) {
@@ -47,6 +48,18 @@ class FormExampleStore {
   @action
   setElDate(v: moment.Moment) {
     this.elDate = v;
+  }
+
+  @action
+  getModData(params: object) {
+    return api.getModData(params).then((res: ServiceResponse) =>
+      this.receiveResponse(() => {
+        if (res.data.success) {
+          this.modData = res.data.data;
+        }
+        return res;
+      })
+    );
   }
 }
 

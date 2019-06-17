@@ -75,7 +75,8 @@ app.post('/common/getCurrentUserInfo', function(req, res) {
     data: {
       "pin": "testUser",
       "name": "testUser",
-    }
+    },
+    success: true
   });
 
   res.send(ret);

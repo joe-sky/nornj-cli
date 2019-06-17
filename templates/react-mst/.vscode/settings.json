@@ -1,4 +1,6 @@
 {
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,

@@ -62,7 +62,7 @@ export default class DefaultExample extends Component {
   onDeleteRole = () => {
     const { store: { defaultExample } } = this.props;
     if (this.selectedRowKeys.length == 0) {
-      Notification.error({ description: '请勾选要删除的角色！', duration: 3 });
+      Notification.error({ message: '请勾选要删除的角色！', duration: 3 });
     } else {
       Modal.confirm({
         title: '你确认要删除角色吗？',

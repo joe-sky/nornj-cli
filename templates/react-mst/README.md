@@ -22,4 +22,4 @@ npm e2e                   #运行e2e测试
 
 然后使用`npm run dev-remote`启动调试，然后在项目源码中的`__Remote`变量会设置为`true`。可使用它来切换使用`后端服务器接口`或`本地mock server`，[具体代码可看这里](https://github.com/joe-sky/nornj-cli/blob/master/templates/react-mst-universal/src/stores/pages/page1Store.js#L171)。
 
-#{learningGuide}#
+{{%learningGuide%}}
