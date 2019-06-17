@@ -1,0 +1,10 @@
+[
+  "react-mst",
+  {
+    "name": "react-mst",
+    "alias": "react-mobx",
+    "mobx": true
+  },
+  "react-mst-app",
+  "other"
+]
