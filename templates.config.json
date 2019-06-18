@@ -1,10 +1,10 @@
 [
   "react-mst",
-  {
-    "name": "react-mst",
-    "alias": "react-mobx",
-    "mobx": true
-  },
   "react-mst-app",
+  {
+    "name": "nornj",
+    "downloadUrl": "https://npm.taobao.org/package/nornj",
+    "downloadMode": "cnpm"
+  },
   "other"
 ]
