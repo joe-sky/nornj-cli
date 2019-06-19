@@ -1,10 +1,5 @@
 [
   "react-mst",
   "react-mst-app",
-  {
-    "name": "nornj",
-    "downloadUrl": "https://npm.taobao.org/package/nornj",
-    "downloadMode": "cnpm"
-  },
   "other"
 ]
