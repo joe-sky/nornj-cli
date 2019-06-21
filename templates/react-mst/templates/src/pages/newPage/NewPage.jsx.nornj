@@ -143,9 +143,9 @@ export default class {%pageName | capitalize%} extends Component {
 
     return (
       <div className={styles.{%pageName%}}>
-        <h2>角色管理 {%pageName%}</h2>
+        <h2>{n`intl('roleManage')`} {%pageName%}</h2>
         <div className={styles.handlerBox}>
-          <span className={styles.label}>角色名称</span>
+          <span className={styles.label}>{n`intl('roleName')`}</span>
           <Input className={styles.input} n-mobxBind={this.inputRole} />
           <Button className="btn" onClick={this.onSearch}>查询</Button>
           <Button className="btn" onClick={this.onAddRole}>新增</Button>
