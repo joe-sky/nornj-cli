@@ -183,6 +183,9 @@
     "templateType": "single-page",
     "jest": {%jest ? 'true' : 'false'%},
     "e2e": {%puppeteer ? 'true' : 'false'%},
+    "templateData": {
+      {%mobxRoot ? '"mobxRoot": true' : ''%}
+    },
     "pageTemplates": [
       "default",
       "chart",

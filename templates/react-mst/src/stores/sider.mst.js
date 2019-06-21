@@ -1,4 +1,4 @@
-import { types, getParent } from 'mobx-state-tree';
+import { types, getParent, getEnv } from 'mobx-state-tree';
 import Notification from '../utils/notification';
 
 const MenuItem = types
@@ -33,7 +33,7 @@ const SiderStore = types
   })
   .views(self => ({
     get root() {
-      return getParent(self);
+      return getEnv(self).root || getParent(self);
     },
     get currentMenuData() {
       return self.menuData.length ? self.menuData[self.root.header.current].children : [];
