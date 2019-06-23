@@ -53,7 +53,7 @@ export default class {%componentName | capitalize%} extends Component {
       </Containter>
     );
   }
-}<#else useString>const {%componentName | capitalize%} = props => {
+}<#else>const {%componentName | capitalize%} = props => {
   const view = useLocalStore(() => ({
     inputValue: '',
     textValue: '{%componentName | capitalize%}',
