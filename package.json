@@ -1,13 +1,13 @@
 {
   "name": "nornj-cli",
-  "version": "0.5.0-alpha.5",
+  "version": "0.5.0-alpha.8",
   "description": "The CLI for scaffolding NornJ template projects, and do more things",
   "bin": {
     "nj": "bin/nj"
   },
   "files": [
     "bin/",
-    "docs/",
+    "docs/learningGuide.md",
     "lib/",
     "templates/sourceFiles/",
     "templates.config.json",
@@ -20,7 +20,9 @@
     "format": "prettier-eslint --write lib/**/*.js",
     "format-css-react-mst": "prettier-stylelint --write templates/react-mst/src/**/*.{css,less,scss}",
     "format-js-react-mst": "prettier-eslint --write templates/react-mst/**/*.{js,jsx}",
-    "format-react-mst": "npm run format-css-react-mst && npm run format-js-react-mst"
+    "format-react-mst": "npm run format-css-react-mst && npm run format-js-react-mst",
+    "docs": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -63,6 +65,7 @@
     "prettier-eslint-cli": "^4.7.1",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^9.2.1",
-    "stylelint-config-standard": "^18.2.0"
+    "stylelint-config-standard": "^18.2.0",
+    "vuepress": "^1.0.2"
   }
 }
