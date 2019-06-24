@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UI API | NornJ CLI</title>
+    <meta name="description" content="🛠️ Scaffolding Tool based on NornJ Template Engine">
+    <link rel="icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.084fca0d.css" as="style"><link rel="preload" href="/assets/js/app.6975f63b.js" as="script"><link rel="preload" href="/assets/js/3.044bb90b.js" as="script"><link rel="preload" href="/assets/js/21.07063763.js" as="script"><link rel="prefetch" href="/assets/js/10.0a4d3748.js"><link rel="prefetch" href="/assets/js/11.d332eca7.js"><link rel="prefetch" href="/assets/js/12.b6a29bd2.js"><link rel="prefetch" href="/assets/js/13.073b43c7.js"><link rel="prefetch" href="/assets/js/14.0ac84778.js"><link rel="prefetch" href="/assets/js/15.7854e7ba.js"><link rel="prefetch" href="/assets/js/16.f212924f.js"><link rel="prefetch" href="/assets/js/17.37902f37.js"><link rel="prefetch" href="/assets/js/18.f78ba2ec.js"><link rel="prefetch" href="/assets/js/19.adbcf871.js"><link rel="prefetch" href="/assets/js/20.dbae6c26.js"><link rel="prefetch" href="/assets/js/22.e4fde42c.js"><link rel="prefetch" href="/assets/js/23.9fcf5d1e.js"><link rel="prefetch" href="/assets/js/24.802387f6.js"><link rel="prefetch" href="/assets/js/25.5b410f74.js"><link rel="prefetch" href="/assets/js/26.c4ad5084.js"><link rel="prefetch" href="/assets/js/27.b1233d47.js"><link rel="prefetch" href="/assets/js/28.1f5e218b.js"><link rel="prefetch" href="/assets/js/29.4c7358dc.js"><link rel="prefetch" href="/assets/js/30.80a2b130.js"><link rel="prefetch" href="/assets/js/31.6871cab6.js"><link rel="prefetch" href="/assets/js/32.f970b06a.js"><link rel="prefetch" href="/assets/js/33.9fcda592.js"><link rel="prefetch" href="/assets/js/34.e736b311.js"><link rel="prefetch" href="/assets/js/35.2b444282.js"><link rel="prefetch" href="/assets/js/36.b5d3db4f.js"><link rel="prefetch" href="/assets/js/37.ad199bee.js"><link rel="prefetch" href="/assets/js/38.fbfa272a.js"><link rel="prefetch" href="/assets/js/39.0bb56207.js"><link rel="prefetch" href="/assets/js/4.1977180c.js"><link rel="prefetch" href="/assets/js/40.3560ece0.js"><link rel="prefetch" href="/assets/js/41.e22bfb41.js"><link rel="prefetch" href="/assets/js/42.1efc12ce.js"><link rel="prefetch" href="/assets/js/43.f8918937.js"><link rel="prefetch" href="/assets/js/44.f2dbff78.js"><link rel="prefetch" href="/assets/js/45.be3e8f82.js"><link rel="prefetch" href="/assets/js/46.966c5906.js"><link rel="prefetch" href="/assets/js/47.2eed340f.js"><link rel="prefetch" href="/assets/js/48.0c213771.js"><link rel="prefetch" href="/assets/js/49.85af6ff5.js"><link rel="prefetch" href="/assets/js/5.a60171ae.js"><link rel="prefetch" href="/assets/js/50.5def39c8.js"><link rel="prefetch" href="/assets/js/51.23c90d3a.js"><link rel="prefetch" href="/assets/js/52.df5b773f.js"><link rel="prefetch" href="/assets/js/53.9165aa40.js"><link rel="prefetch" href="/assets/js/54.91f3f8b9.js"><link rel="prefetch" href="/assets/js/55.46b97f76.js"><link rel="prefetch" href="/assets/js/56.8b9d0651.js"><link rel="prefetch" href="/assets/js/57.229a5a7e.js"><link rel="prefetch" href="/assets/js/58.9759608c.js"><link rel="prefetch" href="/assets/js/59.6e59901e.js"><link rel="prefetch" href="/assets/js/6.0d9aa54c.js"><link rel="prefetch" href="/assets/js/60.31dbd40d.js"><link rel="prefetch" href="/assets/js/61.c67a92b0.js"><link rel="prefetch" href="/assets/js/62.efc936b2.js"><link rel="prefetch" href="/assets/js/63.d39ac98c.js"><link rel="prefetch" href="/assets/js/64.e1e9700e.js"><link rel="prefetch" href="/assets/js/65.ef472199.js"><link rel="prefetch" href="/assets/js/66.9b1624ea.js"><link rel="prefetch" href="/assets/js/67.97e4fe4a.js"><link rel="prefetch" href="/assets/js/68.7e261eed.js"><link rel="prefetch" href="/assets/js/7.76f89e11.js"><link rel="prefetch" href="/assets/js/8.84b46711.js"><link rel="prefetch" href="/assets/js/9.cd6c0148.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.135fa21b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.084fca0d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">NornJ CLI</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/config/" class="nav-link">Config Reference</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Plugin Dev Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/plugin-dev.html" class="nav-link">Plugin Dev Guide</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-info.html" class="nav-link">UI Plugin Info</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link router-link-exact-active router-link-active">UI Plugin API</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-localization.html" class="nav-link">UI Localization</a></li></ul></div></div><div class="nav-item"><a href="/core-plugins/" class="nav-link">Plugins</a></div><div class="nav-item"><a href="https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Changelog
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link router-link-exact-active router-link-active">English</a></li><li class="dropdown-item"><!----> <a href="/zh/dev-guide/ui-api.html" class="nav-link">简体中文</a></li></ul></div></div> <a href="https://github.com/joe-sky/nornj-cli" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/config/" class="nav-link">Config Reference</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Plugin Dev Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/plugin-dev.html" class="nav-link">Plugin Dev Guide</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-info.html" class="nav-link">UI Plugin Info</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link router-link-exact-active router-link-active">UI Plugin API</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-localization.html" class="nav-link">UI Localization</a></li></ul></div></div><div class="nav-item"><a href="/core-plugins/" class="nav-link">Plugins</a></div><div class="nav-item"><a href="https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Changelog
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link router-link-exact-active router-link-active">English</a></li><li class="dropdown-item"><!----> <a href="/zh/dev-guide/ui-api.html" class="nav-link">简体中文</a></li></ul></div></div> <a href="https://github.com/joe-sky/nornj-cli" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/dev-guide/plugin-dev.html" class="sidebar-link">Plugin Development Guide</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>API reference</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dev-guide/plugin-api.html" class="sidebar-link">Plugin API</a></li><li><a href="/dev-guide/generator-api.html" class="sidebar-link">Generator API</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>UI Development</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/dev-guide/ui-info.html" class="sidebar-link">UI Plugin Info</a></li><li><a href="/dev-guide/ui-api.html" class="active sidebar-link">UI API</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#ui-files" class="sidebar-link">UI files</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#project-local-plugins" class="sidebar-link">Project local plugins</a></li></ul></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#dev-mode" class="sidebar-link">Dev mode</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#project-configurations" class="sidebar-link">Project configurations</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#config-icon" class="sidebar-link">Config icon</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#config-files" class="sidebar-link">Config files</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#display-config-prompts" class="sidebar-link">Display config prompts</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#configuration-tabs" class="sidebar-link">Configuration tabs</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#save-config-changes" class="sidebar-link">Save config changes</a></li></ul></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#project-tasks" class="sidebar-link">Project tasks</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#task-icon" class="sidebar-link">Task icon</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#tasks-parameters" class="sidebar-link">Tasks parameters</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#task-hooks" class="sidebar-link">Task hooks</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#task-views" class="sidebar-link">Task views</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#add-new-tasks" class="sidebar-link">Add new tasks</a></li></ul></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#prompts" class="sidebar-link">Prompts</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#switch-example" class="sidebar-link">Switch example</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#select-example" class="sidebar-link">Select example</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#input-example" class="sidebar-link">Input example</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#checkbox-example" class="sidebar-link">Checkbox example</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#color-picker-example" class="sidebar-link">Color picker example</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#prompts-for-invocation" class="sidebar-link">Prompts for invocation</a></li></ul></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#client-addon" class="sidebar-link">Client addon</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#create-a-client-addon" class="sidebar-link">Create a client addon</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#clientaddonapi" class="sidebar-link">ClientAddonApi</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#register-the-client-addon" class="sidebar-link">Register the client addon</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#use-the-client-addon" class="sidebar-link">Use the client addon</a></li></ul></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#custom-views" class="sidebar-link">Custom views</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#shared-data" class="sidebar-link">Shared data</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#plugin-actions" class="sidebar-link">Plugin actions</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#inter-process-communication-ipc" class="sidebar-link">Inter-process communication (IPC)</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#local-storage" class="sidebar-link">Local storage</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#notification" class="sidebar-link">Notification</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#progress-screen" class="sidebar-link">Progress screen</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#hooks" class="sidebar-link">Hooks</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#onprojectopen" class="sidebar-link">onProjectOpen</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#onpluginreload" class="sidebar-link">onPluginReload</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#onconfigread" class="sidebar-link">onConfigRead</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#onconfigwrite" class="sidebar-link">onConfigWrite</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#ontaskopen" class="sidebar-link">onTaskOpen</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#ontaskrun" class="sidebar-link">onTaskRun</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#ontaskexit" class="sidebar-link">onTaskExit</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#onviewopen" class="sidebar-link">onViewOpen</a></li></ul></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#suggestions" class="sidebar-link">Suggestions</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#widgets" class="sidebar-link">Widgets</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#other-methods" class="sidebar-link">Other methods</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#hasplugin" class="sidebar-link">hasPlugin</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#getcwd" class="sidebar-link">getCwd</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#resolve" class="sidebar-link">resolve</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#getproject" class="sidebar-link">getProject</a></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#requestroute" class="sidebar-link">requestRoute</a></li></ul></li><li class="sidebar-sub-header"><a href="/dev-guide/ui-api.html#public-static-files" class="sidebar-link">Public static files</a></li></ul></li><li><a href="/dev-guide/ui-localization.html" class="sidebar-link">UI Localization</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ui-api"><a href="#ui-api" aria-hidden="true" class="header-anchor">#</a> UI API</h1> <p>The cli-ui exposes an API that allows augmenting the project configurations and tasks, as well as sharing data and communicating with other processes.</p> <p><img src="/vue-cli-ui-schema.png" alt="UI Plugin architecture"></p> <h2 id="ui-files"><a href="#ui-files" aria-hidden="true" class="header-anchor">#</a> UI files</h2> <p>Inside each installed vue-cli plugins, the cli-ui will try to load an optional <code>ui.js</code> file in the root folder of the plugin. Note that you can also use folders (for example <code>ui/index.js</code>).</p> <p>The file should export a function which gets the api object as argument:</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">api</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Use the API here...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>⚠️ The files will be reloaded when fetching the plugin list in the 'Project plugins' view. To apply changes, click on the 'Project plugins' button in the navigation sidebar on the left in the UI.</strong></p> <p>Here is an example folder structure for a vue-cli plugin using the UI API:</p> <div class="language- extra-class"><pre class="language-text"><code>- vue-cli-plugin-test
+  - package.json
+  - index.js
+  - generator.js
+  - prompts.js
+  - ui.js
+  - logo.png
+</code></pre></div><h3 id="project-local-plugins"><a href="#project-local-plugins" aria-hidden="true" class="header-anchor">#</a> Project local plugins</h3> <p>If you need access to the plugin API in your project and don't want to create a full plugin for it, you can use the <code>vuePlugins.ui</code> option in your <code>package.json</code> file:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;vuePlugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;ui&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;my-ui.js&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Each file will need to export a function taking the plugin API as the first argument.</p> <h2 id="dev-mode"><a href="#dev-mode" aria-hidden="true" class="header-anchor">#</a> Dev mode</h2> <p>While building your plugin, you may want to run the cli-ui in Dev mode, so it will output useful logs to you:</p> <div class="language- extra-class"><pre class="language-text"><code>vue ui --dev
+</code></pre></div><p>Or:</p> <div class="language- extra-class"><pre class="language-text"><code>vue ui -D
+</code></pre></div><h2 id="project-configurations"><a href="#project-configurations" aria-hidden="true" class="header-anchor">#</a> Project configurations</h2> <p><img src="/config-ui.png" alt="Configuration ui"></p> <p>You can add a project configuration with the <code>api.describeConfig</code> method.</p> <p>First you need to pass some information:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// Unique ID for the config</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.eslintrc'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Displayed name</span>
+  name<span class="token punctuation">:</span> <span class="token string">'ESLint configuration'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Shown below the name</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Error checking &amp; Code quality'</span><span class="token punctuation">,</span>
+  <span class="token comment">// &quot;More info&quot; link</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://eslint.org'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p>Make sure to namespace the id correctly, since it must be unique across all plugins. It's recommended to use the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">reverse domain name notation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <h3 id="config-icon"><a href="#config-icon" aria-hidden="true" class="header-anchor">#</a> Config icon</h3> <p>It can be either a <a href="https://material.io/tools/icons" target="_blank" rel="noopener noreferrer">Material icon<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> code or a custom image (see <a href="#public-static-files">Public static files</a>):</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// Config icon</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'application_settings'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>If you don't specify an icon, the plugin logo will be displayed if any (see <a href="/dev-guide/ui-info.html#logo">Logo</a>).</p> <h3 id="config-files"><a href="#config-files" aria-hidden="true" class="header-anchor">#</a> Config files</h3> <p>By default, a configuration UI might read and write to one or more configuration files, for example both <code>.eslintrc.js</code> and <code>vue.config.js</code>.</p> <p>You can provide what are the possible files to be detected in the user project:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// All possible files for this config</span>
+  files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// eslintrc.js</span>
+    eslint<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      json<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc'</span><span class="token punctuation">,</span> <span class="token string">'.eslintrc.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// Will read from `package.json`</span>
+      <span class="token keyword">package</span><span class="token punctuation">:</span> <span class="token string">'eslintConfig'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// vue.config.js</span>
+    vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vue.config.js'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Supported types: <code>json</code>, <code>yaml</code>, <code>js</code>, <code>package</code>. The order is important: the first filename in the list will be used to create the config file if it doesn't exist.</p> <h3 id="display-config-prompts"><a href="#display-config-prompts" aria-hidden="true" class="header-anchor">#</a> Display config prompts</h3> <p>Use the <code>onRead</code> hook to return a list of prompts to be displayed for the configuration:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token function-variable function">onRead</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Prompt objects</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Those prompts will be displayed in the configuration details pane.</p> <p>See <a href="#prompts">Prompts</a> for more info.</p> <p>The <code>data</code> object contains the JSON result of each config file content.</p> <p>For example, let's say the user has the following <code>vue.config.js</code> in his project:</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  lintOnSave<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>We declare the config file in our plugin like this:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// All possible files for this config</span>
+  files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// vue.config.js</span>
+    vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vue.config.js'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Then the <code>data</code> object will be:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token comment">// File</span>
+  vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// File data</span>
+    lintOnSave<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Multiple files example: if we add the following <code>eslintrc.js</code> file in the user project:</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'plugin:vue/essential'</span><span class="token punctuation">,</span>
+    <span class="token string">'@vue/standard'</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>And change the <code>files</code> option in our plugin to this:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// All possible files for this config</span>
+  files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// eslintrc.js</span>
+    eslint<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      json<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc'</span><span class="token punctuation">,</span> <span class="token string">'.eslintrc.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// Will read from `package.json`</span>
+      <span class="token keyword">package</span><span class="token punctuation">:</span> <span class="token string">'eslintConfig'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// vue.config.js</span>
+    vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vue.config.js'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Then the <code>data</code> object will be:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  eslint<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token string">'plugin:vue/essential'</span><span class="token punctuation">,</span>
+      <span class="token string">'@vue/standard'</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    lintOnSave<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="configuration-tabs"><a href="#configuration-tabs" aria-hidden="true" class="header-anchor">#</a> Configuration tabs</h3> <p>You can organize the prompts into several tabs:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token function-variable function">onRead</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    tabs<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">'tab1'</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">'My tab'</span><span class="token punctuation">,</span>
+        <span class="token comment">// Optional</span>
+        icon<span class="token punctuation">:</span> <span class="token string">'application_settings'</span><span class="token punctuation">,</span>
+        prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token comment">// Prompt objects</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">'tab2'</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">'My other tab'</span><span class="token punctuation">,</span>
+        prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token comment">// Prompt objects</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="save-config-changes"><a href="#save-config-changes" aria-hidden="true" class="header-anchor">#</a> Save config changes</h3> <p>Use the <code>onWrite</code> hook to write the data to the configuration file (or execute any nodejs code):</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token function-variable function">onWrite</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> prompts<span class="token punctuation">,</span> answers<span class="token punctuation">,</span> data<span class="token punctuation">,</span> files<span class="token punctuation">,</span> cwd<span class="token punctuation">,</span> api <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Arguments:</p> <ul><li><code>prompts</code>: current prompts runtime objects (see below)</li> <li><code>answers</code>: answers data from the user inputs</li> <li><code>data</code>: read-only initial data read from the config files</li> <li><code>files</code>: descriptors of the found files (<code>{ type: 'json', path: '...' }</code>)</li> <li><code>cwd</code>: current working directory</li> <li><code>api</code>: <code>onWrite API</code> (see below)</li></ul> <p>Prompts runtime objects:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> data<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> data<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+  name<span class="token punctuation">:</span> data<span class="token punctuation">.</span>short <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> data<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+  group<span class="token punctuation">:</span> data<span class="token punctuation">.</span>group <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> data<span class="token punctuation">.</span>description <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> data<span class="token punctuation">.</span>link <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  choices<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  visible<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  enabled<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// Current value (not filtered)</span>
+  value<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token comment">// true if changed by user</span>
+  valueChanged<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  error<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  tabId<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token comment">// Original inquirer prompt object</span>
+  raw<span class="token punctuation">:</span> data
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>onWrite</code> API:</p> <ul><li><code>assignData(fileId, newData)</code>: use <code>Object.assign</code> to update the config data before writing.</li> <li><code>setData(fileId, newData)</code>: each key of <code>newData</code> will be deeply set (or removed if <code>undefined</code> value) to the config data before writing.</li> <li><code>async getAnswer(id, mapper)</code>: retrieve answer for a given prompt id and map it through <code>mapper</code> function if provided (for example <code>JSON.parse</code>).</li></ul> <p>Example (from the ESLint plugin):</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token function-variable function">onWrite</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> api<span class="token punctuation">,</span> prompts <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Update ESLint rules</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> prompt <span class="token keyword">of</span> prompts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      result<span class="token punctuation">[</span><span class="token template-string"><span class="token string">`rules.</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>prompt<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> api<span class="token punctuation">.</span><span class="token function">getAnswer</span><span class="token punctuation">(</span>prompt<span class="token punctuation">.</span>id<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span>parse<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    api<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token string">'eslint'</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="project-tasks"><a href="#project-tasks" aria-hidden="true" class="header-anchor">#</a> Project tasks</h2> <p><img src="/tasks-ui.png" alt="Tasks ui"></p> <p>Tasks are generated from the <code>scripts</code> field in the project <code>package.json</code> file.</p> <p>You can 'augment' the tasks with additional info and hooks thanks to the <code>api.describeTask</code> method:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// RegExp executed on script commands to select which task will be described here</span>
+  match<span class="token punctuation">:</span> <span class="token regex">/vue-cli-service serve/</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Compiles and hot-reloads for development'</span><span class="token punctuation">,</span>
+  <span class="token comment">// &quot;More info&quot; link</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#serve'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>You can also use a function for <code>match</code>:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function-variable function">match</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter">command</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token regex">/vue-cli-service serve/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>command<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="task-icon"><a href="#task-icon" aria-hidden="true" class="header-anchor">#</a> Task icon</h3> <p>It can be either a <a href="https://material.io/tools/icons" target="_blank" rel="noopener noreferrer">Material icon<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> code or a custom image (see <a href="#public-static-files">Public static files</a>):</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// Task icon</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'application_settings'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>If you don't specify an icon, the plugin logo will be displayed if any (see <a href="/dev-guide/ui-info.html#logo">Logo</a>).</p> <h3 id="tasks-parameters"><a href="#tasks-parameters" aria-hidden="true" class="header-anchor">#</a> Tasks parameters</h3> <p>You can add prompts to modify the command arguments. They will be displayed in a 'Parameters' modal.</p> <p>Example:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token comment">// Optional parameters (inquirer prompts)</span>
+  prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'open'</span><span class="token punctuation">,</span>
+      type<span class="token punctuation">:</span> <span class="token string">'confirm'</span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      description<span class="token punctuation">:</span> <span class="token string">'Open browser on server start'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'mode'</span><span class="token punctuation">,</span>
+      type<span class="token punctuation">:</span> <span class="token string">'list'</span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+      choices<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">'development'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">'production'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'test'</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">'test'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      description<span class="token punctuation">:</span> <span class="token string">'Specify env mode'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>See <a href="#prompts">Prompts</a> for more info.</p> <h3 id="task-hooks"><a href="#task-hooks" aria-hidden="true" class="header-anchor">#</a> Task hooks</h3> <p>Several hooks are available:</p> <ul><li><code>onBeforeRun</code></li> <li><code>onRun</code></li> <li><code>onExit</code></li></ul> <p>For example, you can use the answers to the prompts (see above) to add new arguments to the command:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token comment">// Hooks</span>
+  <span class="token comment">// Modify arguments here</span>
+  <span class="token function-variable function">onBeforeRun</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> answers<span class="token punctuation">,</span> args <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Args</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>answers<span class="token punctuation">.</span>open<span class="token punctuation">)</span> args<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'--open'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>answers<span class="token punctuation">.</span>mode<span class="token punctuation">)</span> args<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'--mode'</span><span class="token punctuation">,</span> answers<span class="token punctuation">.</span>mode<span class="token punctuation">)</span>
+    args<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'--dashboard'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// Immediately after running the task</span>
+  <span class="token function-variable function">onRun</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// child: node child process</span>
+    <span class="token comment">// cwd: process working directory</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onExit</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> cwd<span class="token punctuation">,</span> code<span class="token punctuation">,</span> signal <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// code: exit code</span>
+    <span class="token comment">// signal: kill signal used if any</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="task-views"><a href="#task-views" aria-hidden="true" class="header-anchor">#</a> Task views</h3> <p>You can display custom views in the task details pane using the <code>ClientAddon</code> API:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token comment">// Additional views (for example the webpack dashboard)</span>
+  <span class="token comment">// By default, there is the 'output' view which displays the terminal output</span>
+  views<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">// Unique ID</span>
+      id<span class="token punctuation">:</span> <span class="token string">'vue-webpack-dashboard-client-addon'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Button label</span>
+      label<span class="token punctuation">:</span> <span class="token string">'Dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Button icon</span>
+      icon<span class="token punctuation">:</span> <span class="token string">'dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Dynamic component to load (see 'Client addon' section below)</span>
+      component<span class="token punctuation">:</span> <span class="token string">'vue-webpack-dashboard'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment">// Default selected view when displaying the task details (by default it's the output)</span>
+  defaultView<span class="token punctuation">:</span> <span class="token string">'vue-webpack-dashboard-client-addon'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>See <a href="#client-addon">Client addon</a> for more info.</p> <h3 id="add-new-tasks"><a href="#add-new-tasks" aria-hidden="true" class="header-anchor">#</a> Add new tasks</h3> <p>You can also add entirely new tasks which aren't in the <code>package.json</code> scripts with <code>api.addTask</code> instead of <code>api.describeTask</code>. Those tasks will only appear in the cli UI.</p> <p><strong>You need to provide a <code>command</code> option instead of <code>match</code>.</strong></p> <p>Example:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// Required</span>
+  name<span class="token punctuation">:</span> <span class="token string">'inspect'</span><span class="token punctuation">,</span>
+  command<span class="token punctuation">:</span> <span class="token string">'vue-cli-service inspect'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Optional</span>
+  <span class="token comment">// The rest is like `describeTask` without the `match` option</span>
+  description<span class="token punctuation">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://github.com/vuejs/vue-cli/...'</span><span class="token punctuation">,</span>
+  prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">/* ... */</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onBeforeRun</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onRun</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onExit</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  views<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">/* ... */</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  defaultView<span class="token punctuation">:</span> <span class="token string">'...'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>⚠️ The <code>command</code> will run a node context. This means you can call node bin commands like you would normally do in the <code>package.json</code> scripts.</strong></p> <h2 id="prompts"><a href="#prompts" aria-hidden="true" class="header-anchor">#</a> Prompts</h2> <p>The prompt objects must be valid <a href="https://github.com/SBoudrias/Inquirer.js" target="_blank" rel="noopener noreferrer">inquirer<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> objects.</p> <p>However, you can add the following additional fields (which are optional and only used by the UI):</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// Used to group the prompts into sections</span>
+  group<span class="token punctuation">:</span> <span class="token string">'Strongly recommended'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Additional description</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Enforce attribute naming style in template (`my-prop` or `myProp`)'</span><span class="token punctuation">,</span>
+  <span class="token comment">// &quot;More info&quot; link</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/attribute-hyphenation.md'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Supported inquirer types: <code>checkbox</code>, <code>confirm</code>, <code>input</code>, <code>password</code>, <code>list</code>, <code>rawlist</code>, <code>editor</code>.</p> <p>In addition to those, the UI supports special types that only works with it:</p> <ul><li><code>color</code>: displays a color picker.</li></ul> <h3 id="switch-example"><a href="#switch-example" aria-hidden="true" class="header-anchor">#</a> Switch example</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'open'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'confirm'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Open the app in the browser'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="select-example"><a href="#select-example" aria-hidden="true" class="header-anchor">#</a> Select example</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'mode'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'list'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  choices<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Development mode'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'development'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Production mode'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'production'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Test mode'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'test'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Build mode'</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://link-to-docs'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="input-example"><a href="#input-example" aria-hidden="true" class="header-anchor">#</a> Input example</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'host'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Host for the development server'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="checkbox-example"><a href="#checkbox-example" aria-hidden="true" class="header-anchor">#</a> Checkbox example</h3> <p>Displays multiple switches.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'lintOn'</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> <span class="token string">'Pick additional lint features:'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">when</span><span class="token punctuation">:</span> <span class="token parameter">answers</span> <span class="token operator">=&gt;</span> answers<span class="token punctuation">.</span>features<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'linter'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'checkbox'</span><span class="token punctuation">,</span>
+  choices<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Lint on save'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'save'</span><span class="token punctuation">,</span>
+      checked<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Lint and fix on commit'</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">hasGit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token punctuation">:</span> chalk<span class="token punctuation">.</span><span class="token function">red</span><span class="token punctuation">(</span><span class="token string">' (requires Git)'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'commit'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="color-picker-example"><a href="#color-picker-example" aria-hidden="true" class="header-anchor">#</a> Color picker example</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'themeColor'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'color'</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> <span class="token string">'Theme color'</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'This is used to change the system UI color around the app'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'#4DBA87'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="prompts-for-invocation"><a href="#prompts-for-invocation" aria-hidden="true" class="header-anchor">#</a> Prompts for invocation</h3> <p>In your vue-cli plugin, you may already have a <code>prompts.js</code> file which asks the user a few questions when installing the plugin (with the CLI or the UI). You can add the additional UI-only fields (see above) to those prompt objects as well so they will provide more information if the user is using the UI.</p> <p><strong>⚠️ Currently, the inquirer types which aren't supported (see above) will not work properly in the UI.</strong></p> <h2 id="client-addon"><a href="#client-addon" aria-hidden="true" class="header-anchor">#</a> Client addon</h2> <p>A Client addon is a JS bundle which is dynamically loaded into the cli-ui. It is useful to load custom components and routes.</p> <h3 id="create-a-client-addon"><a href="#create-a-client-addon" aria-hidden="true" class="header-anchor">#</a> Create a client addon</h3> <p>The recommended way to create a Client addon is by creating a new project using vue cli. You can either do this in a subfolder of your plugin or in a different npm package.</p> <p>Install <code>@vue/cli-ui</code> as a dev dependency.</p> <p>Then add a <code>vue.config.js</code> file with the following content:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> clientAddonConfig <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@vue/cli-ui'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span><span class="token function">clientAddonConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.client-addon'</span><span class="token punctuation">,</span>
+    <span class="token comment">// Development port (default 8042)</span>
+    port<span class="token punctuation">:</span> <span class="token number">8042</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>The <code>clientAddonConfig</code> method will generate the needed vue-cli configuration. Among other things, it disables CSS extraction and outputs the code to <code>./dist/index.js</code> in the client addon folder.</p> <div class="danger custom-block"><p>Make sure to namespace the id correctly, since it must be unique across all plugins. It's recommended to use the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">reverse domain name notation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <p>Then modify the <code>.eslintrc.json</code> file to add some allowed global objects:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token property">&quot;globals&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;ClientAddonApi&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;mapSharedData&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Vue&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>You can now run the <code>serve</code> script in development and the <code>build</code> one when you are ready to publish your plugin.</p> <h3 id="clientaddonapi"><a href="#clientaddonapi" aria-hidden="true" class="header-anchor">#</a> ClientAddonApi</h3> <p>Open the <code>main.js</code> file in the client addon sources and remove all the code.</p> <p><strong>⚠️ Don't import Vue in the client addon sources, use the global <code>Vue</code> object from the browser <code>window</code>.</strong></p> <p>Here is an example of code for <code>main.js</code>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> VueProgress <span class="token keyword">from</span> <span class="token string">'vue-progress-path'</span>
+<span class="token keyword">import</span> WebpackDashboard <span class="token keyword">from</span> <span class="token string">'./components/WebpackDashboard.vue'</span>
+<span class="token keyword">import</span> TestView <span class="token keyword">from</span> <span class="token string">'./components/TestView.vue'</span>
+
+<span class="token comment">// You can install additional vue plugins</span>
+<span class="token comment">// using the global 'Vue' variable</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueProgress<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  defaultShape<span class="token punctuation">:</span> <span class="token string">'circle'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Register a custom component</span>
+<span class="token comment">// (works like 'Vue.component')</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack.components.dashboard'</span><span class="token punctuation">,</span> WebpackDashboard<span class="token punctuation">)</span>
+
+<span class="token comment">// Add routes to vue-router under a /addon/&lt;id&gt; parent route.</span>
+<span class="token comment">// For example, addRoutes('foo', [ { path: '' }, { path: 'bar' } ])</span>
+<span class="token comment">// will add the /addon/foo/ and the /addon/foo/bar routes to vue-router.</span>
+<span class="token comment">// Here we create a new '/addon/vue-webpack/' route with the 'test-webpack-route' name</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">addRoutes</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.routes.test'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> TestView <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">// You can translate your plugin components</span>
+<span class="token comment">// Load the locale files (uses vue-i18n)</span>
+<span class="token keyword">const</span> locales <span class="token operator">=</span> require<span class="token punctuation">.</span><span class="token function">context</span><span class="token punctuation">(</span><span class="token string">'./locales'</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token regex">/[a-z0-9]+\.json$/i</span><span class="token punctuation">)</span>
+locales<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> locale <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/([a-z0-9]+)\./i</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  ClientAddonApi<span class="token punctuation">.</span><span class="token function">addLocalization</span><span class="token punctuation">(</span>locale<span class="token punctuation">,</span> <span class="token function">locales</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p>Make sure to namespace the ids correctly, since they must be unique across all plugins. It's recommended to use the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">reverse domain name notation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <p>The cli-ui registers <code>Vue</code> and <code>ClientAddonApi</code> as global variables in the <code>window</code> scope.</p> <p>In your components, you can use all the components and the CSS classes of <a href="https://github.com/vuejs/ui" target="_blank" rel="noopener noreferrer">@vue/ui<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> and <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-ui/src/components" target="_blank" rel="noopener noreferrer">@vue/cli-ui<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> in order to keep the look and feel consistent. You can also translate the strings with <a href="https://github.com/kazupon/vue-i18n" target="_blank" rel="noopener noreferrer">vue-i18n<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> which is included.</p> <h3 id="register-the-client-addon"><a href="#register-the-client-addon" aria-hidden="true" class="header-anchor">#</a> Register the client addon</h3> <p>Back to the <code>ui.js</code> file, use the <code>api.addClientAddon</code> method with a require query to the built folder:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addClientAddon</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.client-addon'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Folder containing the built JS files</span>
+  path<span class="token punctuation">:</span> <span class="token string">'@vue/cli-ui-addon-webpack/dist'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>This will use the nodejs <code>require.resolve</code> API to find the folder and serve the <code>index.js</code> file built from the client addon.</p> <p>Or specify an url when developing the plugin (ideally you want to do this in the <code>vue-cli-ui.js</code> file in your test vue project):</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Useful for dev</span>
+<span class="token comment">// Will override path if already defined in a plugin</span>
+api<span class="token punctuation">.</span><span class="token function">addClientAddon</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.client-addon'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Use the same port you configured earlier</span>
+  url<span class="token punctuation">:</span> <span class="token string">'http://localhost:8042/index.js'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="use-the-client-addon"><a href="#use-the-client-addon" aria-hidden="true" class="header-anchor">#</a> Use the client addon</h3> <p>You can now use the client addon in the views. For example, you can specify a view in a described task:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// Additional views (for example the webpack dashboard)</span>
+  <span class="token comment">// By default, there is the 'output' view which displays the terminal output</span>
+  views<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">// Unique ID</span>
+      id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.views.dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Button label</span>
+      label<span class="token punctuation">:</span> <span class="token string">'Dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Button icon (material-icons)</span>
+      icon<span class="token punctuation">:</span> <span class="token string">'dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Dynamic component to load, registered using ClientAddonApi</span>
+      component<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.components.dashboard'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment">// Default selected view when displaying the task details (by default it's the output)</span>
+  defaultView<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.views.dashboard'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Here is the client addon code that register the <code>'org.vue.webpack.components.dashboard'</code> component (like we saw earlier):</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/* In `main.js` */</span>
+<span class="token comment">// Import the component</span>
+<span class="token keyword">import</span> WebpackDashboard <span class="token keyword">from</span> <span class="token string">'./components/WebpackDashboard.vue'</span>
+<span class="token comment">// Register a custom component</span>
+<span class="token comment">// (works like 'Vue.component')</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack.components.dashboard'</span><span class="token punctuation">,</span> WebpackDashboard<span class="token punctuation">)</span>
+</code></pre></div><p><img src="/task-view.png" alt="Task view example"></p> <h2 id="custom-views"><a href="#custom-views" aria-hidden="true" class="header-anchor">#</a> Custom views</h2> <p>You can add a new view below the standard 'Project plugins', 'Project configuration' and 'Project tasks' ones using the <code>api.addView</code> method:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// Unique id</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.views.test'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Route name (from vue-router)</span>
+  <span class="token comment">// Use the same name used in the 'ClientAddonApi.addRoutes' method (see above in the Client addon section)</span>
+  name<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.routes.test'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Button icon (material-icons)</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'pets'</span><span class="token punctuation">,</span>
+  <span class="token comment">// You can also specify a custom image (see Public static files section below):</span>
+  <span class="token comment">// icon: 'http://localhost:4000/_plugin/%40vue%2Fcli-service/webpack-icon.svg',</span>
+
+  <span class="token comment">// Button tooltip</span>
+  tooltip<span class="token punctuation">:</span> <span class="token string">'Test view from webpack addon'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Here is the code in the client addon that register the <code>'org.vue.webpack.routes.test'</code> (like we saw earlier):</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/* In `main.js` */</span>
+<span class="token comment">// Import the component</span>
+<span class="token keyword">import</span> TestView <span class="token keyword">from</span> <span class="token string">'./components/TestView.vue'</span>
+<span class="token comment">// Add routes to vue-router under a /addon/&lt;id&gt; parent route.</span>
+<span class="token comment">// For example, addRoutes('foo', [ { path: '' }, { path: 'bar' } ])</span>
+<span class="token comment">// will add the /addon/foo/ and the /addon/foo/bar routes to vue-router.</span>
+<span class="token comment">// Here we create a new '/addon/vue-webpack/' route with the 'test-webpack-route' name</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">addRoutes</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.routes.test'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> TestView <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="/custom-view.png" alt="Custom view example"></p> <h2 id="shared-data"><a href="#shared-data" aria-hidden="true" class="header-anchor">#</a> Shared data</h2> <p>Use Shared data to communicate info with custom components in an easy way.</p> <blockquote><p>For example, the Webpack dashboard shares the build stats between the UI client and the UI server using this API.</p></blockquote> <p>In the plugin <code>ui.js</code> (nodejs):</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Set or update</span>
+api<span class="token punctuation">.</span><span class="token function">setSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> <span class="token string">'some-data'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Get</span>
+<span class="token keyword">const</span> sharedData <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">getSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>sharedData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sharedData<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Remove</span>
+api<span class="token punctuation">.</span><span class="token function">removeSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Watch for changes</span>
+<span class="token keyword">const</span> <span class="token function-variable function">watcher</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> id</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+api<span class="token punctuation">.</span><span class="token function">watchSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> watcher<span class="token punctuation">)</span>
+<span class="token comment">// Unwatch</span>
+api<span class="token punctuation">.</span><span class="token function">unwatchSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> watcher<span class="token punctuation">)</span>
+
+<span class="token comment">// Namespaced versions</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+  setSharedData<span class="token punctuation">,</span>
+  getSharedData<span class="token punctuation">,</span>
+  removeSharedData<span class="token punctuation">,</span>
+  watchSharedData<span class="token punctuation">,</span>
+  unwatchSharedData
+<span class="token punctuation">}</span> <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">namespace</span><span class="token punctuation">(</span><span class="token string">'com.my-name.'</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p>Make sure to namespace the ids correctly, since they must be unique across all plugins. It's recommended to use the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">reverse domain name notation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <p>In the custom component:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Vue component</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Sync Shared data</span>
+  <span class="token function">sharedData</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token comment">// You can use `myVariable` in template</span>
+      myVariable<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-variable'</span>
+      <span class="token comment">// You can also map namespaced Shared data</span>
+      <span class="token operator">...</span><span class="token function">mapSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        myVariable2<span class="token punctuation">:</span> <span class="token string">'my-variable2'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Manual methods</span>
+  <span class="token keyword">async</span> <span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$getSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$watchSharedData</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`com.my-name.my-variable`</span></span><span class="token punctuation">,</span> <span class="token parameter">value</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$setSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> <span class="token string">'new-value'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>If you use the <code>sharedData</code> option, the shared data can be updated by assigning a new value to the corresponding property.</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>VueInput</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>message<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  sharedData<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Will sync the 'my-message' shared data on the server</span>
+    message<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-message'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>This is very useful if you create a settings component for example.</p> <h2 id="plugin-actions"><a href="#plugin-actions" aria-hidden="true" class="header-anchor">#</a> Plugin actions</h2> <p>Plugin actions are calls sent between the cli-ui (browser) and plugins (nodejs).</p> <blockquote><p>For example, you might have a button in a custom component (see <a href="#client-addon">Client addon</a>) which calls some nodejs code on the server using this API.</p></blockquote> <p>In the <code>ui.js</code> file in the plugin (nodejs), you can use two methods from <code>PluginApi</code>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Call an action</span>
+api<span class="token punctuation">.</span><span class="token function">callAction</span><span class="token punctuation">(</span><span class="token string">'com.my-name.other-action'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">results</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">errors</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>errors<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Listen for an action</span>
+api<span class="token punctuation">.</span><span class="token function">onAction</span><span class="token punctuation">(</span><span class="token string">'com.my-name.test-action'</span><span class="token punctuation">,</span> <span class="token parameter">params</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'test-action called'</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p>Make sure to namespace the ids correctly, since they must be unique across all plugins. It's recommended to use the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">reverse domain name notation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <p>You can use namespaced versions with <code>api.namespace</code> (similar to Shared data):</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> onAction<span class="token punctuation">,</span> callAction <span class="token punctuation">}</span> <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">namespace</span><span class="token punctuation">(</span><span class="token string">'com.my-name.'</span><span class="token punctuation">)</span>
+</code></pre></div><p>In the client addon components (browser), you have access to <code>$onPluginActionCalled</code>, <code>$onPluginActionResolved</code> and <code>$callPluginAction</code>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Vue component</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$onPluginActionCalled</span><span class="token punctuation">(</span><span class="token parameter">action</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">// When the action is called</span>
+      <span class="token comment">// before being run</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'called'</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$onPluginActionResolved</span><span class="token punctuation">(</span><span class="token parameter">action</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">// After the action is run and completed</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resolved'</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">testPluginAction</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Call a plugin action</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$callPluginAction</span><span class="token punctuation">(</span><span class="token string">'com.my-name.test-action'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        meow<span class="token punctuation">:</span> <span class="token string">'meow'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="inter-process-communication-ipc"><a href="#inter-process-communication-ipc" aria-hidden="true" class="header-anchor">#</a> Inter-process communication (IPC)</h2> <p>IPC stands for Inter-Process Communication. This system allows you to easily send messages from child processes (for example, tasks!). And it's pretty fast and lightweight.</p> <blockquote><p>To display the data in the webpack dashboard UI, the <code>serve</code> and <code>build</code> commands from <code>@vue/cli-service</code> send IPC messages to the cli-ui nodejs server when the <code>--dashboard</code> argument is passed in.</p></blockquote> <p>In you process code (which can be a Webpack plugin or a nodejs task script), you can use the <code>IpcMessenger</code> class from <code>@vue/cli-shared-utils</code>:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> IpcMessenger <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@vue/cli-shared-utils'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Create a new IpcMessenger instance</span>
+<span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">sendMessage</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Send a message to the cli-ui server</span>
+  ipc<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">'com.my-name.some-data'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> <span class="token string">'build'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> data
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">messageHandler</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Listen for message</span>
+ipc<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>messageHandler<span class="token punctuation">)</span>
+
+<span class="token comment">// Don't listen anymore</span>
+ipc<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span>messageHandler<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">cleanup</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Disconnect from the IPC network</span>
+  ipc<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Manual connection:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  autoConnect<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// This message will be queued</span>
+ipc<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+ipc<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>Auto disconnect on idle (after some time without sending any message):</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  disconnectOnIdle<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  idleTimeout<span class="token punctuation">:</span> <span class="token number">3000</span> <span class="token comment">// Default</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+ipc<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ipc<span class="token punctuation">.</span>connected<span class="token punctuation">)</span> <span class="token comment">// false</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre></div><p>Connect to another IPC network:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  networkId<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-ipc-network'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>In a vue-cli plugin <code>ui.js</code> file, you can use the <code>ipcOn</code>, <code>ipcOff</code> and <code>ipcSend</code> methods:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">onWebpackMessage</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">:</span> message <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>message<span class="token punctuation">[</span><span class="token string">'com.my-name.some-data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">[</span><span class="token string">'com.my-name.some-data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Listen for any IPC message</span>
+api<span class="token punctuation">.</span><span class="token function">ipcOn</span><span class="token punctuation">(</span>onWebpackMessage<span class="token punctuation">)</span>
+
+<span class="token comment">// Don't listen anymore</span>
+api<span class="token punctuation">.</span><span class="token function">ipcOff</span><span class="token punctuation">(</span>onWebpackMessage<span class="token punctuation">)</span>
+
+<span class="token comment">// Send a message to all connected IpcMessenger instances</span>
+api<span class="token punctuation">.</span><span class="token function">ipcSend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  webpackDashboardMessage<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    foo<span class="token punctuation">:</span> <span class="token string">'bar'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="local-storage"><a href="#local-storage" aria-hidden="true" class="header-anchor">#</a> Local storage</h2> <p>A plugin can save and load data from the local <a href="https://github.com/typicode/lowdb" target="_blank" rel="noopener noreferrer">lowdb<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> database used by the ui server.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Store a value into the local DB</span>
+api<span class="token punctuation">.</span><span class="token function">storageSet</span><span class="token punctuation">(</span><span class="token string">'com.my-name.an-id'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> some<span class="token punctuation">:</span> <span class="token string">'value'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Retrieve a value from the local DB</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>api<span class="token punctuation">.</span><span class="token function">storageGet</span><span class="token punctuation">(</span><span class="token string">'com.my-name.an-id'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Full lowdb instance</span>
+api<span class="token punctuation">.</span>db<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'posts'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'low!'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'hi!'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Namespaced helpers</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> storageGet<span class="token punctuation">,</span> storageSet <span class="token punctuation">}</span> <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">namespace</span><span class="token punctuation">(</span><span class="token string">'my-plugin.'</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p>Make sure to namespace the ids correctly, since they must be unique across all plugins. It's recommended to use the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">reverse domain name notation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <h2 id="notification"><a href="#notification" aria-hidden="true" class="header-anchor">#</a> Notification</h2> <p>You can display notifications using the user OS notification system:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token string">'Some title'</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> <span class="token string">'Some message'</span><span class="token punctuation">,</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'path-to-icon.png'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>There are some builtin icons:</p> <ul><li><code>'done'</code></li> <li><code>'error'</code></li></ul> <h2 id="progress-screen"><a href="#progress-screen" aria-hidden="true" class="header-anchor">#</a> Progress screen</h2> <p>You can display a progress screen with some text and a progress bar:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">setProgress</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  status<span class="token punctuation">:</span> <span class="token string">'Upgrading...'</span><span class="token punctuation">,</span>
+  error<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  info<span class="token punctuation">:</span> <span class="token string">'Step 2 of 4'</span><span class="token punctuation">,</span>
+  progress<span class="token punctuation">:</span> <span class="token number">0.4</span> <span class="token comment">// from 0 to 1, -1 means hidden progress bar</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Remove the progress screen:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">removeProgress</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="hooks"><a href="#hooks" aria-hidden="true" class="header-anchor">#</a> Hooks</h2> <p>Hooks allows to react to certain cli-ui events.</p> <h3 id="onprojectopen"><a href="#onprojectopen" aria-hidden="true" class="header-anchor">#</a> onProjectOpen</h3> <p>Called when the plugin is loaded for the first time for the current project.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onProjectOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">project<span class="token punctuation">,</span> previousProject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Reset data</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onpluginreload"><a href="#onpluginreload" aria-hidden="true" class="header-anchor">#</a> onPluginReload</h3> <p>Called when the plugin is reloaded.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onPluginReload</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">project</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'plugin reloaded'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onconfigread"><a href="#onconfigread" aria-hidden="true" class="header-anchor">#</a> onConfigRead</h3> <p>Called when a configuration screen is open or refreshed.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onConfigRead</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> config<span class="token punctuation">,</span> data<span class="token punctuation">,</span> onReadData<span class="token punctuation">,</span> tabs<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onconfigwrite"><a href="#onconfigwrite" aria-hidden="true" class="header-anchor">#</a> onConfigWrite</h3> <p>Called when the user saves in a configuration screen.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onConfigWrite</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> config<span class="token punctuation">,</span> data<span class="token punctuation">,</span> changedFields<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="ontaskopen"><a href="#ontaskopen" aria-hidden="true" class="header-anchor">#</a> onTaskOpen</h3> <p>Called when the user open a task details pane.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onTaskOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> task<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="ontaskrun"><a href="#ontaskrun" aria-hidden="true" class="header-anchor">#</a> onTaskRun</h3> <p>Called when the user run a task.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onTaskRun</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> task<span class="token punctuation">,</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="ontaskexit"><a href="#ontaskexit" aria-hidden="true" class="header-anchor">#</a> onTaskExit</h3> <p>Called when a task exists. It can be called both called on success or failure.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onTaskExit</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> task<span class="token punctuation">,</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> signal<span class="token punctuation">,</span> code<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onviewopen"><a href="#onviewopen" aria-hidden="true" class="header-anchor">#</a> onViewOpen</h3> <p>Called when the users open a view (like 'Plugins', 'Configurations' or 'Tasks').</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onViewOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> view<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>view<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="suggestions"><a href="#suggestions" aria-hidden="true" class="header-anchor">#</a> Suggestions</h2> <p>Suggestions are buttons meant to propose an action to the user. They are displayed in the top bar. For example, we can have a button that suggest installing vue-router if the package isn't detected in the app.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addSuggestion</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-suggestion'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'action'</span><span class="token punctuation">,</span> <span class="token comment">// Required (more types in the future)</span>
+  label<span class="token punctuation">:</span> <span class="token string">'Add vue-router'</span><span class="token punctuation">,</span>
+  <span class="token comment">// This will be displayed in a details modal</span>
+  message<span class="token punctuation">:</span> <span class="token string">'A longer message for the modal'</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> <span class="token string">'http://link-to-docs-in-the-modal'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Optional image</span>
+  image<span class="token punctuation">:</span> <span class="token string">'/_plugin/my-package/screenshot.png'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Function called when suggestion is activated by user</span>
+  <span class="token keyword">async</span> <span class="token function">handler</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token comment">// By default removes the button</span>
+      keep<span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p>Make sure to namespace the id correctly, since it must be unique across all plugins. It's recommended to use the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">reverse domain name notation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p></div> <p><img src="/suggestion.png" alt="UI Suggestion"></p> <p>Then you can remove the suggestion:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">removeSuggestion</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-suggestion'</span><span class="token punctuation">)</span>
+</code></pre></div><p>You can also open a page instead when the user activates the suggestion with <code>actionLink</code>:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addSuggestion</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-suggestion'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'action'</span><span class="token punctuation">,</span> <span class="token comment">// Required</span>
+  label<span class="token punctuation">:</span> <span class="token string">'Add vue-router'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Open a new tab</span>
+  actionLink<span class="token punctuation">:</span> <span class="token string">'https://vuejs.org/'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Typically, you will use hooks to display the suggestion in the right context:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">ROUTER</span> <span class="token operator">=</span> <span class="token string">'vue-router-add'</span>
+
+api<span class="token punctuation">.</span><span class="token function">onViewOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> view <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>view<span class="token punctuation">.</span>id <span class="token operator">===</span> <span class="token string">'vue-project-plugins'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'vue-router'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      api<span class="token punctuation">.</span><span class="token function">addSuggestion</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token constant">ROUTER</span><span class="token punctuation">,</span>
+        type<span class="token punctuation">:</span> <span class="token string">'action'</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">'org.vue.cli-service.suggestions.vue-router-add.label'</span><span class="token punctuation">,</span>
+        message<span class="token punctuation">:</span> <span class="token string">'org.vue.cli-service.suggestions.vue-router-add.message'</span><span class="token punctuation">,</span>
+        link<span class="token punctuation">:</span> <span class="token string">'https://router.vuejs.org/'</span><span class="token punctuation">,</span>
+        <span class="token keyword">async</span> <span class="token function">handler</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">await</span> <span class="token function">install</span><span class="token punctuation">(</span>api<span class="token punctuation">,</span> <span class="token string">'vue-router'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    api<span class="token punctuation">.</span><span class="token function">removeSuggestion</span><span class="token punctuation">(</span><span class="token constant">ROUTER</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>In this example we only display the vue-router suggestion in the plugins view and if the project doesn't have vue-router installed already.</p> <p>Note: <code>addSuggestion</code> and <code>removeSuggestion</code> can be namespaced with <code>api.namespace()</code>.</p> <h2 id="widgets"><a href="#widgets" aria-hidden="true" class="header-anchor">#</a> Widgets</h2> <p>You can register a widget for the project dashboard in your plugin ui file:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">registerWidget</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// Unique ID</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.widgets.news'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Basic infos</span>
+  title<span class="token punctuation">:</span> <span class="token string">'org.vue.widgets.news.title'</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'org.vue.widgets.news.description'</span><span class="token punctuation">,</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'rss_feed'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Main component used to render the widget</span>
+  component<span class="token punctuation">:</span> <span class="token string">'org.vue.widgets.components.news'</span><span class="token punctuation">,</span>
+  <span class="token comment">// (Optional) Secondary component for widget 'fullscreen' view</span>
+  detailsComponent<span class="token punctuation">:</span> <span class="token string">'org.vue.widgets.components.news'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Size</span>
+  minWidth<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  minHeight<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  maxWidth<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+  maxHeight<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+  defaultWidth<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  defaultHeight<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  <span class="token comment">// (Optional) Limit the maximum number of this widget on the dashboard</span>
+  maxCount<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  <span class="token comment">// (Optional) Add a 'fullscreen' button in widget header</span>
+  openDetailsButton<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// (Optional) Default configuration for the widget</span>
+  <span class="token function-variable function">defaultConfig</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    url<span class="token punctuation">:</span> <span class="token string">'https://vuenews.fireside.fm/rss'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment">// (Optional) Require user to configure widget when added</span>
+  <span class="token comment">// You shouldn't use `defaultConfig` with this</span>
+  needsUserConfig<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// (Optional) Display prompts to configure the widget</span>
+  <span class="token function-variable function">onConfigOpen</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> context <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'url'</span><span class="token punctuation">,</span>
+          type<span class="token punctuation">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+          message<span class="token punctuation">:</span> <span class="token string">'org.vue.widgets.news.prompts.url'</span><span class="token punctuation">,</span>
+          <span class="token function-variable function">validate</span><span class="token punctuation">:</span> <span class="token parameter">input</span> <span class="token operator">=&gt;</span> <span class="token operator">!</span><span class="token operator">!</span>input <span class="token comment">// Required</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>Note: <code>registerWidget</code> can be namespaced with <code>api.namespace()</code>.</p> <h2 id="other-methods"><a href="#other-methods" aria-hidden="true" class="header-anchor">#</a> Other methods</h2> <h3 id="hasplugin"><a href="#hasplugin" aria-hidden="true" class="header-anchor">#</a> hasPlugin</h3> <p>Returns <code>true</code> if the project uses the plugin.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'eslint'</span><span class="token punctuation">)</span>
+api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'apollo'</span><span class="token punctuation">)</span>
+api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'vue-cli-plugin-apollo'</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="getcwd"><a href="#getcwd" aria-hidden="true" class="header-anchor">#</a> getCwd</h3> <p>Retrieve the current working directory.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">getCwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="resolve"><a href="#resolve" aria-hidden="true" class="header-anchor">#</a> resolve</h3> <p>Resolves a file within the current project.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src/main.js'</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="getproject"><a href="#getproject" aria-hidden="true" class="header-anchor">#</a> getProject</h3> <p>Get currently open project.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">getProject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="requestroute"><a href="#requestroute" aria-hidden="true" class="header-anchor">#</a> requestRoute</h3> <p>Switch the user on a specific route in the web client.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">requestRoute</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'foo'</span><span class="token punctuation">,</span>
+  params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    id<span class="token punctuation">:</span> <span class="token string">'bar'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+api<span class="token punctuation">.</span><span class="token function">requestRoute</span><span class="token punctuation">(</span><span class="token string">'/foobar'</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="public-static-files"><a href="#public-static-files" aria-hidden="true" class="header-anchor">#</a> Public static files</h2> <p>You may need to expose some static files over the cli-ui builtin HTTP server (typically if you want to specify an icon to a custom view).</p> <p>Any file in an optional <code>ui-public</code> folder in the root of the plugin package folder will be exposed to the <code>/_plugin/:id/*</code> HTTP route.</p> <p>For example, if you put a <code>my-logo.png</code> file into the <code>vue-cli-plugin-hello/ui-public/</code> folder, it will be available with the <code>/_plugin/vue-cli-plugin-hello/my-logo.png</code> URL when the cli-ui loads the plugin.</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// Custom image</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'/_plugin/vue-cli-plugin-hello/my-logo.png'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/joe-sky/nornj-cli/edit/master/docs/dev-guide/ui-api.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/dev-guide/ui-info.html" class="prev">
+          UI Plugin Info
+        </a></span> <span class="next"><a href="/dev-guide/ui-localization.html">
+          UI Localization
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6975f63b.js" defer></script><script src="/assets/js/3.044bb90b.js" defer></script><script src="/assets/js/21.07063763.js" defer></script>
+  </body>
+</html>

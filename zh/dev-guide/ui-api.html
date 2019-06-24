@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UI 插件 API | NornJ CLI</title>
+    <meta name="description" content="🛠️ 基于 NornJ 模板引擎的脚手架工具">
+    <link rel="icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.084fca0d.css" as="style"><link rel="preload" href="/assets/js/app.6975f63b.js" as="script"><link rel="preload" href="/assets/js/3.044bb90b.js" as="script"><link rel="preload" href="/assets/js/52.df5b773f.js" as="script"><link rel="prefetch" href="/assets/js/10.0a4d3748.js"><link rel="prefetch" href="/assets/js/11.d332eca7.js"><link rel="prefetch" href="/assets/js/12.b6a29bd2.js"><link rel="prefetch" href="/assets/js/13.073b43c7.js"><link rel="prefetch" href="/assets/js/14.0ac84778.js"><link rel="prefetch" href="/assets/js/15.7854e7ba.js"><link rel="prefetch" href="/assets/js/16.f212924f.js"><link rel="prefetch" href="/assets/js/17.37902f37.js"><link rel="prefetch" href="/assets/js/18.f78ba2ec.js"><link rel="prefetch" href="/assets/js/19.adbcf871.js"><link rel="prefetch" href="/assets/js/20.dbae6c26.js"><link rel="prefetch" href="/assets/js/21.07063763.js"><link rel="prefetch" href="/assets/js/22.e4fde42c.js"><link rel="prefetch" href="/assets/js/23.9fcf5d1e.js"><link rel="prefetch" href="/assets/js/24.802387f6.js"><link rel="prefetch" href="/assets/js/25.5b410f74.js"><link rel="prefetch" href="/assets/js/26.c4ad5084.js"><link rel="prefetch" href="/assets/js/27.b1233d47.js"><link rel="prefetch" href="/assets/js/28.1f5e218b.js"><link rel="prefetch" href="/assets/js/29.4c7358dc.js"><link rel="prefetch" href="/assets/js/30.80a2b130.js"><link rel="prefetch" href="/assets/js/31.6871cab6.js"><link rel="prefetch" href="/assets/js/32.f970b06a.js"><link rel="prefetch" href="/assets/js/33.9fcda592.js"><link rel="prefetch" href="/assets/js/34.e736b311.js"><link rel="prefetch" href="/assets/js/35.2b444282.js"><link rel="prefetch" href="/assets/js/36.b5d3db4f.js"><link rel="prefetch" href="/assets/js/37.ad199bee.js"><link rel="prefetch" href="/assets/js/38.fbfa272a.js"><link rel="prefetch" href="/assets/js/39.0bb56207.js"><link rel="prefetch" href="/assets/js/4.1977180c.js"><link rel="prefetch" href="/assets/js/40.3560ece0.js"><link rel="prefetch" href="/assets/js/41.e22bfb41.js"><link rel="prefetch" href="/assets/js/42.1efc12ce.js"><link rel="prefetch" href="/assets/js/43.f8918937.js"><link rel="prefetch" href="/assets/js/44.f2dbff78.js"><link rel="prefetch" href="/assets/js/45.be3e8f82.js"><link rel="prefetch" href="/assets/js/46.966c5906.js"><link rel="prefetch" href="/assets/js/47.2eed340f.js"><link rel="prefetch" href="/assets/js/48.0c213771.js"><link rel="prefetch" href="/assets/js/49.85af6ff5.js"><link rel="prefetch" href="/assets/js/5.a60171ae.js"><link rel="prefetch" href="/assets/js/50.5def39c8.js"><link rel="prefetch" href="/assets/js/51.23c90d3a.js"><link rel="prefetch" href="/assets/js/53.9165aa40.js"><link rel="prefetch" href="/assets/js/54.91f3f8b9.js"><link rel="prefetch" href="/assets/js/55.46b97f76.js"><link rel="prefetch" href="/assets/js/56.8b9d0651.js"><link rel="prefetch" href="/assets/js/57.229a5a7e.js"><link rel="prefetch" href="/assets/js/58.9759608c.js"><link rel="prefetch" href="/assets/js/59.6e59901e.js"><link rel="prefetch" href="/assets/js/6.0d9aa54c.js"><link rel="prefetch" href="/assets/js/60.31dbd40d.js"><link rel="prefetch" href="/assets/js/61.c67a92b0.js"><link rel="prefetch" href="/assets/js/62.efc936b2.js"><link rel="prefetch" href="/assets/js/63.d39ac98c.js"><link rel="prefetch" href="/assets/js/64.e1e9700e.js"><link rel="prefetch" href="/assets/js/65.ef472199.js"><link rel="prefetch" href="/assets/js/66.9b1624ea.js"><link rel="prefetch" href="/assets/js/67.97e4fe4a.js"><link rel="prefetch" href="/assets/js/68.7e261eed.js"><link rel="prefetch" href="/assets/js/7.76f89e11.js"><link rel="prefetch" href="/assets/js/8.84b46711.js"><link rel="prefetch" href="/assets/js/9.cd6c0148.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.135fa21b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.084fca0d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/zh/" class="home-link router-link-active"><!----> <span class="site-name">NornJ CLI</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/zh/guide/installation.html" class="nav-link">指南</a></div><div class="nav-item"><a href="/zh/config/" class="nav-link">配置参考</a></div><div class="nav-item"><a href="/zh/dev-guide/" class="nav-link router-link-active">扩展开发指南</a></div><div class="nav-item"><a href="https://github.com/joe-sky/nornj-cli/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  更新记录
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link">English</a></li><li class="dropdown-item"><!----> <a href="/zh/dev-guide/ui-api.html" class="nav-link router-link-exact-active router-link-active">简体中文</a></li></ul></div></div> <a href="https://github.com/joe-sky/nornj-cli" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/zh/guide/installation.html" class="nav-link">指南</a></div><div class="nav-item"><a href="/zh/config/" class="nav-link">配置参考</a></div><div class="nav-item"><a href="/zh/dev-guide/" class="nav-link router-link-active">扩展开发指南</a></div><div class="nav-item"><a href="https://github.com/joe-sky/nornj-cli/blob/master/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  更新记录
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link">English</a></li><li class="dropdown-item"><!----> <a href="/zh/dev-guide/ui-api.html" class="nav-link router-link-exact-active router-link-active">简体中文</a></li></ul></div></div> <a href="https://github.com/joe-sky/nornj-cli" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/zh/dev-guide/plugin-dev.html" class="sidebar-link">插件开发指南</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>UI 开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/zh/dev-guide/ui-info.html" class="sidebar-link">UI 插件信息</a></li><li><a href="/zh/dev-guide/ui-api.html" class="active sidebar-link">UI 插件 API</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#ui-文件" class="sidebar-link">UI 文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#项目本地的插件" class="sidebar-link">项目本地的插件</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#开发模式" class="sidebar-link">开发模式</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#项目的配置" class="sidebar-link">项目的配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#配置图标" class="sidebar-link">配置图标</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#配置文件" class="sidebar-link">配置文件</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#展示配置提示符" class="sidebar-link">展示配置提示符</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#配置选项卡" class="sidebar-link">配置选项卡</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#保存配置变更" class="sidebar-link">保存配置变更</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#项目的任务" class="sidebar-link">项目的任务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#任务图标" class="sidebar-link">任务图标</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#任务参数" class="sidebar-link">任务参数</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#任务钩子" class="sidebar-link">任务钩子</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#任务视图" class="sidebar-link">任务视图</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#新增任务" class="sidebar-link">新增任务</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#提示符" class="sidebar-link">提示符</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#switch-示例" class="sidebar-link">Switch 示例</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#select-示例" class="sidebar-link">Select 示例</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#input-示例" class="sidebar-link">Input 示例</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#checkbox-示例" class="sidebar-link">Checkbox 示例</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#取色器示例" class="sidebar-link">取色器示例</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#提示符的改进" class="sidebar-link">提示符的改进</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#客户端-addon" class="sidebar-link">客户端 addon</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#创建一个客户端-addon" class="sidebar-link">创建一个客户端 addon</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#clientaddonapi" class="sidebar-link">ClientAddonApi</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#注册客户端-addon" class="sidebar-link">注册客户端 addon</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#使用客户端-addon" class="sidebar-link">使用客户端 addon</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#自定义视图" class="sidebar-link">自定义视图</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#共享的数据" class="sidebar-link">共享的数据</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#插件的-action" class="sidebar-link">插件的 action</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#进程间通信-ipc" class="sidebar-link">进程间通信 (IPC)</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#本地存储" class="sidebar-link">本地存储</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#notification" class="sidebar-link">Notification</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#进度界面" class="sidebar-link">进度界面</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#钩子" class="sidebar-link">钩子</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#onprojectopen" class="sidebar-link">onProjectOpen</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#onpluginreload" class="sidebar-link">onPluginReload</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#onconfigread" class="sidebar-link">onConfigRead</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#onconfigwrite" class="sidebar-link">onConfigWrite</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#ontaskopen" class="sidebar-link">onTaskOpen</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#ontaskrun" class="sidebar-link">onTaskRun</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#ontaskexit" class="sidebar-link">onTaskExit</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#onviewopen" class="sidebar-link">onViewOpen</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#建议" class="sidebar-link">建议</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#其它方法" class="sidebar-link">其它方法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#hasplugin" class="sidebar-link">hasPlugin</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#getcwd" class="sidebar-link">getCwd</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#resolve" class="sidebar-link">resolve</a></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#getproject" class="sidebar-link">getProject</a></li></ul></li><li class="sidebar-sub-header"><a href="/zh/dev-guide/ui-api.html#公共静态文件" class="sidebar-link">公共静态文件</a></li></ul></li><li><a href="/zh/dev-guide/ui-localization.html" class="sidebar-link">UI 本地化</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ui-插件-api"><a href="#ui-插件-api" aria-hidden="true" class="header-anchor">#</a> UI 插件 API</h1> <p>这个 cli-ui 暴露一个 API，允许增强项目的配置和任务，也可以分享数据和在进程间进行通信。</p> <p><img src="/vue-cli-ui-schema.png" alt="UI 插件架构"></p> <h2 id="ui-文件"><a href="#ui-文件" aria-hidden="true" class="header-anchor">#</a> UI 文件</h2> <p>在每个安装好的 vue-cli 插件里，cli-ui 都会尝试从其插件的根目录加载一个可选的 <code>ui.js</code> 文件。注意你也可以使用文件夹 (例如 <code>ui/index.js</code>)。</p> <p>该文件应该导出一个函数，函数会以 API 对象作为第一个参数：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token parameter">api</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 在这里使用 API...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">警告</p> <p>当试图在“项目插件 (Project plugins)”中获取插件列表时，这些文件将会被重新加载。点击 UI 左侧边栏导航“项目插件 (Project plugins)”按钮可以应用更改。</p></div> <p>这里是一个使用 UI API 的 vue-cli 插件的文件夹结构示例：</p> <div class="language- extra-class"><pre class="language-text"><code>- vue-cli-plugin-test
+  - package.json
+  - index.js
+  - generator.js
+  - prompts.js
+  - ui.js
+  - logo.png
+</code></pre></div><h3 id="项目本地的插件"><a href="#项目本地的插件" aria-hidden="true" class="header-anchor">#</a> 项目本地的插件</h3> <p>如果你需要在项目里访问插件 API 而不需要创建一个完整的插件，你可以在 <code>package.json</code> 文件中使用 <code>vuePlugins.ui</code> 选项：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;vuePlugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;ui&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;my-ui.js&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>每个文件都需要暴露一个函数，将插件 API 作为第一个参数携带。</p> <h2 id="开发模式"><a href="#开发模式" aria-hidden="true" class="header-anchor">#</a> 开发模式</h2> <p>当构建你自己的插件时，你可能想在开发环境下运行 cli-ui，所以这样运行会输出较为实用的日志：</p> <div class="language- extra-class"><pre class="language-text"><code>vue ui --dev
+</code></pre></div><p>或：</p> <div class="language- extra-class"><pre class="language-text"><code>vue ui -D
+</code></pre></div><h2 id="项目的配置"><a href="#项目的配置" aria-hidden="true" class="header-anchor">#</a> 项目的配置</h2> <p><img src="/config-ui.png" alt="配置 UI"></p> <p>你可以通过 <code>api.describeConfig</code> 方法添加一个项目配置。</p> <p>首先你需要传入一些信息：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// 唯一的配置 ID</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.eslintrc'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 展示名称</span>
+  name<span class="token punctuation">:</span> <span class="token string">'ESLint configuration'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 展示在名称下方的描述</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Error checking &amp; Code quality'</span><span class="token punctuation">,</span>
+  <span class="token comment">// “更多信息 (More info)”链接</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://eslint.org'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p class="custom-block-title">危险</p> <p>请确定为 id 设置正确的命名空间，因为它需要跨所有插件保持唯一。我们推荐使用<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">反向域名记号 (reverse domain name notation)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <h3 id="配置图标"><a href="#配置图标" aria-hidden="true" class="header-anchor">#</a> 配置图标</h3> <p>可以是一个 <a href="https://material.io/tools/icons" target="_blank" rel="noopener noreferrer">Material 图标<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>代码或一个自定义的图片 (详见<a href="#%E5%85%AC%E5%85%B1%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6">公共静态文件</a>)：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 配置图标</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'application_settings'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>如果你没有定义图标，那就展示该插件可能存在的 logo (详见 <a href="/zh/dev-guide/ui-info.html#logo">Logo</a>)。</p> <h3 id="配置文件"><a href="#配置文件" aria-hidden="true" class="header-anchor">#</a> 配置文件</h3> <p>默认情况下，配置 UI 可能会读写一个或多个配置文件，例如 <code>.eslintrc</code> 和 <code>vue.config.js</code>。</p> <p>你可以提供可能需要在用户项目中检测的文件：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 该配置所有可能的文件</span>
+  files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// eslintrc.js</span>
+    eslint<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      json<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc'</span><span class="token punctuation">,</span> <span class="token string">'.eslintrc.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// 会从 `package.json` 读取</span>
+      <span class="token keyword">package</span><span class="token punctuation">:</span> <span class="token string">'eslintConfig'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// vue.config.js</span>
+    vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vue.config.js'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>支持的类型有：<code>json</code>、<code>yaml</code>、<code>js</code>、<code>package</code>。这个顺序是很重要的：如果这项配置不存在，则会创建列表中的第一个文件。</p> <h3 id="展示配置提示符"><a href="#展示配置提示符" aria-hidden="true" class="header-anchor">#</a> 展示配置提示符</h3> <p>使用 <code>onRead</code> 钩子来返回一个提示符列表，用以配置展示：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token function-variable function">onRead</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// 提示符对象</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这些提示符会展示在配置的详情面板中。</p> <p>查阅<a href="#%E6%8F%90%E7%A4%BA%E7%AC%A6">提示符</a>了解更多信息。</p> <p>这个 <code>data</code> 对象包含了每个配置文件内容的 JSON 结果。</p> <p>例如，假设用户在其项目中的 <code>vue.config.js</code> 有以下内容：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  lintOnSave<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们在插件中像这样声明配置文件：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 该配置所有可能的文件</span>
+  files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// vue.config.js</span>
+    vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vue.config.js'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>则这个 <code>data</code> 对象会是：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token comment">// 文件</span>
+  vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 文件数据</span>
+    lintOnSave<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>多个文件的例子：如果我们在用户的项目中添加以下 <code>eslintrc.js</code> 文件：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'plugin:vue/essential'</span><span class="token punctuation">,</span>
+    <span class="token string">'@vue/standard'</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>那么在我们的插件中将 <code>files</code> 选项改变成为：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 该配置所有可能的文件</span>
+  files<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// eslintrc.js</span>
+    eslint<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      json<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'.eslintrc'</span><span class="token punctuation">,</span> <span class="token string">'.eslintrc.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token comment">// 会从 `package.json` 读取</span>
+      <span class="token keyword">package</span><span class="token punctuation">:</span> <span class="token string">'eslintConfig'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// vue.config.js</span>
+    vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'vue.config.js'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>则这个 <code>data</code> 对象会是：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  eslint<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token keyword">extends</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token string">'plugin:vue/essential'</span><span class="token punctuation">,</span>
+      <span class="token string">'@vue/standard'</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  vue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    lintOnSave<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="配置选项卡"><a href="#配置选项卡" aria-hidden="true" class="header-anchor">#</a> 配置选项卡</h3> <p>你可以将这些提示符组织成为几个选项卡：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token function-variable function">onRead</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    tabs<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">'tab1'</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">'My tab'</span><span class="token punctuation">,</span>
+        <span class="token comment">// 可选的</span>
+        icon<span class="token punctuation">:</span> <span class="token string">'application_settings'</span><span class="token punctuation">,</span>
+        prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token comment">// 提示符对象们</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">'tab2'</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">'My other tab'</span><span class="token punctuation">,</span>
+        prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token comment">// 提示符对象们</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="保存配置变更"><a href="#保存配置变更" aria-hidden="true" class="header-anchor">#</a> 保存配置变更</h3> <p>使用 <code>onWrite</code> 钩子将数据写入配置文件 (或者执行任何 Node.js 代码)：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token function-variable function">onWrite</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> prompts<span class="token punctuation">,</span> answers<span class="token punctuation">,</span> data<span class="token punctuation">,</span> files<span class="token punctuation">,</span> cwd<span class="token punctuation">,</span> api <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>参数：</p> <ul><li><code>prompts</code>: 当前提示符们的运行时对象 (详见下方)</li> <li><code>answers</code>: 来自用户输入的回答数据</li> <li><code>data</code>: 从配置文件读取的只读的初始化数据</li> <li><code>files</code>: 被找到的文件的描述器 (<code>{ type: 'json', path: '...' }</code>)</li> <li><code>cwd</code>: 当前工作目录</li> <li><code>api</code>: <code>onWrite API</code> (详见下方)</li></ul> <p>提示符的运行时对象：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> data<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> data<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+  name<span class="token punctuation">:</span> data<span class="token punctuation">.</span>short <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> data<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+  group<span class="token punctuation">:</span> data<span class="token punctuation">.</span>group <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> data<span class="token punctuation">.</span>description <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> data<span class="token punctuation">.</span>link <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  choices<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  visible<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  enabled<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// 当前值 (未被过滤的)</span>
+  value<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token comment">// 如果用户修改过了则为 true</span>
+  valueChanged<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  error<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  tabId<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token comment">// 原始的 inquirer 提示符对象</span>
+  raw<span class="token punctuation">:</span> data
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>onWrite</code> API:</p> <ul><li><code>assignData(fileId, newData)</code>: 在写入前使用 <code>Object.assign</code> 来更新配置文件。</li> <li><code>setData(fileId, newData)</code>: <code>newData</code> 的每个 key 在写入之前都将会被深设置在配置数据上 (或当值为 <code>undefined</code> 时被移除)。</li> <li><code>async getAnswer(id, mapper)</code>: 为一个给定的提示符 id 获取答复并通过可能提供了的 <code>mapper</code> 函数 (例如 <code>JSON.parse</code>) 进行 map 处理。</li></ul> <p>示例 (来自 ESLint 插件)：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token function-variable function">onWrite</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> api<span class="token punctuation">,</span> prompts <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 更新 ESLint 规则</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> prompt <span class="token keyword">of</span> prompts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      result<span class="token punctuation">[</span><span class="token template-string"><span class="token string">`rules.</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>prompt<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> api<span class="token punctuation">.</span><span class="token function">getAnswer</span><span class="token punctuation">(</span>prompt<span class="token punctuation">.</span>id<span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span>parse<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    api<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token string">'eslint'</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="项目的任务"><a href="#项目的任务" aria-hidden="true" class="header-anchor">#</a> 项目的任务</h2> <p><img src="/tasks-ui.png" alt="任务 UI"></p> <p>任务是从项目 <code>package.json</code> 文件的 <code>scripts</code> 字段生成的。</p> <p>因为有 <code>api.describeTask</code> 方法，你可以为任务“增强”额外的信息和钩子：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// 用于匹配脚本命令的 RegExp 对象，来选择要被描述的任务</span>
+  match<span class="token punctuation">:</span> <span class="token regex">/vue-cli-service serve/</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Compiles and hot-reloads for development'</span><span class="token punctuation">,</span>
+  <span class="token comment">// “More info”链接</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#serve'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="任务图标"><a href="#任务图标" aria-hidden="true" class="header-anchor">#</a> 任务图标</h3> <p>可以是一个 <a href="https://material.io/tools/icons" target="_blank" rel="noopener noreferrer">Material 图标<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>代码或一个自定义的图片 (详见<a href="#%E5%85%AC%E5%85%B1%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6">公共静态文件</a>)：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 任务图标</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'application_settings'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>如果你没有定义图标，那就展示该插件可能存在的 logo (详见 <a href="/zh/dev-guide/ui-info.html#logo">Logo</a>)。</p> <h3 id="任务参数"><a href="#任务参数" aria-hidden="true" class="header-anchor">#</a> 任务参数</h3> <p>你可以添加提示符来修改命令参数。它们会展示在一个“参数”模态框中。</p> <p>Example:</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token comment">// 选填参数 (inquirer 提示符)</span>
+  prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'open'</span><span class="token punctuation">,</span>
+      type<span class="token punctuation">:</span> <span class="token string">'confirm'</span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      description<span class="token punctuation">:</span> <span class="token string">'Open browser on server start'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'mode'</span><span class="token punctuation">,</span>
+      type<span class="token punctuation">:</span> <span class="token string">'list'</span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+      choices<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">'development'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">'production'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> <span class="token string">'test'</span><span class="token punctuation">,</span>
+          value<span class="token punctuation">:</span> <span class="token string">'test'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      description<span class="token punctuation">:</span> <span class="token string">'Specify env mode'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>详见<a href="#%E6%8F%90%E7%A4%BA%E7%AC%A6">提示符</a>。</p> <h3 id="任务钩子"><a href="#任务钩子" aria-hidden="true" class="header-anchor">#</a> 任务钩子</h3> <p>有一些钩子是可用的：</p> <ul><li><code>onBeforeRun</code></li> <li><code>onRun</code></li> <li><code>onExit</code></li></ul> <p>例如，你可以将 (上述) 提示符的回答作为一个新参数添加到命令上：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token comment">// 钩子</span>
+  <span class="token comment">// 在这里修改参数</span>
+  <span class="token function-variable function">onBeforeRun</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> answers<span class="token punctuation">,</span> args <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 参数</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>answers<span class="token punctuation">.</span>open<span class="token punctuation">)</span> args<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'--open'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>answers<span class="token punctuation">.</span>mode<span class="token punctuation">)</span> args<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'--mode'</span><span class="token punctuation">,</span> answers<span class="token punctuation">.</span>mode<span class="token punctuation">)</span>
+    args<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'--dashboard'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// 任务运行之后立即执行</span>
+  <span class="token function-variable function">onRun</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// child: Node 子进程</span>
+    <span class="token comment">// cwd: 进程所在目录</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onExit</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> cwd<span class="token punctuation">,</span> code<span class="token punctuation">,</span> signal <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// code: 退出码</span>
+    <span class="token comment">// signal: 可能会被使用的杀进程信号</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="任务视图"><a href="#任务视图" aria-hidden="true" class="header-anchor">#</a> 任务视图</h3> <p>你可以在任务详情面板中使用 <code>ClientAddon</code> API 展示自定义视图：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token comment">// 额外的视图 (例如 webpack 仪表盘)</span>
+  <span class="token comment">// 默认情况下，这里是展示终端输出的 `output` 视图</span>
+  views<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">// 唯一 ID</span>
+      id<span class="token punctuation">:</span> <span class="token string">'vue-webpack-dashboard-client-addon'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 按钮文字</span>
+      label<span class="token punctuation">:</span> <span class="token string">'Dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 按钮图标</span>
+      icon<span class="token punctuation">:</span> <span class="token string">'dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 要加载的动态组件 (详见下述“客户端 addon”章节)</span>
+      component<span class="token punctuation">:</span> <span class="token string">'vue-webpack-dashboard'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment">// 展示任务详情时默认选择的视图 (默认是 `output`)</span>
+  defaultView<span class="token punctuation">:</span> <span class="token string">'vue-webpack-dashboard-client-addon'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>详见<a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-addon">客户端 addon</a>。</p> <h3 id="新增任务"><a href="#新增任务" aria-hidden="true" class="header-anchor">#</a> 新增任务</h3> <p>你也可以不使用 <code>api.describeTask</code>，而是通过 <code>api.addTask</code> 添加一个 <code>package.json</code> 脚本中没有的全新任务。这些任务只会出现在 cli UI 中。</p> <p><strong>你需要提供一个 <code>command</code> 选项替代掉 <code>match</code> 选项。</strong></p> <p>示例：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// 必填</span>
+  name<span class="token punctuation">:</span> <span class="token string">'inspect'</span><span class="token punctuation">,</span>
+  command<span class="token punctuation">:</span> <span class="token string">'vue-cli-service inspect'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 选填</span>
+  <span class="token comment">// 其余部分类似 `describeTask` 但是没有 `match` 选项</span>
+  description<span class="token punctuation">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://github.com/vuejs/vue-cli/...'</span><span class="token punctuation">,</span>
+  prompts<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">/* ... */</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onBeforeRun</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onRun</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onExit</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  views<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token comment">/* ... */</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  defaultView<span class="token punctuation">:</span> <span class="token string">'...'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">警告</p> <p><code>command</code> 将会运行一个 Node 上下文。也就是说你可以像在 <code>package.json</code> 脚本中一样调用 Node 的 bin 命令。</p></div> <h2 id="提示符"><a href="#提示符" aria-hidden="true" class="header-anchor">#</a> 提示符</h2> <p>提示符对象必须是合法的 <a href="https://github.com/SBoudrias/Inquirer.js" target="_blank" rel="noopener noreferrer">inquirer<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 对象。</p> <p>不过你也可以添加下列额外的字段 (只会被 UI 使用的可选项)：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 用来将提示符按章节分组</span>
+  group<span class="token punctuation">:</span> <span class="token string">'Strongly recommended'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 附加描述</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Enforce attribute naming style in template (`my-prop` or `myProp`)'</span><span class="token punctuation">,</span>
+  <span class="token comment">// “More info”链接</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/attribute-hyphenation.md'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>支持的 inquirer 类型有：<code>checkbox</code>、<code>confirm</code>、<code>input</code>、<code>password</code>、<code>list</code>、<code>rawlist</code>。</p> <p>此外，UI 还支持了仅在这里工作的特殊类型：</p> <ul><li><code>color</code>：展示一个取色器。</li></ul> <h3 id="switch-示例"><a href="#switch-示例" aria-hidden="true" class="header-anchor">#</a> Switch 示例</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'open'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'confirm'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Open the app in the browser'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="select-示例"><a href="#select-示例" aria-hidden="true" class="header-anchor">#</a> Select 示例</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'mode'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'list'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  choices<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Development mode'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'development'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Production mode'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'production'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Test mode'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'test'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Build mode'</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> <span class="token string">'https://link-to-docs'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="input-示例"><a href="#input-示例" aria-hidden="true" class="header-anchor">#</a> Input 示例</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'host'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'Host for the development server'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="checkbox-示例"><a href="#checkbox-示例" aria-hidden="true" class="header-anchor">#</a> Checkbox 示例</h3> <p>展示多个 switch。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'lintOn'</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> <span class="token string">'Pick additional lint features:'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">when</span><span class="token punctuation">:</span> <span class="token parameter">answers</span> <span class="token operator">=&gt;</span> answers<span class="token punctuation">.</span>features<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'linter'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'checkbox'</span><span class="token punctuation">,</span>
+  choices<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Lint on save'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'save'</span><span class="token punctuation">,</span>
+      checked<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span> <span class="token string">'Lint and fix on commit'</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token function">hasGit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token punctuation">:</span> chalk<span class="token punctuation">.</span><span class="token function">red</span><span class="token punctuation">(</span><span class="token string">' (requires Git)'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> <span class="token string">'commit'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="取色器示例"><a href="#取色器示例" aria-hidden="true" class="header-anchor">#</a> 取色器示例</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'themeColor'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'color'</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> <span class="token string">'Theme color'</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">'This is used to change the system UI color around the app'</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">'#4DBA87'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="提示符的改进"><a href="#提示符的改进" aria-hidden="true" class="header-anchor">#</a> 提示符的改进</h3> <p>在 vue-cli 插件中，你可能已经有一个 <code>prompts.js</code> 文件，在 (用 CLI 或 UI) 安装该插件的时候询问用户一些问题。你可以向那些提示符对象额外添加只支持 UI 的上述字段，这样的话如果用户使用 UI 的话可以看到更多的信息。</p> <div class="warning custom-block"><p class="custom-block-title">警告</p> <p>目前，那些不支持的 inquirer 类型不会在 UI 中正常工作。</p></div> <h2 id="客户端-addon"><a href="#客户端-addon" aria-hidden="true" class="header-anchor">#</a> 客户端 addon</h2> <p>客户端 addon 是一个动态加载到 cli-ui 中的 JS 包。用于加载自定义组件和路由。</p> <h3 id="创建一个客户端-addon"><a href="#创建一个客户端-addon" aria-hidden="true" class="header-anchor">#</a> 创建一个客户端 addon</h3> <p>推荐的创建一个客户端 addon 的方式是通过 vue cli 创建一个新项目。你也可以在插件的子目录或不同的 npm 包中这样做。</p> <p>作为开发依赖安装 <code>@vue/cli-ui</code>。</p> <p>然后添加一个 <code>vue.config.js</code> 文件并附带以下内容：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> clientAddonConfig <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@vue/cli-ui'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span><span class="token function">clientAddonConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.client-addon'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 开发环境端口 (默认值 8042)</span>
+    port<span class="token punctuation">:</span> <span class="token number">8042</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这个 <code>clientAddonConfig</code> 方法将会生成需要的 vue-cli 配置。除此之外，它会禁用 CSS extraction 并将代码输出到在客户端 addon 目录的 <code>./dist/index.js</code>。</p> <div class="danger custom-block"><p class="custom-block-title">危险</p> <p>请确定为 id 设置正确的命名空间，因为它需要跨所有插件保持唯一。我们推荐使用<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">反向域名记号 (reverse domain name notation)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <p>然后修改 <code>.eslintrc.json</code> 文件以添加一些允许的全局对象：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token property">&quot;globals&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;ClientAddonApi&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;mapSharedData&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;Vue&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>你现在可以在开发环境下运行 <code>serve</code> 脚本，也可以在准备发布时运行 <code>build</code> 脚本。</p> <h3 id="clientaddonapi"><a href="#clientaddonapi" aria-hidden="true" class="header-anchor">#</a> ClientAddonApi</h3> <p>在客户端 addon 资源中打开 <code>main.js</code> 文件并删除所有代码。</p> <div class="warning custom-block"><p class="custom-block-title">警告</p> <p>别在客户端 addon 源文件总导入 Vue ，请从浏览器 <code>window</code> 使用全局的 <code>Vue</code> 对象。</p></div> <p>这里是一个 <code>main.js</code> 的示例代码：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> VueProgress <span class="token keyword">from</span> <span class="token string">'vue-progress-path'</span>
+<span class="token keyword">import</span> WebpackDashboard <span class="token keyword">from</span> <span class="token string">'./components/WebpackDashboard.vue'</span>
+<span class="token keyword">import</span> TestView <span class="token keyword">from</span> <span class="token string">'./components/TestView.vue'</span>
+
+<span class="token comment">// 你可以安装额外的 Vue 插件</span>
+<span class="token comment">// 使用全局的 'Vue' 变量</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueProgress<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  defaultShape<span class="token punctuation">:</span> <span class="token string">'circle'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 注册一个自定义组件</span>
+<span class="token comment">// (工作原理类似 'Vue.component')</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack.components.dashboard'</span><span class="token punctuation">,</span> WebpackDashboard<span class="token punctuation">)</span>
+
+<span class="token comment">// 在 vue-router 中为 /addon/&lt;id&gt; 添加子路由。</span>
+<span class="token comment">// 例如，addRoutes('foo', [ { path: '' }, { path: 'bar' } ])</span>
+<span class="token comment">// 将会向路由器添加 /addon/foo/ 和 /addon/foo/bar。</span>
+<span class="token comment">// 我们在此用 'test-webpack-route' 名称创建一个新的 '/addon/vue-webpack/' 路由</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">addRoutes</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.routes.test'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> TestView <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 你可以翻译插件组件</span>
+<span class="token comment">// (通过使用 vue-i18n) 加载语言文件</span>
+<span class="token keyword">const</span> locales <span class="token operator">=</span> require<span class="token punctuation">.</span><span class="token function">context</span><span class="token punctuation">(</span><span class="token string">'./locales'</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token regex">/[a-z0-9]+\.json$/i</span><span class="token punctuation">)</span>
+locales<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> locale <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/([a-z0-9]+)\./i</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+  ClientAddonApi<span class="token punctuation">.</span><span class="token function">addLocalization</span><span class="token punctuation">(</span>locale<span class="token punctuation">,</span> <span class="token function">locales</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p class="custom-block-title">危险</p> <p>请确定为 id 设置正确的命名空间，因为它需要跨所有插件保持唯一。我们推荐使用<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">反向域名记号 (reverse domain name notation)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <p>cli-ui 在 <code>window</code> 作用域内注册了 <code>Vue</code> 和 <code>ClientAddonApi</code> 作为全局变量。</p> <p>你可以在自己的组件里使用 <a href="https://github.com/vuejs/ui" target="_blank" rel="noopener noreferrer">@vue/ui<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 和 <a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-ui/src/components" target="_blank" rel="noopener noreferrer">@vue/cli-ui<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 所有的组件和 CSS class 以保持样式和体验的一致性。你也可以用内置的 <a href="https://github.com/kazupon/vue-i18n" target="_blank" rel="noopener noreferrer">vue-i18n<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 翻译字符串。</p> <h3 id="注册客户端-addon"><a href="#注册客户端-addon" aria-hidden="true" class="header-anchor">#</a> 注册客户端 addon</h3> <p>回到 <code>ui.js</code> 文件，使用 <code>api.addClientAddon</code> 方法并带一个指向构建后的文件夹的 require 字符串：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addClientAddon</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.client-addon'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 包含构建出来的 JS 文件的文件夹</span>
+  path<span class="token punctuation">:</span> <span class="token string">'@vue/cli-ui-addon-webpack/dist'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这会使用 Node.js 的 <code>require.resolve</code> API 查找文件夹并为从客户端 addon 构建的文件 <code>index.js</code> 启动一个服务器。</p> <p>或者当开发插件时指定一个 URL (理想中你需要在 Vue 的测试项目的 <code>vue-cli-ui.js</code> 中做这些)</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 用于开发环境</span>
+<span class="token comment">// 如果已经在插件中定义过，则会覆写路径</span>
+api<span class="token punctuation">.</span><span class="token function">addClientAddon</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.client-addon'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 使用你之前配置过低同样的端口</span>
+  url<span class="token punctuation">:</span> <span class="token string">'http://localhost:8042/index.js'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="使用客户端-addon"><a href="#使用客户端-addon" aria-hidden="true" class="header-anchor">#</a> 使用客户端 addon</h3> <p>现在你可以在这些视图中使用客户端 addon 了。例如，你可以在一个被描述的任务中指定一个视图：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeTask</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 额外的视图 (例如 webpack dashboard)</span>
+  <span class="token comment">// 默认情况下，这是展示终端输出的 'output' 视图</span>
+  views<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token comment">// 唯一的 ID</span>
+      id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.views.dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 按钮文字</span>
+      label<span class="token punctuation">:</span> <span class="token string">'Dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 按钮图标 (material-icons)</span>
+      icon<span class="token punctuation">:</span> <span class="token string">'dashboard'</span><span class="token punctuation">,</span>
+      <span class="token comment">// 加载的动态组件，会用 ClientAddonApi 进行注册</span>
+      component<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.components.dashboard'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment">// 展示任务详情时默认选择的视图 (默认情况下就是 output)</span>
+  defaultView<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.views.dashboard'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这是一个客户端 addon 代码，注册了 `'org.vue.webpack.components.dashboard' 组件 (像我们之前看到的一样)：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/* 在 `main.js` 中 */</span>
+<span class="token comment">// 导入组件</span>
+<span class="token keyword">import</span> WebpackDashboard <span class="token keyword">from</span> <span class="token string">'./components/WebpackDashboard.vue'</span>
+<span class="token comment">// 注册自定义组件</span>
+<span class="token comment">// (工作原理类似 'Vue.component')</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack.components.dashboard'</span><span class="token punctuation">,</span> WebpackDashboard<span class="token punctuation">)</span>
+</code></pre></div><p><img src="/task-view.png" alt="任务视图示例"></p> <h2 id="自定义视图"><a href="#自定义视图" aria-hidden="true" class="header-anchor">#</a> 自定义视图</h2> <p>你可以使用 <code>api.addView</code> 方法在标准的“Project plugins”、“Project configuration”和“Project tasks”之下添加一个新的视图：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// 唯一的 id</span>
+  id<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.views.test'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 路由名称 (来自 Vue Router)</span>
+  <span class="token comment">// 使用 'ClientAddonApi.addRoutes' 方法中相同的名字 (详见之前的客户端 addon 章节)</span>
+  name<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.routes.test'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 按钮图标 (material-icons)</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'pets'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 你也可以指定一个自定义图片 (详见之前的公共静态文件章节)：</span>
+  <span class="token comment">// icon: 'http://localhost:4000/_plugin/%40vue%2Fcli-service/webpack-icon.svg',</span>
+
+  <span class="token comment">// 按钮的提示文字</span>
+  tooltip<span class="token punctuation">:</span> <span class="token string">'Test view from webpack addon'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这里是注册了 <code>'org.vue.webpack.routes.test'</code> 的客户端 addon 里的代码 (之前已经见过了)：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/* 在 `main.js` 里 */</span>
+<span class="token comment">// 导入组件</span>
+<span class="token keyword">import</span> TestView <span class="token keyword">from</span> <span class="token string">'./components/TestView.vue'</span>
+<span class="token comment">// 在 vue-router 中为 /addon/&lt;id&gt; 添加子路由</span>
+<span class="token comment">// 例如，addRoutes('foo', [ { path: '' }, { path: 'bar' } ])</span>
+<span class="token comment">// 将为 Vue Router 添加 /addon/foo/ 和 /addon/foo/bar 路由。</span>
+<span class="token comment">// 我们这里创建一个新的 '/addon/vue-webpack/' 路由，并命名为 'test-webpack-route'。</span>
+ClientAddonApi<span class="token punctuation">.</span><span class="token function">addRoutes</span><span class="token punctuation">(</span><span class="token string">'org.vue.webpack'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'org.vue.webpack.routes.test'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> TestView <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="/custom-view.png" alt="自定义视图示例"></p> <h2 id="共享的数据"><a href="#共享的数据" aria-hidden="true" class="header-anchor">#</a> 共享的数据</h2> <p>一种简易的自定义组件之间通过共享的数据互通信息的方式。</p> <blockquote><p>例如，webpack 仪表盘在 UI 客户端和 UI 服务端之间通过这个 API 共享了构建的统计信息。</p></blockquote> <p>在插件 <code>ui.js</code> (Node.js) 中：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 设置或更新</span>
+api<span class="token punctuation">.</span><span class="token function">setSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> <span class="token string">'some-data'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 获取</span>
+<span class="token keyword">const</span> sharedData <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">getSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>sharedData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sharedData<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 移除</span>
+api<span class="token punctuation">.</span><span class="token function">removeSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 侦听变化</span>
+<span class="token keyword">const</span> <span class="token function-variable function">watcher</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> id</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+api<span class="token punctuation">.</span><span class="token function">watchSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> watcher<span class="token punctuation">)</span>
+<span class="token comment">// 取消侦听</span>
+api<span class="token punctuation">.</span><span class="token function">unwatchSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> watcher<span class="token punctuation">)</span>
+
+<span class="token comment">// 带命名空间的版本</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+  setSharedData<span class="token punctuation">,</span>
+  getSharedData<span class="token punctuation">,</span>
+  removeSharedData<span class="token punctuation">,</span>
+  watchSharedData<span class="token punctuation">,</span>
+  unwatchSharedData
+<span class="token punctuation">}</span> <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">namespace</span><span class="token punctuation">(</span><span class="token string">'com.my-name.'</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p class="custom-block-title">危险</p> <p>请确定为 id 设置正确的命名空间，因为它需要跨所有插件保持唯一。我们推荐使用<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">反向域名记号 (reverse domain name notation)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <p>在其自定义组件中：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Vue 组件</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 同步共享的数据</span>
+  <span class="token function">sharedData</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 你可以在模板中使用 `myVariable`</span>
+      myVariable<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-variable'</span>
+      <span class="token comment">// 也可以映射带命名空间的共享数据</span>
+      <span class="token operator">...</span><span class="token function">mapSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        myVariable2<span class="token punctuation">:</span> <span class="token string">'my-variable2'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// 手动方法</span>
+  <span class="token keyword">async</span> <span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$getSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$watchSharedData</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`com.my-name.my-variable`</span></span><span class="token punctuation">,</span> <span class="token parameter">value</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$setSharedData</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-variable'</span><span class="token punctuation">,</span> <span class="token string">'new-value'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如果你使用了 <code>sharedData</code> 选项，共享的数据就可以一个相应的属性被赋值时进行更新。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>VueInput</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>message<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  sharedData<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 将会在服务端同步 'my-message' 共享的数据</span>
+    message<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-message'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>例如在创建一个设置组件时，这个特性是非常有用的。</p> <h2 id="插件的-action"><a href="#插件的-action" aria-hidden="true" class="header-anchor">#</a> 插件的 action</h2> <p>插件的 action 就是在 cli-ui (浏览器) 和插件 (Node.js) 直接的调用。</p> <blockquote><p>例如，你可能有一个自定义组件里的按钮 (详见<a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-addon">客户端 addon</a>)，这个按钮会通过这个 API 向服务端调用一些 Node.js 代码。</p></blockquote> <p>在插件 (Node.js) 的 <code>ui.js</code> 文件里，你可以从 <code>PluginApi</code> 使用两个方法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 调用一个 action</span>
+api<span class="token punctuation">.</span><span class="token function">callAction</span><span class="token punctuation">(</span><span class="token string">'com.my-name.other-action'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> foo<span class="token punctuation">:</span> <span class="token string">'bar'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">results</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">errors</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>errors<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 监听一个 action</span>
+api<span class="token punctuation">.</span><span class="token function">onAction</span><span class="token punctuation">(</span><span class="token string">'com.my-name.test-action'</span><span class="token punctuation">,</span> <span class="token parameter">params</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'test-action called'</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p class="custom-block-title">危险</p> <p>请确定为 id 设置正确的命名空间，因为它需要跨所有插件保持唯一。我们推荐使用<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">反向域名记号 (reverse domain name notation)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <p>你可以通过 <code>api.namespace</code> 使用带命名空间的版本 (类似共享的数据)：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> onAction<span class="token punctuation">,</span> callAction <span class="token punctuation">}</span> <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">namespace</span><span class="token punctuation">(</span><span class="token string">'com.my-name.'</span><span class="token punctuation">)</span>
+</code></pre></div><p>在客户端 addon 组件 (浏览器) 中，你可以访问 <code>$onPluginActionCalled</code>、<code>$onPluginActionResolved</code> 和 <code>$callPluginAction</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Vue 组件</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$onPluginActionCalled</span><span class="token punctuation">(</span><span class="token parameter">action</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 当 action 被调用时</span>
+      <span class="token comment">// 且在运行之前</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'called'</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$onPluginActionResolved</span><span class="token punctuation">(</span><span class="token parameter">action</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 当 action 运行完毕之后</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'resolved'</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">testPluginAction</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 调用一个插件的 action</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$callPluginAction</span><span class="token punctuation">(</span><span class="token string">'com.my-name.test-action'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        meow<span class="token punctuation">:</span> <span class="token string">'meow'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="进程间通信-ipc"><a href="#进程间通信-ipc" aria-hidden="true" class="header-anchor">#</a> 进程间通信 (IPC)</h2> <p>IPC 就是进程间通信 (Inter-Process Communication) 的缩写。该系统允许你轻松的从子进程 (例如任务) 发送消息，并且轻量快速。</p> <blockquote><p>为了在 webpack 仪表盘 UI 上展示数据，<code>@vue/cli-service</code> 的 <code>serve</code> 和 <code>build</code> 命令会在 <code>--dashboard</code> 参数被传入时向 cli-ui Node.js 服务器发送 IPC 消息。</p></blockquote> <p>在进程代码中 (可以是一个 webpack 插件或一个 Node.js 的任务脚本)，你可以使用 <code>@vue/cli-shared-utils</code> 中的 <code>IpcMessenger</code> 类：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> IpcMessenger <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@vue/cli-shared-utils'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 创建一个新的 IpcMessenger 实例</span>
+<span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">sendMessage</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 发送一条消息给 cli-ui 服务器</span>
+  ipc<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">'com.my-name.some-data'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> <span class="token string">'build'</span><span class="token punctuation">,</span>
+      value<span class="token punctuation">:</span> data
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">messageHandler</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 监听消息</span>
+ipc<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>messageHandler<span class="token punctuation">)</span>
+
+<span class="token comment">// 不再监听</span>
+ipc<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span>messageHandler<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">cleanup</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 从 IPC 网络断开连接</span>
+  ipc<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>手动连接：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  autoConnect<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 这条消息会被放入队列</span>
+ipc<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+ipc<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p>闲时自动断开连接 (在没有任何消息一段时间之后)：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  disconnectOnIdle<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  idleTimeout<span class="token punctuation">:</span> <span class="token number">3000</span> <span class="token comment">// 默认值</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+ipc<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ipc<span class="token punctuation">.</span>connected<span class="token punctuation">)</span> <span class="token comment">// false</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre></div><p>连接到另一个 IPC 网络：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ipc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IpcMessenger</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  networkId<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-ipc-network'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>在一个 vue-cli 插件的 <code>ui.js</code> 文件中，你可以使用 <code>ipcOn</code>、<code>ipcOff</code> 和 <code>ipcSend</code> 方法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">onWebpackMessage</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">:</span> message <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>message<span class="token punctuation">[</span><span class="token string">'com.my-name.some-data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">[</span><span class="token string">'com.my-name.some-data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 监听任何 IPC 消息</span>
+api<span class="token punctuation">.</span><span class="token function">ipcOn</span><span class="token punctuation">(</span>onWebpackMessage<span class="token punctuation">)</span>
+
+<span class="token comment">// 不监听任何消息</span>
+api<span class="token punctuation">.</span><span class="token function">ipcOff</span><span class="token punctuation">(</span>onWebpackMessage<span class="token punctuation">)</span>
+
+<span class="token comment">// 向所有已连接的 IpcMessenger 实例发送一条消息</span>
+api<span class="token punctuation">.</span><span class="token function">ipcSend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  webpackDashboardMessage<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    foo<span class="token punctuation">:</span> <span class="token string">'bar'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="本地存储"><a href="#本地存储" aria-hidden="true" class="header-anchor">#</a> 本地存储</h2> <p>一个插件可以从 UI 服务器本地的 <a href="https://github.com/typicode/lowdb" target="_blank" rel="noopener noreferrer">lowdb<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 数据库保存和加载数据。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 向本地的数据库存入一个值</span>
+api<span class="token punctuation">.</span><span class="token function">storageSet</span><span class="token punctuation">(</span><span class="token string">'com.my-name.an-id'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> some<span class="token punctuation">:</span> <span class="token string">'value'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 从本地的数据库取回一个值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>api<span class="token punctuation">.</span><span class="token function">storageGet</span><span class="token punctuation">(</span><span class="token string">'com.my-name.an-id'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 完整的 lowdb 实例</span>
+api<span class="token punctuation">.</span>db<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'posts'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'low!'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'hi!'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 带命名空间的辅助函数</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> storageGet<span class="token punctuation">,</span> storageSet <span class="token punctuation">}</span> <span class="token operator">=</span> api<span class="token punctuation">.</span><span class="token function">namespace</span><span class="token punctuation">(</span><span class="token string">'my-plugin.'</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p class="custom-block-title">危险</p> <p>请确定为 id 设置正确的命名空间，因为它需要跨所有插件保持唯一。我们推荐使用<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">反向域名记号 (reverse domain name notation)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <h2 id="notification"><a href="#notification" aria-hidden="true" class="header-anchor">#</a> Notification</h2> <p>你可以基于用户操作系统的通知系统展示通知：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token string">'Some title'</span><span class="token punctuation">,</span>
+  message<span class="token punctuation">:</span> <span class="token string">'Some message'</span><span class="token punctuation">,</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'path-to-icon.png'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这里有一些内建的图标；</p> <ul><li><code>'done'</code></li> <li><code>'error'</code></li></ul> <h2 id="进度界面"><a href="#进度界面" aria-hidden="true" class="header-anchor">#</a> 进度界面</h2> <p>你可以用一些文字或进度条来展示进度界面：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">setProgress</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  status<span class="token punctuation">:</span> <span class="token string">'Upgrading...'</span><span class="token punctuation">,</span>
+  error<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  info<span class="token punctuation">:</span> <span class="token string">'Step 2 of 4'</span><span class="token punctuation">,</span>
+  progress<span class="token punctuation">:</span> <span class="token number">0.4</span> <span class="token comment">// 从 0 到 1, -1 表示隐藏进度条</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>移除进度界面：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">removeProgress</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="钩子"><a href="#钩子" aria-hidden="true" class="header-anchor">#</a> 钩子</h2> <p>钩子可以用来响应某些 cli-ui 的事件。</p> <h3 id="onprojectopen"><a href="#onprojectopen" aria-hidden="true" class="header-anchor">#</a> onProjectOpen</h3> <p>当插件在当前项目中第一次被加载时触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onProjectOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">project<span class="token punctuation">,</span> previousProject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 重置数据</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onpluginreload"><a href="#onpluginreload" aria-hidden="true" class="header-anchor">#</a> onPluginReload</h3> <p>当插件被重新加载时触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onPluginReload</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">project</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'plugin reloaded'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onconfigread"><a href="#onconfigread" aria-hidden="true" class="header-anchor">#</a> onConfigRead</h3> <p>当一个配置界面被打开或刷新时触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onConfigRead</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> config<span class="token punctuation">,</span> data<span class="token punctuation">,</span> onReadData<span class="token punctuation">,</span> tabs<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onconfigwrite"><a href="#onconfigwrite" aria-hidden="true" class="header-anchor">#</a> onConfigWrite</h3> <p>当用户在保存界面里保存时触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onConfigWrite</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> config<span class="token punctuation">,</span> data<span class="token punctuation">,</span> changedFields<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="ontaskopen"><a href="#ontaskopen" aria-hidden="true" class="header-anchor">#</a> onTaskOpen</h3> <p>当用户打开一项任务的详情面板时触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onTaskOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> task<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>task<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="ontaskrun"><a href="#ontaskrun" aria-hidden="true" class="header-anchor">#</a> onTaskRun</h3> <p>当用户运行一项任务时触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onTaskRun</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> task<span class="token punctuation">,</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="ontaskexit"><a href="#ontaskexit" aria-hidden="true" class="header-anchor">#</a> onTaskExit</h3> <p>当一项任务退出时触发。不论任务成功或失败它都会触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onTaskExit</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> task<span class="token punctuation">,</span> args<span class="token punctuation">,</span> child<span class="token punctuation">,</span> signal<span class="token punctuation">,</span> code<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="onviewopen"><a href="#onviewopen" aria-hidden="true" class="header-anchor">#</a> onViewOpen</h3> <p>当用户打开一个视图 (如 'Plugins'、'Configurations' 或 'Tasks') 时触发。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">onViewOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> view<span class="token punctuation">,</span> cwd <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>view<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="建议"><a href="#建议" aria-hidden="true" class="header-anchor">#</a> 建议</h2> <p>这里的建议是指为用户提议执行 action 的按钮。它们展示在界面的顶栏上。例如我们可以放一个按钮，在应用里没有检测到 Vue Router 包的时候建议将其安装。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addSuggestion</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-suggestion'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'action'</span><span class="token punctuation">,</span> <span class="token comment">// 必填 (未来会加入更多类型)</span>
+  label<span class="token punctuation">:</span> <span class="token string">'Add vue-router'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 该消息会展示在一个详情模态框里</span>
+  message<span class="token punctuation">:</span> <span class="token string">'A longer message for the modal'</span><span class="token punctuation">,</span>
+  link<span class="token punctuation">:</span> <span class="token string">'http://link-to-docs-in-the-modal'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 可选的图片</span>
+  image<span class="token punctuation">:</span> <span class="token string">'/_plugin/my-package/screenshot.png'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 当该项建议被用户激活时调用的函数</span>
+  <span class="token keyword">async</span> <span class="token function">handler</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 默认移除这个按钮</span>
+      keep<span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="danger custom-block"><p class="custom-block-title">危险</p> <p>请确定为 id 设置正确的命名空间，因为它需要跨所有插件保持唯一。我们推荐使用<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation" target="_blank" rel="noopener noreferrer">反向域名记号 (reverse domain name notation)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <p><img src="/suggestion.png" alt="UI 建议"></p> <p>之后你可以移除这项建议：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">removeSuggestion</span><span class="token punctuation">(</span><span class="token string">'com.my-name.my-suggestion'</span><span class="token punctuation">)</span>
+</code></pre></div><p>你也可以给建议附带 <code>actionLink</code>，当用户激活它时，会换做打开一个页面：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">addSuggestion</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'com.my-name.my-suggestion'</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'action'</span><span class="token punctuation">,</span> <span class="token comment">// Required</span>
+  label<span class="token punctuation">:</span> <span class="token string">'Add vue-router'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 打开一个新标签</span>
+  actionLink<span class="token punctuation">:</span> <span class="token string">'https://vuejs.org/'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>通常情况下，你会选择适当的上下文用钩子来展示建议：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">ROUTER</span> <span class="token operator">=</span> <span class="token string">'vue-router-add'</span>
+
+api<span class="token punctuation">.</span><span class="token function">onViewOpen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> view <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>view<span class="token punctuation">.</span>id <span class="token operator">===</span> <span class="token string">'vue-project-plugins'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'vue-router'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      api<span class="token punctuation">.</span><span class="token function">addSuggestion</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token constant">ROUTER</span><span class="token punctuation">,</span>
+        type<span class="token punctuation">:</span> <span class="token string">'action'</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">'org.vue.cli-service.suggestions.vue-router-add.label'</span><span class="token punctuation">,</span>
+        message<span class="token punctuation">:</span> <span class="token string">'org.vue.cli-service.suggestions.vue-router-add.message'</span><span class="token punctuation">,</span>
+        link<span class="token punctuation">:</span> <span class="token string">'https://router.vuejs.org/'</span><span class="token punctuation">,</span>
+        <span class="token keyword">async</span> <span class="token function">handler</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">await</span> <span class="token function">install</span><span class="token punctuation">(</span>api<span class="token punctuation">,</span> <span class="token string">'vue-router'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    api<span class="token punctuation">.</span><span class="token function">removeSuggestion</span><span class="token punctuation">(</span><span class="token constant">ROUTER</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>在这个例子中，如果 Vue Router 没有安装好，我们只会在插件视图中展示安装 Vue Router 的建议。</p> <div class="tip custom-block"><p class="custom-block-title">注意</p> <p><code>addSuggestion</code> 和 <code>removeSuggestion</code> 可以通过 <code>api.namespace()</code> 指定命名空间。</p></div> <h2 id="其它方法"><a href="#其它方法" aria-hidden="true" class="header-anchor">#</a> 其它方法</h2> <h3 id="hasplugin"><a href="#hasplugin" aria-hidden="true" class="header-anchor">#</a> hasPlugin</h3> <p>如果项目使用了该插件则返回 <code>true</code>。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'eslint'</span><span class="token punctuation">)</span>
+api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'apollo'</span><span class="token punctuation">)</span>
+api<span class="token punctuation">.</span><span class="token function">hasPlugin</span><span class="token punctuation">(</span><span class="token string">'vue-cli-plugin-apollo'</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="getcwd"><a href="#getcwd" aria-hidden="true" class="header-anchor">#</a> getCwd</h3> <p>获取当前工作目录。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">getCwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="resolve"><a href="#resolve" aria-hidden="true" class="header-anchor">#</a> resolve</h3> <p>在当前工程下解析一个文件：</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src/main.js'</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="getproject"><a href="#getproject" aria-hidden="true" class="header-anchor">#</a> getProject</h3> <p>得出当前打开的工程。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">getProject</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="公共静态文件"><a href="#公共静态文件" aria-hidden="true" class="header-anchor">#</a> 公共静态文件</h2> <p>你可能需要在 cli-ui 内建的 HTTP 服务器上暴露一些静态文件 (通常是为自定义视图指定图标)。</p> <p>在插件包根目录里可选的放置一个 <code>ui-public</code> 文件夹，这个文件夹里的任何文件都会暴露至 <code>/_plugin/:id/*</code> 的 HTTP 路由。</p> <p>例如，如果你将 <code>my-logo.png</code> 文件放置到 <code>vue-cli-plugin-hello/ui-public/</code> 文件夹，那么 cli-ui 加载插件的时候可以通过 <code>/_plugin/vue-cli-plugin-hello/my-logo.png</code> 这个 URL 来访问它。</p> <div class="language-js extra-class"><pre class="language-js"><code>api<span class="token punctuation">.</span><span class="token function">describeConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+  <span class="token comment">// 自定义图片</span>
+  icon<span class="token punctuation">:</span> <span class="token string">'/_plugin/vue-cli-plugin-hello/my-logo.png'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/joe-sky/nornj-cli/edit/master/docs/zh/dev-guide/ui-api.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/zh/dev-guide/ui-info.html" class="prev">
+          UI 插件信息
+        </a></span> <span class="next"><a href="/zh/dev-guide/ui-localization.html">
+          UI 本地化
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6975f63b.js" defer></script><script src="/assets/js/3.044bb90b.js" defer></script><script src="/assets/js/52.df5b773f.js" defer></script>
+  </body>
+</html>

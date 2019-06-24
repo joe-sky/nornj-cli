@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>快速起步 | NornJ CLI</title>
+    <meta name="description" content="🛠️ Scaffolding Tool based on NornJ Template Engine">
+    <link rel="icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.084fca0d.css" as="style"><link rel="preload" href="/assets/js/app.6975f63b.js" as="script"><link rel="preload" href="/assets/js/3.044bb90b.js" as="script"><link rel="preload" href="/assets/js/41.e22bfb41.js" as="script"><link rel="prefetch" href="/assets/js/10.0a4d3748.js"><link rel="prefetch" href="/assets/js/11.d332eca7.js"><link rel="prefetch" href="/assets/js/12.b6a29bd2.js"><link rel="prefetch" href="/assets/js/13.073b43c7.js"><link rel="prefetch" href="/assets/js/14.0ac84778.js"><link rel="prefetch" href="/assets/js/15.7854e7ba.js"><link rel="prefetch" href="/assets/js/16.f212924f.js"><link rel="prefetch" href="/assets/js/17.37902f37.js"><link rel="prefetch" href="/assets/js/18.f78ba2ec.js"><link rel="prefetch" href="/assets/js/19.adbcf871.js"><link rel="prefetch" href="/assets/js/20.dbae6c26.js"><link rel="prefetch" href="/assets/js/21.07063763.js"><link rel="prefetch" href="/assets/js/22.e4fde42c.js"><link rel="prefetch" href="/assets/js/23.9fcf5d1e.js"><link rel="prefetch" href="/assets/js/24.802387f6.js"><link rel="prefetch" href="/assets/js/25.5b410f74.js"><link rel="prefetch" href="/assets/js/26.c4ad5084.js"><link rel="prefetch" href="/assets/js/27.b1233d47.js"><link rel="prefetch" href="/assets/js/28.1f5e218b.js"><link rel="prefetch" href="/assets/js/29.4c7358dc.js"><link rel="prefetch" href="/assets/js/30.80a2b130.js"><link rel="prefetch" href="/assets/js/31.6871cab6.js"><link rel="prefetch" href="/assets/js/32.f970b06a.js"><link rel="prefetch" href="/assets/js/33.9fcda592.js"><link rel="prefetch" href="/assets/js/34.e736b311.js"><link rel="prefetch" href="/assets/js/35.2b444282.js"><link rel="prefetch" href="/assets/js/36.b5d3db4f.js"><link rel="prefetch" href="/assets/js/37.ad199bee.js"><link rel="prefetch" href="/assets/js/38.fbfa272a.js"><link rel="prefetch" href="/assets/js/39.0bb56207.js"><link rel="prefetch" href="/assets/js/4.1977180c.js"><link rel="prefetch" href="/assets/js/40.3560ece0.js"><link rel="prefetch" href="/assets/js/42.1efc12ce.js"><link rel="prefetch" href="/assets/js/43.f8918937.js"><link rel="prefetch" href="/assets/js/44.f2dbff78.js"><link rel="prefetch" href="/assets/js/45.be3e8f82.js"><link rel="prefetch" href="/assets/js/46.966c5906.js"><link rel="prefetch" href="/assets/js/47.2eed340f.js"><link rel="prefetch" href="/assets/js/48.0c213771.js"><link rel="prefetch" href="/assets/js/49.85af6ff5.js"><link rel="prefetch" href="/assets/js/5.a60171ae.js"><link rel="prefetch" href="/assets/js/50.5def39c8.js"><link rel="prefetch" href="/assets/js/51.23c90d3a.js"><link rel="prefetch" href="/assets/js/52.df5b773f.js"><link rel="prefetch" href="/assets/js/53.9165aa40.js"><link rel="prefetch" href="/assets/js/54.91f3f8b9.js"><link rel="prefetch" href="/assets/js/55.46b97f76.js"><link rel="prefetch" href="/assets/js/56.8b9d0651.js"><link rel="prefetch" href="/assets/js/57.229a5a7e.js"><link rel="prefetch" href="/assets/js/58.9759608c.js"><link rel="prefetch" href="/assets/js/59.6e59901e.js"><link rel="prefetch" href="/assets/js/6.0d9aa54c.js"><link rel="prefetch" href="/assets/js/60.31dbd40d.js"><link rel="prefetch" href="/assets/js/61.c67a92b0.js"><link rel="prefetch" href="/assets/js/62.efc936b2.js"><link rel="prefetch" href="/assets/js/63.d39ac98c.js"><link rel="prefetch" href="/assets/js/64.e1e9700e.js"><link rel="prefetch" href="/assets/js/65.ef472199.js"><link rel="prefetch" href="/assets/js/66.9b1624ea.js"><link rel="prefetch" href="/assets/js/67.97e4fe4a.js"><link rel="prefetch" href="/assets/js/68.7e261eed.js"><link rel="prefetch" href="/assets/js/7.76f89e11.js"><link rel="prefetch" href="/assets/js/8.84b46711.js"><link rel="prefetch" href="/assets/js/9.cd6c0148.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.135fa21b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.084fca0d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">NornJ CLI</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/config/" class="nav-link">Config Reference</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Plugin Dev Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/plugin-dev.html" class="nav-link">Plugin Dev Guide</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-info.html" class="nav-link">UI Plugin Info</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link">UI Plugin API</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-localization.html" class="nav-link">UI Localization</a></li></ul></div></div><div class="nav-item"><a href="/core-plugins/" class="nav-link">Plugins</a></div><div class="nav-item"><a href="https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Changelog
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guides/gettingStarted.html" class="nav-link router-link-exact-active router-link-active">English</a></li><li class="dropdown-item"><!----> <a href="/zh/" class="nav-link">简体中文</a></li></ul></div></div> <a href="https://github.com/joe-sky/nornj-cli" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="/config/" class="nav-link">Config Reference</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Plugin Dev Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/dev-guide/plugin-dev.html" class="nav-link">Plugin Dev Guide</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-info.html" class="nav-link">UI Plugin Info</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-api.html" class="nav-link">UI Plugin API</a></li><li class="dropdown-item"><!----> <a href="/dev-guide/ui-localization.html" class="nav-link">UI Localization</a></li></ul></div></div><div class="nav-item"><a href="/core-plugins/" class="nav-link">Plugins</a></div><div class="nav-item"><a href="https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Changelog
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guides/gettingStarted.html" class="nav-link router-link-exact-active router-link-active">English</a></li><li class="dropdown-item"><!----> <a href="/zh/" class="nav-link">简体中文</a></li></ul></div></div> <a href="https://github.com/joe-sky/nornj-cli" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="快速起步"><a href="#快速起步" aria-hidden="true" class="header-anchor">#</a> 快速起步</h1> <p>本节我们将使用<code>NornJ-cli</code>快速创建一个可以在浏览器中运行的项目脚手架。</p> <h2 id="安装cli脚手架"><a href="#安装cli脚手架" aria-hidden="true" class="header-anchor">#</a> 安装CLI脚手架</h2> <p>输入命令：</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> <span class="token function">install</span> -g nornj-cli      <span class="token comment"># mac下需要在前面加sudo命令</span>
+</code></pre></div><h2 id="使用cli脚手架初始化react-mobx-state-tree的前端项目"><a href="#使用cli脚手架初始化react-mobx-state-tree的前端项目" aria-hidden="true" class="header-anchor">#</a> 使用CLI脚手架初始化react + mobx-state-tree的前端项目</h2> <p>输入以下命令，会在当前目录创建新项目初始代码：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>nj init
+
+Please <span class="token keyword">select</span> a project template:
+<span class="token operator">&gt;</span> react-mst-universal  <span class="token comment"># 请选择项目模板</span>
+  react-mst-app
+  react-mst
+  react-mobx
+  other
+
+Project Name: react-mst-test           <span class="token comment"># 输入新创建项目的目录名称</span>
+Do you want to <span class="token function">npm</span> install<span class="token punctuation">(</span>Y/N<span class="token punctuation">)</span>?       <span class="token comment"># 选择是否安装npm包</span>
+</code></pre></div><p>输入<code>y</code>后，按回车键就会自动安装项目依赖的各npm包，大概等几分钟就可以装好：</p> <p><img src="images/started1.png?raw=true" alt="npm install"></p> <h2 id="生成的项目文件结构"><a href="#生成的项目文件结构" aria-hidden="true" class="header-anchor">#</a> 生成的项目文件结构</h2> <div class="language- extra-class"><pre class="language-text"><code>.
+├── dist                              # 打包后的生产文件
+├── server                            # 本地mock server
+    ├── routes                          # 各页面mock接口
+        ├── page1.js                      # 页面1接口
+        ├── page2.js                      # 页面2接口
+        ...       
+    └── app.js                          # mock server入口
+├── src                               # 源代码
+    ├── stores                          # 数据集
+        ├── pages                         # 功能页面Store
+            ├── page1Store.js              # 页面1Store
+            ├── page2Store.js              # 页面2Store
+            ...       
+        ├── commonStore.js                # 通用Store
+        ├── headerStore.js                # 头部Store
+        ├── siderStore.js                 # 侧边栏Store
+        └── rootStore.js                  # 根Store
+    ├── utils                           # 通用工具
+    ├── vendor                          # 第三方工具包
+    └── web                             # 页面代码
+        ├── components                    # 通用组件
+            ├── header                      # 头部组件
+                ├── header.js                 # 头部组件逻辑
+                ├── header.scss               # 头部组件样式
+                └── header.t.html             # 头部组件模板
+            ├── sider                       # 侧边栏组件
+                ├── sider.js                  # 侧边栏组件逻辑
+                ├── sider.scss                # 侧边栏组件样式
+                └── sider.t.html              # 侧边栏组件模板
+            ...       
+        ├── css                           # 通用样式
+            ├── app.scss                    # 全局样式
+            └── common.scss                 # 全局通用sass工具函数
+        ├── images                        # 图片
+        ├── misc                          # 杂项
+        └── pages                         # 页面目录
+            ├── page1                       # 功能页面1
+                ├── page1.js                  # 页面1逻辑
+                ├── page1.m.scss              # 页面1样式
+                └── page1.t.html              # 页面1模板
+            ├── page2                       # 功能页面2
+                ├── page2.js                  # 页面2逻辑
+                ├── page2.m.scss              # 页面2样式
+                └── page2.t.html              # 页面2模板
+            ...       
+├── templates                         # 模板文件目录，供CLI脚手架创建页面等功能用
+├── .babelrc                          # Babel config
+├── .eslintrc                         # Eslint config
+├── .gitignore       
+├── app-web.js                        # 主页入口
+├── Bundle.js                         # 配合bunder-loader的React组件
+├── index.template-web.html           # 主页面html
+├── routes-web.js                     # 路由配置
+├── webpack.config.js                 # webpack配置文件
+└── package.json       
+</code></pre></div><h2 id="运行项目"><a href="#运行项目" aria-hidden="true" class="header-anchor">#</a> 运行项目</h2> <p>用<code>cd react-mst-test</code>命令进入我们刚创建好的项目目录，然后输入命令：</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> run dev-web
+</code></pre></div><p>然后会开始运行<code>webpack</code>构建过程，构建成功后请在浏览器输入地址：<code>localhost:8080/dist/web</code>即可查看页面：</p> <p><img src="images/started2.png?raw=true" alt="run page"></p> <h2 id="添加新页面"><a href="#添加新页面" aria-hidden="true" class="header-anchor">#</a> 添加新页面</h2> <p>在<code>react-mst-test</code>目录下输入如下命令：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>nj ap
+
+<span class="token comment"># 请选择要生成的页面类型</span>
+What <span class="token function">type</span> of page <span class="token keyword">do</span> you want to generate ?
+  default  <span class="token comment"># 增删改查</span>
+<span class="token operator">&gt;</span> chart    <span class="token comment"># 图表</span>
+  empty    <span class="token comment"># 空页面</span>
+
+<span class="token comment"># 输入新创建的页面名称</span>
+Page Name: newChartPage
+</code></pre></div><p>输入<code>y</code>后，按回车键就会立即创建好一个新建的图表页面，且各子目录下的<code>newChartPage</code>文件都已创建好了：</p> <p><img src="images/started3.png?raw=true" alt="run page"></p> <h2 id="运行新添加的页面"><a href="#运行新添加的页面" aria-hidden="true" class="header-anchor">#</a> 运行新添加的页面</h2> <p>打开<code>react-mst-test/src/stores/rootStore.js</code>文件，将这里的第一个菜单中的第一个页面名称<code>Page1_1</code>改为<code>NewChartPage</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code>sider<span class="token punctuation">:</span> types<span class="token punctuation">.</span><span class="token function">optional</span><span class="token punctuation">(</span>SiderStore<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  isOpen<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  current<span class="token punctuation">:</span> <span class="token string">'page1'</span><span class="token punctuation">,</span>
+  menuData<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> <span class="token string">'group'</span><span class="token punctuation">,</span>
+    index<span class="token punctuation">:</span> <span class="token string">'Menu1_1'</span><span class="token punctuation">,</span>
+    name<span class="token punctuation">:</span> <span class="token string">'一级菜单1'</span><span class="token punctuation">,</span>
+    expanded<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> <span class="token string">'group'</span><span class="token punctuation">,</span>
+      index<span class="token punctuation">:</span> <span class="token string">'Menu2_1'</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token string">'二级菜单1'</span><span class="token punctuation">,</span>
+      expanded<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">'item'</span><span class="token punctuation">,</span> level<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> link<span class="token punctuation">:</span> <span class="token string">'/NewChartPage'</span><span class="token punctuation">,</span> index<span class="token punctuation">:</span> <span class="token string">'NewChartPage'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'页面1-1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">'item'</span><span class="token punctuation">,</span> level<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> link<span class="token punctuation">:</span> <span class="token string">'/Page1_2'</span><span class="token punctuation">,</span> index<span class="token punctuation">:</span> <span class="token string">'Page1_2'</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token string">'页面1-2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+  <span class="token operator">...</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</code></pre></div><p>再次运行命令进行构建：</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> run dev-web
+</code></pre></div><p>然后在浏览器输入地址：<code>localhost:8080/dist/web</code>查看页面，新创建的图表页已展示出来了：</p> <p><img src="images/started4.png?raw=true" alt="run page"></p> <h2 id="下一步"><a href="#下一步" aria-hidden="true" class="header-anchor">#</a> 下一步</h2> <p>至此，我们已创建好了一个基于<code>React + Mobx + NornJ</code>的前端项目，下一步我们将逐个为项目中使用的技术做一个详实的介绍。</p> <p align="left">← <a href="overview.md"><b>返回总览</b></a></p> <p align="right"><a href="nornjTemplate.md"><b>使用NornJ前端模板结合React开发</b></a> →</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/joe-sky/nornj-cli/edit/master/docs/guides/gettingStarted.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">4/3/2019, 3:32:08 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6975f63b.js" defer></script><script src="/assets/js/3.044bb90b.js" defer></script><script src="/assets/js/41.e22bfb41.js" defer></script>
+  </body>
+</html>
