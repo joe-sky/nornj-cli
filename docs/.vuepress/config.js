@@ -3,12 +3,12 @@ module.exports = {
     '/': {
       lang: 'en-US',
       title: 'NornJ CLI',
-      description: '🛠️ Scaffolding Tool based on NornJ Template Engine'
+      description: '🛠️ Easily Configurable and Scalable Scaffolding Tool'
     },
     '/zh/': {
       lang: 'zh-CN',
       title: 'NornJ CLI',
-      description: '🛠️ 基于 NornJ 模板引擎的脚手架工具'
+      description: '🛠️ 可配置化、易于扩展的脚手架工具'
     }
   },
   head: [
