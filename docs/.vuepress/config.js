@@ -3,12 +3,12 @@ module.exports = {
     '/': {
       lang: 'en-US',
       title: 'NornJ CLI',
-      description: '🛠️ Easily Configurable and Scalable Scaffolding Tool'
+      description: '🛠️ An Easily Configurable and Scalable Scaffolding tool'
     },
     '/zh/': {
       lang: 'zh-CN',
       title: 'NornJ CLI',
-      description: '🛠️ 可配置化、易于扩展的脚手架工具'
+      description: '🛠️ 一套可配置化、易于扩展的脚手架工具'
     }
   },
   head: [
@@ -157,10 +157,12 @@ module.exports = {
               title: '基础',
               collapsable: false,
               children: [
-                '/zh/guide/prototyping',
                 '/zh/guide/creating-a-project',
-                '/zh/guide/plugins-and-presets',
-                '/zh/guide/cli-service'
+                '/zh/guide/preset-project-templates',
+                '/zh/guide/creating-a-page',
+                '/zh/guide/creating-a-component',
+                '/zh/guide/creating-a-store',
+                '/zh/guide/upgrade'
               ]
             },
             {
