@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   presets: ['@babel/typescript', '@babel/preset-react'],
   env: {
@@ -29,6 +31,17 @@ module.exports = {
   plugins: [
     '@babel/plugin-syntax-dynamic-import',
     [
+      'module-resolver',
+      {
+        alias: {
+          '@': path.join(__dirname, './src'),
+          '@config': path.join(__dirname, './config'),
+          '^antd$': 'nornj-react/antd'
+        },
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.es', '.es6', '.mjs']
+      }
+    ],
+    [
       'import',
       {
         libraryName: 'antd',
@@ -47,7 +60,7 @@ module.exports = {
     [
       'styled-jsx/babel',
       {
-        plugins: ['styled-jsx-plugin-sass', 'styled-jsx-plugin-postcss']
+        plugins: ['styled-jsx-plugin-less', 'styled-jsx-plugin-postcss']
       }
     ],
     [

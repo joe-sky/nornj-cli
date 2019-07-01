@@ -11,5 +11,6 @@
   // "eslint.autoFixOnSave": true,
   // "editor.formatOnSave": true,
   "prettier.stylelintIntegration": true,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

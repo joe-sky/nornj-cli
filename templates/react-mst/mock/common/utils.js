@@ -1,5 +1,3 @@
-'use strict';
-
 const resultData = {
   success: true,  //是否成功
   message: null,  //错误信息

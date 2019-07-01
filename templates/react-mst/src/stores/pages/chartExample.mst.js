@@ -1,8 +1,8 @@
 import { types } from 'mobx-state-tree';
 import { toJS } from 'mobx';
 import BaseStore from '../base.mst';
-import * as api from '../../services/pages/chartExample';
-import Notification from '../../utils/notification';
+import * as api from '@/services/pages/chartExample';
+import Notification from '@/utils/notification';
 
 const BrandCompareItem = types
   .model('BrandCompareItem', {

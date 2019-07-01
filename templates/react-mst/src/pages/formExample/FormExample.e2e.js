@@ -1,11 +1,12 @@
 import puppeteer from 'puppeteer';
+import { dev, e2e } from '@config/configs';
 
 describe('FormExample', () => {
   let browser;
   let page;
 
   beforeAll(async () => {
-    jest.setTimeout(30000);
+    jest.setTimeout(e2e.timeout);
     browser = await puppeteer.launch({
       //headless: false,
       args: ['--no-sandbox']
@@ -14,17 +15,17 @@ describe('FormExample', () => {
 
   beforeEach(async () => {
     page = await browser.newPage();
-    await page.goto('http://localhost:8080/dist/web#FormExample', { waitUntil: 'networkidle2' });
+    await page.goto(`http://${dev.host}:${dev.port}/dist/#/FormExample`, { waitUntil: 'networkidle2' });
   });
 
   afterEach(() => page.close());
 
   it('It should have title text', async () => {
     await page.waitForXPath('//h2[contains(., "Ant Design 表单控件示例")]', {
-      timeout: 3000
+      timeout: e2e.pageTimeout
     });
-    await page.type('div[class^="formExample-m__formEls"]:nth-of-type(1) input', '输入测试数据');
-    const text = await page.evaluate(() => document.querySelector('div[class^="formExample-m__formEls"]:nth-of-type(1) i').innerHTML);
+    await page.type('div[class^="formEls"]:nth-of-type(1) input', '输入测试数据');
+    const text = await page.evaluate(() => document.querySelector('div[class^="formEls"]:nth-of-type(1) i').innerHTML);
     expect(text).toContain('输入测试数据');
   });
 

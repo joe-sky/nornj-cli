@@ -1,20 +1,20 @@
 {
   "rootDir": "../",
-  "collectCoverageFrom": ["src/web/components/**/*.{js,jsx}", "src/app/components/**/*.{js,jsx}"],
+  "collectCoverageFrom": ["src/web/components/**/*.[jt]s?(x)", "src/app/components/**/*.[jt]s?(x)"],
   "setupFiles": ["<rootDir>/test/setup.js"],
-  "testMatch": ["<rootDir>/src/**/?(*.)e2e.{js,jsx}"],
-  "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+  "testMatch": ["<rootDir>/src/**/*.e2e.[jt]s?(x)"],
+  "setupFilesAfterEnv": ["./node_modules/jest-enzyme/lib/index.js"],
   "testEnvironment": "enzyme",
   "testURL": "http://localhost:8080",
   "transform": {
-    "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+    "^.+\\.(js|jsx|ts|tsx|mjs)$": "<rootDir>/node_modules/babel-jest",
     "^.+\\.m\\.(less|scss)$": "<rootDir>/node_modules/jest-css-modules-transform",
     "^.+\\.(css|less|scss)$": "<rootDir>/test/transforms/cssTransform.js",
-    "^(?!.*\\.(js|jsx|css|less|scss|json)$)": "<rootDir>/test/transforms/fileTransform.js"
+    "^(?!.*\\.(js|jsx|ts|tsx|css|less|scss|json)$)": "<rootDir>/test/transforms/fileTransform.js"
   },
-  "transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es/).+(js|jsx|mjs)$"],
+  "transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es/).+(js|jsx|ts|tsx|mjs)$"],
   "coverageDirectory": "test/coverage",
-  "moduleFileExtensions": ["js", "jsx", "json"],
+  "moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json"],
   "globals": {
     "__HOST": "'http://localhost:8089'"
   }

@@ -1,6 +1,6 @@
 import { types } from 'mobx-state-tree';
 import BaseStore from '../base.mst';
-import * as api from '../../services/pages/emptyExample';
+import * as api from '@/services/pages/emptyExample';
 
 const EmptyExampleStore = BaseStore.named('EmptyExampleStore')
   .props({

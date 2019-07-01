@@ -1,14 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import {%componentName | capitalize%} from './{%componentName | capitalize%}';
-import RootStore from '../../stores/root.mst';
-const store = RootStore.create({});
+import {%componentName | capitalize%} from './{%componentName | capitalize%}';<#if {% !mobxRoot %}>
+import RootStore from '@/stores/root.mst';
+const store = RootStore.create({});<#else>
+import RootStore from '@/stores/root.store';
+const store = new RootStore();</#else></#if>
 
 describe('components/{%componentName%}', () => {
   it('default', () => {
     let app = mount(<{%componentName | capitalize%} store={store} />);
-    app.instance().wrappedInstance.editing = true;
-    app.update();
+    app.find('div').at(0).simulate('click');
     expect(app.find('input')).toHaveLength(1);
   });
 });

@@ -1,14 +1,8 @@
 {
-  "parser": "babel-eslint",
-  "plugins": ["babel", "import", "react"],
-  "env": {
-    "browser": true,
-    "node": true,
-    "mocha": true,
-    "es6": true
-  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import", "react"],
   "rules": {
-    "indent": [
+    "@typescript-eslint/indent": [
       1,
       2,
       {

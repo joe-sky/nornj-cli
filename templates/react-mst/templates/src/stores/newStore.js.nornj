@@ -1,7 +1,7 @@
 <#if {%!mobx%}>import { types } from 'mobx-state-tree';
 </#if>import { observable, toJS, action } from 'mobx';
 import BaseStore from './base.{%mobx ? 'store' : 'mst'%}';
-import * as api from '../services/{%storeName%}';
+import * as api from '@/services/{%storeName%}';
 
 <#if {%mobx%}>class {%storeName | capitalize%}Store extends BaseStore {
   @observable bool = true;

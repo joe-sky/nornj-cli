@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.5.0-alpha.9] 2019.07.01
+
+* 🌟 `react-mst`模板升级。
+
 ## [v0.4.2] 2019.04.03
 
 * 🌟 推荐安装的vscode插件增加`vscode-styled-components`。

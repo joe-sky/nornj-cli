@@ -1,7 +1,7 @@
 import { types } from 'mobx-state-tree';
 import BaseStore from './base.mst';
-import * as api from '../services/common';
-import Notification from '../utils/notification';
+import * as api from '@/services/common';
+import Notification from '@/utils/notification';
 
 export const UserInfo = types.model('UserInfo', {
   pin: types.maybe(types.string),

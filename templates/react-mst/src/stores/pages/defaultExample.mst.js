@@ -1,8 +1,8 @@
 import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
 import BaseStore from '../base.mst';
-import * as api from '../../services/pages/defaultExample';
-import Notification from '../../utils/notification';
+import * as api from '@/services/pages/defaultExample';
+import Notification from '@/utils/notification';
 
 const DefaultExampleStore = BaseStore.named('DefaultExampleStore')
   .props({

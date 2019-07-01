@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { withRouter, Redirect } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 import { observer, Provider, inject } from 'mobx-react';
-import Loading from '../components/loading';
+import Loading from '@/components/loading';
 import getInitialInfo from './getInitialInfo';
 
 const DefaultExample = inject('store')(

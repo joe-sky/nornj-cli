@@ -1,6 +1,7 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
+    "outDir": "./built",
     "allowSyntheticDefaultImports": true,
     "lib": ["dom", "es6"],
     "jsx": "react",
@@ -16,7 +17,12 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "allowJs": true
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@config/*": ["./config/*"]
+    }
   },
   "exclude": [
     "node_modules",
@@ -28,7 +34,8 @@
     "**/.svn",
     "**/.hg",
     "**/CVS",
-    "**/.DS_Store"
+    "**/.DS_Store",
+    "./built/**/*"
   ],
   "watcherExclude": [
     "tmp/**",

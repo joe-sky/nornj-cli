@@ -1,5 +1,5 @@
 // 所有没有@types定义的第三方库，在此处定义
-import RootStore from '@/stores/root.mst';
+import RootStore from '@/stores/root.{% mobxRoot ? 'store' : 'mst' %}';
 import { AxiosResponse } from 'axios';
 import 'react';
 import { WrappedFormUtils } from 'antd/lib/form/Form';

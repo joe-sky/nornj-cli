@@ -11,7 +11,7 @@ import {
   Checkbox,
   Pagination,
   message
-} from 'nornj-react/antd';
+} from 'antd';
 import ReactEcharts from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/tooltip';
@@ -23,7 +23,7 @@ import 'echarts/lib/chart/bar';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/pie';
 import graphic from 'echarts/lib/util/graphic';
-import Notification from '../../../utils/notification';
+import Notification from '@/utils/notification';
 import styles from './{%pageName | capitalize%}.m.less';
 
 @inject('store')

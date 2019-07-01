@@ -1,11 +1,12 @@
 import puppeteer from 'puppeteer';
+import { dev, e2e } from '@config/configs';
 
 describe('ChartExample', () => {
   let browser;
   let page;
 
   beforeAll(async () => {
-    jest.setTimeout(30000);
+    jest.setTimeout(e2e.timeout);
     browser = await puppeteer.launch({
       //headless: false,
       args: ['--no-sandbox']
@@ -14,17 +15,17 @@ describe('ChartExample', () => {
 
   beforeEach(async () => {
     page = await browser.newPage();
-    await page.goto('http://localhost:8080/dist/web#ChartExample', { waitUntil: 'networkidle2' });
+    await page.goto(`http://${dev.host}:${dev.port}/dist/#/ChartExample`, { waitUntil: 'networkidle2' });
   });
 
   afterEach(() => page.close());
 
   it('It should have some text in modal', async () => {
     await page.waitForXPath('//h2[contains(., "Summary")]', {
-      timeout: 3000
+      timeout: e2e.pageTimeout
     });
-    await page.click('div[class^="ant-row chartExample-m__brandCompareItem"]:nth-of-type(1) span.ant-checkbox');
-    const text = await page.evaluate(() => document.querySelector('div[class^="chartExample-m__name"]').innerHTML);
+    await page.click('div[class^="ant-row ChartExample-m__brandCompareItem"]:nth-of-type(1) span.ant-checkbox');
+    const text = await page.evaluate(() => document.querySelector('div[class^="ChartExample-m__name"]').innerHTML);
     expect(text).toContain('品牌1');
   });
 

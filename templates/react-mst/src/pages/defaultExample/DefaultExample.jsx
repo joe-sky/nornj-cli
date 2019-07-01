@@ -2,18 +2,8 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import {
-  Table,
-  Input,
-  Button,
-  Pagination,
-  Tabs,
-  Checkbox,
-  Modal,
-  Tree,
-  message
-} from 'nornj-react/antd';
-import Notification from '../../utils/notification';
+import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message } from 'antd';
+import Notification from '@/utils/notification';
 import styles from './DefaultExample.m.less';
 import ModalFormPage from './ModalFormPage';
 import ModalDetailPage from './ModalDetailPage';
@@ -28,7 +18,9 @@ export default class DefaultExample extends Component {
   @observable selectedRows = [];
 
   async componentDidMount() {
-    const { store: { defaultExample } } = this.props;
+    const {
+      store: { defaultExample }
+    } = this.props;
 
     const closeLoading = message.loading('正在获取数据...', 0);
     await Promise.all([
@@ -44,14 +36,18 @@ export default class DefaultExample extends Component {
       await this.props.store.defaultExample.getRoleManagementData();
       closeLoading();
     } else {
-      const { store: { defaultExample } } = this.props;
+      const {
+        store: { defaultExample }
+      } = this.props;
       const searchRole = defaultExample.tableDataO.filter(n => n.name.indexOf(this.inputRole.trim()) > -1);
       defaultExample.setTableData(searchRole);
     }
   };
 
   onAddRole = () => {
-    const { store: { defaultExample } } = this.props;
+    const {
+      store: { defaultExample }
+    } = this.props;
     defaultExample.setAddModalVisible(true);
     defaultExample.setDisable(true);
     defaultExample.setActiveKey('tab1');
@@ -60,7 +56,9 @@ export default class DefaultExample extends Component {
   };
 
   onDeleteRole = () => {
-    const { store: { defaultExample } } = this.props;
+    const {
+      store: { defaultExample }
+    } = this.props;
     if (this.selectedRowKeys.length == 0) {
       Notification.error({ message: '请勾选要删除的角色！', duration: 3 });
     } else {
@@ -68,7 +66,7 @@ export default class DefaultExample extends Component {
         title: '你确认要删除角色吗？',
         onOk: async () => {
           const closeLoading = message.loading('正在获取数据...', 0);
-          const roleId = this.selectedRows.map((item) => item.roleId);
+          const roleId = this.selectedRows.map(item => item.roleId);
 
           await defaultExample.deleteRole({ roleId: roleId });
           defaultExample.getRoleManagementData();
@@ -80,35 +78,48 @@ export default class DefaultExample extends Component {
   };
 
   @computed get tableColumns() {
-    return [{
-      title: '序号',
-      dataIndex: 'key',
-    }, {
-      title: '角色名称',
-      dataIndex: 'name',
-    }, {
-      title: '角色描述',
-      dataIndex: 'describe',
-    }, {
-      title: '创建时间',
-      dataIndex: 'cTime',
-    }, {
-      title: '修改时间',
-      dataIndex: 'mTime',
-    }, {
-      title: '操作',
-      dataIndex: 'handler',
-      render: (text, record, index) => (
-        <span>
-          <a href="javascript:;" onClick={() => this.onEdit(record, index)} className="btn-link">编辑</a>
-          <a href="javascript:;" onClick={() => this.onDetail(record, index)} className="btn-link">用户明细</a>
-        </span>
-      ),
-    }];
+    return [
+      {
+        title: '序号',
+        dataIndex: 'key'
+      },
+      {
+        title: '角色名称',
+        dataIndex: 'name'
+      },
+      {
+        title: '角色描述',
+        dataIndex: 'describe'
+      },
+      {
+        title: '创建时间',
+        dataIndex: 'cTime'
+      },
+      {
+        title: '修改时间',
+        dataIndex: 'mTime'
+      },
+      {
+        title: '操作',
+        dataIndex: 'handler',
+        render: (text, record, index) => (
+          <span>
+            <a href="javascript:;" onClick={() => this.onEdit(record, index)} className="btn-link">
+              编辑
+            </a>
+            <a href="javascript:;" onClick={() => this.onDetail(record, index)} className="btn-link">
+              用户明细
+            </a>
+          </span>
+        )
+      }
+    ];
   }
 
   onEdit = async (record, index) => {
-    const { store: { defaultExample } } = this.props;
+    const {
+      store: { defaultExample }
+    } = this.props;
     defaultExample.setEditModalVisible(true);
     defaultExample.setSaveBtnDisabled(true);
     defaultExample.setActiveKey('tab1');
@@ -123,7 +134,9 @@ export default class DefaultExample extends Component {
   };
 
   onDetail = (record, index) => {
-    const { store: { defaultExample } } = this.props;
+    const {
+      store: { defaultExample }
+    } = this.props;
     defaultExample.setDetailModalVisible(true);
     defaultExample.setDetailData(record.users);
   };
@@ -139,7 +152,9 @@ export default class DefaultExample extends Component {
   };
 
   render() {
-    const { store: { defaultExample } } = this.props;
+    const {
+      store: { defaultExample }
+    } = this.props;
 
     return (
       <div className={styles.defaultExample}>
@@ -147,15 +162,23 @@ export default class DefaultExample extends Component {
         <div className={styles.handlerBox}>
           <span className={styles.label}>{n`intl('roleName')`}</span>
           <Input className={styles.input} n-mobxBind={this.inputRole} />
-          <Button className="btn" onClick={this.onSearch}>查询</Button>
-          <Button className="btn" onClick={this.onAddRole}>新增</Button>
-          <Button className="btn" onClick={this.onDeleteRole}>删除</Button>
+          <Button className="btn" onClick={this.onSearch}>
+            查询
+          </Button>
+          <Button className="btn" onClick={this.onAddRole}>
+            新增
+          </Button>
+          <Button className="btn" onClick={this.onDeleteRole}>
+            删除
+          </Button>
         </div>
 
-        <Table rowSelection={this.getRowSelection()}
+        <Table
+          rowSelection={this.getRowSelection()}
           columns={toJS(this.tableColumns)}
           dataSource={toJS(defaultExample.tableData)}
-          bordered />
+          bordered
+        />
 
         <ModalFormPage tabName="增加角色" />
         <ModalFormPage tabName="编辑角色" />

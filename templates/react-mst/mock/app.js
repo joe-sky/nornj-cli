@@ -1,28 +1,28 @@
-'use strict';
-
 const express = require('express');
 const _ = require('lodash');
 const fs = require('fs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const { dev, mock } = require('../config/configs');
 const app = express();
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 app.use(bodyParser.json());
 
-//设置跨域访问
 app.all('*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Origin', `http://${dev.host}:${dev.port}`);
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Credentials', true);
-  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-  res.header("X-Powered-By", ' 3.2.1');
-  res.header("Content-Type", "application/json;charset=utf-8");
-  if (req.method == "OPTIONS") res.send(200);
+  res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
+  res.header('X-Powered-By', ' 3.2.1');
+  res.header('Content-Type', 'application/json;charset=utf-8');
+  if (req.method == 'OPTIONS') res.sendStatus(200);
   else next();
 });
 
@@ -70,11 +70,11 @@ app.get('/common/getLoginInfo', function(req, res) {
 app.post('/common/getCurrentUserInfo', function(req, res) {
   res.type('json');
   let ret = {};
-  
+
   Object.assign(ret, resultData, {
     data: {
-      "pin": "testUser",
-      "name": "testUser",
+      pin: 'testUser',
+      name: 'testUser'
     },
     success: true
   });
@@ -83,10 +83,10 @@ app.post('/common/getCurrentUserInfo', function(req, res) {
 });
 
 app.get('/common/logout', function(req, res) {
-  res.redirect('http://localhost:8080/dist/web/home.html');
+  res.redirect(`http://${dev.localhost}:${dev.port}/dist/home.html`);
 });
 
-let server = app.listen(8089, function() {
+let server = app.listen(mock.port, function() {
   let host = server.address().address;
   let port = server.address().port;
 

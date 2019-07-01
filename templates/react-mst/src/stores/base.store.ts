@@ -1,5 +1,5 @@
 import { observable, computed, action, toJS } from 'mobx';
-import Notification from '../utils/notification';
+import Notification from '@/utils/notification';
 
 export default class BaseStore {
   @action

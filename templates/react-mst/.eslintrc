@@ -1,6 +1,13 @@
 {
-  "parser": "babel-eslint",
-  "plugins": ["babel", "import", "react"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import", "react"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "env": {
     "browser": true,
     "node": true,
@@ -8,7 +15,7 @@
     "es6": true
   },
   "rules": {
-    "indent": [
+    "@typescript-eslint/indent": [
       1,
       2,
       {

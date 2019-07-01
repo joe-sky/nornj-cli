@@ -42,6 +42,7 @@
     "color-hex-length": null,
     "block-no-empty": null,
     "declaration-colon-newline-after": null,
-    "value-list-comma-newline-after": null
+    "value-list-comma-newline-after": null,
+    "declaration-empty-line-before": null
   }
 }

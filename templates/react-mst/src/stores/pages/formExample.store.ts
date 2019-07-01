@@ -1,6 +1,6 @@
 import { observable, computed, action, toJS } from 'mobx';
 import BaseStore from '../base.store';
-import * as api from '../../services/pages/formExample';
+import * as api from '@/services/pages/formExample';
 import moment from 'moment';
 
 class FormExampleStore extends BaseStore {

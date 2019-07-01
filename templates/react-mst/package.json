@@ -97,11 +97,11 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.1",
     "image-webpack-loader": "^3.2.0",
-    <#if {%jest%}>"jest": "^24.8.0",
+    "jest": "^24.8.0",
     "jest-css-modules-transform": "^2.0.0",
     "jest-environment-enzyme": "^6.0.3",
     "jest-enzyme": "^6.0.3",
-    </#if>"less": "^2.7.2",
+    "less": "^2.7.2",
     "less-loader": "^4.0.4",
     "lint-staged": "^8.1.5",
     "mini-css-extract-plugin": "0.4.1",
@@ -119,8 +119,8 @@
     "prettier-eslint": "^8.8.1",
     "prettier-stylelint": "^0.4.2",
     "prop-types": "^15.6.0",
-    <#if {%puppeteer%}>"puppeteer": "^1.18.1",
-    </#if>"react-hot-loader": "^4.11.0",
+    "puppeteer": "^1.18.1",
+    "react-hot-loader": "^4.11.0",
     "redux-devtools": "^3.3.2",
     "style-loader": "^0.13.0",
     "styled-components": "^4.1.2",
@@ -196,12 +196,9 @@
     ]
   },
   "njCliConfig": {
-    "templateType": "single-page",
-    "jest": {%jest ? 'true' : 'false'%},
-    "e2e": {%puppeteer ? 'true' : 'false'%},
-    "templateData": {
-      {%mobxRoot ? '"mobxRoot": true' : ''%}
-    },
+    "jest": true,
+    "e2e": true,
+    "templateData": {},
     "pageTemplates": [
       "default",
       "chart",

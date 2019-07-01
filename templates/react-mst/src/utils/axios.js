@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Notification from '../utils/notification';
+import Notification from '@/utils/notification';
 
 export const axiosInstance = axios.create({
   baseURL: `${__HOST}/`

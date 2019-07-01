@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import {
-  Row,
-  Col,
-  Radio,
-  Button,
-  Cascader,
-  DatePicker,
-  Checkbox,
-  Pagination,
-  message
-} from 'nornj-react/antd';
+import { Row, Col, Radio, Button, Cascader, DatePicker, Checkbox, Pagination, message } from 'antd';
 import ReactEcharts from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/tooltip';
@@ -23,13 +13,12 @@ import 'echarts/lib/chart/bar';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/pie';
 import graphic from 'echarts/lib/util/graphic';
-import Notification from '../../utils/notification';
+import Notification from '@/utils/notification';
 import styles from './ChartExample.m.less';
 
 @inject('store')
 @observer
 export default class ChartExample extends Component {
-
   constructor(props) {
     super(props);
   }
@@ -54,7 +43,9 @@ export default class ChartExample extends Component {
   };
 
   render() {
-    const { store: { chartExample } } = this.props;
+    const {
+      store: { chartExample }
+    } = this.props;
 
     return (
       <div className={styles.chartExample}>
@@ -80,18 +71,17 @@ export default class ChartExample extends Component {
 @inject('store')
 @observer
 class EvalSummary extends Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
-    const { store: { chartExample } } = this.props;
+    const {
+      store: { chartExample }
+    } = this.props;
 
     return (
       <Row className={styles.summary}>
@@ -102,11 +92,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${chartExample.summaryData.gmvYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{chartExample.summaryData.gmvYOY > 0 ? '+' : ''}{chartExample.summaryData.gmvYOY}%</div>
+                <div>
+                  {chartExample.summaryData.gmvYOY > 0 ? '+' : ''}
+                  {chartExample.summaryData.gmvYOY}%
+                </div>
               </div>
               <div className={`${chartExample.summaryData.gmvMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{chartExample.summaryData.gmvMOM > 0 ? '+' : ''}{chartExample.summaryData.gmvMOM}%</div>
+                <div>
+                  {chartExample.summaryData.gmvMOM > 0 ? '+' : ''}
+                  {chartExample.summaryData.gmvMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -118,11 +114,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${chartExample.summaryData.uvYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{chartExample.summaryData.uvYOY > 0 ? '+' : ''}{chartExample.summaryData.uvYOY}%</div>
+                <div>
+                  {chartExample.summaryData.uvYOY > 0 ? '+' : ''}
+                  {chartExample.summaryData.uvYOY}%
+                </div>
               </div>
               <div className={`${chartExample.summaryData.uvMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{chartExample.summaryData.uvMOM > 0 ? '+' : ''}{chartExample.summaryData.uvMOM}%</div>
+                <div>
+                  {chartExample.summaryData.uvMOM > 0 ? '+' : ''}
+                  {chartExample.summaryData.uvMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -134,11 +136,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${chartExample.summaryData.uvRatesYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{chartExample.summaryData.uvRatesYOY > 0 ? '+' : ''}{chartExample.summaryData.uvRatesYOY}%</div>
+                <div>
+                  {chartExample.summaryData.uvRatesYOY > 0 ? '+' : ''}
+                  {chartExample.summaryData.uvRatesYOY}%
+                </div>
               </div>
               <div className={`${chartExample.summaryData.uvRatesMOM > 0 ? styles.red : styles.green} fr`}>
                 <div>环比</div>
-                <div>{chartExample.summaryData.uvRatesMOM > 0 ? '+' : ''}{chartExample.summaryData.uvRatesMOM}%</div>
+                <div>
+                  {chartExample.summaryData.uvRatesMOM > 0 ? '+' : ''}
+                  {chartExample.summaryData.uvRatesMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -150,11 +158,17 @@ class EvalSummary extends Component {
             <div className={`${styles.rates} clearfix`}>
               <div className={`${chartExample.summaryData.userCountYOY > 0 ? styles.red : styles.green} fl`}>
                 <div>同比</div>
-                <div>{chartExample.summaryData.userCountYOY > 0 ? '+' : ''}{chartExample.summaryData.userCountYOY}%</div>
+                <div>
+                  {chartExample.summaryData.userCountYOY > 0 ? '+' : ''}
+                  {chartExample.summaryData.userCountYOY}%
+                </div>
               </div>
               <div className={`${styles.red} fr`}>
                 <div>环比</div>
-                <div>{chartExample.summaryData.userCountMOM > 0 ? '+' : ''}{chartExample.summaryData.userCountMOM}%</div>
+                <div>
+                  {chartExample.summaryData.userCountMOM > 0 ? '+' : ''}
+                  {chartExample.summaryData.userCountMOM}%
+                </div>
               </div>
             </div>
           </div>
@@ -167,7 +181,6 @@ class EvalSummary extends Component {
 @inject('store')
 @observer
 class TotalCompare extends Component {
-
   @observable switchIndex = 'a';
 
   @observable showMode = '';
@@ -194,14 +207,16 @@ class TotalCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(0, 1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach(function (item) {
+          params.forEach(function(item) {
             result += njs`<div>
-                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                              item.color
+                            }"></span>
                             <span>${item.seriesName}:</span>
                             <span>${item.data || '--'}</span>
                           </div>`();
@@ -257,13 +272,19 @@ class TotalCompare extends Component {
   }
 
   @computed get salesData() {
-    const lineData = toJS(this.props.store.chartExample.salesData && this.props.store.chartExample.salesData[1].map(item => (item / 10000).toFixed(2)));
+    const lineData = toJS(
+      this.props.store.chartExample.salesData &&
+        this.props.store.chartExample.salesData[1].map(item => (item / 10000).toFixed(2))
+    );
     return [
       {
         name: '属性1',
         type: 'bar',
         barWidth: '30px',
-        data: toJS(this.props.store.chartExample.salesData && this.props.store.chartExample.salesData[0].map(item => (item / 10000).toFixed(2)))
+        data: toJS(
+          this.props.store.chartExample.salesData &&
+            this.props.store.chartExample.salesData[0].map(item => (item / 10000).toFixed(2))
+        )
       },
       {
         name: '属性2',
@@ -271,7 +292,7 @@ class TotalCompare extends Component {
         data: this.showMode === null ? [] : lineData
       }
     ];
-  };
+  }
 
   @computed get salesRatesOptions() {
     return {
@@ -291,14 +312,16 @@ class TotalCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(0, 1);
           }
           var result = njs`<div>${params[0].name}</div>`();
-          params.forEach(function (item) {
+          params.forEach(function(item) {
             result += njs`<div>
-                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                              item.color
+                            }"></span>
                             <span>${item.seriesName}:</span>
                             <span>${item.data || '--'}%</span>
                           </div>`();
@@ -351,22 +374,29 @@ class TotalCompare extends Component {
       },
       series: this.salesRatesData
     };
-  };
+  }
 
   @computed get salesRatesData() {
-    const lineData = toJS(this.props.store.chartExample.salesRatesData && this.props.store.chartExample.salesRatesData[1].map(item => (item * 100).toFixed(2)));
-    return [{
-      name: '属性1',
-      type: 'line',
-      data: toJS(this.props.store.chartExample.salesRatesData && this.props.store.chartExample.salesRatesData[0].map(item => (item * 100).toFixed(2)))
-    },
-    {
-      name: '属性2',
-      type: 'line',
-      data: this.showMode === null ? [] : lineData
-    }
+    const lineData = toJS(
+      this.props.store.chartExample.salesRatesData &&
+        this.props.store.chartExample.salesRatesData[1].map(item => (item * 100).toFixed(2))
+    );
+    return [
+      {
+        name: '属性1',
+        type: 'line',
+        data: toJS(
+          this.props.store.chartExample.salesRatesData &&
+            this.props.store.chartExample.salesRatesData[0].map(item => (item * 100).toFixed(2))
+        )
+      },
+      {
+        name: '属性2',
+        type: 'line',
+        data: this.showMode === null ? [] : lineData
+      }
     ];
-  };
+  }
 
   @computed get growthOptions() {
     let dataX = [],
@@ -378,7 +408,9 @@ class TotalCompare extends Component {
         unit = '%';
         break;
       case 'b':
-        dataX = toJS(this.props.store.chartExample.growthDataUVConvert && this.props.store.chartExample.growthDataUVConvert[2]);
+        dataX = toJS(
+          this.props.store.chartExample.growthDataUVConvert && this.props.store.chartExample.growthDataUVConvert[2]
+        );
         unit = '%';
         break;
       case 'c':
@@ -408,14 +440,16 @@ class TotalCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(0, 1);
           }
           var result = njs`<div>${params[0].name}</div>`();
-          params.forEach(function (item) {
+          params.forEach(function(item) {
             result += njs`<div>
-                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                              item.color
+                            }"></span>
                             <span>${item.seriesName}:</span>
                             <span>${item.data || '--'}${unit}</span>
                           </div>`();
@@ -468,27 +502,51 @@ class TotalCompare extends Component {
       },
       series: this.growthData
     };
-  };
+  }
 
   @computed get growthData() {
     let data1 = [],
       data2 = [];
     switch (this.switchIndex) {
       case 'a':
-        data1 = toJS(this.props.store.chartExample.growthDataUV && this.props.store.chartExample.growthDataUV[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.chartExample.growthDataUV && this.props.store.chartExample.growthDataUV[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(
+          this.props.store.chartExample.growthDataUV &&
+            this.props.store.chartExample.growthDataUV[0].map(item => (item * 100).toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.chartExample.growthDataUV &&
+            this.props.store.chartExample.growthDataUV[1].map(item => (item * 100).toFixed(2))
+        );
         break;
       case 'b':
-        data1 = toJS(this.props.store.chartExample.growthDataUVConvert && this.props.store.chartExample.growthDataUVConvert[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.chartExample.growthDataUVConvert && this.props.store.chartExample.growthDataUVConvert[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(
+          this.props.store.chartExample.growthDataUVConvert &&
+            this.props.store.chartExample.growthDataUVConvert[0].map(item => (item * 100).toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.chartExample.growthDataUVConvert &&
+            this.props.store.chartExample.growthDataUVConvert[1].map(item => (item * 100).toFixed(2))
+        );
         break;
       case 'c':
-        data1 = toJS(this.props.store.chartExample.growthDataUser && this.props.store.chartExample.growthDataUser[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.chartExample.growthDataUser && this.props.store.chartExample.growthDataUser[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(
+          this.props.store.chartExample.growthDataUser &&
+            this.props.store.chartExample.growthDataUser[0].map(item => (item * 100).toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.chartExample.growthDataUser &&
+            this.props.store.chartExample.growthDataUser[1].map(item => (item * 100).toFixed(2))
+        );
         break;
       case 'd':
-        data1 = toJS(this.props.store.chartExample.growthDataPrice && this.props.store.chartExample.growthDataPrice[0].map(item => (item).toFixed(2)));
-        data2 = toJS(this.props.store.chartExample.growthDataPrice && this.props.store.chartExample.growthDataPrice[1].map(item => (item).toFixed(2)));
+        data1 = toJS(
+          this.props.store.chartExample.growthDataPrice &&
+            this.props.store.chartExample.growthDataPrice[0].map(item => item.toFixed(2))
+        );
+        data2 = toJS(
+          this.props.store.chartExample.growthDataPrice &&
+            this.props.store.chartExample.growthDataPrice[1].map(item => item.toFixed(2))
+        );
         break;
     }
 
@@ -504,7 +562,7 @@ class TotalCompare extends Component {
         data: this.showMode === null ? [] : data2
       }
     ];
-  };
+  }
 
   constructor(props) {
     super(props);
@@ -515,20 +573,18 @@ class TotalCompare extends Component {
   };
 
   render() {
-    const { store: { chartExample } } = this.props;
+    const {
+      store: { chartExample }
+    } = this.props;
 
     return (
       <Row className={styles.totalCompare}>
         <Col span={12}>
           <div className={styles.leftBlock}>
             <div className={styles.chartTit}>指标1趋势</div>
-            <ReactEcharts echarts={echarts}
-                          option={toJS(this.salesOptions)}
-                          notMerge={true} />
+            <ReactEcharts echarts={echarts} option={toJS(this.salesOptions)} notMerge={true} />
             <div className={styles.chartTit}>指标1同比增长率趋势</div>
-            <ReactEcharts echarts={echarts}
-                          option={toJS(this.salesRatesOptions)}
-                          notMerge={true} />
+            <ReactEcharts echarts={echarts} option={toJS(this.salesRatesOptions)} notMerge={true} />
           </div>
         </Col>
         <Col span={12}>
@@ -545,15 +601,33 @@ class TotalCompare extends Component {
               </thead>
               <tbody>
                 <tr className={styles.row1}>
-                  <td>{n`${chartExample}.growthDataTable[0][0] > 0` ? '+' : ''}{n`${chartExample}.growthDataTable[0][0] | percent(2) || '--'`}</td>
-                  <td>{n`${chartExample}.growthDataTable[0][1] > 0` ? '+' : ''}{n`${chartExample}.growthDataTable[0][1] | percent(2) || '--'`}</td>
-                  <td>{n`${chartExample}.growthDataTable[0][3] > 0` ? '+' : ''}{n`${chartExample}.growthDataTable[0][3] | percent(2) || '--'`}</td>
+                  <td>
+                    {n`${chartExample}.growthDataTable[0][0] > 0` ? '+' : ''}
+                    {n`${chartExample}.growthDataTable[0][0] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {n`${chartExample}.growthDataTable[0][1] > 0` ? '+' : ''}
+                    {n`${chartExample}.growthDataTable[0][1] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {n`${chartExample}.growthDataTable[0][3] > 0` ? '+' : ''}
+                    {n`${chartExample}.growthDataTable[0][3] | percent(2) || '--'`}
+                  </td>
                   <td>{n`${chartExample}.growthDataTable[0][2].toFixed(2) || '--'`}元</td>
                 </tr>
                 <tr className={styles.row2}>
-                  <td>{n`${chartExample}.growthDataTable[1][0] > 0` ? '+' : ''}{n`${chartExample}.growthDataTable[1][0] | percent(2) || '--'`}</td>
-                  <td>{n`${chartExample}.growthDataTable[1][1] > 0` ? '+' : ''}{n`${chartExample}.growthDataTable[1][1] | percent(2) || '--'`}</td>
-                  <td>{n`${chartExample}.growthDataTable[1][3] > 0` ? '+' : ''}{n`${chartExample}.growthDataTable[1][3] | percent(2) || '--'`}</td>
+                  <td>
+                    {n`${chartExample}.growthDataTable[1][0] > 0` ? '+' : ''}
+                    {n`${chartExample}.growthDataTable[1][0] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {n`${chartExample}.growthDataTable[1][1] > 0` ? '+' : ''}
+                    {n`${chartExample}.growthDataTable[1][1] | percent(2) || '--'`}
+                  </td>
+                  <td>
+                    {n`${chartExample}.growthDataTable[1][3] > 0` ? '+' : ''}
+                    {n`${chartExample}.growthDataTable[1][3] | percent(2) || '--'`}
+                  </td>
                   <td>{n`${chartExample}.growthDataTable[1][2].toFixed(2) || '--'`}元</td>
                 </tr>
               </tbody>
@@ -564,9 +638,7 @@ class TotalCompare extends Component {
               <Radio.Button value="c">指标3</Radio.Button>
               <Radio.Button value="d">指标4</Radio.Button>
             </Radio.Group>
-            <ReactEcharts echarts={echarts}
-                          option={toJS(this.growthOptions)}
-                          notMerge={true} />
+            <ReactEcharts echarts={echarts} option={toJS(this.growthOptions)} notMerge={true} />
           </div>
         </Col>
       </Row>
@@ -577,7 +649,6 @@ class TotalCompare extends Component {
 @inject('store')
 @observer
 class CategoryCompare extends Component {
-
   @observable currentView = 1; // 1:'chart' | 2:'table'
 
   @computed get pieCategoryOptions() {
@@ -591,11 +662,13 @@ class CategoryCompare extends Component {
       },
       tooltip: {
         trigger: 'item',
-        formatter: function (params) {
+        formatter: function(params) {
           var result = njs`<div>${params.name}</div>
                            <div>
                              <span>${params.seriesName}:</span>
-                             <span>${params.seriesName == '属性2' ? '' : '(' + params.data.value + ')'} ${params.percent}%</span>
+                             <span>${params.seriesName == '属性2' ? '' : '(' + params.data.value + ')'} ${
+            params.percent
+          }%</span>
                            </div>`();
           return result;
         }
@@ -603,11 +676,13 @@ class CategoryCompare extends Component {
       toolbox: { show: false },
       legend: {
         left: 'center',
-        data: toJS(this.props.store.chartExample.pieSubCategoryData && this.props.store.chartExample.pieSubCategoryData[2])
+        data: toJS(
+          this.props.store.chartExample.pieSubCategoryData && this.props.store.chartExample.pieSubCategoryData[2]
+        )
       },
       series: this.pieCategoryData
     };
-  };
+  }
 
   @computed get pieCategoryData() {
     let _data1 = [],
@@ -689,7 +764,7 @@ class CategoryCompare extends Component {
         }
       }
     ];
-  };
+  }
 
   @computed get barCategoryOptions() {
     return {
@@ -732,7 +807,9 @@ class CategoryCompare extends Component {
           rotate: 30,
           interval: 0
         },
-        data: toJS(this.props.store.chartExample.barSubCategoryData && this.props.store.chartExample.barSubCategoryData[2])
+        data: toJS(
+          this.props.store.chartExample.barSubCategoryData && this.props.store.chartExample.barSubCategoryData[2]
+        )
       },
       yAxis: {
         type: 'value',
@@ -757,47 +834,54 @@ class CategoryCompare extends Component {
       },
       series: this.barCategoryData
     };
-  };
+  }
 
   @computed get barCategoryData() {
     return [
       {
         name: '属性1',
         type: 'bar',
-        data: toJS(this.props.store.chartExample.barSubCategoryData && this.props.store.chartExample.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
+        data: toJS(
+          this.props.store.chartExample.barSubCategoryData &&
+            this.props.store.chartExample.barSubCategoryData[0].map(item => (item * 100).toFixed(2))
+        )
       },
       {
         name: '属性2',
         type: 'bar',
-        data: toJS(this.props.store.chartExample.barSubCategoryData && this.props.store.chartExample.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
+        data: toJS(
+          this.props.store.chartExample.barSubCategoryData &&
+            this.props.store.chartExample.barSubCategoryData[1].map(item => (item * 100).toFixed(2))
+        )
       }
     ];
-  };
+  }
 
   switchView = index => {
-    return (e) => {
+    return e => {
       this.currentView = index;
     };
   };
 
   render() {
-    const { store: { chartExample } } = this.props;
+    const {
+      store: { chartExample }
+    } = this.props;
 
     return (
       <div className={styles.categoryCompareWrap}>
         <h3 className={styles.pageSubTitle}>
-          <div className={`${styles.toolsBar} fr`}>
-          </div>
+          <div className={`${styles.toolsBar} fr`}></div>
           <span>Category Compare</span>
         </h3>
         <If condition={chartExample.showSubCategoryBlock}>
           <div className={styles.subCategoryBlock}>
-            <Row className={`${styles.categoryCompare} ${this.currentView == 1 ? styles.showCategoryCompare : ''}`} gutter={30}>
+            <Row
+              className={`${styles.categoryCompare} ${this.currentView == 1 ? styles.showCategoryCompare : ''}`}
+              gutter={30}>
               <Col span={12}>
                 <div className={styles.tit}>指标1占比分布对比</div>
-                <ReactEcharts echarts={echarts}
-                              option={toJS(this.pieCategoryOptions)}
-                              notMerge={true} />
+                <ReactEcharts echarts={echarts} option={toJS(this.pieCategoryOptions)} notMerge={true} />
                 <Row className="tc">
                   <Col span={12}>属性1</Col>
                   <Col span={12}>属性2</Col>
@@ -805,9 +889,7 @@ class CategoryCompare extends Component {
               </Col>
               <Col span={12}>
                 <div className={styles.tit}>指标1增长率对比</div>
-                <ReactEcharts echarts={echarts}
-                              option={toJS(this.barCategoryOptions)}
-                              notMerge={true} />
+                <ReactEcharts echarts={echarts} option={toJS(this.barCategoryOptions)} notMerge={true} />
               </Col>
             </Row>
             <div className={`${styles.tableWrap} ${this.currentView != 1 ? styles.showTableWrap : ''}`}>
@@ -838,7 +920,9 @@ class CategoryCompare extends Component {
                 <tbody>
                   <Each of={chartExample.tableSubCategoryData}>
                     <tr key={index}>
-                      <td><span>{item.rank}</span></td>
+                      <td>
+                        <span>{item.rank}</span>
+                      </td>
                       <td>{item.name}</td>
                       <td>{n`(${item}.salesAmount / 10000).toFixed(2)`}</td>
                       <td>{n`(${item}.salesRates * 100).toFixed(2)`}%</td>
@@ -868,7 +952,6 @@ class CategoryCompare extends Component {
 @inject('store')
 @observer
 class BrandCompare extends Component {
-
   @observable trendsChartVisible = false;
   @observable trendsChartDataX = [];
   @computed get trendsChartOptions() {
@@ -889,14 +972,16 @@ class BrandCompare extends Component {
       tooltip: {
         show: true,
         trigger: 'axis',
-        formatter: (params) => {
+        formatter: params => {
           if (this.showMode === 'viewDataRoleLine') {
             params = params.slice(1);
           }
           var result = `<div>${params[0].name}</div>`;
-          params.forEach((item) => {
+          params.forEach(item => {
             result += njs`<div>
-                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                            <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${
+                              item.color
+                            }"></span>
                             <span>${item.seriesName}:</span>
                             <span>${item.data || '--'}${item.seriesName == '指标1' ? '' : '%'}</span>
                           </div>`();
@@ -926,70 +1011,72 @@ class BrandCompare extends Component {
         },
         data: toJS(this.trendsChartDataX)
       },
-      yAxis: [{
-        type: 'value',
-        scale: true,
-        splitLine: {
-          show: true,
-          lineStyle: {
-            color: '#e5e5e5'
+      yAxis: [
+        {
+          type: 'value',
+          scale: true,
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#333'
+            }
           }
         },
-        axisLine: {
-          lineStyle: {
-            color: '#e5e5e5'
-          }
-        },
-        axisLabel: {
-          textStyle: {
-            color: '#333'
+        {
+          type: 'value',
+          scale: true,
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#e5e5e5'
+            }
+          },
+          axisLabel: {
+            textStyle: {
+              color: '#333'
+            }
           }
         }
-      },
-      {
-        type: 'value',
-        scale: true,
-        splitLine: {
-          show: true,
-          lineStyle: {
-            color: '#e5e5e5'
-          }
-        },
-        axisLine: {
-          lineStyle: {
-            color: '#e5e5e5'
-          }
-        },
-        axisLabel: {
-          textStyle: {
-            color: '#333'
-          }
-        }
-      }
       ],
       series: this.trendsChartData
     };
-  };
+  }
 
   @computed get trendsChartData() {
-    return [{
-      name: '属性2增长率',
-      type: 'line',
-      data: [],
-      yAxisIndex: 1
-    },
-    {
-      name: '属性1增长率',
-      type: 'line',
-      data: [],
-      yAxisIndex: 1
-    },
-    {
-      name: '指标1',
-      type: 'bar',
-      barWidth: '50px',
-      data: []
-    }
+    return [
+      {
+        name: '属性2增长率',
+        type: 'line',
+        data: [],
+        yAxisIndex: 1
+      },
+      {
+        name: '属性1增长率',
+        type: 'line',
+        data: [],
+        yAxisIndex: 1
+      },
+      {
+        name: '指标1',
+        type: 'bar',
+        barWidth: '50px',
+        data: []
+      }
     ];
   }
 
@@ -1004,7 +1091,7 @@ class BrandCompare extends Component {
   }
 
   onBrandChecked = item => {
-    return (e) => {
+    return e => {
       if (e.target.checked) {
         this.props.store.chartExample.setCompareDockVisible(true);
         if (this.props.store.chartExample.compareDockData) {
@@ -1028,10 +1115,11 @@ class BrandCompare extends Component {
 
   viewTrends = (item, index) => {
     return e => {
-      this.trendsChartTop = index * 135 + index + 1 + (15 * index);
+      this.trendsChartTop = index * 135 + index + 1 + 15 * index;
       setTimeout(() => {
         this.trendsChartVisible = true;
-        this.trendsChartData[0].data = this.showMode === null ? [] : toJS(item.trendsData[0].map(item => parseFloat((item * 100).toFixed(2))));
+        this.trendsChartData[0].data =
+          this.showMode === null ? [] : toJS(item.trendsData[0].map(item => parseFloat((item * 100).toFixed(2))));
         this.trendsChartData[1].data = toJS(item.trendsData[1].map(item => parseFloat((item * 100).toFixed(2))));
         this.trendsChartData[2].data = toJS(item.trendsData[2].map(item => parseFloat((item / 10000).toFixed(2))));
         this.trendsChartDataX = toJS(item.trendsData[3]);
@@ -1050,28 +1138,32 @@ class BrandCompare extends Component {
 
   onPaging = (page, pageSize) => {
     const closeLoading = message.loading('正在获取数据...', 0);
-    Promise.all([
-      this.props.store.chartExample.getBrandCompareList()
-    ]).then(() => {
+    Promise.all([this.props.store.chartExample.getBrandCompareList()]).then(() => {
       closeLoading();
     });
   };
 
   render() {
-    const { store: { chartExample } } = this.props;
+    const {
+      store: { chartExample }
+    } = this.props;
 
     return (
       <div className={styles.brandCompareList}>
-        <div className={`${styles.trendsChart} ${this.trendsChartVisible ? styles.trendsChartShow : ''}`} style={{ top: `${this.trendsChartTop}px` }}>
-          <span className={styles.trendsChartClose} onClick={this.closeTrendsChart}>X</span>
-          <ReactEcharts echarts={echarts}
-                        option={toJS(this.trendsChartOptions)}
-                        notMerge={true} />
+        <div
+          className={`${styles.trendsChart} ${this.trendsChartVisible ? styles.trendsChartShow : ''}`}
+          style={{ top: `${this.trendsChartTop}px` }}>
+          <span className={styles.trendsChartClose} onClick={this.closeTrendsChart}>
+            X
+          </span>
+          <ReactEcharts echarts={echarts} option={toJS(this.trendsChartOptions)} notMerge={true} />
         </div>
         <If condition={chartExample.showCompareTable}>
           <div className={styles.compareTable}>
             <div className={styles.compareTableTitle}>
-              <span className={styles.compareTableClose} onClick={this.closeCompareTable}>X</span>
+              <span className={styles.compareTableClose} onClick={this.closeCompareTable}>
+                X
+              </span>
               Brand Compare
             </div>
             <table>
@@ -1151,11 +1243,17 @@ class BrandCompare extends Component {
             <div className={styles.brandCompareItemWrap}>
               <Each of={chartExample.brandCompareList}>
                 <Row className={styles.brandCompareItem} key={index}>
-                  <span className={styles.rank}>{item.rank}<em></em></span>
-                  <Col span={2}>
-                  </Col>
+                  <span className={styles.rank}>
+                    {item.rank}
+                    <em></em>
+                  </span>
+                  <Col span={2}></Col>
                   <Col span={4}>
-                    <div><Checkbox onChange={this.onBrandChecked(item)} checked={item.isChecked}>加入对比</Checkbox></div>
+                    <div>
+                      <Checkbox onChange={this.onBrandChecked(item)} checked={item.isChecked}>
+                        加入对比
+                      </Checkbox>
+                    </div>
                   </Col>
                   <Col span={12}>
                     <div className={styles.brandText}>{item.brandName}</div>
@@ -1172,7 +1270,9 @@ class BrandCompare extends Component {
                     </Row>
                   </Col>
                   <Col span={6}>
-                    <div className={styles.salesGrowthText}>指标1同比增长：{n`${item}.salesAmountGrowth | percent(2)`}</div>
+                    <div className={styles.salesGrowthText}>
+                      指标1同比增长：{n`${item}.salesAmountGrowth | percent(2)`}
+                    </div>
                     <div>指标2同比增长率：{n`${item}.categoryGrowth | percent(2)`}</div>
                     <div>
                       <Button onClick={this.viewTrends(item, index)}>查看趋势</Button>
@@ -1181,7 +1281,11 @@ class BrandCompare extends Component {
                 </Row>
               </Each>
               <div className={styles.paginationWrap}>
-                <Pagination defaultCurrent={1} total={chartExample.brandCompareListTotalCount} onChange={this.onPaging} />
+                <Pagination
+                  defaultCurrent={1}
+                  total={chartExample.brandCompareListTotalCount}
+                  onChange={this.onPaging}
+                />
               </div>
             </div>
           </Else>
@@ -1195,7 +1299,7 @@ class BrandCompare extends Component {
 @observer
 class CompareDock extends Component {
   deleteCompareItem = item => {
-    return (e) => {
+    return e => {
       this.props.store.chartExample.removeCompareDockData(item);
       this.props.store.chartExample.setChecked(item, false);
     };
@@ -1211,22 +1315,27 @@ class CompareDock extends Component {
   };
 
   render() {
-    const { store: { chartExample } } = this.props;
+    const {
+      store: { chartExample }
+    } = this.props;
 
     return (
       <div className={`${styles.compareDock} ${chartExample.compareDockVisible ? styles.compareDockShow : ''}`}>
         <div className={styles.compareDockTit}>
-          <span className={styles.compareDockClose} onClick={this.closeCompareDock}>X</span>
+          <span className={styles.compareDockClose} onClick={this.closeCompareDock}>
+            X
+          </span>
           <span>Compare Dock</span>
         </div>
         <Row>
           <Each of={chartExample.compareDockData}>
             <If condition={item.id != 0}>
               <Col span={6} key={index}>
-                <span className={styles.iconDeleteCompareItem} onClick={this.deleteCompareItem(item)}>X</span>
+                <span className={styles.iconDeleteCompareItem} onClick={this.deleteCompareItem(item)}>
+                  X
+                </span>
                 <Row>
-                  <Col span={12}>
-                  </Col>
+                  <Col span={12}></Col>
                   <Col span={12}>
                     <div>排名：{item.rank}</div>
                     <div>指标1增长率：{n`${item}.salesAmountGrowth | percent(2)`}</div>

@@ -10,7 +10,7 @@ import {
   Cascader,
   DatePicker,
   Checkbox
-} from 'nornj-react/antd';
+} from 'antd';
 import styled from 'styled-components';
 
 const Containter = styled.div`

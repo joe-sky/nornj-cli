@@ -1,5 +1,5 @@
 import { types, getParent, getEnv } from 'mobx-state-tree';
-import Notification from '../utils/notification';
+import Notification from '@/utils/notification';
 
 const MenuItem = types
   .model('MenuItem', {

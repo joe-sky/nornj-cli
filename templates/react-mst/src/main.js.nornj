@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';<#if {% !mobxRoot %}>
-import RootStore from './stores/root.mst';
+import App from '@/App';<#if {% !mobxRoot %}>
+import RootStore from '@/stores/root.mst';
 const rootStore = RootStore.create({});<#else>
-import RootStore from './stores/root.store';
+import RootStore from '@/stores/root.store';
 const rootStore = new RootStore();</#else></#if>
 
 ReactDOM.render(<App store={rootStore} />, document.getElementById('app'));

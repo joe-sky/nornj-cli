@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import {
-  Form,
-  Input,
-  Select,
-  Radio,
-  Button,
-  Cascader,
-  DatePicker,
-  Checkbox
-} from 'nornj-react/antd';
+import { Form, Input, Select, Radio, Button, Cascader, DatePicker, Checkbox } from 'antd';
 import styled from 'styled-components';
 
 const Containter = styled.div`
@@ -39,18 +30,17 @@ const Containter = styled.div`
 @observer
 export default class FormExample extends Component<IProps> {
   render() {
-    const { store: { formExample } } = this.props;
+    const {
+      store: { formExample }
+    } = this.props;
 
-    return (
-      <AntFormExample />
-    );
+    return <AntFormExample />;
   }
 }
 
 @inject('store')
 @observer
 class AntFormExampleClass extends Component<IProps> {
-
   @observable inputValue = '示例数据';
 
   @observable textareaValue = '示例数据';
@@ -74,8 +64,10 @@ class AntFormExampleClass extends Component<IProps> {
   };
 
   render() {
-    const { store: { formExample } } = this.props;
-    
+    const {
+      store: { formExample }
+    } = this.props;
+
     return (
       <Containter>
         <h2>Ant Design 表单控件示例</h2>
@@ -173,7 +165,9 @@ class AntFormExampleClass extends Component<IProps> {
             <DatePicker />
           </Form.Item>
           <div className="btnArea">
-            <Button htmlType="submit" onClick={this.onAntSubmit}>提交</Button>
+            <Button htmlType="submit" onClick={this.onAntSubmit}>
+              提交
+            </Button>
             <Button onClick={this.onAntReset}>重置</Button>
           </div>
         </Form>

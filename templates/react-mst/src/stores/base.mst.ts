@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree';
-import Notification from '../utils/notification';
+import Notification from '@/utils/notification';
 
 export default types.model('BaseStore').actions(self => ({
   receiveResponse(fn: Function) {

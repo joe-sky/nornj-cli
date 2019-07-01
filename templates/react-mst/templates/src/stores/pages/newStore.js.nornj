@@ -1,7 +1,7 @@
 import { types } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
 import BaseStore from '../base.{%mobx ? 'store' : 'mst'%}';
-import * as api from '../../services/pages/{%pageName%}';
+import * as api from '@/services/pages/{%pageName%}';
 
 const {%pageName | capitalize%}Store = BaseStore.named('{%pageName | capitalize%}Store')
   .props({

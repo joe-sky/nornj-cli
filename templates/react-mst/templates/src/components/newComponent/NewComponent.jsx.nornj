@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
 <#if {%isFunc%}>import { useLocalStore } from 'mobx-react-lite';
-</#if>import { Input } from 'nornj-react/antd';
+</#if>import { Input } from 'antd';
 import styled from 'styled-components';
 
 const Containter = styled.div`
@@ -53,7 +53,7 @@ export default class {%componentName | capitalize%} extends Component {
       </Containter>
     );
   }
-}<#else>const {%componentName | capitalize%} = props => {
+}<#else useString>const {%componentName | capitalize%} = props => {
   const view = useLocalStore(() => ({
     inputValue: '',
     textValue: '{%componentName | capitalize%}',
