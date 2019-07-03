@@ -8,24 +8,20 @@
       "jsx": true
     }
   },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true,
+    "jest": true,
     "es6": true
   },
   "rules": {
-    "@typescript-eslint/indent": [
-      1,
-      2,
-      {
-        "SwitchCase": 1,
-        "ignoredNodes": ["TemplateLiteral > *", "JSXOpeningElement > *"]
-      }
-    ],
-    "react/jsx-curly-spacing": 0,
-    "react/jsx-indent-props": 0,
-    "react/jsx-indent": [1, 2],
+    "no-undef": [0, "never"],
     "jsx-quotes": [1, "prefer-double"],
     "camelcase": [
       1,
@@ -48,6 +44,24 @@
       {
         "max": 1
       }
-    ]
+    ],
+    "@typescript-eslint/indent": [
+      1,
+      2,
+      {
+        "SwitchCase": 1,
+        "ignoredNodes": ["TemplateLiteral > *", "JSXOpeningElement > *"]
+      }
+    ],
+    "@typescript-eslint/interface-name-prefix": [1, "always"],
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "react/jsx-curly-spacing": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-indent": [1, 2],
+    "react/jsx-no-undef": 0,
+    "react/prop-types": 0,
+    "react/display-name": 0
   }
 }

@@ -2,7 +2,6 @@ import nj, { registerFilter, registerExtension } from 'nornj';
 import 'nornj-react/mobx';
 import 'nornj-react/router';
 import React from 'react';
-import intl from 'react-intl-universal';
 nj.filterConfig.currency.symbol = '';
 
 registerFilter({
@@ -38,10 +37,6 @@ registerFilter({
 
     const bit = val >= 100 ? 2 : 4;
     return noThousands ? fmt.toFixed(bit) : n`${fmt} | currency(${bit})`;
-  },
-
-  intl: function(...args) {
-    return intl.get(...args);
   }
 });
 

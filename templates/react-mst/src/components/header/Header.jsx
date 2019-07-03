@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { observable, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 

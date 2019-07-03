@@ -1,9 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createClass from 'create-react-class';
-import PropTypes from 'prop-types';
-React.createClass = createClass;
-React.PropTypes = PropTypes;
 import '@/utils/nj.config';
 import { withRouter } from 'react-router';
 import { HashRouter } from 'react-router-dom';
@@ -19,6 +15,7 @@ import intl from 'react-intl-universal';
 import enUS from '@/locales/en-US.js';
 import zhCN from '@/locales/zh-CN.js';
 const locales = {
+  en: enUS,
   'en-us': enUS,
   'zh-cn': zhCN
 };

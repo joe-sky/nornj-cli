@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
+import intl from 'react-intl-universal';
 import {
   Table,
   Input,
@@ -143,9 +144,9 @@ export default class {%pageName | capitalize%} extends Component {
 
     return (
       <div className={styles.{%pageName%}}>
-        <h2>{n`intl('roleManage')`} {%pageName%}</h2>
+        <h2>{intl.get('roleManage')} {%pageName%}</h2>
         <div className={styles.handlerBox}>
-          <span className={styles.label}>{n`intl('roleName')`}</span>
+          <span className={styles.label}>{intl.get('roleName')}</span>
           <Input className={styles.input} n-mobxBind={this.inputRole} />
           <Button className="btn" onClick={this.onSearch}>查询</Button>
           <Button className="btn" onClick={this.onAddRole}>新增</Button>

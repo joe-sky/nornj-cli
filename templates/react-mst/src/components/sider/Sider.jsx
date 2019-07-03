@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
 import { toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
@@ -38,8 +38,8 @@ export default class Sider extends Component {
   render() {
     const { store } = this.props;
 
-    const generateMenu = items =>
-      items.map(item => (
+    const generateMenu = items => (
+      <Each of={items}>
         <If condition={item.type == 'item'}>
           <Link
             key={item.index}
@@ -62,7 +62,8 @@ export default class Sider extends Component {
             </div>
           </Elseif>
         </If>
-      ));
+      </Each>
+    );
 
     const menuCnt = generateMenu(store.sider.currentMenuData);
     return (

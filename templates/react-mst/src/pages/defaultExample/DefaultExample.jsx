@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
+import intl from 'react-intl-universal';
 import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message } from 'antd';
 import Notification from '@/utils/notification';
 import styles from './DefaultExample.m.less';
@@ -158,9 +159,9 @@ export default class DefaultExample extends Component {
 
     return (
       <div className={styles.defaultExample}>
-        <h2>{n`intl('roleManage')`} defaultExample</h2>
+        <h2>{intl.get('roleManage')} defaultExample</h2>
         <div className={styles.handlerBox}>
-          <span className={styles.label}>{n`intl('roleName')`}</span>
+          <span className={styles.label}>{intl.get('roleName')}</span>
           <Input className={styles.input} n-mobxBind={this.inputRole} />
           <Button className="btn" onClick={this.onSearch}>
             查询
