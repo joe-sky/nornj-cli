@@ -38,7 +38,6 @@ export default merge.smart(webpackConfigBase, {
           {
             loader: 'css-loader',
             options: {
-              minimize: false,
               sourceMap: true
             }
           },
@@ -79,7 +78,7 @@ export default merge.smart(webpackConfigBase, {
       path: '/dist/'
     }),
     new webpack.DefinePlugin({
-      __HOST: `'${mock.protocol}://${mock.host}:${mock.port}'`,
+      __HOST: `'${mock.protocol}://${mock.host}:${mock.port}/'`,
       'process.env': {
         NODE_ENV: `'development'`
       }

@@ -25,7 +25,7 @@ describe('EmptyExample', () => {
       timeout: e2e.pageTimeout
     });
     const text = await page.evaluate(() => document.querySelector('h2').innerHTML);
-    expect(text).toContain('示例页面');
+    expect(text).toContain('测试yapi.jd.com');
   });
 
   afterAll(() => browser.close());

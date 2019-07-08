@@ -1,6 +1,7 @@
 const { spawn } = require('child_process');
 const { kill } = require('cross-port-killer');
 const portUsed = require('tcp-port-used');
+const { dev, mock } = require('../config/configs');
 
 function runTestE2e(isPortUsed) {
   const testCmd = spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ['run', 'test:e2e'], {
@@ -12,10 +13,10 @@ function runTestE2e(isPortUsed) {
 }
 
 function killServer() {
-  return Promise.all([kill(8080), kill(8089)]);
+  return Promise.all([kill(dev.port), kill(mock.local.port)]);
 }
 
-portUsed.check(8080).then(
+portUsed.check(dev.port).then(
   function(inUse) {
     if (!inUse) {
       const env = Object.create(process.env);

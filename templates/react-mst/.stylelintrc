@@ -1,23 +1,17 @@
 {
-  "extends": [
-    "stylelint-config-standard"
-  ],
+  "extends": ["stylelint-config-standard"],
   "rules": {
     "string-quotes": "single",
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": [
-          "composes"
-        ]
+        "ignoreProperties": ["composes"]
       }
     ],
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": [
-          "global"
-        ]
+        "ignorePseudoClasses": ["global"]
       }
     ],
     "selector-pseudo-element-colon-notation": null,
@@ -28,13 +22,13 @@
     "no-eol-whitespace": [
       true,
       {
-        ignore: ["empty-lines"]
+        "ignore": ["empty-lines"]
       }
     ],
     "max-empty-lines": [
       1,
       {
-        ignore: ["comments"]
+        "ignore": ["comments"]
       }
     ],
     "no-missing-end-of-source-newline": null,

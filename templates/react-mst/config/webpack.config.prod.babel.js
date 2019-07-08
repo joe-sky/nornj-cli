@@ -21,7 +21,6 @@ export default merge.smart(webpackConfigBase, {
           {
             loader: 'css-loader',
             options: {
-              minimize: true,
               sourceMap: false
             }
           },
@@ -80,7 +79,7 @@ export default merge.smart(webpackConfigBase, {
       path: ''
     }),
     new webpack.DefinePlugin({
-      __HOST: `''`,
+      __HOST: `'/'`,
       'process.env': {
         NODE_ENV: `'production'`
       }

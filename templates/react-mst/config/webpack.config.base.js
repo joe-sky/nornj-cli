@@ -24,7 +24,7 @@ export default {
       'nornj',
       'nornj-react'
     ],
-    app: ['react-hot-loader/patch', './src/main.js']
+    app: ['./src/main.js']
   },
   output: {
     path: path.resolve(__dirname, '../dist/'),
@@ -33,9 +33,6 @@ export default {
     chunkFilename: `js/[name].chunk.js`
   },
   resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.less', '.scss']
   },
   module: {
@@ -60,7 +57,6 @@ export default {
           {
             loader: 'css-loader',
             options: {
-              minimize: false,
               sourceMap: true
             }
           },
@@ -82,8 +78,10 @@ export default {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              localIdentName: '[name]__[local]-[hash:base64:5]'
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]__[local]-[hash:base64:5]'
+              }
             }
           },
           'postcss-loader',
@@ -171,6 +169,6 @@ export default {
       filename: `css/[name].css`,
       chunkFilename: `css/[name].css`
     }),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)
   ]
 };

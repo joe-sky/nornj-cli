@@ -5,12 +5,12 @@ import { observer, inject } from 'mobx-react';
 @inject('store')
 @observer
 export default class Header extends Component {
-  logoutUrl = `${__HOST}/common/logout`;
+  logoutUrl = `${__HOST}common/logout`;
 
   navChanged = index => {
     return e => {
       this.props.store.header.setCurrent(index);
-      this.props.history.push('/' + n`${this}.props.store.sider.menuData[${index}].children[0].children[0].index`);
+      this.props.history.push('/' + n`this.props.store.sider.menuData[index].children[0].children[0].index`);
     };
   };
 
@@ -123,7 +123,7 @@ export default class Header extends Component {
           </Each>
         </ul>
         <div className="login-wrap middle">
-          <a className="link">{n`${store}.common.userInfo.pin`}</a>
+          <a className="link">{n`store.common.userInfo.pin`}</a>
           <a className="avatar">
             <img src={require('../../assets/images/pic-header.png')} alt={''} />
           </a>

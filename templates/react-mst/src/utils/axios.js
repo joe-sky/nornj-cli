@@ -2,7 +2,7 @@ import axios from 'axios';
 import Notification from '@/utils/notification';
 
 export const axiosInstance = axios.create({
-  baseURL: `${__HOST}/`
+  baseURL: `${__HOST}`
 });
 axiosInstance.defaults.timeout = 30000;
 axiosInstance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -17,7 +17,7 @@ axiosInstance.interceptors.response.use(
     return res;
   },
   error => {
-    if (n`${error}.response.status == 401`) {
+    if (n`error.response.status == 401`) {
       Notification.error({
         message: '登录状态失效，请重新登录！',
         duration: null,
@@ -27,7 +27,7 @@ axiosInstance.interceptors.response.use(
       });
     } else {
       Notification.error({
-        message: n`${error}.response.data.errorTitle + '异常：' + ${error}.response.data.message`
+        message: n`error.response.data.errorTitle + '异常：' + error.response.data.message`
       });
       return Promise.reject(error);
     }
@@ -35,11 +35,14 @@ axiosInstance.interceptors.response.use(
 );
 
 export default function(config) {
-  if (n`${config}.errorTitle`) {
+  if (n`config.errorTitle`) {
     if (!config.transformResponse) {
       config.transformResponse = [];
     }
-    config.transformResponse.push(data => ({ ...JSON.parse(data), errorTitle: config.errorTitle }));
+    config.transformResponse.push(data => ({
+      ...JSON.parse(data),
+      errorTitle: config.errorTitle
+    }));
   }
 
   return axiosInstance(config);

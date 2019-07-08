@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '@/utils/nj.config';
 import { withRouter } from 'react-router';
 import { HashRouter } from 'react-router-dom';
-import { observer, Provider, inject } from 'mobx-react';
+import { Provider } from 'mobx-react';
 import routes from './router';
 import '@/assets/app.less';
 import moment from 'moment';
@@ -27,7 +26,6 @@ import Header from '@/components/header';
 import Sider from '@/components/sider';
 const HeaderWithRouter = withRouter(Header);
 const SiderWithRouter = withRouter(Sider);
-import { hot } from 'react-hot-loader/root';
 
 const App = ({ store }) => (
   <LocaleProvider locale={antZhCN}>
@@ -43,4 +41,4 @@ const App = ({ store }) => (
   </LocaleProvider>
 );
 
-export default hot(App);
+export default App;
