@@ -1,4 +1,4 @@
-# NornJ-cli
+# NornJ-cli-legacy
 
 The CLI for scaffolding [NornJ](https://github.com/joe-sky/nornj) template projects, and do more things.
 
@@ -9,7 +9,7 @@ The CLI for scaffolding [NornJ](https://github.com/joe-sky/nornj) template proje
 ### 安装
 
 ```sh
-npm install -g nornj-cli
+npm install -g nornj-cli-legacy
 ```
 
 ### 使用方法
@@ -19,7 +19,7 @@ npm install -g nornj-cli
 * 在当前目录下创建新项目目录：
 
 ```sh
-nj init
+njl init
 
 # 请按上下键选择项目模板
 Please select a project template:
@@ -41,7 +41,7 @@ Project Name: projectName
 * 进入已有项目目录后，输入如下命令创建新页面：
 
 ```sh
-nj add-page [pageName]  # 或nj ap
+njl add-page [pageName]  # 或njl ap
 
 # 请选择生成时要使用的页面模板
 Which page template do you want to use?
@@ -59,7 +59,7 @@ Page Name: pageName
 * 进入已有项目目录后，输入如下命令创建新组件：
 
 ```sh
-nj add-component [componentName]  # 或nj ac
+njl add-component [componentName]  # 或njl ac
 
 # 请选择生成时要使用的组件模板
 Which component template do you want to use?
@@ -76,7 +76,7 @@ Component Name: componentName
 * 进入已有项目目录后，输入如下命令创建新Store：
 
 ```sh
-nj add-store [storeName]  # 或nj as
+njl add-store [storeName]  # 或njl as
 
 # 请选择生成时要使用的Store模板
 Which store template do you want to use?
@@ -105,7 +105,7 @@ Store Name: storeName
 2. 然后使用以下命令即可下载并初始化：
 
 ```sh
-nj init
+njl init
 
 # 请按上下键选择项目模板
 Please select a project template:
@@ -122,13 +122,13 @@ Template Name: UserName/ProjectName
 #### 查看cli当前版本
 
 ```sh
-nj -v
+njl -v
 ```
 
 #### cli版本更新
 
 ```sh
-nj upgrade  # 更新cli版本到最新版
+njl upgrade  # 更新cli版本到最新版
 ```
 
 #### 安装npm包
@@ -136,7 +136,7 @@ nj upgrade  # 更新cli版本到最新版
 与`npm install`相同，区别在于部署在私服上的包会自动从私服安装：
 
 ```sh
-nj install  # 或nj i
+njl install  # 或njl i
 ```
 
 #### 更新npm包
@@ -144,7 +144,7 @@ nj install  # 或nj i
 与`npm update`相同，区别在于部署在私服上的包会自动从私服更新：
 
 ```sh
-nj update  # 或nj up
+njl update  # 或njl up
 ```
 
 ### 可选择使用npm国内镜像
@@ -152,10 +152,10 @@ nj update  # 或nj up
 当网络访问npm比较慢时，可选择使用`npm国内镜像`来安装。方法为在各命令后添加`--cnpm`参数：
 
 ```sh
-nj init --cnpm
-nj upgrade --cnpm
-nj install --cnpm
-nj update --cnpm
+njl init --cnpm
+njl upgrade --cnpm
+njl install --cnpm
+njl update --cnpm
 ```
 
 ### 相关文档

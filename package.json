@@ -1,9 +1,9 @@
 {
-  "name": "nornj-cli",
+  "name": "nornj-cli-legacy",
   "version": "0.4.2",
   "description": "The CLI for scaffolding NornJ template projects, and do more things",
   "bin": {
-    "nj": "bin/nj"
+    "njl": "bin/njl"
   },
   "files": [
     "bin/",
