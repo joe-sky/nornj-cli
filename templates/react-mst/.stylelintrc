@@ -1,5 +1,13 @@
 {
-  "extends": ["stylelint-config-standard"],
+  "processors": [
+    [
+      "stylelint-processor-styled-components",
+      {
+        "ignoreFiles": ["**/*.less"]
+      }
+    ]
+  ],
+  "extends": ["stylelint-config-recommended", "stylelint-config-styled-components"],
   "rules": {
     "string-quotes": "single",
     "property-no-unknown": [
@@ -37,6 +45,7 @@
     "block-no-empty": null,
     "declaration-colon-newline-after": null,
     "value-list-comma-newline-after": null,
-    "declaration-empty-line-before": null
+    "declaration-empty-line-before": null,
+    "property-no-vendor-prefix": null
   }
 }

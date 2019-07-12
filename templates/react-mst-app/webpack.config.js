@@ -133,45 +133,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ],
-        exclude: /\.m\.scss$/
-      },
-      {
-        test: /\.m\.scss$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[name]__[local]-[hash:base64:5]'
-            }
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ]
-      },
-      {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,

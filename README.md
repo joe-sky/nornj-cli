@@ -90,7 +90,7 @@ Store Name: storeName
 
 | 名称           | 描述                      | 模板源码地址                |
 |:---------------|:-------------------------|:--------------------------|
-| react-mst      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-jsx`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)</li><li>预置`eslint`、`stylelint`、`prettier`，可在格式化时对代码风格进行自动检查并修复</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
+| react-mst      | 基于React+Mobx-state-tree的单页面项目<br><ul><li>组件开发规范默认使用`JSX`</li><li>样式开发默认集成了`styled-components`和`css-modules`</li><li>请求数据使用`axios`</li><li>echarts组件使用`echarts-for-react`</li><li>集成了可增强JSX开发的插件[babel-plugin-nornj-in-jsx](https://github.com/joe-sky/nornj/blob/master/packages/babel-plugin-nornj-in-jsx/README.md)</li><li>预置`eslint`、`stylelint`、`prettier`，可在格式化时对代码风格进行自动检查并修复</li></ul> | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-universal |
 | react-mst-app      | `react-mst-universal`的h5版，配置同上 | https://github.com/joe-sky/nornj-cli/tree/master/templates/react-mst-app |
 
 #### 使用自定义模板
@@ -134,10 +134,10 @@ nj init --cnpm
 nj upgrade --cnpm
 ```
 
-### 相关文档
+<!-- ### 相关文档
 
 * [技术与框架列表](https://github.com/joe-sky/nornj-cli/blob/master/docs/learningGuide.md)
-* [快速上手文档](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md)
+* [快速上手文档](https://github.com/joe-sky/nornj-cli/blob/master/docs/guides/overview.md) -->
 
 ## License
 

@@ -58,12 +58,6 @@ module.exports = {
       'nornj-react/antd'
     ],
     [
-      'styled-jsx/babel',
-      {
-        plugins: ['styled-jsx-plugin-less', 'styled-jsx-plugin-postcss']
-      }
-    ],
-    [
       'nornj-in-jsx',
       {
         imports: ['nornj-react/antd'],

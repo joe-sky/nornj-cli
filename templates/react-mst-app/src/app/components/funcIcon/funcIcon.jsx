@@ -3,6 +3,32 @@ import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
+import styled from 'styled-components';
+
+const Containter = styled.div`
+  .funcIcon {
+    & > .ico {
+      text-align: center;
+
+      & > img {
+        max-width: 60%;
+      }
+    }
+    & > .ttl {
+      font-size: 0.86em;
+      text-align: center;
+    }
+
+    &:active {
+      transform: scale(1.1);
+      transition: all 0.2s;
+    }
+  }
+
+  .funcIconDisabled {
+    opacity: 0.2;
+  }
+`;
 
 @registerTmpl('funcIcon')
 @inject('store')
@@ -20,31 +46,7 @@ export default class FuncIcon extends Component {
     const { info } = this.props;
 
     return (
-      <div>
-        <style jsx>{`
-          .funcIcon {
-            & > .ico {
-              text-align: center;
-
-              & > img {
-                max-width: 60%;
-              }
-            }
-            & > .ttl {
-              font-size: 0.86em;
-              text-align: center;
-            }
-
-            &:active {
-              transform: scale(1.1);
-              transition: all 0.2s;
-            }
-          }
-
-          .funcIconDisabled {
-            opacity: 0.2;
-          }
-        `}</style>
+      <Containter>
         <if condition={info.disabled}>
           <div className="funcIcon funcIconDisabled" onClick={this.onClick}>
             <div className="ico">
@@ -61,7 +63,7 @@ export default class FuncIcon extends Component {
             </div>
           </else>
         </if>
-      </div>
+      </Containter>
     );
   }
 }

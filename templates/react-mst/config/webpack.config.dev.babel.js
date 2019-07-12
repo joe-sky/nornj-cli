@@ -73,7 +73,7 @@ export default merge.smart(webpackConfigBase, {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './index.html',
+      template: './src/index.html',
       inject: true,
       path: '/dist/'
     }),

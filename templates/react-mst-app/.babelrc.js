@@ -45,12 +45,6 @@ module.exports = {
       },
       'fj-echarts'
     ],
-    [
-      'styled-jsx/babel',
-      {
-        plugins: ['styled-jsx-plugin-sass', 'styled-jsx-plugin-postcss']
-      }
-    ],
     'nornj-in-jsx',
     '@babel/plugin-syntax-import-meta',
     '@babel/plugin-proposal-json-strings',

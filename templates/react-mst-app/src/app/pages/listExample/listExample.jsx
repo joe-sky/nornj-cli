@@ -17,7 +17,7 @@ import {
   Toast
 } from 'antd-mobile';
 import Notification from '../../../utils/notification';
-import styles from './listExample.m.scss';
+import styles from './listExample.m.less';
 import { autobind } from 'core-decorators';
 
 const data = [

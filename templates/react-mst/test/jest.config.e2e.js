@@ -15,9 +15,12 @@ module.exports = {
     '^(?!.*\\.(js|jsx|ts|tsx|css|less|scss|json)$)': '<rootDir>/test/transforms/fileTransform.js'
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!lodash-es/).+(js|jsx|ts|tsx|mjs)$'],
+  moduleNameMapper: {
+    '^puppeteer$': '<rootDir>/node_modules/puppeteer-core'
+  },
   coverageDirectory: 'test/coverage',
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
   globals: {
-    __HOST: `'http://${mock.local.host}:${mock.local.port}/'`
+    __HOST: `'http://${mock.host}:${mock.port}/'`
   }
 };

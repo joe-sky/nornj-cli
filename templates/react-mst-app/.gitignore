@@ -1,6 +1,7 @@
 /node_modules
 
-#20170705 - GJ
 .DS_Store
 .idea
 /npm-debug.log
+yarn.lock
+package-lock.json

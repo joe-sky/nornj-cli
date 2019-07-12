@@ -6,6 +6,50 @@ import { registerTmpl } from 'nornj-react';
 import { WhiteSpace, Card, Flex } from 'antd-mobile';
 import FuncIcon from '../../components/funcIcon';
 import { FUNCS } from '../../../../routes-app';
+import styled from 'styled-components';
+
+const Containter = styled.div`
+  position: absolute;
+  width: 100%;
+  z-index: ${({ theme }) => theme.headerZIndex + 1};
+  margin-top: ${({ theme }) => -theme.headerHeight};
+
+  .iconWrap {
+    padding: 0.2rem 0;
+  }
+
+  .homeImg {
+    & > img {
+      display: block;
+    }
+
+    background-color: rgb(36, 190, 218);
+  }
+
+  .logos {
+    padding: 0.1rem;
+    line-height: 0.38rem;
+    vertical-align: middle;
+    background: #fff;
+
+    & > img {
+      vertical-align: middle;
+    }
+  }
+
+  .quit {
+    font-size: 14px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 9999;
+    color: #fff;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+`;
 
 @registerTmpl('Home')
 @inject('store')
@@ -45,56 +89,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="homeWrap">
-        <style jsx>{`
-          @import '../../css/config';
-
-          .homeWrap {
-            position: absolute;
-            width: 100%;
-            z-index: $headerZIndex + 1;
-            margin-top: -$headerHeight;
-          }
-
-          .homeImg {
-            & > img {
-              display: block;
-            }
-
-            background-color: rgb(36, 190, 218);
-          }
-
-          .logos {
-            padding: 0.1rem;
-            line-height: 0.38rem;
-            vertical-align: middle;
-            background: #fff;
-
-            & > img {
-              vertical-align: middle;
-            }
-          }
-
-          .quit {
-            font-size: 14px;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            z-index: 9999;
-            color: #fff;
-            width: 50px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-          }
-        `}</style>
-        <style jsx global>{`
-          .homeWrap {
-            .iconWrap {
-              padding: 0.2rem 0;
-            }
-          }
-        `}</style>
+      <Containter>
         <div className="homeImg">
           <if condition={this.isApp}>
             <a onClick={this.backToStartPage} className="quit">
@@ -130,7 +125,7 @@ export default class Home extends Component {
             </Card>
           </if>
         </each>
-      </div>
+      </Containter>
     );
   }
 }

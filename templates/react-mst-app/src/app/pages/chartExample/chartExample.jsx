@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react';
 import { observable, computed, toJS } from 'mobx';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
-import styles from './chartExample.m.scss';
+import styles from './chartExample.m.less';
 import { Toast, Tabs, Card, WingBlank, WhiteSpace, SegmentedControl, Button, Modal } from 'antd-mobile';
 import echarts from 'echarts/lib/echarts';
 import { BarChart, LineChart, PieChart } from 'flarej/echarts';

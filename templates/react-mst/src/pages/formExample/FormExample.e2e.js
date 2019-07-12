@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import chromePaths from 'chrome-paths';
 import { dev, e2e } from '@config/configs';
 
 describe('FormExample', () => {
@@ -9,7 +10,8 @@ describe('FormExample', () => {
     jest.setTimeout(e2e.timeout);
     browser = await puppeteer.launch({
       //headless: false,
-      args: ['--no-sandbox']
+      args: ['--no-sandbox'],
+      executablePath: chromePaths.chrome
     });
   });
 

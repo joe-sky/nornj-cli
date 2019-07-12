@@ -13,7 +13,7 @@ function runTestE2e(isPortUsed) {
 }
 
 function killServer() {
-  return Promise.all([kill(dev.port), kill(mock.local.port)]);
+  return Promise.all([kill(dev.port), kill(mock.port)]);
 }
 
 portUsed.check(dev.port).then(

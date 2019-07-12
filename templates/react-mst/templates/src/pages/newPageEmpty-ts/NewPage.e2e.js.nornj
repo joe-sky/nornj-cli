@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import chromePaths from 'chrome-paths';
 import { dev, e2e } from '@config/configs';
 
 describe('{%pageName | capitalize%}', () => {
@@ -9,7 +10,8 @@ describe('{%pageName | capitalize%}', () => {
     jest.setTimeout(e2e.timeout);
     browser = await puppeteer.launch({
       //headless: false,
-      args: ['--no-sandbox']
+      args: ['--no-sandbox'],
+      executablePath: chromePaths.chrome
     });
   });
 
@@ -25,7 +27,7 @@ describe('{%pageName | capitalize%}', () => {
       timeout: e2e.pageTimeout
     });
     const text = await page.evaluate(() => document.querySelector('h2').innerHTML);
-    expect(text).toContain('示例页面');
+    expect(text).toContain('示例页面 {%pageName%}');
   });
 
   afterAll(() => browser.close());

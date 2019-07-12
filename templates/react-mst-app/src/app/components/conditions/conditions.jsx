@@ -8,6 +8,15 @@ import { autobind } from 'core-decorators';
 import { WhiteSpace, List, Picker, DatePicker, InputItem, Button, Card, Toast } from 'antd-mobile';
 import moment from 'moment';
 import storejs from 'storejs';
+import styled from 'styled-components';
+
+const CardContainter = styled(Card)`
+  .csInput {
+    input {
+      text-align: right;
+    }
+  }
+`;
 
 const BRAND_NOT_ALL = ['2', '5', '8'];
 
@@ -485,16 +494,7 @@ export default class Conditions extends Component {
     } = this.props;
 
     return (
-      <Card full className="conditions">
-        <style jsx global>{`
-          .conditions {
-            .csInput {
-              input {
-                text-align: right;
-              }
-            }
-          }
-        `}</style>
+      <CardContainter>
         <Card.Body>
           <List>
             <if condition={showDept}>
@@ -595,7 +595,7 @@ export default class Conditions extends Component {
             {conditionBtnContent}
           </Button>
         </Card.Body>
-      </Card>
+      </CardContainter>
     );
   }
 }

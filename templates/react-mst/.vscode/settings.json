@@ -1,6 +1,8 @@
 {
   "javascript.suggest.autoImports": false,
   "typescript.suggest.autoImports": false,
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,

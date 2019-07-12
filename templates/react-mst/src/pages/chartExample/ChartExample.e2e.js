@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import chromePaths from 'chrome-paths';
 import { dev, e2e } from '@config/configs';
 
 describe('ChartExample', () => {
@@ -9,7 +10,8 @@ describe('ChartExample', () => {
     jest.setTimeout(e2e.timeout);
     browser = await puppeteer.launch({
       //headless: false,
-      args: ['--no-sandbox']
+      args: ['--no-sandbox'],
+      executablePath: chromePaths.chrome
     });
   });
 
@@ -24,8 +26,8 @@ describe('ChartExample', () => {
     await page.waitForXPath('//h2[contains(., "Summary")]', {
       timeout: e2e.pageTimeout
     });
-    await page.click('div[class^="ant-row ChartExample-m__brandCompareItem"]:nth-of-type(1) span.ant-checkbox');
-    const text = await page.evaluate(() => document.querySelector('div[class^="ChartExample-m__name"]').innerHTML);
+    await page.click('div[class^="ant-row ChartExample.m__brandCompareItem"]:nth-of-type(1) span.ant-checkbox');
+    const text = await page.evaluate(() => document.querySelector('div[class^="ChartExample.m__name"]').innerHTML);
     expect(text).toContain('品牌1');
   });
 

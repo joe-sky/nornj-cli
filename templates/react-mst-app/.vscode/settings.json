@@ -1,4 +1,8 @@
 {
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
@@ -9,5 +13,6 @@
   // "eslint.autoFixOnSave": true,
   // "editor.formatOnSave": true,
   "prettier.stylelintIntegration": true,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

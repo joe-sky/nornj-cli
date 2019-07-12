@@ -13,7 +13,7 @@ import { HashRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
 import { observer, Provider, inject } from 'mobx-react';
 import routes from './routes-app';
-import './src/app/css/app.scss';
+import './src/app/css/app.less';
 import RootStore from './src/stores/rootStoreApp';
 import { onSnapshot } from 'mobx-state-tree';
 import moment from 'moment';
@@ -25,6 +25,8 @@ import { createNotification } from './src/utils/notification';
 createNotification([Toast, Modal], true);
 import Header from './src/app/components/header';
 const HeaderWithRouter = withRouter(Header);
+import { ThemeProvider } from 'styled-components';
+import * as theme from './src/app/css/styled/config';
 
 const rootStore = RootStore.create({});
 // onSnapshot(rootStore, (snapshot) => {
@@ -36,10 +38,12 @@ const renderApp = appRoutes => {
     // <LocaleProvider locale={enUS}>
     <Provider store={rootStore}>
       <HashRouter>
-        <div id="outer-container">
-          <HeaderWithRouter />
-          {appRoutes(rootStore)}
-        </div>
+        <ThemeProvider theme={theme}>
+          <div id="outer-container">
+            <HeaderWithRouter />
+            {appRoutes(rootStore)}
+          </div>
+        </ThemeProvider>
       </HashRouter>
     </Provider>,
     // </LocaleProvider>

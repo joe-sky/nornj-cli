@@ -5,6 +5,15 @@ import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
 import { Link } from 'react-router-dom';
 import { NavBar, Icon } from 'antd-mobile';
+import styled from 'styled-components';
+
+const Containter = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: ${({ theme }) => theme.headerZIndex};
+`;
 
 @inject('store')
 @registerTmpl('Header')
@@ -29,22 +38,11 @@ export default class Header extends Component {
     const { store } = this.props;
 
     return (
-      <div className="ccAppNavigationBar">
-        <style jsx>{`
-          @import '../../css/config';
-
-          .ccAppNavigationBar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            right: 0;
-            z-index: $headerZIndex;
-          }
-        `}</style>
+      <Containter>
         <NavBar icon={<Icon type="left" />} onLeftClick={this.onBack}>
           {store.header.title}
         </NavBar>
-      </div>
+      </Containter>
     );
   }
 }
