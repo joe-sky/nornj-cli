@@ -1,6 +1,5 @@
-import { types } from 'mobx-state-tree';
+import { types, flow } from 'mobx-state-tree';
 import { toJS } from 'mobx';
-import BaseStore from '../base.mst';
 import * as api from '@/services/pages/chartExample';
 import Notification from '@/utils/notification';
 
@@ -46,8 +45,8 @@ const Summary = types.model('Summary', {
   userCountMOM: 0
 });
 
-const ChartExampleStore = BaseStore.named('ChartExampleStore')
-  .props({
+const ChartExampleStore = types
+  .model('ChartExampleStore', {
     summaryData: types.optional(Summary, () => {
       return {
         gmv: 0,
@@ -84,133 +83,97 @@ const ChartExampleStore = BaseStore.named('ChartExampleStore')
     brandCompareList: null
   }))
   .actions(self => ({
-    getSummaryData() {
-      return api.getSummaryData().then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            const data = res.data.data;
-            if (data) {
-              for (let key of Object.keys(data)) {
-                self.summaryData[key] = parseFloat((data[key] * 100).toFixed(2));
-              }
-              self.summaryData.gmv = data.gmv || 0;
-              self.summaryData.gmvYOY = data.gmvYOY ? parseFloat((data.gmvYOY * 100).toFixed(2)) : 0;
-              self.summaryData.gmvMOM = data.gmvMOM ? parseFloat((data.gmvMOM * 100).toFixed(2)) : 0;
-              self.summaryData.uv = data.uv || 0;
-              self.summaryData.uvYOY = data.uvYOY ? parseFloat((data.uvYOY * 100).toFixed(2)) : 0;
-              self.summaryData.uvMOM = data.uvMOM ? parseFloat((data.uvMOM * 100).toFixed(2)) : 0;
-              self.summaryData.uvRates = data.uvRates ? parseFloat((data.uvRates * 100).toFixed(2)) : 0;
-              self.summaryData.uvRatesYOY = data.uvRatesYOY ? parseFloat((data.uvRatesYOY * 100).toFixed(2)) : 0;
-              self.summaryData.uvRatesMOM = data.uvRatesMOM ? parseFloat((data.uvRatesMOM * 100).toFixed(2)) : 0;
-              self.summaryData.userCount = data.userCount || 0;
-              self.summaryData.userCountYOY = data.userCountYOY ? parseFloat((data.userCountYOY * 100).toFixed(2)) : 0;
-              self.summaryData.userCountMOM = data.userCountMOM ? parseFloat((data.userCountMOM * 100).toFixed(2)) : 0;
-            } else {
-              self.summaryData = {
-                gmv: 0,
-                gmvYOY: 0,
-                gmvMOM: 0,
-                uv: 0,
-                uvYOY: 0,
-                uvMOM: 0,
-                uvRates: 0,
-                uvRatesYOY: 0,
-                uvRatesMOM: 0,
-                userCount: 0,
-                userCountYOY: 0,
-                userCountMOM: 0
-              };
-            }
-          }
-          return res;
-        })
-      );
-    },
+    getSummaryData: flow(function*() {
+      const res = yield api.getSummaryData();
+      const data = res.data.data;
+      if (data) {
+        for (let key of Object.keys(data)) {
+          self.summaryData[key] = parseFloat((data[key] * 100).toFixed(2));
+        }
+        self.summaryData.gmv = data.gmv || 0;
+        self.summaryData.gmvYOY = data.gmvYOY ? parseFloat((data.gmvYOY * 100).toFixed(2)) : 0;
+        self.summaryData.gmvMOM = data.gmvMOM ? parseFloat((data.gmvMOM * 100).toFixed(2)) : 0;
+        self.summaryData.uv = data.uv || 0;
+        self.summaryData.uvYOY = data.uvYOY ? parseFloat((data.uvYOY * 100).toFixed(2)) : 0;
+        self.summaryData.uvMOM = data.uvMOM ? parseFloat((data.uvMOM * 100).toFixed(2)) : 0;
+        self.summaryData.uvRates = data.uvRates ? parseFloat((data.uvRates * 100).toFixed(2)) : 0;
+        self.summaryData.uvRatesYOY = data.uvRatesYOY ? parseFloat((data.uvRatesYOY * 100).toFixed(2)) : 0;
+        self.summaryData.uvRatesMOM = data.uvRatesMOM ? parseFloat((data.uvRatesMOM * 100).toFixed(2)) : 0;
+        self.summaryData.userCount = data.userCount || 0;
+        self.summaryData.userCountYOY = data.userCountYOY ? parseFloat((data.userCountYOY * 100).toFixed(2)) : 0;
+        self.summaryData.userCountMOM = data.userCountMOM ? parseFloat((data.userCountMOM * 100).toFixed(2)) : 0;
+      } else {
+        self.summaryData = {
+          gmv: 0,
+          gmvYOY: 0,
+          gmvMOM: 0,
+          uv: 0,
+          uvYOY: 0,
+          uvMOM: 0,
+          uvRates: 0,
+          uvRatesYOY: 0,
+          uvRatesMOM: 0,
+          userCount: 0,
+          userCountYOY: 0,
+          userCountMOM: 0
+        };
+      }
+    }),
 
-    getGrowthData(params) {
-      return api.getGrowthData(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            const data = res.data.data;
-            self.salesData = data.salesData;
-            self.salesRatesData = data.salesRatesData;
-            self.growthDataUV = data.growthDataUV;
-            self.growthDataUVConvert = data.growthDataUVConvert;
-            self.growthDataUser = data.growthDataUser;
-            self.growthDataPrice = data.growthDataPrice;
-            if (data.growthDataTable == null || data.growthDataTable.length == 0) {
-              self.growthDataTable = [[0, 0, 0, 0], [0, 0, 0, 0]];
-            } else {
-              if (data.growthDataTable[0].length == 0 && data.growthDataTable[1].length == 0) {
-                self.growthDataTable = [[0, 0, 0, 0], [0, 0, 0, 0]];
-              } else {
-                self.growthDataTable = data.growthDataTable;
-              }
-            }
-          }
-          return res;
-        })
-      );
-    },
+    getGrowthData: flow(function*(params) {
+      const res = yield api.getGrowthData(params);
+      const data = res.data.data;
+      self.salesData = data.salesData;
+      self.salesRatesData = data.salesRatesData;
+      self.growthDataUV = data.growthDataUV;
+      self.growthDataUVConvert = data.growthDataUVConvert;
+      self.growthDataUser = data.growthDataUser;
+      self.growthDataPrice = data.growthDataPrice;
+      if (data.growthDataTable == null || data.growthDataTable.length == 0) {
+        self.growthDataTable = [[0, 0, 0, 0], [0, 0, 0, 0]];
+      } else {
+        if (data.growthDataTable[0].length == 0 && data.growthDataTable[1].length == 0) {
+          self.growthDataTable = [[0, 0, 0, 0], [0, 0, 0, 0]];
+        } else {
+          self.growthDataTable = data.growthDataTable;
+        }
+      }
+    }),
 
-    getSubCategoryData(params) {
-      return api.getSubCategoryData(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            if (res.data.data) {
-              const data = res.data.data || [[], [], []];
-              self.pieSubCategoryData = [data[0], data[1], data[2]];
-              self.setShowSubCategoryBlock(true);
-            } else {
-              self.setShowSubCategoryBlock(false);
-            }
-          }
-          return res;
-        })
-      );
-    },
+    getSubCategoryData: flow(function*(params) {
+      const res = yield api.getSubCategoryData(params);
+      if (res.data.data) {
+        const data = res.data.data || [[], [], []];
+        self.pieSubCategoryData = [data[0], data[1], data[2]];
+        self.setShowSubCategoryBlock(true);
+      } else {
+        self.setShowSubCategoryBlock(false);
+      }
+    }),
 
-    getBarSubCategoryData(params) {
-      return api.getBarSubCategoryData(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            if (res.data.data) {
-              const data = res.data.data || [[], [], []];
-              self.barSubCategoryData = [data[0], data[1], data[2]];
-            }
-          }
-          return res;
-        })
-      );
-    },
+    getBarSubCategoryData: flow(function*(params) {
+      const res = yield api.getBarSubCategoryData(params);
+      if (res.data.data) {
+        const data = res.data.data || [[], [], []];
+        self.barSubCategoryData = [data[0], data[1], data[2]];
+      }
+    }),
 
-    getTableSubCategoryData(params) {
-      return api.getTableSubCategoryData(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            const data = res.data.data;
-            self.tableSubCategoryData = data;
-          }
-          return res;
-        })
-      );
-    },
+    getTableSubCategoryData: flow(function*(params) {
+      const res = yield api.getTableSubCategoryData(params);
+      const data = res.data.data;
+      self.tableSubCategoryData = data;
+    }),
 
-    getBrandCompareList(params) {
-      return api.getBrandCompareList(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            const data = res.data.data;
-            self.brandCompareList = data.map(item => {
-              item.salesAmount = parseFloat((item.salesAmount / 10000).toFixed(2));
-              return item;
-            });
-            self.brandCompareListTotalCount = res.data.total;
-          }
-          return res;
-        })
-      );
-    },
+    getBrandCompareList: flow(function*(params) {
+      const res = yield api.getBrandCompareList(params);
+      const data = res.data.data;
+      self.brandCompareList = data.map(item => {
+        item.salesAmount = parseFloat((item.salesAmount / 10000).toFixed(2));
+        return item;
+      });
+      self.brandCompareListTotalCount = res.data.total;
+    }),
 
     setCompareDockData(item) {
       if (self.compareDockData) {
@@ -246,34 +209,28 @@ const ChartExampleStore = BaseStore.named('ChartExampleStore')
       self.showCompareTable = visible;
     },
 
-    getBrandCompareItemForCategory(params) {
-      return api.getBrandCompareItemForCategory(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            let data = res.data.data;
-            if (self.compareDockData) {
-              self.compareDockData.splice(self.compareDockData.findIndex(i => i.id == data.id), 1);
-              data.salesAmount = null;
-              data.salesAmountRates = null;
-              data.userCount = null;
-              data.userCountRates = null;
-              data.uv = null;
-              data.uvRates = null;
-              self.compareDockData.splice(0, 0, data);
-            } else {
-              data.salesAmount = null;
-              data.salesAmountRates = null;
-              data.userCount = null;
-              data.userCountRates = null;
-              data.uv = null;
-              data.uvRates = null;
-              self.setCompareDockData(data);
-            }
-          }
-          return res;
-        })
-      );
-    },
+    getBrandCompareItemForCategory: flow(function*(params) {
+      const res = yield api.getBrandCompareList(params);
+      let data = res.data.data;
+      if (self.compareDockData) {
+        self.compareDockData.splice(self.compareDockData.findIndex(i => i.id == data.id), 1);
+        data.salesAmount = null;
+        data.salesAmountRates = null;
+        data.userCount = null;
+        data.userCountRates = null;
+        data.uv = null;
+        data.uvRates = null;
+        self.compareDockData.splice(0, 0, data);
+      } else {
+        data.salesAmount = null;
+        data.salesAmountRates = null;
+        data.userCount = null;
+        data.userCountRates = null;
+        data.uv = null;
+        data.uvRates = null;
+        self.setCompareDockData(data);
+      }
+    }),
 
     setShowSubCategoryBlock(value) {
       self.showSubCategoryBlock = value;

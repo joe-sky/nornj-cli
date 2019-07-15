@@ -35,6 +35,7 @@ const SiderStore = types
     get root() {
       return getEnv(self).root || getParent(self);
     },
+
     get currentMenuData() {
       return self.menuData.length ? self.menuData[self.root.header.current].children : [];
     }
@@ -43,12 +44,15 @@ const SiderStore = types
     setMenu(isOpen) {
       self.isOpen = isOpen;
     },
+
     setCurrent(index) {
       self.current = index;
     },
+
     setMenuData(menuData) {
       self.menuData = menuData;
     },
+
     setMenuDataByIndex(isExpanded, index) {
       self.currentMenuData.forEach(function(item) {
         item.setExpanded(false);
@@ -74,8 +78,8 @@ const SiderStore = types
       return ret;
     },
 
-    setCurrentMenu() {
-      let href = self.history.location.pathname.substr(1);
+    setCurrentMenu(location) {
+      let href = location.pathname.substr(1);
       href = href.indexOf('/') >= 0 ? href.split('/')[0] : href;
 
       //初始化一级菜单

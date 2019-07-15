@@ -22,13 +22,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@config/*": ["./config/*"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin",
-        "validate": false
-      }
-    ]
+    }
   },
   "exclude": [
     "node_modules",

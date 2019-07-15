@@ -13,6 +13,11 @@ axiosInstance.interceptors.response.use(
         message: '请求失败'
       });
       return Promise.reject(res);
+    } else if (n`!res.data.success`) {
+      Notification.error({
+        message: n`res.data.errorTitle + '错误：' + res.data.message`
+      });
+      return Promise.reject(res);
     }
     return res;
   },
@@ -35,7 +40,7 @@ axiosInstance.interceptors.response.use(
 );
 
 export default function(config) {
-  if (n`config.errorTitle`) {
+  if (config.errorTitle) {
     if (!config.transformResponse) {
       config.transformResponse = [];
     }
@@ -45,5 +50,7 @@ export default function(config) {
     }));
   }
 
-  return axiosInstance(config);
+  return axiosInstance(config).catch(function(res) {
+    return res;
+  });
 }

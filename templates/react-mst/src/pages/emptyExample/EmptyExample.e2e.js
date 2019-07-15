@@ -9,7 +9,7 @@ describe('EmptyExample', () => {
   beforeAll(async () => {
     jest.setTimeout(e2e.timeout);
     browser = await puppeteer.launch({
-      //headless: false,
+      headless: e2e.headless,
       args: ['--no-sandbox'],
       executablePath: chromePaths.chrome
     });

@@ -1,5 +1,4 @@
-import { types } from 'mobx-state-tree';
-import BaseStore from './base.mst';
+import { types, flow } from 'mobx-state-tree';
 import * as api from '@/services/common';
 import Notification from '@/utils/notification';
 
@@ -8,20 +7,14 @@ export const UserInfo = types.model('UserInfo', {
   name: types.maybe(types.string)
 });
 
-export default BaseStore.named('CommonStore')
-  .props({
+export default types
+  .model('CommonStore', {
     userInfo: types.maybe(UserInfo)
   })
   .views(self => ({}))
   .actions(self => ({
-    getCurrentUserInfo() {
-      return api.getCurrentUserInfo().then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            self.userInfo = res.data.data;
-          }
-          return res;
-        })
-      );
-    }
+    getCurrentUserInfo: flow(function*() {
+      const res = yield api.getCurrentUserInfo();
+      self.userInfo = res.data.data;
+    })
   }));

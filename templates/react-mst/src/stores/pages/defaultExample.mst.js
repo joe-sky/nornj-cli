@@ -1,11 +1,10 @@
-import { types } from 'mobx-state-tree';
+import { types, flow } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
-import BaseStore from '../base.mst';
 import * as api from '@/services/pages/defaultExample';
 import Notification from '@/utils/notification';
 
-const DefaultExampleStore = BaseStore.named('DefaultExampleStore')
-  .props({
+const DefaultExampleStore = types
+  .model('DefaultExampleStore', {
     isDisable: types.optional(types.boolean, true),
     activeKey: types.optional(types.string, 'tab1'),
     addModalVisible: false,
@@ -144,78 +143,42 @@ const DefaultExampleStore = BaseStore.named('DefaultExampleStore')
       self.checkedKeys = self.getDefaultCheckedKeys();
     },
 
-    getRoleMenuTree(params) {
-      return api.getRoleMenuTree(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            self.menuData = res.data.data;
-            self.authTreeDataMap = self.getAuthTreeDataMap(res.data.data);
-            self.authTreeData = self.getAuthTreeData(res.data.data, self.authTreeDataMap);
-          }
-          return res;
-        })
-      );
-    },
+    getRoleMenuTree: flow(function*(params) {
+      const res = yield api.getRoleMenuTree(params);
+      self.menuData = res.data.data;
+      self.authTreeDataMap = self.getAuthTreeDataMap(res.data.data);
+      self.authTreeData = self.getAuthTreeData(res.data.data, self.authTreeDataMap);
+    }),
 
-    getRoleManagementData(params) {
-      return api.getRoleManagementData(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            const data = res.data.data;
-            self.tableDataO = self.tableData = data.length > 0 ? data : [];
-          }
-          return res;
-        })
-      );
-    },
+    getRoleManagementData: flow(function*(params) {
+      const res = yield api.getRoleManagementData(params);
+      const data = res.data.data;
+      self.tableDataO = self.tableData = data.length > 0 ? data : [];
+    }),
 
-    searchRole(params) {
-      return api.searchRole(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            const data = res.data.data;
-            self.searchData = data;
-          }
-          return res;
-        })
-      );
-    },
+    searchRole: flow(function*(params) {
+      const res = yield api.searchRole(params);
+      const data = res.data.data;
+      self.searchData = data;
+    }),
 
-    saveRole(params) {
-      return api.saveRole(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            const data = res.data.data;
-            self.addRoleId = data.roleId;
-            Notification.success({ message: '添加角色成功！' });
-            self.setDisable(false);
-          }
-          return res;
-        })
-      );
-    },
+    saveRole: flow(function*(params) {
+      const res = yield api.saveRole(params);
+      const data = res.data.data;
+      self.addRoleId = data.roleId;
+      Notification.success({ message: '添加角色成功！' });
+      self.setDisable(false);
+    }),
 
-    saveRolePermission(params) {
-      return api.saveRolePermission(params).then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            Notification.success({ message: '添加角色权限成功！' });
-          }
-          return res;
-        })
-      );
-    },
+    saveRolePermission: flow(function*(params) {
+      const res = yield api.saveRolePermission(params);
+      Notification.success({ message: '添加角色权限成功！' });
+    }),
 
-    deleteRole(params) {
-      return api.deleteRole().then(res =>
-        self.receiveResponse(() => {
-          if (res.data.success) {
-            Notification.success({ message: '删除角色成功！' });
-          }
-          return res;
-        })
-      );
-    }
+    deleteRole: flow(function*(params) {
+      const res = yield api.saveRolePermission(params);
+      Notification.success({ message: '删除角色成功！' });
+    })
   }));
 
 export default DefaultExampleStore;

@@ -1,9 +1,8 @@
-import { types } from 'mobx-state-tree';
-import BaseStore from '../base.mst';
+import { types, flow } from 'mobx-state-tree';
 import * as api from '@/services/pages/emptyExample';
 
-const EmptyExampleStore = BaseStore.named('EmptyExampleStore')
-  .props({
+const EmptyExampleStore = types
+  .model('EmptyExampleStore', {
     bool: types.optional(types.boolean, true),
     strs: types.optional(types.string, ''),
     arrs: types.optional(types.array(types.string), [])
@@ -17,16 +16,10 @@ const EmptyExampleStore = BaseStore.named('EmptyExampleStore')
     return {
       afterCreate() {},
 
-      getModData(params: object) {
-        return api.getModData(params).then((res: ServiceResponse) =>
-          self.receiveResponse(() => {
-            if (res.data.success) {
-              self.modData = res.data.data;
-            }
-            return res;
-          })
-        );
-      }
+      getModData: flow(function*(params: object) {
+        const res: ServiceResponse = yield api.getModData(params);
+        self.modData = res.data.data;
+      })
     };
   });
 

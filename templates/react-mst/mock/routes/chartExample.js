@@ -65,16 +65,12 @@ router.get('/growthData', function(req, res) {
         [10, 52, 200, 334, 390, 330, 220],
         ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月']
       ],
-      growthDataTable: [
-        [1, 2, 3, 4],
-        []
-      ]
+      growthDataTable: [[1, 2, 3, 4], []]
     }
   });
 
   res.send(ret);
 });
-
 
 router.get('/getSubCategoryData', function(req, res) {
   res.type('json');
@@ -107,14 +103,14 @@ router.get('/getBarSubCategoryData', function(req, res) {
   res.send(ret);
 });
 
-
 router.get('/getTableSubCategoryData', function(req, res) {
   res.type('json');
   let params = req.query,
     ret = {};
 
   Object.assign(ret, resultData, {
-    data: [{
+    data: [
+      {
         rank: 1,
         name: '品类1',
         salesAmount: _.random(1, 1000),
@@ -161,145 +157,101 @@ router.get('/getBrandCompareList', function(req, res) {
 
   Object.assign(ret, resultData, {
     total: 100,
-    data: [{
-        "id": 114,
-        "rank": 1,
-        "brandLogo": '',
-        "brandName": "品牌1",
-        "salesAmount": 32467855.72,
-        "uvGrowth": -0.38,
-        "uvConversion": 0.13,
-        "userGrowth": 0,
-        "price": 138.92,
-        "salesAmountGrowth": 0.36,
-        "categoryGrowth": 0.43,
-        "trendsData": [
-          [-0.11],
-          [123],
-          [
-            32467855.72
-          ],
-          [
-            "2017-06"
-          ]
-        ],
-        "salesAmountRates": 0,
-        "userCount": 0,
-        "userCountRates": 0,
-        "uv": 1781774,
-        "uvRates": 0.5
+    data: [
+      {
+        id: 114,
+        rank: 1,
+        brandLogo: '',
+        brandName: '品牌1',
+        salesAmount: 32467855.72,
+        uvGrowth: -0.38,
+        uvConversion: 0.13,
+        userGrowth: 0,
+        price: 138.92,
+        salesAmountGrowth: 0.36,
+        categoryGrowth: 0.43,
+        trendsData: [[-0.11], [123], [32467855.72], ['2017-06']],
+        salesAmountRates: 0,
+        userCount: 0,
+        userCountRates: 0,
+        uv: 1781774,
+        uvRates: 0.5
       },
       {
-        "id": 115,
-        "rank": 2,
-        "brandLogo": '',
-        "brandName": "品牌2",
-        "salesAmount": 32467855.72,
-        "uvGrowth": -0.38,
-        "uvConversion": 0.13,
-        "userGrowth": 0,
-        "price": 138.92,
-        "salesAmountGrowth": 0.36,
-        "categoryGrowth": 0.43,
-        "trendsData": [
-          [-0.11],
-          [123],
-          [
-            32467855.72
-          ],
-          [
-            "2017-06"
-          ]
-        ],
-        "salesAmountRates": 0,
-        "userCount": 0,
-        "userCountRates": 0,
-        "uv": 1781774,
-        "uvRates": 0.5
+        id: 115,
+        rank: 2,
+        brandLogo: '',
+        brandName: '品牌2',
+        salesAmount: 32467855.72,
+        uvGrowth: -0.38,
+        uvConversion: 0.13,
+        userGrowth: 0,
+        price: 138.92,
+        salesAmountGrowth: 0.36,
+        categoryGrowth: 0.43,
+        trendsData: [[-0.11], [123], [32467855.72], ['2017-06']],
+        salesAmountRates: 0,
+        userCount: 0,
+        userCountRates: 0,
+        uv: 1781774,
+        uvRates: 0.5
       },
       {
-        "id": 116,
-        "rank": 3,
-        "brandLogo": '',
-        "brandName": "品牌3",
-        "salesAmount": 32467855.72,
-        "uvGrowth": -0.38,
-        "uvConversion": 0.13,
-        "userGrowth": 0,
-        "price": 138.92,
-        "salesAmountGrowth": 0.36,
-        "categoryGrowth": 0.43,
-        "trendsData": [
-          [-0.11],
-          [123],
-          [
-            32467855.72
-          ],
-          [
-            "2017-06"
-          ]
-        ],
-        "salesAmountRates": 0,
-        "userCount": 0,
-        "userCountRates": 0,
-        "uv": 1781774,
-        "uvRates": 0.5
+        id: 116,
+        rank: 3,
+        brandLogo: '',
+        brandName: '品牌3',
+        salesAmount: 32467855.72,
+        uvGrowth: -0.38,
+        uvConversion: 0.13,
+        userGrowth: 0,
+        price: 138.92,
+        salesAmountGrowth: 0.36,
+        categoryGrowth: 0.43,
+        trendsData: [[-0.11], [123], [32467855.72], ['2017-06']],
+        salesAmountRates: 0,
+        userCount: 0,
+        userCountRates: 0,
+        uv: 1781774,
+        uvRates: 0.5
       },
       {
-        "id": 117,
-        "rank": 4,
-        "brandLogo": '',
-        "brandName": "品牌4",
-        "salesAmount": 32467855.72,
-        "uvGrowth": -0.38,
-        "uvConversion": 0.13,
-        "userGrowth": 0,
-        "price": 138.92,
-        "salesAmountGrowth": 0.36,
-        "categoryGrowth": 0.43,
-        "trendsData": [
-          [-0.11],
-          [123],
-          [
-            32467855.72
-          ],
-          [
-            "2017-06"
-          ]
-        ],
-        "salesAmountRates": 0,
-        "userCount": 0,
-        "userCountRates": 0,
-        "uv": 1781774,
-        "uvRates": 0.5
+        id: 117,
+        rank: 4,
+        brandLogo: '',
+        brandName: '品牌4',
+        salesAmount: 32467855.72,
+        uvGrowth: -0.38,
+        uvConversion: 0.13,
+        userGrowth: 0,
+        price: 138.92,
+        salesAmountGrowth: 0.36,
+        categoryGrowth: 0.43,
+        trendsData: [[-0.11], [123], [32467855.72], ['2017-06']],
+        salesAmountRates: 0,
+        userCount: 0,
+        userCountRates: 0,
+        uv: 1781774,
+        uvRates: 0.5
       },
       {
-        "id": 114,
-        "rank": 5,
-        "brandLogo": "",
-        "brandName": "品牌5",
-        "salesAmount": 32467855.72,
-        "uvGrowth": -0.38,
-        "uvConversion": 0.13,
-        "userGrowth": 0,
-        "price": 138.92,
-        "salesAmountGrowth": -0.11,
-        "categoryGrowth": 0.43,
-        "trendsData": [
-          [-0.11],
-          [123],
-          [
-            32467855.72
-          ],
-          [
-            "2017-06"
-          ]
-        ],
-        "salesAmountRates": 0.36,
-        "userCount": 0,
-        "userCountRates": 0,
-        "uv": 1781774,
-        "uvRates": 0.5
+        id: 114,
+        rank: 5,
+        brandLogo: '',
+        brandName: '品牌5',
+        salesAmount: 32467855.72,
+        uvGrowth: -0.38,
+        uvConversion: 0.13,
+        userGrowth: 0,
+        price: 138.92,
+        salesAmountGrowth: -0.11,
+        categoryGrowth: 0.43,
+        trendsData: [[-0.11], [123], [32467855.72], ['2017-06']],
+        salesAmountRates: 0.36,
+        userCount: 0,
+        userCountRates: 0,
+        uv: 1781774,
+        uvRates: 0.5
       }
     ]
   });
@@ -313,26 +265,24 @@ router.get('/getBrandCompareItemForCategory', function(req, res) {
     ret = {};
 
   Object.assign(ret, resultData, {
-    "data": {
-      "id": 0,
-      "rank": 0,
-      "brandLogo": "",
-      "brandName": "品类",
-      "salesAmount": 1.5959233409E8,
-      "uvGrowth": 0.17,
-      "uvConversion": 0.22,
-      "userGrowth": 0.0,
-      "price": 100.51,
-      "salesAmountGrowth": 0.49,
-      "categoryGrowth": 0.0,
-      "trendsData": [
-        []
-      ],
-      "salesAmountRates": 0.0,
-      "userCount": 0,
-      "userCountRates": 0.0,
-      "uv": 0,
-      "uvRates": 0.0
+    data: {
+      id: 0,
+      rank: 0,
+      brandLogo: '',
+      brandName: '品类',
+      salesAmount: 1.5959233409e8,
+      uvGrowth: 0.17,
+      uvConversion: 0.22,
+      userGrowth: 0.0,
+      price: 100.51,
+      salesAmountGrowth: 0.49,
+      categoryGrowth: 0.0,
+      trendsData: [[]],
+      salesAmountRates: 0.0,
+      userCount: 0,
+      userCountRates: 0.0,
+      uv: 0,
+      uvRates: 0.0
     }
   });
 

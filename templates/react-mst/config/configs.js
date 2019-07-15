@@ -20,6 +20,7 @@ module.exports = {
 
   e2e: {
     timeout: 30000,
-    pageTimeout: 3000
+    pageTimeout: 3000,
+    headless: true
   }
 };

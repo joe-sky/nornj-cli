@@ -1,10 +1,9 @@
-<#if {%!mobx%}>import { types } from 'mobx-state-tree';
+<#if {%!mobx%}>import { types, flow } from 'mobx-state-tree';
 </#if>import { observable, computed, action, toJS } from 'mobx';
-import BaseStore from '../base.{%mobx ? 'store' : 'mst'%}';
 import * as api from '@/services/pages/{%pageName%}';
 import moment from 'moment';
 
-<#if {%mobx%}>class {%pageName | capitalize%}Store extends BaseStore {
+<#if {%mobx%}>class {%pageName | capitalize%}Store {
   @observable antInputValue = '示例数据';
   @observable antSelectValue = '1';
   @observable antRadioValue = '2';
@@ -52,18 +51,12 @@ import moment from 'moment';
   }
 
   @action
-  getModData(params: object) {
-    return api.getModData(params).then((res: ServiceResponse) =>
-      this.receiveResponse(() => {
-        if (res.data.success) {
-          this.modData = res.data.data;
-        }
-        return res;
-      })
-    );
+  async getModData(params: object) {
+    const res: ServiceResponse = await api.getModData(params);
+    this.modData = res.data.data;
   }
-}<#else>const {%pageName | capitalize%}Store = BaseStore.named('{%pageName | capitalize%}Store')
-  .props({
+}<#else>const {%pageName | capitalize%}Store = types
+  .model('{%pageName | capitalize%}Store', {
     antInputValue: '示例数据',
     antSelectValue: '1',
     antRadioValue: '2',
@@ -111,16 +104,10 @@ import moment from 'moment';
         self.elDate = v;
       },
       
-      getModData(params: object) {
-        return api.getModData(params).then((res: ServiceResponse) =>
-          self.receiveResponse(() => {
-            if (res.data.success) {
-              self.modData = res.data.data;
-            }
-            return res;
-          })
-        );
-      }
+      getModData: flow(function* (params: object) {
+        const res: ServiceResponse = yield api.getModData(params);
+        self.modData = res.data.data;
+      })
     };
   });</#else></#if>
 

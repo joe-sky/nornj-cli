@@ -107,7 +107,7 @@ export default class Header extends Component {
   navChanged = index => {
     return e => {
       this.props.store.header.setCurrent(index);
-      this.props.history.push('/' + n`this.props.store.sider.menuData[index].children[0].children[0].index`);
+      this.props.history.push('/' + n`${this}.props.store.sider.menuData[index].children[0].children[0].index`);
     };
   };
 

@@ -1,23 +1,9 @@
 <#template name="pageComponent">
-const {%pageName | capitalize%} = inject('store')(
-  observer(({ store }) => {
-    const {%pageName | capitalize%}Page = React.lazy(async () => {
-      await getInitialInfo(store);
-      return import(/* webpackChunkName: "{%pageName%}" */ '../pages/{%pageName%}');
-    });
-
-    return (
-      <PageWrap>
-        <{%pageName | capitalize%}Page />
-      </PageWrap>
-    );
-  })
-);
-
+const {%pageName | capitalize%} = React.lazy(() => import(/* webpackChunkName: "{%pageName%}" */ '../pages/{%pageName%}'));
 //{pageComponent}//
 </#template>
 
 <#template name="route">
 <Route exact path="/{%pageName | capitalize%}" component={{{%pageName | capitalize%}}} />
-      {/*{route}*/}
+        {/*{route}*/}
 </#template>

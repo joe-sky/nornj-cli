@@ -1,9 +1,8 @@
 import { observable, computed, action, toJS } from 'mobx';
-import BaseStore from '../base.store';
 import * as api from '@/services/pages/formExample';
 import moment from 'moment';
 
-class FormExampleStore extends BaseStore {
+class FormExampleStore {
   @observable antInputValue = '示例数据';
   @observable antSelectValue = '1';
   @observable antRadioValue = '2';
@@ -51,15 +50,9 @@ class FormExampleStore extends BaseStore {
   }
 
   @action
-  getModData(params: object) {
-    return api.getModData(params).then((res: ServiceResponse) =>
-      this.receiveResponse(() => {
-        if (res.data.success) {
-          this.modData = res.data.data;
-        }
-        return res;
-      })
-    );
+  async getModData(params: object) {
+    const res: ServiceResponse = await api.getModData(params);
+    this.modData = res.data.data;
   }
 }
 

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '@/utils/nj.config';
 import { withRouter } from 'react-router';
-import { HashRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { createHashHistory } from 'history';
 import { Provider } from 'mobx-react';
-import routes from './router';
+import Routes from './router';
 import '@/assets/app.less';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -22,23 +23,44 @@ intl.init({
   currentLocale: (navigator.language || navigator.browserLanguage).toLowerCase(),
   locales
 });
+import Loading from '@/components/loading';
 import Header from '@/components/header';
 import Sider from '@/components/sider';
 const HeaderWithRouter = withRouter(Header);
 const SiderWithRouter = withRouter(Sider);
+const history = createHashHistory();
 
-const App = ({ store }) => (
-  <LocaleProvider locale={antZhCN}>
-    <Provider store={store}>
-      <HashRouter>
-        <div id="outer-container">
-          <HeaderWithRouter />
-          <SiderWithRouter />
-          {routes()}
-        </div>
-      </HashRouter>
-    </Provider>
-  </LocaleProvider>
-);
+const App = ({ store }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    history.listen((location, action) => {
+      store.sider.setCurrentMenu(location);
+    });
+
+    store.common.getCurrentUserInfo().then(() => {
+      store.sider.setCurrentMenu(history.location);
+      setIsLoading(false);
+    });
+  }, []);
+
+  return (
+    <If condition={isLoading}>
+      <Loading />
+      <Else>
+        <LocaleProvider locale={antZhCN}>
+          <Provider store={store}>
+            <Router history={history}>
+              <div id="outer-container">
+                <HeaderWithRouter />
+                <SiderWithRouter />
+                <Routes />
+              </div>
+            </Router>
+          </Provider>
+        </LocaleProvider>
+      </Else>
+    </If>
+  );
+};
 
 export default App;

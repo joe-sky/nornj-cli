@@ -6,8 +6,6 @@
     "dbaeumer.vscode-eslint",
     "shinnn.stylelint",
     "esbenp.prettier-vscode",
-    "blanu.vscode-styled-jsx",
-    "andrewrazumovsky.vscode-styled-jsx-languageserver",
     "jpoissonnier.vscode-styled-components"
   ]
 }

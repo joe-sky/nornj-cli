@@ -1,27 +1,20 @@
-<#if {%!mobx%}>import { types } from 'mobx-state-tree';
+<#if {%!mobx%}>import { types, flow } from 'mobx-state-tree';
 </#if>import { observable, toJS, action } from 'mobx';
-import BaseStore from '../base.{%mobx ? 'store' : 'mst'%}';
 import * as api from '@/services/pages/{%pageName%}';
 
-<#if {%mobx%}>class {%pageName | capitalize%}Store extends BaseStore {
+<#if {%mobx%}>class {%pageName | capitalize%}Store {
   @observable bool = true;
   @observable strs = '';
   @observable arrs: any[] = [];
   @observable modData: any = null;
 
   @action
-  getModData(params: object) {
-    return api.getModData(params).then((res: ServiceResponse) =>
-      this.receiveResponse(() => {
-        if (res.data.success) {
-          this.modData = res.data.data;
-        }
-        return res;
-      })
-    );
+  async getModData(params: object) {
+    const res: ServiceResponse = await api.getModData(params);
+    this.modData = res.data.data;
   }
-}<#else>const {%pageName | capitalize%}Store = BaseStore.named('{%pageName | capitalize%}Store')
-  .props({
+}<#else>const {%pageName | capitalize%}Store = types
+  .model('{%pageName | capitalize%}Store', {
     bool: types.optional(types.boolean, true),
     strs: types.optional(types.string, ''),
     arrs: types.optional(types.array(types.string), []),
@@ -35,16 +28,10 @@ import * as api from '@/services/pages/{%pageName%}';
     return {
       afterCreate() {},
   
-      getModData(params: object) {
-        return api.getModData(params).then((res: ServiceResponse) =>
-          self.receiveResponse(() => {
-            if (res.data.success) {
-              self.modData = res.data.data;
-            }
-            return res;
-          })
-        );
-      }
+      getModData: flow(function* (params: object) {
+        const res: ServiceResponse = yield api.getModData(params);
+        self.modData = res.data.data;
+      })
     };
   });</#else></#if>
 
