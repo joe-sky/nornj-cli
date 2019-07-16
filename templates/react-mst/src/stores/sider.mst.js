@@ -40,6 +40,9 @@ const SiderStore = types
       return self.menuData.length ? self.menuData[self.root.header.current].children : [];
     }
   }))
+  .volatile(self => ({
+    history: null
+  }))
   .actions(self => ({
     setMenu(isOpen) {
       self.isOpen = isOpen;
@@ -51,6 +54,10 @@ const SiderStore = types
 
     setMenuData(menuData) {
       self.menuData = menuData;
+    },
+
+    setHistory(v) {
+      self.history = v;
     },
 
     setMenuDataByIndex(isExpanded, index) {
@@ -78,8 +85,8 @@ const SiderStore = types
       return ret;
     },
 
-    setCurrentMenu(location) {
-      let href = location.pathname.substr(1);
+    setCurrentMenu() {
+      let href = self.history.location.pathname.substr(1);
       href = href.indexOf('/') >= 0 ? href.split('/')[0] : href;
 
       //初始化一级菜单

@@ -33,14 +33,17 @@ const history = createHashHistory();
 const App = ({ store }) => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    store.sider.setHistory(history);
     history.listen((location, action) => {
-      store.sider.setCurrentMenu(location);
+      store.sider.setCurrentMenu();
     });
 
-    store.common.getCurrentUserInfo().then(() => {
-      store.sider.setCurrentMenu(history.location);
+    async function fetchInitialData() {
+      await store.common.getCurrentUserInfo();
+      store.sider.setCurrentMenu();
       setIsLoading(false);
-    });
+    }
+    fetchInitialData();
   }, []);
 
   return (
