@@ -1,4 +1,0 @@
-<#switch {%storeTemplate%}>
-  <#case {%'ts'%}></#case>
-  <#default><#include src="../../../resources/store/services/newService.js.nornj" /></#default>
-</#switch>
