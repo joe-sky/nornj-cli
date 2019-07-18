@@ -192,7 +192,7 @@
     "jest": {%jest ? 'true' : 'false'%},
     "e2e": {%puppeteer ? 'true' : 'false'%},
     "templateData": {
-      {%mobxRoot ? '"mobxRoot": true' : ''%}
+      "mobxRoot": {%mobxRoot ? 'true' : 'false'%}
     },
     "pageTemplates": [
       "default",
