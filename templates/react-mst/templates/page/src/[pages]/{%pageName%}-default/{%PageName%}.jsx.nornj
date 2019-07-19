@@ -12,9 +12,9 @@ import {
   Checkbox,
   Modal,
   Tree,
-  message
+  message,
+  notification
 } from 'antd';
-import Notification from '@/utils/notification';
 import styles from './{%pageName | capitalize%}.m.less';
 import ModalFormPage from './ModalFormPage';
 import ModalDetailPage from './ModalDetailPage';
@@ -63,7 +63,7 @@ export default class {%pageName | capitalize%} extends Component {
   onDeleteRole = () => {
     const { store: { {%pageName%} } } = this.props;
     if (this.selectedRowKeys.length == 0) {
-      Notification.error({ message: '请勾选要删除的角色！', duration: 3 });
+      notification.error({ message: '请勾选要删除的角色！', duration: 3 });
     } else {
       Modal.confirm({
         title: '你确认要删除角色吗？',

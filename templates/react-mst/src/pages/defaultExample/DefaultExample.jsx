@@ -3,8 +3,7 @@ import { findDOMNode } from 'react-dom';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import intl from 'react-intl-universal';
-import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message } from 'antd';
-import Notification from '@/utils/notification';
+import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message, notification } from 'antd';
 import styles from './DefaultExample.m.less';
 import ModalFormPage from './ModalFormPage';
 import ModalDetailPage from './ModalDetailPage';
@@ -61,7 +60,7 @@ export default class DefaultExample extends Component {
       store: { defaultExample }
     } = this.props;
     if (this.selectedRowKeys.length == 0) {
-      Notification.error({ message: '请勾选要删除的角色！', duration: 3 });
+      notification.error({ message: '请勾选要删除的角色！', duration: 3 });
     } else {
       Modal.confirm({
         title: '你确认要删除角色吗？',

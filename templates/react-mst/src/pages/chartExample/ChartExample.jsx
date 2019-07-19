@@ -13,7 +13,7 @@ import 'echarts/lib/chart/bar';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/pie';
 import graphic from 'echarts/lib/util/graphic';
-import Notification from '@/utils/notification';
+import { notification } from 'antd';
 import styles from './ChartExample.m.less';
 
 @inject('store')
@@ -1040,7 +1040,7 @@ class BrandCompare extends Component {
             this.props.store.chartExample.setCompareDockData(item);
           } else {
             e.target.checked = false;
-            Notification.error({ description: '最多可以对比三个品牌', duration: 2 });
+            notification.error({ description: '最多可以对比三个品牌', duration: 2 });
           }
         } else {
           this.props.store.chartExample.setChecked(item, true);

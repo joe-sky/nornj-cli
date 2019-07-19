@@ -1,6 +1,6 @@
 import { types, flow } from 'mobx-state-tree';
 import * as api from '@/services/common';
-import Notification from '@/utils/notification';
+import { notification } from 'antd';
 
 export const UserInfo = types.model('UserInfo', {
   pin: types.maybe(types.string),

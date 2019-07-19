@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Notification from '@/utils/notification';
+import { notification } from 'antd';
 
 export const axiosInstance = axios.create({
   baseURL: `${__HOST}`
@@ -9,12 +9,12 @@ axiosInstance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axiosInstance.interceptors.response.use(
   res => {
     if (res.status !== 200) {
-      Notification.error({
+      notification.error({
         message: '请求失败'
       });
       return Promise.reject(res);
     } else if (n`!res.data.success`) {
-      Notification.error({
+      notification.error({
         message: n`res.data.errorTitle + '错误：' + res.data.message`
       });
       return Promise.reject(res);
@@ -23,7 +23,7 @@ axiosInstance.interceptors.response.use(
   },
   error => {
     if (n`error.response.status == 401`) {
-      Notification.error({
+      notification.error({
         message: '登录状态失效，请重新登录！',
         duration: null,
         onClose: () => {
@@ -31,7 +31,7 @@ axiosInstance.interceptors.response.use(
         }
       });
     } else {
-      Notification.error({
+      notification.error({
         message: n`error.response.data.errorTitle + '异常：' + error.response.data.message`
       });
       return Promise.reject(error);

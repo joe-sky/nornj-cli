@@ -1,5 +1,5 @@
 import { types, getParent, getEnv } from 'mobx-state-tree';
-import Notification from '@/utils/notification';
+import { notification } from 'antd';
 
 const MenuItem = types
   .model('MenuItem', {

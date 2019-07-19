@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message } from 'antd';
-import Notification from '@/utils/notification';
+import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message, notification } from 'antd';
 import styles from './DefaultExample.m.less';
 
 @inject('store')

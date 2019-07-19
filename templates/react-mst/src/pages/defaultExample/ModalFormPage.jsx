@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed, toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message } from 'antd';
-import Notification from '@/utils/notification';
+import { Table, Input, Button, Pagination, Tabs, Checkbox, Modal, Tree, message, notification } from 'antd';
 import styles from './DefaultExample.m.less';
 
 @inject('store')
@@ -94,7 +93,7 @@ export default class ModalFormPage extends Component {
     } = this.props;
 
     if (defaultExample.addInputRole.trim() == '') {
-      Notification.error({ description: '请输入角色名称！', duration: 1 });
+      notification.error({ description: '请输入角色名称！', duration: 1 });
     } else {
       const closeLoading = message.loading('正在获取数据...', 0);
       let params = {

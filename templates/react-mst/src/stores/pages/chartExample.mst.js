@@ -1,7 +1,7 @@
 import { types, flow } from 'mobx-state-tree';
 import { toJS } from 'mobx';
 import * as api from '@/services/pages/chartExample';
-import Notification from '@/utils/notification';
+import { notification } from 'antd';
 
 const BrandCompareItem = types
   .model('BrandCompareItem', {

@@ -1,7 +1,7 @@
 import { types, flow } from 'mobx-state-tree';
 import { observable, toJS } from 'mobx';
 import * as api from '@/services/pages/defaultExample';
-import Notification from '@/utils/notification';
+import { notification } from 'antd';
 
 const DefaultExampleStore = types
   .model('DefaultExampleStore', {
@@ -166,18 +166,18 @@ const DefaultExampleStore = types
       const res = yield api.saveRole(params);
       const data = res.data.data;
       self.addRoleId = data.roleId;
-      Notification.success({ message: '添加角色成功！' });
+      notification.success({ message: '添加角色成功！' });
       self.setDisable(false);
     }),
 
     saveRolePermission: flow(function*(params) {
       const res = yield api.saveRolePermission(params);
-      Notification.success({ message: '添加角色权限成功！' });
+      notification.success({ message: '添加角色权限成功！' });
     }),
 
     deleteRole: flow(function*(params) {
       const res = yield api.saveRolePermission(params);
-      Notification.success({ message: '删除角色成功！' });
+      notification.success({ message: '删除角色成功！' });
     })
   }));
 

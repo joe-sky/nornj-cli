@@ -10,7 +10,8 @@ import {
   DatePicker,
   Checkbox,
   Pagination,
-  message
+  message,
+  notification
 } from 'antd';
 import ReactEcharts from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
@@ -23,7 +24,6 @@ import 'echarts/lib/chart/bar';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/pie';
 import graphic from 'echarts/lib/util/graphic';
-import Notification from '@/utils/notification';
 import styles from './{%pageName | capitalize%}.m.less';
 
 @inject('store')
@@ -956,7 +956,7 @@ class BrandCompare extends Component {
             this.props.store.{%pageName%}.setCompareDockData(item);
           } else {
             e.target.checked = false;
-            Notification.error({ description: '最多可以对比三个品牌', duration: 2 });
+            notification.error({ description: '最多可以对比三个品牌', duration: 2 });
           }
         } else {
           this.props.store.{%pageName%}.setChecked(item, true);

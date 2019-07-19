@@ -1,0 +1,4 @@
+<#switch {% mobxRoot %}>
+  <#case {% true %}><#include src="../../../resources/src/stores/root.store.js" /></#case>
+  <#default><#include src="../../../resources/src/stores/root.mst.js" /></#default>
+</#switch>

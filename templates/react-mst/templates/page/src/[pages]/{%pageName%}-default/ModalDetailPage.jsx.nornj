@@ -10,9 +10,9 @@ import {
   Checkbox,
   Modal,
   Tree,
-  message
+  message,
+  notification
 } from 'antd';
-import Notification from '@/utils/notification';
 import styles from './{%pageName | capitalize%}.m.less';
 
 @inject('store')
