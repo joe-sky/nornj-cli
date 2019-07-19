@@ -1,0 +1,20 @@
+<#template name="importStore">
+import {%pageName | capitalize%}Store from './pages/{%pageName%}.{%mobx ? 'store' : 'mst'%}';
+//{importStore}//
+</#template>
+
+<#template name="pageStore">
+<#if {% mobxRoot %}>
+  <#if {%!mobx%}>@observable {%pageName%} = {%pageName | capitalize%}Store.create({});
+  </#if>//{pageStore}//<#else><#if {%!mobx%}>{%pageName%}: types.optional({%pageName | capitalize%}Store, {}),
+  </#if>//{pageStore}//</#else>
+</#if>
+</#template>
+
+<#template name="pageStoreMobx">
+<#if {% mobxRoot %}>
+  <#if {%mobx%}>{%pageName%}: new {%pageName | capitalize%}Store(),
+  </#if>//{pageStoreMobx}//<#else><#if {%mobx%}>@observable {%pageName%} = new {%pageName | capitalize%}Store();
+  </#if>//{pageStoreMobx}//</#else>
+</#if>
+</#template>

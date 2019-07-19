@@ -1,4 +1,6 @@
+<#template name="pages">
 const {%pageName%} = require('./routes/{%pageName%}');
 app.use('/{%pageName%}', {%pageName%});
 
 //{pages}//
+</#template>
