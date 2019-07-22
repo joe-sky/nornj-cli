@@ -1,7 +1,7 @@
 {
-  "jest": {%jest ? 'true' : 'false'%},
-  "e2e": {%puppeteer ? 'true' : 'false'%},
   "templateData": {
+    "jest": {%jest ? 'true' : 'false'%},
+    "e2e": {%e2e ? 'true' : 'false'%},
     "mobxRoot": {%mobxRoot ? 'true' : 'false'%}
   },
   "pageTemplates": [

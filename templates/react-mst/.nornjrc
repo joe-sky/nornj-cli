@@ -1,7 +1,9 @@
 {
-  "jest": true,
-  "e2e": true,
-  "templateData": {},
+  "templateData": {
+    "jest": true,
+    "e2e": true,
+    "mobxRoot": false
+  },
   "pageTemplates": [
     "default",
     "chart",
