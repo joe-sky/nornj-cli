@@ -1,0 +1,4 @@
+<#if {%mobxRoot%}>
+  <#then><#include src="./__templates__/root.store.js" /></#then>
+  <#else><#include src="./__templates__/root.mst.js" /></#else>
+</#if>
