@@ -53,6 +53,21 @@ program
   });
 
 program
+  .command('delete')
+  .description('Delete an existing file')
+  .action(() => {
+    require('../lib/delete')();
+  });
+
+program
+  .command('delete-component')
+  .description('Delete an existing component')
+  .alias('dc')
+  .action(() => {
+    require('../lib/delete')('component');
+  });
+
+program
   .command('upgrade')
   .description('Upgrade to the latest version')
   .option('--cnpm', CNPM_DESCRIPTION)
