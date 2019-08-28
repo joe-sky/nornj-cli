@@ -60,11 +60,27 @@ program
   });
 
 program
+  .command('delete-page')
+  .description('Delete an existing page')
+  .alias('dp')
+  .action(() => {
+    require('../lib/delete')('page');
+  });
+
+program
   .command('delete-component')
   .description('Delete an existing component')
   .alias('dc')
   .action(() => {
     require('../lib/delete')('component');
+  });
+
+program
+  .command('delete-store')
+  .description('Delete an existing store')
+  .alias('ds')
+  .action(() => {
+    require('../lib/delete')('store');
   });
 
 program
