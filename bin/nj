@@ -55,6 +55,7 @@ program
 program
   .command('delete')
   .description('Delete an existing file')
+  .alias('d')
   .action(() => {
     require('../lib/delete')();
   });
