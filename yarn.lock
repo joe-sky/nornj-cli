@@ -6837,10 +6837,10 @@ normalize-url@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
-nornj@^5.0.0-rc.23:
-  version "5.0.0-rc.23"
-  resolved "http://registry.m.jd.com/nornj/download/nornj-5.0.0-rc.23.tgz#1be9f9e86e0ffc5ae76107a1b8a14a2f92c64d37"
-  integrity sha1-G+n56G4P/FrnYQehuKFKL5LGTTc=
+nornj@^5.0.0-rc.24:
+  version "5.0.0-rc.24"
+  resolved "https://registry.yarnpkg.com/nornj/-/nornj-5.0.0-rc.24.tgz#cd4415835f4d0d3f478e977a497243b449274099"
+  integrity sha512-1fpo8s55W1bUfNDPkPiiWZzTmqFANnzB1RUD1Hl3vkdkWBteiK0jIrMFtEH93t4PqoyvygCPJ8SX4DZGZv/kSA==
 
 npm-bundled@^1.0.1:
   version "1.0.6"
