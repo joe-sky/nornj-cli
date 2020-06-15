@@ -12,6 +12,7 @@ if (vPos > -1) {
   process.argv[vPos] = '-V';
 }
 const CNPM_DESCRIPTION = 'Use china mirror of npm';
+const USE_TYPESCRIPT = 'Use typescript';
 
 program
   .command('init')
@@ -31,6 +32,7 @@ program
 program
   .command('add-page')
   .description('Add a new page')
+  .option('--ts', USE_TYPESCRIPT)
   .alias('ap')
   .action(() => {
     require('../lib/addPage')();
@@ -39,6 +41,7 @@ program
 program
   .command('add-component')
   .description('Add a new component')
+  .option('--ts', USE_TYPESCRIPT)
   .alias('ac')
   .action(() => {
     require('../lib/addComponent')();
@@ -47,6 +50,7 @@ program
 program
   .command('add-store')
   .description('Add a new store')
+  .option('--ts', USE_TYPESCRIPT)
   .alias('as')
   .action(() => {
     require('../lib/addStore')();
@@ -55,6 +59,7 @@ program
 program
   .command('delete')
   .description('Delete an existing file')
+  .option('--ts', USE_TYPESCRIPT)
   .alias('d')
   .action(() => {
     require('../lib/delete')();
@@ -63,6 +68,7 @@ program
 program
   .command('delete-page')
   .description('Delete an existing page')
+  .option('--ts', USE_TYPESCRIPT)
   .alias('dp')
   .action(() => {
     require('../lib/delete')('page');
@@ -71,6 +77,7 @@ program
 program
   .command('delete-component')
   .description('Delete an existing component')
+  .option('--ts', USE_TYPESCRIPT)
   .alias('dc')
   .action(() => {
     require('../lib/delete')('component');
@@ -79,6 +86,7 @@ program
 program
   .command('delete-store')
   .description('Delete an existing store')
+  .option('--ts', USE_TYPESCRIPT)
   .alias('ds')
   .action(() => {
     require('../lib/delete')('store');
